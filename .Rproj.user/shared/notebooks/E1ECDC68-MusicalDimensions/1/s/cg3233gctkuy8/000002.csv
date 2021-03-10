@@ -1,0 +1,14 @@
+"0",""
+"0","exmap.asym <- createFactorMapIJ(RenormFi$G_A,"
+"0","                                FJs,"
+"0","                                axis1 = axisone,axis2 = axistwo,"
+"0","                                col.points.i = col4exgrp, "
+"0","                                col.labels.i = col4exgrp, "
+"0","                                col.points.j = col4cols, "
+"0","                                col.labels.j = col4cols,"
+"0","                                #constraints = Basemap.excerpts$constraints,"
+"0","                                text.cex.i = 2.5, text.cex.j = 2.5"
+"0","                                )"
+"2","Error in as.data.frame(Fi[, c(axis1, axis2)]) : 
+  object 'RenormFi' not found
+"

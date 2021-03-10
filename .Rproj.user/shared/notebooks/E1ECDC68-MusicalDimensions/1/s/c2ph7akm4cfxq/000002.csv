@@ -1,0 +1,7 @@
+"0","# Factor Scores"
+"0","FIsym  <- dimcares.inf$Fixed.Data$ExPosition.Data$fi"
+"0","FIasym <- RenormFi$G_A"
+"0","FJs    <- dimcares.inf$Fixed.Data$ExPosition.Data$fj"
+"0","CAEigs <- dimcares.inf$Fixed.Data$ExPosition.Data$eigs"
+"0","CApEig <- dimcares.inf$Inference.Data$components$eigs.perm"
+"0",""

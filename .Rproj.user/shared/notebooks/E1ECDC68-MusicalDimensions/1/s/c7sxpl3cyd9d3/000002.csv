@@ -1,0 +1,1 @@
+"0","musdimdata <- apply(dimensionscontarray,c(1,2),sum)"

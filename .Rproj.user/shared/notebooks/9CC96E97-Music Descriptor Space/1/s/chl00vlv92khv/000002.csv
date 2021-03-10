@@ -1,0 +1,7 @@
+"0",""
+"0","load(""catadatamusdim.RData"")"
+"0","musdimdata <- catadata.list$contingency"
+"0","numberofdims <- catadata.list$numberofdims"
+"0","thebrick <- catadata.list$thebrick"
+"0",""
+"0","rows2drop <- c(6,14) "

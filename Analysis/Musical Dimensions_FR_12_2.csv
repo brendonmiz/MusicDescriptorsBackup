@@ -1,0 +1,665 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q1,Q6,Q6_9_TEXT,Q7,Q8_1,Q8_2,Q8_3,Q9,Q10,Q11,Q12,Q12_7_TEXT,Q13,Q13_5_TEXT,Q14,Q14_8_TEXT,Q15,Q15_5_TEXT,Q31,Q31_9_TEXT,Q32,Q33_1,Q33_2,Q33_3,Q34,Q35,Q36,Q37,Q37_7_TEXT,Q38,Q38_5_TEXT,Q39,Q39_8_TEXT,Q40,Q40_5_TEXT,Q42,Q42_9_TEXT,Q43,Q44_1,Q44_2,Q44_3,Q45,Q46,Q47,Q48,Q48_7_TEXT,Q49,Q49_5_TEXT,Q50,Q50_8_TEXT,Q51,Q51_5_TEXT,Q53,Q53_9_TEXT,Q54,Q55_1,Q55_2,Q55_3,Q56,Q57,Q58,Q59,Q59_7_TEXT,Q60,Q60_5_TEXT,Q61,Q61_8_TEXT,Q62,Q62_5_TEXT,Q64,Q64_9_TEXT,Q65,Q66_1,Q66_2,Q66_3,Q67,Q68,Q69,Q70,Q70_7_TEXT,Q71,Q71_5_TEXT,Q72,Q72_8_TEXT,Q73,Q73_5_TEXT,Q75,Q75_9_TEXT,Q76,Q77_1,Q77_2,Q77_3,Q78,Q79,Q80,Q81,Q81_7_TEXT,Q82,Q82_5_TEXT,Q83,Q83_8_TEXT,Q84,Q84_5_TEXT,Q86,Q86_9_TEXT,Q87,Q88_1,Q88_2,Q88_3,Q89,Q90,Q91,Q92,Q92_7_TEXT,Q93,Q93_5_TEXT,Q94,Q94_8_TEXT,Q95,Q95_5_TEXT,Q97,Q97_9_TEXT,Q98,Q99_1,Q99_2,Q99_3,Q100,Q101,Q102,Q103,Q103_7_TEXT,Q104,Q104_5_TEXT,Q105,Q105_8_TEXT,Q106,Q106_5_TEXT,Q108,Q108_9_TEXT,Q109,Q110_1,Q110_2,Q110_3,Q111,Q112,Q113,Q114,Q114_7_TEXT,Q115,Q115_5_TEXT,Q116,Q116_8_TEXT,Q117,Q117_5_TEXT,Q119,Q119_9_TEXT,Q120,Q121_1,Q121_2,Q121_3,Q122,Q123,Q124,Q125,Q125_7_TEXT,Q126,Q126_5_TEXT,Q127,Q127_8_TEXT,Q128,Q128_5_TEXT,Q130,Q130_9_TEXT,Q131,Q132_1,Q132_2,Q132_3,Q133,Q134,Q135,Q136,Q136_7_TEXT,Q137,Q137_5_TEXT,Q138,Q138_8_TEXT,Q139,Q139_5_TEXT,Q141,Q141_9_TEXT,Q142,Q143_1,Q143_2,Q143_3,Q144,Q145,Q146,Q147,Q147_7_TEXT,Q148,Q148_5_TEXT,Q149,Q149_8_TEXT,Q150,Q150_5_TEXT,Q152,Q152_9_TEXT,Q153,Q154_1,Q154_2,Q154_3,Q155,Q156,Q157,Q158,Q158_7_TEXT,Q159,Q159_5_TEXT,Q160,Q160_8_TEXT,Q161,Q161_5_TEXT,Q163,Q163_9_TEXT,Q164,Q165_1,Q165_2,Q165_3,Q166,Q167,Q168,Q169,Q169_7_TEXT,Q170,Q170_5_TEXT,Q171,Q171_8_TEXT,Q172,Q172_5_TEXT,Q174,Q174_9_TEXT,Q175,Q176_1,Q176_2,Q176_3,Q177,Q178,Q179,Q180,Q180_7_TEXT,Q181,Q181_5_TEXT,Q182,Q182_8_TEXT,Q183,Q183_5_TEXT,Q185,Q185_9_TEXT,Q186,Q187_1,Q187_2,Q187_3,Q188,Q189,Q190,Q191,Q191_7_TEXT,Q192,Q192_5_TEXT,Q193,Q193_8_TEXT,Q194,Q194_5_TEXT,Q196,Q196_9_TEXT,Q197,Q198_1,Q198_2,Q198_3,Q199,Q200,Q201,Q202,Q202_7_TEXT,Q203,Q203_5_TEXT,Q204,Q204_8_TEXT,Q205,Q205_5_TEXT,Q207,Q207_9_TEXT,Q208,Q209_1,Q209_2,Q209_3,Q210,Q211,Q212,Q213,Q213_7_TEXT,Q214,Q214_5_TEXT,Q215,Q215_8_TEXT,Q216,Q216_5_TEXT,Q218,Q218_9_TEXT,Q219,Q220_1,Q220_2,Q220_3,Q221,Q222,Q223,Q224,Q224_7_TEXT,Q225,Q225_5_TEXT,Q226,Q226_8_TEXT,Q227,Q227_5_TEXT,Q229,Q229_9_TEXT,Q230,Q231_1,Q231_2,Q231_3,Q232,Q233,Q234,Q235,Q235_7_TEXT,Q236,Q236_5_TEXT,Q237,Q237_8_TEXT,Q238,Q238_5_TEXT,Q240,Q240_9_TEXT,Q241,Q242_1,Q242_2,Q242_3,Q243,Q244,Q245,Q246,Q246_7_TEXT,Q247,Q247_5_TEXT,Q248,Q248_8_TEXT,Q249,Q249_5_TEXT,Q251,Q251_9_TEXT,Q252,Q253_1,Q253_2,Q253_3,Q254,Q255,Q256,Q257,Q257_7_TEXT,Q258,Q258_5_TEXT,Q259,Q259_8_TEXT,Q260,Q260_5_TEXT,Q262,Q262_9_TEXT,Q263,Q264_1,Q264_2,Q264_3,Q265,Q266,Q267,Q268,Q268_7_TEXT,Q269,Q269_5_TEXT,Q270,Q270_8_TEXT,Q271,Q271_5_TEXT,Q273,Q273_9_TEXT,Q274,Q275_1,Q275_2,Q275_3,Q276,Q277,Q278,Q279,Q279_7_TEXT,Q280,Q280_5_TEXT,Q281,Q281_8_TEXT,Q282,Q282_5_TEXT,Q284,Q284_9_TEXT,Q285,Q286_1,Q286_2,Q286_3,Q287,Q288,Q289,Q290,Q290_7_TEXT,Q291,Q291_5_TEXT,Q292,Q292_8_TEXT,Q293,Q293_5_TEXT,Q295,Q295_9_TEXT,Q296,Q297_1,Q297_2,Q297_3,Q298,Q299,Q300,Q301,Q301_7_TEXT,Q302,Q302_5_TEXT,Q303,Q303_8_TEXT,Q304,Q304_5_TEXT,Q306,Q306_9_TEXT,Q307,Q308_1,Q308_2,Q308_3,Q309,Q310,Q311,Q312,Q312_7_TEXT,Q313,Q313_5_TEXT,Q314,Q314_8_TEXT,Q315,Q315_5_TEXT,Q317,Q317_9_TEXT,Q318,Q319_1,Q319_2,Q319_3,Q320,Q321,Q322,Q323,Q323_7_TEXT,Q324,Q324_5_TEXT,Q325,Q325_8_TEXT,Q326,Q326_5_TEXT,Q328,Q328_9_TEXT,Q329,Q330_1,Q330_2,Q330_3,Q331,Q332,Q333,Q334,Q334_7_TEXT,Q335,Q335_5_TEXT,Q336,Q336_8_TEXT,Q337,Q337_5_TEXT,Q339,Q339_9_TEXT,Q340,Q341_1,Q341_2,Q341_3,Q342,Q343,Q344,Q345,Q345_7_TEXT,Q346,Q346_5_TEXT,Q347,Q347_8_TEXT,Q348,Q348_5_TEXT,Q17,Q19,Q19_11_TEXT,Q21,Q23,Q24,Q25,Q26,Q27,Q28,Q29,Q30,Q31,Q32,Q33
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"Bienvenue dans le projet Â« Dimensions musicales Â», une étude en ligne qui cherche Ã  étudier la facon dont on percoit et qualifie des extraits musicaux. Avant de prendre part Ã  cette étude, merci de lire la lettre d'information ci-dessous et de cliquer sur le bouton Â« j'accepte Â» en bas de page si vous consentez Ã  participer Ã  cette étude.
+
+ 
+
+Lettre d'information et consentement
+
+Ce projet consiste en un questionnaire en ligne qui vise Ã  étudier la facon dont on qualifie différents styles de musiques. Cette étude est menée par Brendon Mizener, W. Jay Dowling and Herve Abdi de l'Université de Dallas, et Mathilde Vandenberghe de Junia-ISA Lille, France. 
+
+ 
+
+La participation Ã  cette étude prend environ 30 minutes, les réponses sont strictement confidentielles. L'utilisation d'écouteurs ou d'un casque d'écoute est vivement conseillé afin d'écouter les extraits musicaux dans les meilleures conditions ; l'utilisation de hauts parleurs du téléphone ou d'un ordinateur est cependant possible. 
+
+ 
+
+Vous écouterez une sélection de 15 courts extraits musicaux (environ 30-40 secondes) et les évaluerez sur la base de descripteurs (adjectifs) ou de dimensions musicales. A la fin du questionnaire, nous collecterons des informations démographiques anonymes ainsi que des informations concernant votre expérience musicale et votre profession. Toutes les informations collectées sont anonymes et seront utilisées uniquement Ã  des fins scientifiques. 
+
+ 
+
+Si vous avez au moins 18 ans, que vous avez compris la lettre d'information ci-dessus et consentez librement Ã  participer Ã  cette étude, merci de cliquer sur le bouton Â« J'accepte Â» afin de commencer l'étude.","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifierez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifierez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifierez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifierez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle d'articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle d'articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle d'articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle d'articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifierez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifierez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifierez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifierez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour mélodique de cet extrait ? (Cocher tous qui
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour mélodique de cet extrait ? (Cocher tous qui
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifierez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifierez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle d'articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle d'articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Selected Choice","A quel type d'harmonie pensez-vous que cet
+extrait appartient ? - Non listé / Autre (précisez) - Text","Quelle est, selon-vous, la vitesse de
+l'extrait ?","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps binaire (mesure simple)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Temps ternaire (mesure composée)","Veuillez sélectionner la mesure de l'extrait
+selon vous : - Mesure complexe","Selon vous, Ã  quel point l'orchestration de
+cet extrait est dense ou épurée ?","Merci de sélectionner, parmi les options
+ci-dessous, le genre ou la période Ã  laquelle cet extrait appartient selon
+vous.","Comment qualifieriez-vous l'ambitus
+de cette mélodie ?","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Selected Choice","Comment qualifieriez-vous les
+dynamiques de cet extrait ? - Autre (précisez) - Text","Comment qualifieriez-vous
+le mouvement de la mélodie - Selected Choice","Comment qualifieriez-vous
+le mouvement de la mélodie - Autre (précisez) - Text","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Selected Choice","Comment qualifieriez-vous le contour
+mélodique de cet extrait ? (Cocher tous qui 
+correspondent) - Autre (précisez) - Text","Quelle articulation caractérise
+le mieux cet extrait ? - Selected Choice","Quelle articulation caractérise
+le mieux cet extrait ? - Autre (précisez) - Text","Maintenant, parlez-nous un peu de vousâ€¦
+
+
+
+
+
+
+
+Quel
+Ã¢ge avez-vous ?","Merci de sélectionner parmi les catégories
+ci-dessous celle qui correspond le mieux Ã  votre activité professionnelle
+actuelle - Selected Choice","Merci de sélectionner parmi les catégories
+ci-dessous celle qui correspond le mieux Ã  votre activité professionnelle
+actuelle - Autre (précisez) - Text","Merci
+d'indiquer le genre dans lequel vous vous identifiez le plus :","Quelle est votre nationalité ? 
+
+
+
+
+Note : cette étude est conduite en parallèle avec un laboratoire aux Etats-Unis, un des objectifs de cette étude est d'évaluer si la nationalité influe sur la perception de la musique. Si cette question vous paraÃ®t trop sensible et préférez ne pas répondre, vous pouvez la passer.","Maintenant, concernant votre expérience en musiqueâ€¦
+
+
+
+Pendant combien de temps avez-vous suivi une formation musicale ? 
+Ceci peut inclure des lecons particulières ou un grand ou petit ensemble. 
+Si vous n'avez recu aucune formation musicale, indiquez Â« 0 Â».","Avez-vous
+ou avez-vous eu une pratique instrumentale ou vocale ?","Quel
+instrument ou quelle voix ?","Chantez-vous,
+ou avez-vous déjÃ  chanté dans une chorale ?","Si
+oui, pendant combien de temps ?","Avez-vous
+enseigné ou enseignez-vous actuellement la musique ?","Si
+oui, pendant/depuis combien de temps ?","Pratiquez-vous,
+ou avez-vous pratiqué la musique d'une autre facon ?","Si
+oui, de quelle manière ?","Pendant
+combien d'années ?"
+"{""ImportId"":""startDate"",""timeZone"":""America/Denver""}","{""ImportId"":""endDate"",""timeZone"":""America/Denver""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""America/Denver""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID1""}","{""ImportId"":""QID6""}","{""ImportId"":""QID6_9_TEXT""}","{""ImportId"":""QID7""}","{""ImportId"":""QID8_1""}","{""ImportId"":""QID8_2""}","{""ImportId"":""QID8_3""}","{""ImportId"":""QID9""}","{""ImportId"":""QID10""}","{""ImportId"":""QID11""}","{""ImportId"":""QID12""}","{""ImportId"":""QID12_7_TEXT""}","{""ImportId"":""QID13""}","{""ImportId"":""QID13_5_TEXT""}","{""ImportId"":""QID14""}","{""ImportId"":""QID14_8_TEXT""}","{""ImportId"":""QID15""}","{""ImportId"":""QID15_5_TEXT""}","{""ImportId"":""QID31""}","{""ImportId"":""QID31_9_TEXT""}","{""ImportId"":""QID32""}","{""ImportId"":""QID33_1""}","{""ImportId"":""QID33_2""}","{""ImportId"":""QID33_3""}","{""ImportId"":""QID34""}","{""ImportId"":""QID35""}","{""ImportId"":""QID36""}","{""ImportId"":""QID37""}","{""ImportId"":""QID37_7_TEXT""}","{""ImportId"":""QID38""}","{""ImportId"":""QID38_5_TEXT""}","{""ImportId"":""QID39""}","{""ImportId"":""QID39_8_TEXT""}","{""ImportId"":""QID40""}","{""ImportId"":""QID40_5_TEXT""}","{""ImportId"":""QID42""}","{""ImportId"":""QID42_9_TEXT""}","{""ImportId"":""QID43""}","{""ImportId"":""QID44_1""}","{""ImportId"":""QID44_2""}","{""ImportId"":""QID44_3""}","{""ImportId"":""QID45""}","{""ImportId"":""QID46""}","{""ImportId"":""QID47""}","{""ImportId"":""QID48""}","{""ImportId"":""QID48_7_TEXT""}","{""ImportId"":""QID49""}","{""ImportId"":""QID49_5_TEXT""}","{""ImportId"":""QID50""}","{""ImportId"":""QID50_8_TEXT""}","{""ImportId"":""QID51""}","{""ImportId"":""QID51_5_TEXT""}","{""ImportId"":""QID53""}","{""ImportId"":""QID53_9_TEXT""}","{""ImportId"":""QID54""}","{""ImportId"":""QID55_1""}","{""ImportId"":""QID55_2""}","{""ImportId"":""QID55_3""}","{""ImportId"":""QID56""}","{""ImportId"":""QID57""}","{""ImportId"":""QID58""}","{""ImportId"":""QID59""}","{""ImportId"":""QID59_7_TEXT""}","{""ImportId"":""QID60""}","{""ImportId"":""QID60_5_TEXT""}","{""ImportId"":""QID61""}","{""ImportId"":""QID61_8_TEXT""}","{""ImportId"":""QID62""}","{""ImportId"":""QID62_5_TEXT""}","{""ImportId"":""QID64""}","{""ImportId"":""QID64_9_TEXT""}","{""ImportId"":""QID65""}","{""ImportId"":""QID66_1""}","{""ImportId"":""QID66_2""}","{""ImportId"":""QID66_3""}","{""ImportId"":""QID67""}","{""ImportId"":""QID68""}","{""ImportId"":""QID69""}","{""ImportId"":""QID70""}","{""ImportId"":""QID70_7_TEXT""}","{""ImportId"":""QID71""}","{""ImportId"":""QID71_5_TEXT""}","{""ImportId"":""QID72""}","{""ImportId"":""QID72_8_TEXT""}","{""ImportId"":""QID73""}","{""ImportId"":""QID73_5_TEXT""}","{""ImportId"":""QID75""}","{""ImportId"":""QID75_9_TEXT""}","{""ImportId"":""QID76""}","{""ImportId"":""QID77_1""}","{""ImportId"":""QID77_2""}","{""ImportId"":""QID77_3""}","{""ImportId"":""QID78""}","{""ImportId"":""QID79""}","{""ImportId"":""QID80""}","{""ImportId"":""QID81""}","{""ImportId"":""QID81_7_TEXT""}","{""ImportId"":""QID82""}","{""ImportId"":""QID82_5_TEXT""}","{""ImportId"":""QID83""}","{""ImportId"":""QID83_8_TEXT""}","{""ImportId"":""QID84""}","{""ImportId"":""QID84_5_TEXT""}","{""ImportId"":""QID86""}","{""ImportId"":""QID86_9_TEXT""}","{""ImportId"":""QID87""}","{""ImportId"":""QID88_1""}","{""ImportId"":""QID88_2""}","{""ImportId"":""QID88_3""}","{""ImportId"":""QID89""}","{""ImportId"":""QID90""}","{""ImportId"":""QID91""}","{""ImportId"":""QID92""}","{""ImportId"":""QID92_7_TEXT""}","{""ImportId"":""QID93""}","{""ImportId"":""QID93_5_TEXT""}","{""ImportId"":""QID94""}","{""ImportId"":""QID94_8_TEXT""}","{""ImportId"":""QID95""}","{""ImportId"":""QID95_5_TEXT""}","{""ImportId"":""QID97""}","{""ImportId"":""QID97_9_TEXT""}","{""ImportId"":""QID98""}","{""ImportId"":""QID99_1""}","{""ImportId"":""QID99_2""}","{""ImportId"":""QID99_3""}","{""ImportId"":""QID100""}","{""ImportId"":""QID101""}","{""ImportId"":""QID102""}","{""ImportId"":""QID103""}","{""ImportId"":""QID103_7_TEXT""}","{""ImportId"":""QID104""}","{""ImportId"":""QID104_5_TEXT""}","{""ImportId"":""QID105""}","{""ImportId"":""QID105_8_TEXT""}","{""ImportId"":""QID106""}","{""ImportId"":""QID106_5_TEXT""}","{""ImportId"":""QID108""}","{""ImportId"":""QID108_9_TEXT""}","{""ImportId"":""QID109""}","{""ImportId"":""QID110_1""}","{""ImportId"":""QID110_2""}","{""ImportId"":""QID110_3""}","{""ImportId"":""QID111""}","{""ImportId"":""QID112""}","{""ImportId"":""QID113""}","{""ImportId"":""QID114""}","{""ImportId"":""QID114_7_TEXT""}","{""ImportId"":""QID115""}","{""ImportId"":""QID115_5_TEXT""}","{""ImportId"":""QID116""}","{""ImportId"":""QID116_8_TEXT""}","{""ImportId"":""QID117""}","{""ImportId"":""QID117_5_TEXT""}","{""ImportId"":""QID119""}","{""ImportId"":""QID119_9_TEXT""}","{""ImportId"":""QID120""}","{""ImportId"":""QID121_1""}","{""ImportId"":""QID121_2""}","{""ImportId"":""QID121_3""}","{""ImportId"":""QID122""}","{""ImportId"":""QID123""}","{""ImportId"":""QID124""}","{""ImportId"":""QID125""}","{""ImportId"":""QID125_7_TEXT""}","{""ImportId"":""QID126""}","{""ImportId"":""QID126_5_TEXT""}","{""ImportId"":""QID127""}","{""ImportId"":""QID127_8_TEXT""}","{""ImportId"":""QID128""}","{""ImportId"":""QID128_5_TEXT""}","{""ImportId"":""QID130""}","{""ImportId"":""QID130_9_TEXT""}","{""ImportId"":""QID131""}","{""ImportId"":""QID132_1""}","{""ImportId"":""QID132_2""}","{""ImportId"":""QID132_3""}","{""ImportId"":""QID133""}","{""ImportId"":""QID134""}","{""ImportId"":""QID135""}","{""ImportId"":""QID136""}","{""ImportId"":""QID136_7_TEXT""}","{""ImportId"":""QID137""}","{""ImportId"":""QID137_5_TEXT""}","{""ImportId"":""QID138""}","{""ImportId"":""QID138_8_TEXT""}","{""ImportId"":""QID139""}","{""ImportId"":""QID139_5_TEXT""}","{""ImportId"":""QID141""}","{""ImportId"":""QID141_9_TEXT""}","{""ImportId"":""QID142""}","{""ImportId"":""QID143_1""}","{""ImportId"":""QID143_2""}","{""ImportId"":""QID143_3""}","{""ImportId"":""QID144""}","{""ImportId"":""QID145""}","{""ImportId"":""QID146""}","{""ImportId"":""QID147""}","{""ImportId"":""QID147_7_TEXT""}","{""ImportId"":""QID148""}","{""ImportId"":""QID148_5_TEXT""}","{""ImportId"":""QID149""}","{""ImportId"":""QID149_8_TEXT""}","{""ImportId"":""QID150""}","{""ImportId"":""QID150_5_TEXT""}","{""ImportId"":""QID152""}","{""ImportId"":""QID152_9_TEXT""}","{""ImportId"":""QID153""}","{""ImportId"":""QID154_1""}","{""ImportId"":""QID154_2""}","{""ImportId"":""QID154_3""}","{""ImportId"":""QID155""}","{""ImportId"":""QID156""}","{""ImportId"":""QID157""}","{""ImportId"":""QID158""}","{""ImportId"":""QID158_7_TEXT""}","{""ImportId"":""QID159""}","{""ImportId"":""QID159_5_TEXT""}","{""ImportId"":""QID160""}","{""ImportId"":""QID160_8_TEXT""}","{""ImportId"":""QID161""}","{""ImportId"":""QID161_5_TEXT""}","{""ImportId"":""QID163""}","{""ImportId"":""QID163_9_TEXT""}","{""ImportId"":""QID164""}","{""ImportId"":""QID165_1""}","{""ImportId"":""QID165_2""}","{""ImportId"":""QID165_3""}","{""ImportId"":""QID166""}","{""ImportId"":""QID167""}","{""ImportId"":""QID168""}","{""ImportId"":""QID169""}","{""ImportId"":""QID169_7_TEXT""}","{""ImportId"":""QID170""}","{""ImportId"":""QID170_5_TEXT""}","{""ImportId"":""QID171""}","{""ImportId"":""QID171_8_TEXT""}","{""ImportId"":""QID172""}","{""ImportId"":""QID172_5_TEXT""}","{""ImportId"":""QID174""}","{""ImportId"":""QID174_9_TEXT""}","{""ImportId"":""QID175""}","{""ImportId"":""QID176_1""}","{""ImportId"":""QID176_2""}","{""ImportId"":""QID176_3""}","{""ImportId"":""QID177""}","{""ImportId"":""QID178""}","{""ImportId"":""QID179""}","{""ImportId"":""QID180""}","{""ImportId"":""QID180_7_TEXT""}","{""ImportId"":""QID181""}","{""ImportId"":""QID181_5_TEXT""}","{""ImportId"":""QID182""}","{""ImportId"":""QID182_8_TEXT""}","{""ImportId"":""QID183""}","{""ImportId"":""QID183_5_TEXT""}","{""ImportId"":""QID185""}","{""ImportId"":""QID185_9_TEXT""}","{""ImportId"":""QID186""}","{""ImportId"":""QID187_1""}","{""ImportId"":""QID187_2""}","{""ImportId"":""QID187_3""}","{""ImportId"":""QID188""}","{""ImportId"":""QID189""}","{""ImportId"":""QID190""}","{""ImportId"":""QID191""}","{""ImportId"":""QID191_7_TEXT""}","{""ImportId"":""QID192""}","{""ImportId"":""QID192_5_TEXT""}","{""ImportId"":""QID193""}","{""ImportId"":""QID193_8_TEXT""}","{""ImportId"":""QID194""}","{""ImportId"":""QID194_5_TEXT""}","{""ImportId"":""QID196""}","{""ImportId"":""QID196_9_TEXT""}","{""ImportId"":""QID197""}","{""ImportId"":""QID198_1""}","{""ImportId"":""QID198_2""}","{""ImportId"":""QID198_3""}","{""ImportId"":""QID199""}","{""ImportId"":""QID200""}","{""ImportId"":""QID201""}","{""ImportId"":""QID202""}","{""ImportId"":""QID202_7_TEXT""}","{""ImportId"":""QID203""}","{""ImportId"":""QID203_5_TEXT""}","{""ImportId"":""QID204""}","{""ImportId"":""QID204_8_TEXT""}","{""ImportId"":""QID205""}","{""ImportId"":""QID205_5_TEXT""}","{""ImportId"":""QID207""}","{""ImportId"":""QID207_9_TEXT""}","{""ImportId"":""QID208""}","{""ImportId"":""QID209_1""}","{""ImportId"":""QID209_2""}","{""ImportId"":""QID209_3""}","{""ImportId"":""QID210""}","{""ImportId"":""QID211""}","{""ImportId"":""QID212""}","{""ImportId"":""QID213""}","{""ImportId"":""QID213_7_TEXT""}","{""ImportId"":""QID214""}","{""ImportId"":""QID214_5_TEXT""}","{""ImportId"":""QID215""}","{""ImportId"":""QID215_8_TEXT""}","{""ImportId"":""QID216""}","{""ImportId"":""QID216_5_TEXT""}","{""ImportId"":""QID218""}","{""ImportId"":""QID218_9_TEXT""}","{""ImportId"":""QID219""}","{""ImportId"":""QID220_1""}","{""ImportId"":""QID220_2""}","{""ImportId"":""QID220_3""}","{""ImportId"":""QID221""}","{""ImportId"":""QID222""}","{""ImportId"":""QID223""}","{""ImportId"":""QID224""}","{""ImportId"":""QID224_7_TEXT""}","{""ImportId"":""QID225""}","{""ImportId"":""QID225_5_TEXT""}","{""ImportId"":""QID226""}","{""ImportId"":""QID226_8_TEXT""}","{""ImportId"":""QID227""}","{""ImportId"":""QID227_5_TEXT""}","{""ImportId"":""QID229""}","{""ImportId"":""QID229_9_TEXT""}","{""ImportId"":""QID230""}","{""ImportId"":""QID231_1""}","{""ImportId"":""QID231_2""}","{""ImportId"":""QID231_3""}","{""ImportId"":""QID232""}","{""ImportId"":""QID233""}","{""ImportId"":""QID234""}","{""ImportId"":""QID235""}","{""ImportId"":""QID235_7_TEXT""}","{""ImportId"":""QID236""}","{""ImportId"":""QID236_5_TEXT""}","{""ImportId"":""QID237""}","{""ImportId"":""QID237_8_TEXT""}","{""ImportId"":""QID238""}","{""ImportId"":""QID238_5_TEXT""}","{""ImportId"":""QID240""}","{""ImportId"":""QID240_9_TEXT""}","{""ImportId"":""QID241""}","{""ImportId"":""QID242_1""}","{""ImportId"":""QID242_2""}","{""ImportId"":""QID242_3""}","{""ImportId"":""QID243""}","{""ImportId"":""QID244""}","{""ImportId"":""QID245""}","{""ImportId"":""QID246""}","{""ImportId"":""QID246_7_TEXT""}","{""ImportId"":""QID247""}","{""ImportId"":""QID247_5_TEXT""}","{""ImportId"":""QID248""}","{""ImportId"":""QID248_8_TEXT""}","{""ImportId"":""QID249""}","{""ImportId"":""QID249_5_TEXT""}","{""ImportId"":""QID251""}","{""ImportId"":""QID251_9_TEXT""}","{""ImportId"":""QID252""}","{""ImportId"":""QID253_1""}","{""ImportId"":""QID253_2""}","{""ImportId"":""QID253_3""}","{""ImportId"":""QID254""}","{""ImportId"":""QID255""}","{""ImportId"":""QID256""}","{""ImportId"":""QID257""}","{""ImportId"":""QID257_7_TEXT""}","{""ImportId"":""QID258""}","{""ImportId"":""QID258_5_TEXT""}","{""ImportId"":""QID259""}","{""ImportId"":""QID259_8_TEXT""}","{""ImportId"":""QID260""}","{""ImportId"":""QID260_5_TEXT""}","{""ImportId"":""QID262""}","{""ImportId"":""QID262_9_TEXT""}","{""ImportId"":""QID263""}","{""ImportId"":""QID264_1""}","{""ImportId"":""QID264_2""}","{""ImportId"":""QID264_3""}","{""ImportId"":""QID265""}","{""ImportId"":""QID266""}","{""ImportId"":""QID267""}","{""ImportId"":""QID268""}","{""ImportId"":""QID268_7_TEXT""}","{""ImportId"":""QID269""}","{""ImportId"":""QID269_5_TEXT""}","{""ImportId"":""QID270""}","{""ImportId"":""QID270_8_TEXT""}","{""ImportId"":""QID271""}","{""ImportId"":""QID271_5_TEXT""}","{""ImportId"":""QID273""}","{""ImportId"":""QID273_9_TEXT""}","{""ImportId"":""QID274""}","{""ImportId"":""QID275_1""}","{""ImportId"":""QID275_2""}","{""ImportId"":""QID275_3""}","{""ImportId"":""QID276""}","{""ImportId"":""QID277""}","{""ImportId"":""QID278""}","{""ImportId"":""QID279""}","{""ImportId"":""QID279_7_TEXT""}","{""ImportId"":""QID280""}","{""ImportId"":""QID280_5_TEXT""}","{""ImportId"":""QID281""}","{""ImportId"":""QID281_8_TEXT""}","{""ImportId"":""QID282""}","{""ImportId"":""QID282_5_TEXT""}","{""ImportId"":""QID284""}","{""ImportId"":""QID284_9_TEXT""}","{""ImportId"":""QID285""}","{""ImportId"":""QID286_1""}","{""ImportId"":""QID286_2""}","{""ImportId"":""QID286_3""}","{""ImportId"":""QID287""}","{""ImportId"":""QID288""}","{""ImportId"":""QID289""}","{""ImportId"":""QID290""}","{""ImportId"":""QID290_7_TEXT""}","{""ImportId"":""QID291""}","{""ImportId"":""QID291_5_TEXT""}","{""ImportId"":""QID292""}","{""ImportId"":""QID292_8_TEXT""}","{""ImportId"":""QID293""}","{""ImportId"":""QID293_5_TEXT""}","{""ImportId"":""QID295""}","{""ImportId"":""QID295_9_TEXT""}","{""ImportId"":""QID296""}","{""ImportId"":""QID297_1""}","{""ImportId"":""QID297_2""}","{""ImportId"":""QID297_3""}","{""ImportId"":""QID298""}","{""ImportId"":""QID299""}","{""ImportId"":""QID300""}","{""ImportId"":""QID301""}","{""ImportId"":""QID301_7_TEXT""}","{""ImportId"":""QID302""}","{""ImportId"":""QID302_5_TEXT""}","{""ImportId"":""QID303""}","{""ImportId"":""QID303_8_TEXT""}","{""ImportId"":""QID304""}","{""ImportId"":""QID304_5_TEXT""}","{""ImportId"":""QID306""}","{""ImportId"":""QID306_9_TEXT""}","{""ImportId"":""QID307""}","{""ImportId"":""QID308_1""}","{""ImportId"":""QID308_2""}","{""ImportId"":""QID308_3""}","{""ImportId"":""QID309""}","{""ImportId"":""QID310""}","{""ImportId"":""QID311""}","{""ImportId"":""QID312""}","{""ImportId"":""QID312_7_TEXT""}","{""ImportId"":""QID313""}","{""ImportId"":""QID313_5_TEXT""}","{""ImportId"":""QID314""}","{""ImportId"":""QID314_8_TEXT""}","{""ImportId"":""QID315""}","{""ImportId"":""QID315_5_TEXT""}","{""ImportId"":""QID317""}","{""ImportId"":""QID317_9_TEXT""}","{""ImportId"":""QID318""}","{""ImportId"":""QID319_1""}","{""ImportId"":""QID319_2""}","{""ImportId"":""QID319_3""}","{""ImportId"":""QID320""}","{""ImportId"":""QID321""}","{""ImportId"":""QID322""}","{""ImportId"":""QID323""}","{""ImportId"":""QID323_7_TEXT""}","{""ImportId"":""QID324""}","{""ImportId"":""QID324_5_TEXT""}","{""ImportId"":""QID325""}","{""ImportId"":""QID325_8_TEXT""}","{""ImportId"":""QID326""}","{""ImportId"":""QID326_5_TEXT""}","{""ImportId"":""QID328""}","{""ImportId"":""QID328_9_TEXT""}","{""ImportId"":""QID329""}","{""ImportId"":""QID330_1""}","{""ImportId"":""QID330_2""}","{""ImportId"":""QID330_3""}","{""ImportId"":""QID331""}","{""ImportId"":""QID332""}","{""ImportId"":""QID333""}","{""ImportId"":""QID334""}","{""ImportId"":""QID334_7_TEXT""}","{""ImportId"":""QID335""}","{""ImportId"":""QID335_5_TEXT""}","{""ImportId"":""QID336""}","{""ImportId"":""QID336_8_TEXT""}","{""ImportId"":""QID337""}","{""ImportId"":""QID337_5_TEXT""}","{""ImportId"":""QID339""}","{""ImportId"":""QID339_9_TEXT""}","{""ImportId"":""QID340""}","{""ImportId"":""QID341_1""}","{""ImportId"":""QID341_2""}","{""ImportId"":""QID341_3""}","{""ImportId"":""QID342""}","{""ImportId"":""QID343""}","{""ImportId"":""QID344""}","{""ImportId"":""QID345""}","{""ImportId"":""QID345_7_TEXT""}","{""ImportId"":""QID346""}","{""ImportId"":""QID346_5_TEXT""}","{""ImportId"":""QID347""}","{""ImportId"":""QID347_8_TEXT""}","{""ImportId"":""QID348""}","{""ImportId"":""QID348_5_TEXT""}","{""ImportId"":""QID16_TEXT""}","{""ImportId"":""QID17""}","{""ImportId"":""QID17_11_TEXT""}","{""ImportId"":""QID18""}","{""ImportId"":""QID19_TEXT""}","{""ImportId"":""QID20_TEXT""}","{""ImportId"":""QID21""}","{""ImportId"":""QID22_TEXT""}","{""ImportId"":""QID23""}","{""ImportId"":""QID24_TEXT""}","{""ImportId"":""QID25""}","{""ImportId"":""QID26_TEXT""}","{""ImportId"":""QID27""}","{""ImportId"":""QID28_TEXT""}","{""ImportId"":""QID29_TEXT""}"
+11/16/2020 9:16,11/16/2020 11:34,IP Address,*******,100,8268,TRUE,11/16/2020 11:34,R_qF8RsEEKTrTlm81,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Rapide,Trois temps,,,Plutot dense qu'épurée,Romantique,Ambitus grand,Un peu des deux : doux et fort,,Disjoint,,"Petites vagues successives,Plusieurs phases descendantes successives",,Staccato,,Modale,,Moyenne,Trois temps,,,Plutot épurée que dense,Romantique,Ambitus resserré,Doux,,Une combinaison de conjoint et disjoint,,"Descendant,Grandes vagues successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Moderne,Ambitus modéré,Fort,,Conjoint,,Plusieurs phases descendantes successives,,Tenuto,,Diatonique: majeur,,Moyenne,Quatre temps,,,Moyennement dense,Moderne,Ambitus modéré,Varié : crescendo progressif,,Disjoint,,Petites vagues successives,,"Marcato,Legato",,Diatonique: mineur,,Lente,,Deux temps,,Plutot épurée que dense,Impressionniste,Ambitus grand,Varié : decrescendo progressif,,Une combinaison de conjoint et disjoint,,"Descendant,Petites vagues successives",,Legato,,Diatonique: majeur,,Moyenne,Trois temps,,,Modérément épurée,Impressionniste,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Forme en arche,,"Staccato,Legato",,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,,Quatre temps,,Plutot épurée que dense,Classique,Ambitus grand,Moyen,,Disjoint,,"Petites vagues successives,Grandes vagues successives",,"Staccato,Legato",,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Lente,Quatre temps,,,Moyennement dense,Impressionniste,Ambitus grand,Fort,,Conjoint,,"Ascendant,Grandes vagues successives",,"Legato,Tenuto",,Diatonique: majeur,,Moyennement rapide,,Deux temps,,Plutot épurée que dense,Baroque,Ambitus très grand,Moyen,,Une combinaison de conjoint et disjoint,,"Ascendant,Petites vagues successives",,Staccato,,Ambigu,,Moyenne,Trois temps,,,Modérément épurée,Contemporain,Ambitus grand,Moyen,,Conjoint,,Plusieurs phases descendantes successives,,"Staccato,Legato",,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot dense qu'épurée,Jazz-Blues,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,"Ascendant,Petites vagues successives",,Marcato,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot épurée que dense,Baroque,Ambitus modéré,Fort,,Conjoint,,Grandes vagues successives,,Tenuto,,Diatonique: majeur,,Moyennement lente,Autre,,,Plutot épurée que dense,Moderne,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,Gamme blues,,Moyennement rapide,Deux temps,,,Plutot dense qu'épurée,Jazz-Blues,Ambitus modéré,Fort,,Disjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Trois temps,,,Moyennement dense,Romantique,Ambitus très grand,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,"Ascendant,Grandes vagues successives",,"Legato,Tenuto",,33,Autre (précisez),Musicien,Homme,francaise,25,Instrumentale,percussions,Oui,4,Oui,10,Oui,concerts / ateliers / compositions / arrangements / enregistrements,15
+11/16/2020 10:59,11/16/2020 11:50,IP Address,*******,100,3092,TRUE,11/16/2020 11:50,R_ZqniVbMtLPFcY5X,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Chromatique,,Rapide,Trois temps,,,Plutot dense qu'épurée,Baroque,Ambitus modéré,Autre (précisez),succession de cresendo et decrescendo,Conjoint,,Petites vagues successives,,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Chromatique,,Très rapide,Quatre temps,,,Moyennement dense,Classique,Ambitus resserré,Un peu des deux : doux et fort,,Conjoint,,Grandes vagues successives,,Staccato,,Gamme par ton,,Moyenne,Quatre temps,,,Très épurée,Contemporain,Ambitus très grand,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Forme en arche,,Marcato,,Chromatique,,Moyennement rapide,Trois temps,Deux temps,,Modérément épurée,Contemporain,Ambitus resserré,Varié : decrescendo progressif,,Conjoint,,"Descendant,Petites vagues successives",,Staccato,,Ambigu,,Moyenne,Quatre temps,,,Modérément épurée,Contemporain,Ambitus modéré,Autre (précisez),fort puis decrescendo subito,Disjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Modale,,Lente,Quatre temps,,,Plutot épurée que dense,Contemporain,Ambitus grand,Fort,,Disjoint,,Ascendant,,Legato,,,,,,,,,,,,,,,,,,,Gamme blues,,Moyennement lente,Quatre temps,,,Très épurée,Jazz-Blues,Ambitus modéré,Moyen,,Conjoint,,Ascendant,,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Chromatique,,Moyennement lente,Quatre temps,,,Modérément épurée,Impressionniste,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Ascendant,,"Staccato,Legato",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Chromatique,,Moyennement lente,Quatre temps,,,Plutot dense qu'épurée,Baroque,Ambitus grand,Moyen,,Autre (précisez),fugue,"Ascendant,Petites vagues successives",,Legato,,,,,,,,,,,,,,,,,,,Chromatique,,Lente,,Deux temps,,Très épurée,Contemporain,Ambitus grand,Varié : crescendo progressif,,Disjoint,,Forme en arche,,,,Chromatique,,Rapide,Quatre temps,,,Moyennement dense,Contemporain,Ambitus grand,Fort,,Disjoint,,Ascendant,,Staccato,,Chromatique,,Rapide,,Deux temps,,Plutot dense qu'épurée,Classique,Ambitus modéré,Moyen,,Conjoint,,"Ascendant,Grandes vagues successives",,Legato,,Chromatique,,Lente,Quatre temps,,,Modérément épurée,Contemporain,Ambitus modéré,Varié : decrescendo progressif,,Disjoint,,Descendant,,Legato,,Chromatique,,Lente,,Quatre temps,,Plutot épurée que dense,Classique,Ambitus modéré,Moyen,,Conjoint,,Grandes vagues successives,,Legato,,Chromatique,,Moyenne,Quatre temps,,,Plutot épurée que dense,Classique,Ambitus modéré,Moyen,,Disjoint,,Petites vagues successives,,"Marcato,Legato",,,,,,,,,,,,,,,,,,,41,"Profession intermédiaire, cadre moyen",,Femme,francaise,15,Instrumentale,piano et chant (mezzo soprano),Oui,25,Non,0,Oui,"pratique du piano, partie d'un ensemble vocal, d'un groupe de pop, et je dirige la chorale d'entreprise",31
+11/17/2020 10:33,11/17/2020 12:52,IP Address,*******,100,8325,TRUE,11/17/2020 12:52,R_2bJYg7GWh8gcy8W,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Diatonique: mineur,,Rapide,,,,Très dense,Contemporain,Ambitus grand,Fort,,Disjoint,,Grandes vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Quatre temps,,,Très épurée,Contemporain,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,"Petites vagues successives,Plusieurs phases descendantes successives",,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Modale,,Moyennement lente,Quatre temps,,,Plutot dense qu'épurée,Contemporain,Ambitus grand,Moyen,,Disjoint,,Petites vagues successives,,Tenuto,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyennement rapide,Quatre temps,,,Plutot épurée que dense,Contemporain,Ambitus resserré,Fort,,Une combinaison de conjoint et disjoint,,Plusieurs phases descendantes successives,,Marcato,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyennement lente,,Deux temps,,Plutot épurée que dense,Contemporain,Ambitus grand,Moyen,,Disjoint,,"Descendant,Grandes vagues successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gamme blues,,Moyennement rapide,,Quatre temps,,Plutot épurée que dense,Jazz-Blues,Ambitus grand,Fort,,Disjoint,,Forme en arche,,Marcato,,Diatonique: majeur,,Lente,Quatre temps,,,Moyennement dense,Contemporain,Ambitus modéré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Plusieurs phases descendantes successives,,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyenne,Quatre temps,,,Plutot épurée que dense,Contemporain,Ambitus resserré,Fort,,Conjoint,,Forme en arche,,Marcato,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyenne,Deux temps,,,Très épurée,Contemporain,Ambitus modéré,Fort,,Disjoint,,Descendant,,Marcato,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyennement lente,Quatre temps,,,Modérément épurée,Contemporain,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,,,,,,,,,,,,,,,,,,,,Gamme blues,,Rapide,Quatre temps,,,Très épurée,Jazz-Blues,Ambitus modéré,Moyen,,Disjoint,,Petites vagues successives,,Staccato,,Diatonique: mineur,,Moyennement lente,,Deux temps,,,Moderne,Ambitus resserré,Un peu des deux : doux et fort,,Disjoint,,Grandes vagues successives,,Legato,,Diatonique: mineur,,Moyennement rapide,Deux temps,,,Moyennement dense,Contemporain,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,Ambigu,,Très lente,Quatre temps,,,Plutot dense qu'épurée,Contemporain,Ambitus grand,Moyen,,Disjoint,,Plusieurs phases descendantes successives,,Tenuto,,Diatonique: majeur,,Moyenne,Trois temps,,,Moyennement dense,Contemporain,Ambitus très grand,Moyen,,Disjoint,,Plusieurs phases descendantes successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,36,"Profession intermédiaire, cadre moyen",,Homme,Francaise,10,Instrumentale,Violoncelle,Oui,10,Non,0,Non,0,0
+11/19/2020 7:52,11/19/2020 8:53,IP Address,*******,100,3660,TRUE,11/19/2020 8:53,R_sNHXF3JVdnATqrn,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,Rapide,Trois temps,,,Plutot dense qu'épurée,Classique,Ambitus modéré,Fort,,Une combinaison de conjoint et disjoint,,Ascendant,,Staccato,,Diatonique: mineur,,Rapide,Trois temps,,,Plutot épurée que dense,Classique,Ambitus grand,Varié : crescendo progressif,,Conjoint,,Petites vagues successives,,Marcato,,,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Moderne,Ambitus grand,Doux,,Une combinaison de conjoint et disjoint,,,,Legato,,,,Rapide,Quatre temps,,,Plutot dense qu'épurée,Baroque,Ambitus grand,Un peu des deux : doux et fort,,Conjoint,,Grandes vagues successives,,Staccato,,Modale,,Moyennement rapide,,Deux temps,,Modérément épurée,Contemporain,Ambitus grand,Un peu des deux : doux et fort,,Conjoint,,Forme en arche,,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Moderne,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,"Ascendant,Grandes vagues successives",,Legato,,Ambigu,,Moyennement rapide,Autre,,,Plutot dense qu'épurée,Moderne,Ambitus modéré,Un peu des deux : doux et fort,,Conjoint,,"Ascendant,Grandes vagues successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gamme blues,,Moyennement rapide,,Quatre temps,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Ascendant,,Staccato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,,Deux temps,,Très dense,Moderne,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Ascendant,,Staccato,,Diatonique: majeur,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Classique,Ambitus grand,Moyen,,Conjoint,,Descendant,,Legato,,,,,,,,,,,,,,,,,,,,,Très rapide,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus modéré,,,Conjoint,,Ascendant,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Baroque,Ambitus modéré,Moyen,,Conjoint,,Plusieurs phases descendantes successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Moyennement rapide,,Quatre temps,,Plutot épurée que dense,Jazz-Blues,Ambitus resserré,Doux,,Une combinaison de conjoint et disjoint,,,,Tenuto,,,,,,,,,,,,,,,,,,,,,Rapide,,Quatre temps,,Plutot épurée que dense,Moderne,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Legato,,,,Moyenne,Trois temps,,,Plutot dense qu'épurée,Moderne,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Forme en arche,,Legato,,31,Employé et personnel de service,,Femme,francaise,8,Vocale,mezzo soprano tenor,Oui,15,Non,0,Oui,projets musicaux,15
+11/20/2020 1:31,11/20/2020 3:55,IP Address,*******,100,8633,TRUE,11/20/2020 3:55,R_1hDVMqOGFIFCbrD,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyennement rapide,,Trois temps,,Plutot épurée que dense,Romantique,Ambitus grand,Fort,,Disjoint,,Plusieurs phases descendantes successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Modale,,Moyenne,Quatre temps,,,Modérément épurée,Romantique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Autre,,Autre,Plutot dense qu'épurée,Classique,Ambitus modéré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,"Ascendant,Forme en arche",,Marcato,,Modale,,Moyennement lente,Autre,,,Modérément épurée,Romantique,Ambitus grand,Doux,,Conjoint,,Petites vagues successives,,Legato,,Modale,,Moyennement rapide,,,,Plutot épurée que dense,Baroque,Ambitus modéré,Doux,,Une combinaison de conjoint et disjoint,,"Ascendant,Descendant",,Marcato,,Ambigu,,Moyenne,,,Deux temps,Plutot dense qu'épurée,Moderne,Ambitus grand,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyennement lente,Deux temps,,,Plutot épurée que dense,Baroque,Ambitus grand,Moyen,,Conjoint,,"Ascendant,Plusieurs phases descendantes successives",,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot dense qu'épurée,Contemporain,Ambitus modéré,Doux,,Une combinaison de conjoint et disjoint,,Descendant,,Staccato,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot épurée que dense,Baroque,Ambitus resserré,Moyen,,Conjoint,,"Ascendant,Forme en arche",,Legato,,Ambigu,,Lente,Trois temps,,,Modérément épurée,Impressionniste,Ambitus modéré,Doux,,Une combinaison de conjoint et disjoint,,Forme en arche,,Legato,,Modale,,Moyenne,Deux temps,,,Plutot dense qu'épurée,Baroque,Ambitus modéré,Moyen,,Conjoint,,"Descendant,Petites vagues successives",,Legato,,Gamme blues,,Rapide,Quatre temps,,,Moyennement dense,Contemporain,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,,Trois temps,,Moyennement dense,Classique,Ambitus grand,Moyen,,Conjoint,,Ascendant,,Marcato,,Diatonique: mineur,,Lente,Deux temps,,,Modérément épurée,Jazz-Blues,Ambitus resserré,Doux,,Conjoint,,"Descendant,Grandes vagues successives",,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyenne,,,,Modérément épurée,Impressionniste,Ambitus grand,Un peu des deux : doux et fort,,Conjoint,,"Ascendant,Plusieurs phases descendantes successives",,Tenuto,,34,Autre (précisez),Informatique,Homme,Francaise,0,Instrumentale,Guitare,Oui,1,Non,0,Non,non,0
+11/20/2020 13:35,11/20/2020 15:22,IP Address,*******,100,6457,TRUE,11/20/2020 15:22,R_1pmL2hsfKZjx3VU,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyenne,Trois temps,,,Plutot épurée que dense,Classique,Ambitus modéré,Fort,,Disjoint,,Petites vagues successives,,"Staccato,Marcato",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Chromatique,,Lente,Quatre temps,,,Modérément épurée,Contemporain,Ambitus grand,Varié : decrescendo progressif,,Disjoint,,Descendant,,Legato,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Moderne,Ambitus modéré,Varié : crescendo progressif,,Disjoint,,Ascendant,,Legato,,Modale,,Lente,Quatre temps,,,Modérément épurée,Moderne,Ambitus modéré,Varié : decrescendo progressif,,Disjoint,,Descendant,,Legato,,Diatonique: majeur,,Lente,Trois temps,,,Modérément épurée,Classique,Ambitus modéré,Doux,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Legato,,Diatonique: majeur,,Moyennement lente,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus modéré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Ascendant,,Legato,,,,,,,,,,,,,,,,,,,Gamme blues,,Lente,Quatre temps,,,Modérément épurée,Jazz-Blues,Ambitus resserré,Doux,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Lente,Autre,Quatre temps,,Modérément épurée,Classique,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Ascendant,,Marcato,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyenne,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus modéré,Doux,,Conjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Très lente,,Deux temps,,Modérément épurée,Moderne,Ambitus modéré,Moyen,,Disjoint,,"Ascendant,Descendant,Petites vagues successives",,Marcato,,Diatonique: mineur,,Moyennement lente,Quatre temps,,,Plutot épurée que dense,Baroque,Ambitus resserré,Doux,,Disjoint,,"Petites vagues successives,Grandes vagues successives",,Staccato,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Très lente,,Deux temps,,Modérément épurée,Romantique,Ambitus resserré,Doux,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Legato,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyenne,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus resserré,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Modérément épurée,Moderne,Ambitus resserré,Doux,,Conjoint,,Grandes vagues successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Moderne,Ambitus modéré,Un peu des deux : doux et fort,,Disjoint,,Grandes vagues successives,,Legato,,32,Autre (précisez),musicien,Homme,Francaise,11,Instrumentale,Clarinette,Oui,1,Oui,1,Oui,Professionnelle,5
+11/21/2020 6:24,11/21/2020 7:59,IP Address,*******,100,5701,TRUE,11/21/2020 7:59,R_3j292RxfZ6icNvw,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Diatonique: mineur,,Très rapide,Trois temps,,,Plutot dense qu'épurée,Baroque,Ambitus très grand,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,"Marcato,Legato",,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyenne,Trois temps,,,,Classique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Descendant,,Legato,,Diatonique: majeur,,Très rapide,Quatre temps,,,Plutot épurée que dense,Classique,Ambitus modéré,Un peu des deux : doux et fort,,Conjoint,,Petites vagues successives,,"Staccato,Marcato",,Modale,,Moyennement lente,,,Deux temps,Modérément épurée,Impressionniste,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Forme en arche,,Tenuto,,Non listé / Autre (précisez),sérielle,Moyennement rapide,,Quatre temps,,Plutot épurée que dense,Contemporain,Ambitus resserré,Varié : decrescendo progressif,,Je ne pense pas que cet extrait ait une mélodie,,Descendant,,Staccato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus modéré,Fort,,Conjoint,,"Descendant,Je ne pense pas que cet extrait ait une mélodie",,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Deux temps,Deux temps,,Plutot épurée que dense,Classique,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,"Marcato,Legato",,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Très lente,Quatre temps,,,Plutot dense qu'épurée,Classique,Ambitus resserré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,"Ascendant,Je ne pense pas que cet extrait ait une mélodie",,Legato,,,,,,,,,,,,,,,,,,,Diatonique: mineur,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Baroque,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,"Grandes vagues successives,Plusieurs phases descendantes successives",,"Marcato,Legato",,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Rapide,Quatre temps,,,Modérément épurée,Moderne,Je ne pense pas que cet extrait ait une mélodie,Fort,,Je ne pense pas que cet extrait ait une mélodie,,,,Marcato,,Diatonique: majeur,,Moyennement rapide,Deux temps,,,Moyennement dense,Baroque,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,"Staccato,Marcato",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Très rapide,Autre,,,Plutot dense qu'épurée,Baroque,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,"Petites vagues successives,Grandes vagues successives",,Tenuto,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement lente,,Quatre temps,,,Moderne,Ambitus grand,Doux,,Une combinaison de conjoint et disjoint,,Descendant,,"Legato,Tenuto",,Diatonique: majeur,,Moyennement rapide,,Quatre temps,,Plutot épurée que dense,Classique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,60,Cadres et profession intellectuelle supérieure,,Femme,francaise,15,Instrumentale,orgue,Oui,10,Oui,35,Non,occidentale,50
+11/23/2020 8:59,11/23/2020 15:02,IP Address,*******,100,21759,TRUE,11/23/2020 15:02,R_1QKMenOjVMRhs5q,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Rapide,,Trois temps,,Plutot dense qu'épurée,Baroque,Ambitus modéré,Fort,,Conjoint,,"Ascendant,Descendant",,Staccato,,Diatonique: mineur,,Rapide,,Trois temps,,Plutot dense qu'épurée,Contemporain,Ambitus grand,Moyen,,Disjoint,,Descendant,,Marcato,,Diatonique: mineur,,Moyenne,Trois temps,,,Modérément épurée,Classique,Ambitus modéré,Doux,,Conjoint,,Descendant,,Legato,,Diatonique: majeur,,Rapide,,Deux temps,,Modérément épurée,Moderne,Ambitus resserré,Moyen,,Conjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ambigu,,Moyennement rapide,,,Trois temps,Plutot dense qu'épurée,Contemporain,Ambitus modéré,Moyen,,Disjoint,,Petites vagues successives,,Marcato,,Ambigu,,Lente,,Trois temps,,Plutot épurée que dense,Contemporain,Ambitus resserré,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Tenuto,,Diatonique: majeur,,Moyennement lente,Quatre temps,,,Très épurée,Classique,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gamme blues,,Moyenne,Trois temps,Trois temps,,Plutot épurée que dense,Jazz-Blues,Ambitus resserré,Moyen,,Conjoint,,Plusieurs phases descendantes successives,,Marcato,,Ambigu,,Lente,Quatre temps,,,Plutot épurée que dense,Baroque,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,"Petites vagues successives,Plusieurs phases descendantes successives",,,,Ambigu,,Moyennement rapide,Trois temps,,,Modérément épurée,Moderne,Ambitus resserré,Moyen,,Conjoint,,Forme en arche,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyenne,,Trois temps,,Plutot épurée que dense,Contemporain,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Staccato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gamme par ton,,Moyennement lente,,,,Plutot dense qu'épuré,Impressionniste,Ambitus modéré,Fort,,Disjoint,,Ascendant,,Legato,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Rapide,Deux temps,,,Modérément épurée,Moderne,Ambitus resserré,Fort,,Disjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,,Trois temps,,Modérément épurée,Baroque,Ambitus resserré,Moyen,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Marcato,,Diatonique: majeur,,Moyenne,,,Trois temps,Modérément épurée,Classique,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Plusieurs phases descendantes successives,,Legato,,67,Retraité,,Homme,fr,5,Instrumentale,contrebasse,Oui,1,Non,0,Oui,"guitare ""folk""",50
+11/24/2020 23:46,11/25/2020 3:28,IP Address,*******,100,13346,TRUE,11/25/2020 3:28,R_8celA9Ik9Ar60hj,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Deux temps,,,Plutot dense qu'épurée,Classique,Ambitus grand,Varié : crescendo progressif,,Conjoint,,Descendant,,Staccato,,Modale,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Impressionniste,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Marcato,,Ambigu,,Moyennement rapide,Trois temps,,,Très dense,Contemporain,Ambitus resserré,Varié : decrescendo progressif,,Disjoint,,Descendant,,Staccato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot dense qu'épurée,Moderne,Ambitus grand,Fort,,Conjoint,,Ascendant,,Autre (précisez),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,Trois temps,,,Modérément épurée,Baroque,Ambitus grand,Doux,,Conjoint,,Forme en arche,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Non listé / Autre (précisez),Harmonie jazz,Moyennement rapide,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Autre (précisez),Swing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Rapide,Quatre temps,,,Très dense,Moderne,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Autre (précisez),,Autre (précisez),,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Trois temps,,,Plutot épurée que dense,Moderne,Ambitus resserré,Moyen,,Conjoint,,Petites vagues successives,,Legato,,Ambigu,,Rapide,Deux temps,,,Moyennement dense,Contemporain,Ambitus modéré,Moyen,,Conjoint,,Descendant,,Legato,,Diatonique: majeur,,Moyennement rapide,Quatre temps,,,Moyennement dense,Jazz-Blues,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Autre (précisez),,,,,,,,,,,,,,,,,,,Chromatique,,Rapide,Quatre temps,,,Très dense,Moderne,Ambitus modéré,Fort,,Disjoint,,Forme en arche,,Staccato,,,,,,,,,,,,,,,,,,,Non listé / Autre (précisez),Harmonique majeur avec modulation,Lente,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Je ne pense pas que cet extrait ait une mélodie,Moyen,,Conjoint,,Autre (précisez),Descendant puis ascendant,Legato,,Diatonique: majeur,,Moyennement lente,,Deux temps,,Plutot épurée que dense,Moderne,Ambitus modéré,Doux,,Disjoint,,Forme en arche,,Autre (précisez),,Diatonique: majeur,,Moyennement rapide,,Deux temps,,Plutot épurée que dense,Contemporain,Ambitus modéré,Moyen,,Conjoint,,Petites vagues successives,,Autre (précisez),,Diatonique: majeur,,Moyennement lente,Trois temps,,,Plutot dense qu'épurée,Romantique,Ambitus très grand,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Descendant,,Legato,,30,"Profession intermédiaire, cadre moyen",,Homme,Francais,20,Instrumentale,trompette,Oui,2,Oui,6,Oui,groupes,15
+11/26/2020 6:23,11/26/2020 9:57,IP Address,*******,100,12860,TRUE,11/26/2020 9:57,R_sSGPacCFWkkb9wB,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Chromatique,,Rapide,Trois temps,,,Plutot dense qu'épurée,Baroque,Ambitus grand,Fort,,Conjoint,,Ascendant,,Tenuto,,Diatonique: majeur,,Moyenne,Trois temps,,,Modérément épurée,Impressionniste,Ambitus grand,Un peu des deux : doux et fort,,Conjoint,,Petites vagues successives,,Marcato,,Diatonique: mineur,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Romantique,Ambitus modéré,Doux,,Conjoint,,"Descendant,Forme en arche,Grandes vagues successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ambigu,,Moyennement lente,Trois temps,,,Moyennement dense,Contemporain,Ambitus modéré,Varié : crescendo progressif,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Legato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement lente,Quatre temps,,,Plutot dense qu'épurée,Baroque,Ambitus modéré,Fort,,Conjoint,,Petites vagues successives,,Marcato,,Diatonique: majeur,,Moyenne,Autre,,,Modérément épurée,Contemporain,Ambitus modéré,Doux,,Une combinaison de conjoint et disjoint,,Forme en arche,,Legato,,,,,,,,,,,,,,,,,,,Gamme par ton,,Moyennement lente,Autre,,Autre,Modérément épurée,Contemporain,Ambitus modéré,Un peu des deux : doux et fort,,Disjoint,,Ascendant,,Tenuto,,Chromatique,,Moyennement lente,,Trois temps,,Très épurée,Classique,Ambitus modéré,Moyen,,Conjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,Chromatique,,Moyennement lente,Quatre temps,Quatre temps,,Modérément épurée,Classique,Ambitus resserré,Moyen,,Conjoint,,Ascendant,,Legato,,Chromatique,,Moyenne,,Quatre temps,,Plutot épurée que dense,Romantique,Ambitus grand,Fort,,Conjoint,,Ascendant,,Staccato,,Chromatique,,Moyennement lente,Trois temps,,,Modérément épurée,Baroque,Ambitus modéré,Moyen,,Conjoint,,Grandes vagues successives,,Marcato,,,,Moyennement lente,,,Trois temps,Modérément épurée,Jazz-Blues,Ambitus grand,,,Disjoint,,Ascendant,,Tenuto,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Très épurée,Baroque,Ambitus grand,Un peu des deux : doux et fort,,Conjoint,,Ascendant,,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyennement lente,,Trois temps,,Plutot épurée que dense,Impressionniste,Ambitus grand,Fort,,Disjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Rapide,Deux temps,,,Plutot dense qu'épurée,Classique,Ambitus resserré,Fort,,Conjoint,,"Ascendant,Petites vagues successives",,"Staccato,Marcato",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,28,Cadres et profession intellectuelle supérieure,,Femme,Francaise,12,Instrumentale,flûte traversière,Oui,6,Non,0,Oui,"Dans des groupes, ensembles, orchestres",12
+11/29/2020 6:19,11/29/2020 7:07,IP Address,*******,100,2876,TRUE,11/29/2020 7:07,R_1diPOo9TITWNvie,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,,,,,,,,,,,,,,,,,,Chromatique,,Moyennement rapide,Trois temps,,,Plutot dense qu'épurée,Romantique,Ambitus grand,Moyen,,Disjoint,,Plusieurs phases descendantes successives,,Marcato,,Diatonique: mineur,,Moyennement lente,Trois temps,,,Plutot épurée que dense,Classique,Ambitus grand,Moyen,,Conjoint,,Plusieurs phases descendantes successives,,Legato,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Fort,,Conjoint,,Descendant,,Staccato,,,,,,,,,,,,,,,,,,,Ambigu,,Rapide,Trois temps,,,Plutot dense qu'épurée,Contemporain,Je ne pense pas que cet extrait ait une mélodie,Varié : decrescendo progressif,,Je ne pense pas que cet extrait ait une mélodie,,Je ne pense pas que cet extrait ait une mélodie,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gamme blues,,Lente,,Deux temps,,Plutot épurée que dense,Jazz-Blues,Ambitus grand,Varié : decrescendo progressif,,Une combinaison de conjoint et disjoint,,Descendant,,Legato,,Diatonique: majeur,,Moyenne,Trois temps,,,Modérément épurée,Romantique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,"Petites vagues successives,Plusieurs phases descendantes successives",,Legato,,Modale,,Lente,Quatre temps,,,Plutot dense qu'épurée,Jazz-Blues,Ambitus modéré,Varié : crescendo progressif,,Conjoint,,Ascendant,,Tenuto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,,Deux temps,,Plutot dense qu'épurée,Romantique,Ambitus grand,Moyen,,Conjoint,,Ascendant,,Staccato,,Diatonique: mineur,,Moyenne,Trois temps,,,Modérément épurée,Romantique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,Plusieurs phases descendantes successives,,Legato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyenne,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus grand,Moyen,,Conjoint,,Ascendant,,Marcato,,Diatonique: majeur,,Moyenne,Quatre temps,,,Très épurée,Baroque,Ambitus modéré,Moyen,,Conjoint,,Forme en arche,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement lente,Trois temps,,,Modérément épurée,Romantique,Ambitus resserré,Fort,,Conjoint,,Autre (précisez),quasi recto-tono,Legato,,Diatonique: mineur,,Moyennement rapide,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Moyen,,Conjoint,,"Ascendant,Autre (précisez)",Descendant puis ascendant,Marcato,,Diatonique: majeur,,Rapide,,Deux temps,,Plutot dense qu'épurée,Romantique,Ambitus modéré,Fort,,Une combinaison de conjoint et disjoint,,Forme en arche,,Staccato,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement lente,,Quatre temps,,Plutot épurée que dense,Romantique,Ambitus grand,Moyen,,Une combinaison de conjoint et disjoint,,"Grandes vagues successives,Plusieurs phases descendantes successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,29,Autre (précisez),artiste,Homme,francaise,18,Instrumentale,Violoncelle,Oui,4,Oui,4,Oui,Concerts,10
+11/29/2020 5:55,11/29/2020 7:35,IP Address,*******,100,5996,TRUE,11/29/2020 7:35,R_3MG34umxN29TxEz,*******,*******,*******,*******,*******,*******,anonymous,EN,J'accepte,Diatonique: mineur,,Rapide,Trois temps,,,Plutot épurée que dense,Baroque,Ambitus modéré,Un peu des deux : doux et fort,,Conjoint,,Grandes vagues successives,,Legato,,,,,,,,,,,,,,,,,,,Modale,,Moyennement lente,Trois temps,,,Modérément épurée,Moderne,Ambitus modéré,Moyen,,Une combinaison de conjoint et disjoint,,Plusieurs phases descendantes successives,,Marcato,,Diatonique: majeur,,Rapide,Quatre temps,,,Plutot dense qu'épurée,Classique,Ambitus modéré,Un peu des deux : doux et fort,,Conjoint,,Petites vagues successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Chromatique,,Moyennement lente,Quatre temps,,,Plutot épurée que dense,Moderne,Ambitus grand,Fort,,Une combinaison de conjoint et disjoint,,"Petites vagues successives,Grandes vagues successives",,Legato,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Moyennement rapide,Quatre temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Varié : decrescendo progressif,,Une combinaison de conjoint et disjoint,,Grandes vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Modale,,Lente,,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Varié : crescendo progressif,,Disjoint,,"Ascendant,Petites vagues successives",,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ambigu,,Moyennement lente,Quatre temps,,,Plutot dense qu'épurée,Moderne,Je ne pense pas que cet extrait ait une mélodie,Varié : crescendo progressif,,Je ne pense pas que cet extrait ait une mélodie,,Je ne pense pas que cet extrait ait une mélodie,,Legato,,Diatonique: majeur,,Rapide,,Deux temps,,Plutot épurée que dense,Baroque,Ambitus modéré,Varié : crescendo progressif,,Conjoint,,Ascendant,,Staccato,,Chromatique,,Lente,Trois temps,,,Modérément épurée,Jazz-Blues,Ambitus modéré,Moyen,,Conjoint,,Plusieurs phases descendantes successives,,Legato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,Deux temps,,,Plutot épurée que dense,Baroque,Ambitus modéré,Fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Marcato,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Lente,Trois temps,,,Plutot épurée que dense,Romantique,Ambitus modéré,Fort,,Une combinaison de conjoint et disjoint,,Autre (précisez),"statique, monolithique",Tenuto,,Harmonie structurée par les quintes / harmonie structurée par les quartes,,Rapide,Deux temps,,,Très épurée,Jazz-Blues,Ambitus modéré,Fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Legato,,Diatonique: majeur,,Rapide,,Deux temps,,Plutot épurée que dense,Baroque,Ambitus modéré,Fort,,Conjoint,,Petites vagues successives,,Legato,,Gamme blues,,Lente,Trois temps,,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Varié : decrescendo progressif,,Une combinaison de conjoint et disjoint,,Ascendant,,Tenuto,,,,,,,,,,,,,,,,,,,Diatonique: majeur,,Moyennement rapide,,Deux temps,,Plutot épurée que dense,Jazz-Blues,Ambitus modéré,Un peu des deux : doux et fort,,Une combinaison de conjoint et disjoint,,Petites vagues successives,,Staccato,,,,,,,,,,,,,,,,,,,36,Cadres et profession intellectuelle supérieure,,Femme,Francaise,20,Instrumentale,violon,Non,,Oui,15,Oui,orchestre,15

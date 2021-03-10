@@ -1,0 +1,5 @@
+"0","dimcontingency <- catadata.list$contingency"
+"0","adjcontingency <- adj.catadata.list$adjcontingency"
+"0",""
+"0","dimcontingency <- dimcontingency[-6,-9]"
+"0","adjcontingency <- adjcontingency[-6,]"

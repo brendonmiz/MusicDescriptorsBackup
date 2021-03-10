@@ -1,0 +1,7 @@
+"0",""
+"0","loads2 <- grid.arrange("
+"0","                      as.grob(loading2p),"
+"0","                      as.grob(loading2q),"
+"0","                      ncol = 2,nrow = 1"
+"0","                      )"
+"0",""

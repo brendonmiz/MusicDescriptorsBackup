@@ -1,0 +1,8 @@
+"0",""
+"0","grid.arrange("
+"0","    as.grob(ba001.BR1.I),as.grob(ba002.BR1.J),"
+"0","    as.grob(ba003.BR2.I),as.grob(ba004.BR2.J),"
+"0","    as.grob(ba005.BR2.I),as.grob(ba006.BR2.J),"
+"0","    ncol = 2,nrow = 3,"
+"0","    top = textGrob(""Bootstrap ratios"", gp = gpar(fontsize = 18, font = 3))"
+"0","  )"

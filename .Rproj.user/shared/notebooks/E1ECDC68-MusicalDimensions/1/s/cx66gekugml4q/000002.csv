@@ -1,0 +1,15 @@
+"0",""
+"0","axisone <- 1"
+"0","axistwo <- 2"
+"0",""
+"0","mustau <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$tau"
+"0","muslam <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$eigs"
+"0",""
+"0","muslabs <- paste(""Ex"", c(1:5,7:30), sep = ""."")"
+"0",""
+"0","labelsforexcerpts <- createxyLabels.gen(axisone,axistwo,lambda = muslam, tau = mustau)"
+"0",""
+"0","rownames(FIsym) <- muslabs"
+"2","Error in dimnames(x) <- dn : 
+  length of 'dimnames' [1] not equal to array extent
+"

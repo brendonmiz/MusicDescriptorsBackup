@@ -1,0 +1,5 @@
+"0",""
+"0","e1 <- pls.res$TExPosition.Data$eigs[1]"
+"0","e2 <- pls.res$TExPosition.Data$eigs[2]"
+"0","e3 <- pls.res$TExPosition.Data$eigs[3]"
+"0",""

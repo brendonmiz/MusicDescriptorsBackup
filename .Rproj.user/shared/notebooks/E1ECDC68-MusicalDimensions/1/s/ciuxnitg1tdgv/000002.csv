@@ -1,0 +1,6 @@
+"0","n.ellipse <- MakeCIEllipses(BootCube.N$BootCube[,1:2,], "
+"0","                            names.of.factors = c(""Dimension 1"",""Dimension 2""),"
+"0","                            col = c(col4AM, col4FR))"
+"0","g.ellipse <- MakeCIEllipses(BootCube.G$BootCube[,1:2,], "
+"0","                            names.of.factors = c(""Dimension 1"",""Dimension 2""),"
+"0","                            col = c(col4M, col4F))"

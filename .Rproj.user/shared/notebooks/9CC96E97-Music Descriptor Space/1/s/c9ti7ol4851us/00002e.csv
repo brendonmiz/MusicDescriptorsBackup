@@ -1,0 +1,7 @@
+"0",""
+"0","adjbrick.AM <- adjbrick[,,1:length(which(adj.catadata.list$partcols$nationality == ""AM""))]"
+"0","adj.cont.AM <- apply(adjbrick.AM, c(1,2), sum)"
+"0",""
+"0","adjbrick.FR <- adjbrick[,,(length(which(adj.catadata.list$partcols$nationality == ""AM""))+1):dim(adjbrick)[[3]]]"
+"0",""
+"0","adj.fr.cares <- epCA(adj.cont.FR, symmetric = TRUE)"

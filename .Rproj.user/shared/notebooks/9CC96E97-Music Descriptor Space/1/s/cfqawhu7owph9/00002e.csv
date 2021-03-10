@@ -1,0 +1,8 @@
+"0","#grid.arrange("
+"0","#    as.grob(mus.012),as.grob(mus.023),"
+"0","#    ncol = 2,nrow = 1,"
+"0","#    top = textGrob(""Symmetric Maps of the Row and Column Factor Scores"", gp = gpar(fontsize = 18, font = 3))"
+"0","#  )"
+"0","#mus.012.023 <- recordPlot()"
+"0",""
+"0",""

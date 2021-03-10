@@ -1,0 +1,5 @@
+"0",""
+"0","adj.symmeans <- getMeans(FIsym.adj, adjdesign)"
+"0","adj.asymmeans <- getMeans(FIasym.adj, adjdesign)"
+"2","Error in aggregate(G, list(factor), FUN) : object 'FIasym.adj' not found
+"

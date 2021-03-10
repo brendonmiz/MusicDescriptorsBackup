@@ -1,0 +1,5 @@
+"0",""
+"0","#LaTex Table"
+"0","#kable(expertarray[1:8,1:8,1], booktabs = T, format = ""latex"") %>% "
+"0","#  kable_styling(., latex_options = c(""striped"", ""hold_position""), "
+"0","#                full_width = T, font_size = 11)"

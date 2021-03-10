@@ -1,0 +1,8 @@
+"0",""
+"0","frlist <- array_tree(expertarrayfr, margin = 3)"
+"0",""
+"0","for(i in 1:length(thefrenchwords)){"
+"0","frlist <- map(frlist, ~gsub(pattern = thefrenchwords[i], x = ., "
+"0","                            replacement = theenglishwords[i], fixed = T))"
+"0","}"
+"0",""

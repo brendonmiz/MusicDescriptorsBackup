@@ -1,0 +1,1468 @@
+---
+title: "Music Descriptor Space Analysis"
+author: "Brendon Mizener, Mathilde Vandenberghe, Herve Abdi"
+date: "11/18/2020"
+output:
+  rmdformats::downcute:
+    highlight: kate
+    df_print: paged
+    code_folding: hide
+  pdf_document: default
+always_allow_html: true
+---
+
+```{r DescPreamble, eval = FALSE}
+
+## Packages
+
+In order to run both the data preprocessing and the analysis, we need the standard packages and a few more.
+
+The following are used for analysis and need to be downloaded from Dr. Abdi's github
+
+* `DistatisR`
+* `PTCA4CTA`
+* `ExPosition`
+* `InPosition`
+
+These ones are used for data cleaning and manipulation:
+
+* `purrr`
+* `tidyverse`
+* `readxl`
+* `stringr`
+* `stringi`
+
+These ones are used for displaying and plotting
+
+* `wesanderson` 
+* `kableExtra` 
+* `ggplotify` 
+* `gridExtra` 
+* `grid` 
+
+In this document we're using both `stringr` and `stringi` because the data data we're evaluating are largely character/string based.
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+
+rm(list = ls())
+
+library(ExPosition)
+library(InPosition)
+library(PTCA4CATA)
+library(purrr)
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(stringi)
+library(wesanderson)
+library(kableExtra)
+library(ggplotify)
+library(gridExtra)
+library(grid)
+library(abind)
+library(data.table)
+
+```
+
+# Introduction
+
+## Purpose
+
+This RMD document is the second of three documents^[The other two are `MusicalDimensions.Rmd` and `MusdimensionsPLSC.Rmd`] that together are the first step in a set of experiments aimed at evaluating cross-modal perception between music listening and beer tasting. This document has two purposes:  
+
+1. To process and analyze the data from the Musical Descriptors dataset, which is the result of an experiment in which participants evaluate 30 excerpts using 33 adjectives. 
+2. To use that analysis to determine if there is a musical 'cognitive space', to be compared to other sensory domains, such as beer taste. 
+
+The initial concept for this project comes from Mathilde Vandenberghe, Brendon Mizener composed the stimuli, administered the surveys, and ran primary analyses. Dr. Herve Abdi provided a large portion of the code, in the RMD file `MusicalBeersCATA.RMD`.
+
+Document created: 18 Nov. 2020
+Most recent updates: `r date()`
+
+
+## File names for results
+
+In addition to the HTML output, the graphs will be saved in a powerpoint presentation, whose name and path are given here:
+
+```{R graphPath}
+powerpointFilename <- 'MusicalDescriptorsFigures.pptx'
+path2pptx    <- './Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Musical Descriptors '
+```
+
+## File names for data
+
+This dataset was collected using qualtrics, which means that there are a number of rows and columns that are extraneous data. Processing will involve cleaning all of that out. The data are stored in an two CSV files, exported from Qualtrics. The two files are `Music Descriptors_Dec11.csv`, that contains the results of American participants, and `DescMusFeb4.csv`, that contains the results of French participants. Both files are in the RProject subfolder `Analysis`. The `csv` file that contains the results from the French participants has already been cleaned of diacritical marks and extraneous cells. 
+
+```{R findDataPath, include = TRUE, echo = TRUE}
+
+path2Data <- './Analysis/'
+
+dataFilename1 <- 'MusDesc_US_data.csv'
+path2file1 <- paste0(path2Data,dataFilename1)
+# sheet2Read <- 'Data' Not necessary for this analysis, 
+# because the csv only has one sheet
+fresh <- read.csv(path2file1)
+
+dataFilename2 <- 'DescMusFeb4.csv'
+path2file2 <- paste0(path2Data,dataFilename2) #this CSV is in the same fold
+
+frdata <- read.csv(path2file2)
+
+
+```
+
+## Data Selection
+
+This chuck pulls out the data that we need and separates it into participant demographic data and adjective survey responses, one each for the American participants and the French.
+
+```{r processing}
+# remove the first two columns, which are qualtrics specific data
+fresh <- fresh[-c(1,2),]
+# remove all rows that were not completed.
+fresh <- fresh[-c(which(fresh$Progress %s!==% "100")),]
+
+
+#Select all columns that are adjective data
+adjcols <- dplyr::select(fresh,contains("Excerpt"))
+adjcolsfr <- dplyr::select(frdata,contains("Excerpt"))
+
+# Dropping the first few participants, who were pilot participants
+adjcols <- adjcols[-c(1:5), ]
+rownames(adjcols) <- c(1:dim(adjcols)[[1]])
+rownames(adjcolsfr) <- c((dim(adjcols)[[1]]+1):(dim(adjcols)[[1]]+dim(adjcolsfr)[[1]]))
+
+#Select all columns that are participant data. We'll need this later
+partcols <- fresh[ ,118:length(fresh)-1]
+partcolsfr <- select(frdata, !contains("Excerpt"))
+
+#Rename columns to something legible
+colnames(partcols) <- c("age", "gender", "nationality", "job", "job_writein", "tr_yrs", "tr_type",
+                        "inst", "inf", "inf_inst", "inf_yrs", "cho", "cho_yrs",
+                        "other_perf", "other_type", "other_yrs", "teach", "teach_yrs")
+
+colnames(partcolsfr) <- colnames(partcols)
+
+#Drop unusable rows and rename 1:end
+partcols <- partcols[-c(1:5),]
+rownames(partcols) <- rownames(adjcols)
+rownames(partcolsfr) <- rownames(adjcolsfr)
+
+```
+
+## Translations
+
+In order to make the analysis as simple as possible, we're going to translate all of the french adjectives before the analysis. That way we only do the analysis once. The translations are stored in a file named `translations.xlsx`. Somehow, the results of the french survey ended up with two of Excerpt 16, so we have to join those as well.
+
+```{r translation, message=FALSE, warning=FALSE}
+translationFile <- 'translations.xlsx'
+path2file3 <- paste0(path2Data, translationFile)
+
+thetranslations <- data.frame(read_xlsx(path2file3, col_names = F))
+
+frenchadjs <- thetranslations[,2]
+englishadjs <- thetranslations[,1]
+
+for(i in 1:length(frenchadjs)){
+adjcolsfr <- map(adjcolsfr, ~gsub(coll(frenchadjs[i]), x = ., 
+                            replacement = englishadjs[i]))
+}
+
+adjcolsfr <- do.call(cbind, adjcolsfr) %>% as.data.frame(.)
+
+rownames(adjcolsfr) <- rownames(partcolsfr)
+
+adjcolsfr$Excerpt.16 <- paste(adjcolsfr$Excerpt.16, adjcolsfr$Excerpt.16.1, sep = ",")
+
+adjcolsfr <- adjcolsfr[,-17]
+
+```
+We need to select the rows that we're going to use. This means we need to select and recode participants who identified as some variation of "american" with "AM" and some variation of "Francais" as "FR". We need to then make sure that we are working with ONLY those rows, for both the participants and the adjectives data tables. Future analyses could make use of other nationality data, but for now we're focusing only on those two. Because the nationality question was free response, there are many variations, including "USA", "American", and a number of ethnicity responses, such as "Caucasian", "White", and "African American". Because the survey was administered in two countries, I assumed that people who put their ethnicity were American, based on the fact that questions about ethnicity are very common on American surveys, but questions about nationality are not. 
+I also included in the analysis participants who responded with something else + American, including but not limited to Korean American, Nigerian American, and Mexican American.
+
+```{r rowselection}
+
+partcols <- rbind(partcols, partcolsfr)
+adjcols <- rbind(adjcols, adjcolsfr)
+
+nationalities <- partcols$nationality
+
+# for the vector on this next line, manually call "unique(nationalities)" 
+# and look through for which elements of that vector make sense here. 
+
+approxamerican <- "American|US|United States|Black|White|hispanic|U.S.|Caucasian"
+
+onlyamericans <- nationalities[like(nationalities, approxamerican, ignore.case = T)]
+  
+rows2use <- c(which(partcols$nationality %in% onlyamericans), which(partcols$nationality == "FR"))
+
+adjcols <- adjcols[rows2use,]
+partcols <- partcols[rows2use,]
+
+partcols$nationality[partcols$nationality != "FR"] <- "AM"
+
+```
+
+This next chunk may not seem strictly necessary, since we already have a list of words in the translations excel file, but what it does is separates all of the responses into a matrix that is the number of participants x the number of excerpts long, with each column as an adjective. We could assume that the number of columns would be the maximum possible number of responses, but it doesn't make sense to assume that someone would select every single adjective for one of the excerpts.
+
+```{r getwords, messages = FALSE, warning=FALSE}
+
+# Find maximum number of words per response
+commacount <- unlist(adjcols) %>% str_count(",") %>% na.omit(.) %>% max()  
+
+# Separate words into separate columns
+allwords <- as.data.frame(unlist(adjcols))
+wordmat <- separate(allwords, 1:length(allwords), into = as.character(c(1:(commacount+1))), sep = ',')
+
+# Get the list of adjectives
+listofwords <- unlist(wordmat) %>% unique()
+listofwords <- listofwords[order(listofwords)] %>% stri_remove_empty(na_empty = T) #to remove the empty response and NA
+
+#listofwordsfr <- unlist(wordmatfr) %>% unique()
+#listofwordsfr <- listofwordsfr[order(listofwordsfr)] %>% stri_remove_empty(na_empty = T) #to remove the empty response and 
+
+```
+
+From there, we turn our data into a brick with each row as an excerpt, each column as an adjective, and each page as a participant.
+
+```{r reorganizeadjectives}
+#Create a vector of participant names
+vec <- c(paste0("part", 1:dim(adjcols)[[1]]))
+
+vec <- as.list(vec)
+
+#Initialize an array to store the participant contingency tables
+thebigone <- array(0, dim=c(30,33,dim(adjcols)[[1]]), dimnames = list(colnames(adjcols), listofwords, vec))
+
+# Count all adjectives in each 
+for (k in 1:dim(adjcols)[[1]]){
+  for (i in 1:ncol(adjcols)){
+   
+    q <- str_match(string = adjcols[k,i], pattern = listofwords)
+    j <- which(!is.na(q))
+    
+    thebigone[i,j,k] <- 1
+    
+  }
+}
+
+```
+
+We can then save the data that we want to use as an `RData` file.
+
+```{r savethedata}
+adj.cont.table <- apply(thebigone,c(1,2),sum)
+
+adj.catadata.list <- list("adjbrick" = thebigone,
+                          "adjcontingency" = adj.cont.table,
+                          "partcols" = partcols,
+                          "adjcols" = adjcols,
+                          "listofwords" = listofwords
+                          )
+
+save(adj.catadata.list, file = "adj.catadata.list.RData")
+```
+
+
+# Analysis
+
+## Factors and colors
+
+In addition to the nationality factor, I've selected two variables that could be used as design variables: `tr_years` and `gen`. These groups aren't quite balanced, but there are a good number in each, although there may be an issue with the Gender variable. in the Gender factor, there are 3 levels: M, F, and NB, which contain 61, 99, and 3 participants each. In the training variable, there are 69 participants with < 2 years of music training, 55 participants with between 2 and 5 years of training, and 39 participants with 6 or more years of training.
+
+```{r factorsandcolors}
+rm(list = ls())
+load("adj.catadata.list.RData")
+
+partcols <- adj.catadata.list$partcols
+adjbrick <- adj.catadata.list$adjbrick
+adj.contingency <- adj.catadata.list$adjcontingency
+adjcols <- adj.catadata.list$adjcols
+listofwords <- adj.catadata.list$listofwords
+
+#rows2drop <- c(6,14)
+#adjbrick <- adjbrick[-rows2drop,,]
+#adj.contingency <- adj.contingency[-rows2drop,]
+
+
+
+natcols <- c(wes_palettes$Darjeeling2[2],wes_palettes$Darjeeling1[1])
+nat.factor <- partcols$nationality
+col4nat <- nat.factor
+col4nat[col4nat == "AM"] <- natcols[1]
+col4nat[col4nat == "FR"] <- natcols[2]
+nat.factor <- as.factor(nat.factor)
+
+train.factor <- as.double(partcols$tr_yrs)
+train.factor[train.factor < 2] <- "Tr.none"
+train.factor[train.factor >= 2 & train.factor <= 5] <- "Tr.little"
+train.factor[train.factor != "Tr.none" & train.factor != "Tr.little"] <- "Tr.some"
+
+traincols <- c(wes_palettes$Chevalier1[1], 
+               wes_palettes$Darjeeling2[2], 
+               wes_palettes$Darjeeling1[1])
+col4train <- train.factor
+col4train[col4train == "Tr.none"] <- traincols[1]
+col4train[col4train == "Tr.little"] <- traincols[2]
+col4train[col4train == "Tr.some"] <- traincols[3]
+train.factor <- as.factor(train.factor)
+
+gen.factor <- partcols$gender
+gen.factor[gen.factor != "Female" & gen.factor != "Male" 
+           & gen.factor != "Femme" & gen.factor != "Homme"] <- "NB"
+gen.factor[gen.factor == "Female" | gen.factor == "Femme"] <- "F"
+gen.factor[gen.factor == "Male" | gen.factor == "Homme"] <- "M"
+
+gencols <- wes_palette("GrandBudapest1", n = 3, type = "discrete")
+col4gen <- gen.factor
+col4gen[col4gen == "M"] <- gencols[1]
+col4gen[col4gen == "F"] <- gencols[2]
+col4gen[col4gen == "NB"] <- gencols[3]
+gen.factor <- as.factor(gen.factor)
+
+col4adjs <- wes_palette("Zissou1", n = length(listofwords), type = "continuous")
+# From Musical Dimensions.Rmd
+load("excerptsdesign.RData")
+
+col4excerpts <- excerptsdesign$ex.design$col4exgrp
+ex.cols <- excerptsdesign$ex.design$ex.cols
+
+#col4excerpts <- ex.design.w6$col4exgrp
+#ex.cols <- ex.design.w6$ex.cols
+
+cols <- list("g.gc" = gencols,
+             "g.oc" = col4gen,
+             "t.gc" = traincols,
+             "t.oc" = col4train,
+             "adj.gc" = NULL,
+             "adj.oc" = NULL,
+             "ex.gc" = ex.cols,
+             "ex.oc" = col4excerpts,
+             "n.gc" = natcols,
+             "n.oc" = col4nat
+             )
+```
+
+## Cochran's Q and a Heat Map
+
+To get an idea of what our data look like, we compute Cochran's Q and then use that information to create a heatmap, including stars to indicate significance, corrected for multiple comparisons. This indicates that the majority, but not all of the musical dimensions were rated independently of one another.
+
+```{r Q4CATA, warning = FALSE, message = FALSE}
+# Compute Cochran's Q from the cube of data
+Q4CATA  <- Q4CATA.Cube(adjbrick)
+# Create the vector of probability stars
+zeStars <-  p2Star( Q4CATA['Sidak p(FW)',])
+
+a.000.zeMapCATA <- makeggHeatMap4CT(
+                    CTstared(adj.contingency,zeStars,'after'),
+                    colorAttributes = cols$adj.cols,
+                    colorProducts = cols$ex.oc, 
+                    fontSize.x = 10, fontSize.y = 8) +
+                  ggtitle("Heat Map and Cochran's Q (Sidak Corrected)")
+
+print(a.000.zeMapCATA)
+```
+
+## Run the CA
+
+Here we run the correspondence analysis. I've run the inference battery for the symmetric CA, and then renormalized to get the Asymmetric row factor scores. \
+
+Additionally, we initialize a few variables to make life easier later when we need to call certain elements of these results.
+
+```{r}
+adjsym.cares <- epCA(adj.contingency, 
+                     symmetric = FALSE)
+
+adjrenorm <- CARenormalization(adjsym.cares$ExPosition.Data$fj,
+                               delta = adjsym.cares$ExPosition.Data$pdq$Dv,
+                               singularValues = T,
+                               masses = adjsym.cares$ExPosition.Data$W
+                               )
+
+FIsym.adj <- adjsym.cares$ExPosition.Data$fi
+#FIasym.adj <- adjrenorm$G_A
+FJasym.adj <- adjrenorm$G_A
+FJs.adj <- adjsym.cares$ExPosition.Data$fj
+CAEigs.adj <- adjsym.cares$ExPosition.Data$eigs
+```
+
+
+## Inferences
+
+### Bootstrap and bootstrap ratios:
+
+Bootstrapping will give us an idea of the consistency of the results, for that we use `Boot4PTCA` from the `PTCA4CATA` package.
+
+```{r bootCA, echo = TRUE, cache = TRUE}
+bootCA.adj <- Boot4PTCA(ZeDataCube = adjbrick,
+                        fi = FIsym.adj,
+                        fj = FJs.adj,
+                        eigs = CAEigs.adj,
+                        nf2keep = 3,
+                        nBootIter = 500)
+# Compute Bootstrapped ratios
+bootRatadj.I <- PTCA4CATA::boot.ratio.test(bootCA.adj$RowsBoot,
+                                            critical.value = 2)
+bootRatadj.J <- PTCA4CATA::boot.ratio.test(bootCA.adj$ColumnsBoot,
+                                              critical.value = 2)
+# Probabilities 
+probBRadj.I  <- bootRatadj.I$prob.boot.ratios
+probBRadj.J  <- bootRatadj.J$prob.boot.ratios
+```
+
+### Permutation tests 
+
+Permutation tests allow us to determine how likely it is that our results are significant. By permuting through 1000 possible iterations of how the results turned out, how likely is it that the observed results occur? With 1000 permutations, we can determine p values as small as 0.001.
+
+```{r permut, echo = TRUE, cache = TRUE}
+# from PTCA4CATA
+#
+adjca.inf <- perm4PTCA(aCube = adjbrick,
+                       nIter = 1000,
+                       permType = 'byRows' ,
+                       Malinvaud = TRUE)
+Ind.Permu.adj    <- adjca.inf$permInertia
+InertiaFixed.adj <- adjca.inf$fixedInertia
+prob.cpt.lst.adj <- adjca.inf$MalinvaudQ['p-perm',]
+# Get the p values for the components
+prob.cpt.adj <- (unlist(prob.cpt.lst.adj[2:length(prob.cpt.lst.adj)]))
+prob.cpt.adj[is.na(prob.cpt.adj)] <- 1
+```
+
+## Distance analysis for the participants
+
+Before we move on to our factor plots for the excerpts, we should check out how the participants did. One of the initial questions we had for these surveys was whether or not there was any systemic difference between American and French participants and their ratings of the music.
+
+In order to do this, we need to calculate the distance between each of the respective matrices. In this specific case, because we have multiple lines with zeros throughout the dataset (remember that each participant only rated half of the excerpts), it is better to use a symmetric difference matrix instead of an RV or a chi squared distance.
+
+We then calculate the eigenvalues of the symmetric difference matrix, and from there, the factor scores, by multiplying the eigenvectors by the diagonal of singular values (square root of the eigenvalues).
+
+```{r}
+# We have a problem here because most matrices
+#  have lines with zeros. A symmetric difference matrix 
+#  would do better than an RV or a 
+#  chi2 distance so we use createSymDist4PTCA
+
+Cmat.adj <- createSymDist4PTCA(adjbrick)$CrossProduct
+
+eigenCmat.adj <- eigen(Cmat.adj, symmetric = TRUE)
+eig4Cmat.adj <-  eigenCmat.adj$values
+tau4Cmat.adj <- round( (100*eig4Cmat.adj) / sum(eig4Cmat.adj))
+
+nk       <- 3
+F4Cmat.adj   <- eigenCmat.adj$vectors[,1:nk] %*% diag(eig4Cmat.adj[1:nk]^(1/2))
+
+rownames(F4Cmat.adj) <- rownames(Cmat.adj)
+```
+
+# Graphics
+
+## HCA
+
+Here we run a Hierarchical cluster analysis using the a priori colors and groups from `MusicalDimensions.Rmd`, and as we can see, the groups don't align at all. The Musical Dimensions analysis revealed 5 groups, this analysis clearly has 4. This color scheme definitely doesn't work, and it shows that musical descriptors/adjectives and musical qualities/dimensions are very different.
+
+```{r HCAbydimdesign}
+D <- dist(adj.contingency, method = "euclidean")
+fit <- hclust(D)
+ngroups <- length(cols$ex.gc)
+
+mus.tree4ex.bydimdesign <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = cols$ex.gc, 
+                        label_cols = cols$ex.oc[fit$order],
+                        cex = .65, xlab = 'Excerpts',
+                        main = 'Cluster Analysis: Excerpts') 
+
+mus.tree4ex.bydimdesign
+
+```
+
+So we can recolor/regroup the excerpts according to the clusters determined by this analysis:
+
+```{r HCA}
+
+
+ngroups <- 4
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+
+ex.groups <- cutree(fit, k= ngroups)
+
+col4exgrp <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4])
+
+col4extree <- col4exgrp[fit$order]
+
+mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = unique(col4extree), 
+                        label_cols = col4extree,
+                        cex = .6, xlab = 'Excerpts',
+                        main = 'Hierarchical Cluster Analysis: Excerpts') 
+ 
+mus.tree4excerpts
+```
+We can then save these clusters as our design.
+
+```{r saveadjdesign}
+
+excerptsdesign <- col4exgrp
+
+excerptsdesign[excerptsdesign == unique(col4exgrp)[1]] <- "adj.group1"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[2]] <- "adj.group2"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[3]] <- "adj.group3"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[4]] <- "adj.group4"
+
+adjdesign <- as.factor(excerptsdesign)
+
+adj.design <- list("thedesign" = adjdesign,
+                  "col4exgrp" = unique(col4exgrp),
+                  "ex.cols" = col4exgrp
+                  )
+
+save(adj.design, file = "adjdesign.RData")
+```
+
+And also replace the colors in our color list
+
+```{r}
+
+cols$ex.gc <- unique(col4exgrp)
+cols$ex.oc <- col4exgrp
+
+
+#save(cols, file = "adjectivecolors")
+
+```
+
+
+
+```{r kmeans4words}
+
+D.w <- dist(t(adj.contingency), method = "euclidean")
+fit.w <- hclust(D.w, method = "ward.D2")
+fit.w3 <- kmeans(adjsym.cares$ExPosition.Data$fj, 5)
+fit.w2 <- kmeans(t(adj.contingency), 5)
+
+ngroups <- 4
+
+col4wordtree <- c(wesanderson::wes_palettes$Royal2[1],
+                  wesanderson::wes_palettes$Rushmore1[3:5],
+                  wesanderson::wes_palettes$Royal1[1])
+                  
+
+word.groups <- cutree(fit.w, k= ngroups)
+
+col4words <- recode(word.groups,#,fit.w3$cluster, 
+                    "1" = col4wordtree[1],
+                    "2" = col4wordtree[2],
+                    "3" = col4wordtree[3],
+                    "4" = col4wordtree[4])
+                   # "5" = col4wordtree[5])
+                    #"6" = col4wordtree[6])
+
+#col4words <- col4words[fit.w$order]
+
+cols$adj.gc <- unique(col4words)
+cols$adj.oc <- col4words
+
+tree4words <- factoextra::fviz_dend(fit.w,  k = ngroups, 
+                              k_colors = unique(col4words[fit.w$order]), 
+                              label_cols = col4words[fit.w$order],
+                        cex = .6, xlab = 'Adjectives',
+                        main = 'Hierarchical Cluster Analysis: Adjectives') 
+ 
+tree4words
+```
+
+
+
+
+
+## Plots for the Participants
+
+### Scree for Participants
+
+This plot shows us that there are probably a number of dimensions with information to be extracted, but that it might be best to focus on just the first two, which are distinctly higher than the other dimensions. It is difficult when there is such a high dimensionality to decide which dimensions to analyze, and that is often left to individual discretion. The horizontal line indicates the average amount of variance extracted, which looks like it's a little under 1%. This makes sense, given how many participants we had.
+
+```{r}
+ScreeInf <- PlotScree(ev = eig4Cmat.adj,
+             max.ev = NULL, alpha = 0.05,
+             col.ns = "#006D2C", col.sig = "#54278F",
+             title = "RV Analysis: Explained Variance per Dimension",
+             plotKaiser = T)
+a000.adj.screeRV <-  recordPlot()
+```
+
+
+```{r rv4Judges, echo = TRUE}
+Shortnames4Participants <-  dimnames(adjbrick[[3]])
+F4Plot <- F4Cmat.adj
+rownames(F4Plot) <- Shortnames4Participants
+# Make labels
+labels4RV <- createxyLabels.gen(1,2,lambda = eig4Cmat.adj, tau = tau4Cmat.adj)
+```
+
+### Participant Factor Score Maps
+
+Here we build the basemaps for the participants. 
+
+This plot shows the factor scores for the French and American participants. The French participants are shown in red and the American participants are in blue. It does look like there are some differences in how the groups responded. Specifically, it looks like the french participants were, overall, much more consistent in how they responded. We'll have to look at the confidence intervals below to see if there is actually any significant separation between the two groups, though. 
+
+```{r mapRv, fig.height = 10}
+# Because it's the one we're most interested in, we'll use Nationality as
+# the base map
+BaseMap.Participants <- createFactorMap(X = F4Plot ,
+                              axis1 = 1, axis2 = 2,
+                              display.points = TRUE,
+                              col.points = cols$n.oc,
+                              pch = 19, cex = 2.5,
+                              display.labels = TRUE,
+                              col.labels = cols$n.oc,
+                              text.cex = 4, font.face = "bold",
+                              font.family = "sans",
+                              col.axes = "darkorchid", 
+                              alpha.points = .25,
+                              alpha.axes = 0.2,
+                              width.axes = 1.1,
+                              col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                              force = 1, segment.size = 3)
+
+
+a.00.Map4Part.adj <- BaseMap.Participants$zeMap_background + 
+                          BaseMap.Participants$zeMap_dots + labels4RV
+
+a.00.Map4Part.adj
+
+```
+
+
+```{r othermaps, echo = FALSE}
+
+participants_byG <- createFactorMap(X = F4Plot ,
+                              axis1 = 1, axis2 = 2,
+                              display.points = TRUE,
+                              alpha.points = .25,
+                              col.points = cols$g.oc,
+                              pch = 19, cex = 2.5,
+                              display.labels = TRUE,
+                              col.labels = cols$g.oc)
+
+participants_byT <- createFactorMap(X = F4Plot ,
+                              axis1 = 1, axis2 = 2,
+                              display.points = TRUE,
+                              alpha.points = .25,
+                              col.points = cols$t.oc,
+                              pch = 19, cex = 2.5,
+                              display.labels = TRUE,
+                              col.labels = cols$t.oc)
+
+
+a.01.Map4Part.adj <- BaseMap.Participants$zeMap_background +
+                                participants_byG$zeMap_dots + labels4RV
+a.02.Map4Part.adj <- BaseMap.Participants$zeMap_background +
+                          participants_byT$zeMap_dots + labels4RV
+```
+
+
+### Means for Participants
+
+Here we calculate the means for the factor groupings, and then bootstrap them:
+
+```{r natmeans}
+n.adjmeans <- getMeans(F4Plot, nat.factor)
+
+BootCadj.N <- PTCA4CATA::Boot4Mean(F4Cmat.adj, design = nat.factor,
+                                   niter = 1000,
+                                   suppressProgressBar = TRUE)
+dimnames(BootCadj.N$BootCube)[[2]] <- paste0('Dimension ',
+                                             1:dim(BootCadj.N$BootCube)[[2]])
+
+```
+
+
+```{r othermeans, echo = FALSE}
+
+g.adjmeans <- getMeans(F4Plot, gen.factor)
+t.adjmeans <- getMeans(F4Plot, train.factor)
+
+BootCadj.T <- PTCA4CATA::Boot4Mean(F4Cmat.adj, design = train.factor,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(BootCadj.T$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(BootCadj.T$BootCube)[[2]])
+
+BootCadj.G <- PTCA4CATA::Boot4Mean(F4Cmat.adj, design = gen.factor,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(BootCadj.G$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(BootCadj.G$BootCube)[[2]])
+
+```
+
+### Ellipses for Participants
+
+Here we calculate the confidence intervals for the means of the factors defined for these plots.
+
+```{r nat.ellis}
+n.elliadj <- MakeCIEllipses(BootCadj.N$BootCube[,1:2,],
+                            names.of.factors = c("Dimension 1", "Dimension 2"),
+                            col = cols$n.gc)
+```
+```{r otherellis, echo = FALSE}
+t.elliadj <- MakeCIEllipses(BootCadj.T$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = cols$t.gc)
+g.elliadj <- MakeCIEllipses(BootCadj.G$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = cols$g.gc)
+```
+
+Then we create the plots by projecting those and the means on to the base maps created above...
+
+```{r, echo = FALSE}
+t.rv.means <- createFactorMap(t.adjmeans,
+                              axis1 = 1, axis2 = 2, 
+                              constraints = BaseMap.Participants$constraints, title = NULL,
+                              col.points =  cols$t.gc ,
+                              alpha.points = 1, # no transparency
+                              display.points = TRUE,
+                              pch = 2, cex = 5,
+                              display.labels = TRUE,
+                              col.labels = cols$t.gc, 
+                              text.cex = 4,font.face = "bold",
+                              font.family = "sans", col.axes = "darkorchid", 
+                              alpha.axes = 0.2, width.axes = 1.1, 
+                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
+                              force = 1, segment.size = 0)
+
+g.rv.means <- createFactorMap(g.adjmeans,
+                              axis1 = 1, axis2 = 2, 
+                              constraints = BaseMap.Participants$constraints, title = NULL,
+                              col.points =  cols$g.gc,
+                              alpha.points = 1, # no transparency
+                              display.points = TRUE,
+                              pch = 2, cex = 5,
+                              display.labels = TRUE,
+                              col.labels = cols$g.gc, 
+                              text.cex = 4,font.face = "bold",
+                              font.family = "sans", col.axes = "darkorchid", 
+                              alpha.axes = 0.2, width.axes = 1.1, 
+                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
+                              force = 1, segment.size = 0)
+
+a.04adj.map4part <- BaseMap.Participants$zeMap_background + 
+                  g.rv.means$zeMap_text + g.rv.means$zeMap_dots +
+                    participants_byG$zeMap_dots + g.elliadj
+
+a.05adj.map4part <- BaseMap.Participants$zeMap_background +
+                  t.rv.means$zeMap_text + t.rv.means$zeMap_dots +
+                  participants_byT$zeMap_dots + t.elliadj
+
+```
+
+
+```{r natmeansmaps}
+
+title4RV <- "Rv Analysis of Participants \nIncluding Group Means and Confidence Intervals"
+n.rv.means <- createFactorMap(n.adjmeans,
+                              axis1 = 1, axis2 = 2, 
+                              constraints = BaseMap.Participants$constraints, 
+                              col.points =  cols$n.gc,
+                              alpha.points = 1, # no transparency
+                              alpha.labels = 1,
+                              display.points = TRUE,
+                              pch = 17, cex = 5,
+                              display.labels = TRUE, 
+                              title = title4RV,
+                              col.labels = cols$n.gc, 
+                              text.cex = 6,font.face = "bold",
+                              font.family = "sans", col.axes = "darkorchid", 
+                              alpha.axes = 0.2, width.axes = 1.1, 
+                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
+                              force = 1, segment.size = 0)
+
+a.03adj.map4part <- BaseMap.Participants$zeMap_background + 
+                  n.rv.means$zeMap_text + n.rv.means$zeMap_dots +
+                    BaseMap.Participants$zeMap_dots + n.elliadj + labels4RV
+
+
+```
+
+... and print them.
+
+This map does suggest significant differences between the groups. This is definitely interesting and likely requires more investigation as to why we see the separation between the groups. None of the other factors plotted so far (gender or training level) showed any significant differences.  
+
+```{r printadjpartwmeans, echo = TRUE, fig.height=8,figure.show = 'hold'}
+print(a.03adj.map4part + ggtitle(title4RV))
+```
+
+
+## Plots for the Excerpts
+
+### Scree for the Excerpts
+
+First let's look at a scree plot for the excerpts. This plot suggests that there is a very strong first dimension, and strong second dimension as well. It's possible that dimensions 3-6 also care some information, as there are possibly 2 different and distinct elbows in this graph, at the 3rd and 7th dimensions. 
+
+```{r scree4descriptors}
+adj.scree <- PlotScree(adjsym.cares$ExPosition.Data$eigs,
+                       plotKaiser = T, color4Kaiser = "red")
+  
+mus.00.scree <- recordPlot()
+```
+
+
+```{r perm4eigs, include=FALSE}
+zeDim = 3
+eigpermplot <- prettyHist(distribution = adjca.inf$permEigenvalues, 
+                          observed = adjca.inf$fixedEigenvalues[zeDim], 
+                          xlim = c(0, (2*adjca.inf$fixedEigenvalues[zeDim])), # needs to be set by hand
+                          breaks = 20,
+                          border = "white", 
+                          main = paste0("Permutation Test for Eigenvalue ",zeDim),
+                          xlab = paste0("Eigenvalue ",zeDim), 
+                          ylab = "", 
+                          counts = FALSE, 
+                          cutoffs = c( 0.975))
+```
+
+The permutation tests also show us that the eigenvalues as deep as the 12th dimension are significant at the p=.05 level, but with the two strongest dimensions accounting for ~70% of the variance, in this situation it makes sense to just focus on those.
+
+
+### Excerpt/Row Factor Score Plots
+
+Next we create and print the factor score plot for the excerpts, colored according to the clusters extracted by the HCA. 
+
+```{r adjbytree, fig.height=10, fig.align = 'center'}
+
+axisone <- 1
+axistwo <- 2
+
+mustau <- adjsym.cares$ExPosition.Data$pdq$tau
+muslam <- adjsym.cares$ExPosition.Data$pdq$eigs
+
+#muslabs <- paste("Ex", c(1:5,7:13,15:30), sep = ".")
+
+muslabs <- paste("Ex", c(1:30), sep = ".")
+
+labelsforexcerpts <- createxyLabels.gen(axisone,axistwo,lambda = muslam, tau = mustau)
+
+rownames(FIsym.adj) <- muslabs
+
+title4exgraph <- "Row Factor Scores, \nColored according to the HCA"
+
+Basemap.excerpts <- createFactorMap(FIsym.adj, 
+                                      axis1 = axisone, 
+                                      axis2 = axistwo, 
+                                      display.labels = T,
+                                      col.points = cols$ex.oc, 
+                                      col.labels = cols$ex.oc,
+                                      title = title4exgraph
+                                      )
+
+mus.adj.001 <- Basemap.excerpts$zeMap_background + 
+              Basemap.excerpts$zeMap_text + 
+                Basemap.excerpts$zeMap_dots + 
+                  labelsforexcerpts
+
+print(mus.adj.001)
+```
+
+Although this analysis will focus on the first two dimensions, the distribution of the groups is interesting, and I was curious if excerpt 8 was separated from the groups around it on the third dimension. However, the plot below shows a poorer separation between the groups, so we'll focus on the 1st and 2nd dimensions for the rest of this analysis.
+
+
+```{r excerptsmaps23, fig.height=10}
+
+axisone <- 3
+axistwo <- 2
+
+labelsforexcerpts <- createxyLabels.gen(axisone, axistwo,lambda = muslam, tau = mustau)
+
+Basemap.ex.dim23 <- createFactorMap(X = FIsym.adj,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = cols$ex.oc,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = cols$ex.oc,
+                                    text.cex = 4, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3,
+                                    title = title4exgraph
+                                    )
+                                    
+
+mus.adj.002 <- Basemap.ex.dim23$zeMap + labelsforexcerpts
+
+print(mus.adj.002)
+```
+
+
+
+### Adjective/Column Factor Score Plots
+
+Here we plot the column factor scores. According to the heatmap with Cochran's Q above, all of the adjectives except for 'incisive' and 'weak' are significant, so it wouldn't be helpful to plot only those. What's interesting here is that this plot seems to reflect the Arousal/Valence model of musical processing in emotion. Dimension one juxtaposes adjectives like Dark, Sad, and Dull against adjectives like Happy, Dancing, Colorful, and Bright. Dimension one, therefore, seems to reflect the valence aspect of this model.  The second dimension seems to represent the Arousal portion of this model, juxtaposing adjectives like Aggressive and Surprising against adjectives like Warm and Round. Some adjectives that may represent both dimensions in different ways appear to score highly on both dimensions. Disturbing is far from the barycenter in the first quadrant, and represents both high arousal and negative valence (Which in the plot below happens to be on the positive end of dimension one) and Fast is far from the barycenter in the fourth quadrant, representing both high arousal and positive valence. 
+
+```{r colmaps, fig.height=8, echo = TRUE, out.width='100%'}
+
+axisone <- 1
+axistwo <- 2
+
+title4adjgraph <- "Column Factor Scores: Adjectives"
+
+labelsforexcerpts <- createxyLabels.gen(axisone, axistwo,lambda = muslam, tau = mustau)
+
+Basemap.adj.cols <- createFactorMap(X = FJs.adj,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = cols$adj.oc,
+                                    #constraints = Basemap.excerpts$constraints,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = cols$adj.oc,
+                                    title = title4adjgraph,
+                                    text.cex = 4,
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3,
+                                    font.face = "bold.italic", font.family = "serif" 
+                                    )
+                                    
+
+mus.adj.003 <- Basemap.adj.cols$zeMap + labelsforexcerpts
+
+print(mus.adj.003)
+```
+
+
+```{r colmaps23, fig.height=10, echo = TRUE, out.width='100%'}
+axisone <- 3
+axistwo <- 2
+
+labelsforexcerpts <- createxyLabels.gen(axisone, axistwo,lambda = muslam, tau = mustau)
+
+Basemap.adj.cols <- createFactorMap(X = FJs.adj,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = col4words, # cols$adj.cols,
+                                    #constraints = Basemap.excerpts$constraints,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = col4words, # cols$adj.cols,
+                                    text.cex = 4, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3
+                                    )
+                                    
+
+mus.adj.023 <- Basemap.adj.cols$zeMap + labelsforexcerpts
+
+print(mus.adj.023)
+```
+
+
+## Symmetric and Asymmetric Factor Score Plots
+
+Because this is a correspondence analysis, we can plot the rows and columns in the same space to see how they correspond to one another. Below are Asymmetric and Symmetric maps, each of which has a slightly different interpretation. The interpretations for each are included with the plots below. 
+
+
+### Symmetric map
+
+This map plots both the rows and columns on the same space. This plot is deceptively simple. Understanding the relationships between the row points and the column points requires interpretation of both the angle between the two and the total distance from the barycenter. As such, while this is all on the same plot, it's tough to evaluate exactly how the two correspond. 
+
+This plot is difficult because it's so busy, but there are some things that we can take away from it, and some things that require more careful consideration. First of all, looking at the adjective "Aggressive" in the 4th quadrant, we see that it is closest, distance-wise, to Excerpt 6. But the angle between "Aggressive" and Excerpt 2 seems to be narrower than that between "Aggressive" and Excerpt 6. This is a specific relationship that we should look at in the asymmetric (renormalized) map. Likewise, in quadrant 2, we see both small distance and a small angle between excerpt 21 and "Solemn", and a similar angle but slightly greater distance to "Slow". It's likely that excerpt 21 closely represents both of these adjectives, but this plot gives us a slight misrepresentation of which adjective best describes this excerpt.
+
+```{r symmetricmap, fig.show = 'hold', out.width='100%', fig.height=10}
+axisone <- 1
+axistwo <- 2
+
+adjmap.sym <- createFactorMapIJ(FIsym.adj,
+                                FJs.adj,
+                                axis1 = axisone,axis2 = axistwo,
+                                col.points.i = cols$ex.oc, 
+                                col.labels.i = cols$ex.oc, 
+                                col.points.j = cols$adj.cols, 
+                                col.labels.j = cols$adj.cols,
+                                text.cex.i = 3.5, text.cex.j = 3.5
+                                )
+
+vc.sym.labels <- createxyLabels(resCA = adjsym.cares)
+mus.adj.005 <- adjmap.sym$baseMap +  adjmap.sym$I_points + 
+            adjmap.sym$I_labels + adjmap.sym$J_points + 
+              adjmap.sym$J_labels + vc.sym.labels + 
+                ggtitle('Symmetric Map')
+  
+print(mus.adj.005)
+```
+
+Another thing that we would like to see is which of the groups of excerpts best correspond to which adjectives, so we can calculate group means and ellipses for the excerpts. This code calculates them for both the symmetric and asymmetric plots.
+
+```{r meansandellipsesforrows}
+
+adj.symmeans <- getMeans(FIsym.adj, adjdesign)
+adj.asymmeans <- getMeans(FIasym.adj, adjdesign)
+
+colnames(adj.symmeans) <- paste0("Dimension ",c(1:dim(adj.symmeans)[2]))
+colnames(adj.asymmeans) <- paste0("Dimension ",c(1:dim(adj.symmeans)[2]))
+
+Bootsym.adj <- PTCA4CATA::Boot4Mean(FIsym.adj, design = adjdesign,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(Bootsym.adj$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(Bootsym.adj$BootCube)[[2]])
+
+Bootasym.adj <- PTCA4CATA::Boot4Mean(FIasym.adj, design = adjdesign,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(Bootasym.adj$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(Bootasym.adj$BootCube)[[2]])
+
+sym.elliadj <- MakeCIEllipses(Bootsym.adj$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = cols$ex.gc)
+asym.elliadj <- MakeCIEllipses(Bootasym.adj$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = cols$ex.gc)
+```
+
+Here's the symmetric map with confidence ellipses for the groups of excerpts. This clearly shows that the groups of excerpts that score highly on each of the two dimensions of the Arousal/Valence Model. Group 1 is excerpts that are high arousal, Group 2 represents excerpts that are negative valence, Group 3 represents adjectives that are positive valence, and Group 4, although it generally seems to cover low arousal, it also trends towards the side of positive valence.  
+
+```{r adjwithelli, fig.height=10}
+
+colnames(FJs.adj) <- paste0("Dimension ", c(1:dim(FJs.adj)[2])) 
+
+axisone <- 1
+axistwo <- 2
+adj.symw.mean <- createFactorMapIJ(adj.symmeans,
+                                    FJs.adj,
+                                    axis1 = axisone,axis2 = axistwo,
+                                col.points.i = cols$ex.gc, 
+                                col.labels.i = cols$ex.gc, 
+                                alpha.points.i = 1,
+                                alpha.labels.i = 1,
+                                cex.i = 5,
+                                col.points.j = cols$adj.oc, 
+                                col.labels.j = cols$adj.oc,
+                                text.cex.i = 5, text.cex.j = 3.5
+                                )
+  
+
+mus.adj.006 <- adj.symw.mean$baseMap + 
+                  sym.elliadj + vc.sym.labels +
+                    adj.symw.mean$I_labels + adj.symw.mean$I_points +
+                      adj.symw.mean$J_labels + adj.symw.mean$J_points +
+                        ggtitle('Symmetric Map with Means and CIs')
+
+print(mus.adj.006)
+```
+
+
+### Asymmetric plot with simplex
+
+The asymmetric plot uses renormalized row factor scores to better display the relationships between the rows and columns. This plot also features a simplex, which is basically the two dimensional polygonal projection of the outline of the column space. The interpretation of the relationships between the row and column scores is now much more direct.
+
+This simplex actually turns out quite nicely. We can now see that the interpretation of Excerpt 6 as being the closest to "Aggressive" is, in fact, incorrect, and Excerpt 2 is more right on top of it. Additionally, other excerpts, including 1, 16, and 25 are all very aggressive. Likewise, it seems like Excerpt 21 is more "Slow" than "Solemn". 
+
+```{r factormapswsimplex, fig.height = 10, fig.show = 'hold', out.width='100%'}
+load("adj.catadata.list.RData")
+
+partcols <- adj.catadata.list$partcols
+adjbrick <- adj.catadata.list$adjbrick
+adj.contingency <- adj.catadata.list$adjcontingency
+adjcols <- adj.catadata.list$adjcols
+listofwords <- adj.catadata.list$listofwords
+
+transposedCA <- epCA(t(adj.contingency), symmetric = FALSE)
+
+D.w <- dist(t(adj.contingency), method = "euclidean")
+fit.w3 <- kmeans(transposedCA$ExPosition.Data$fi, 5)
+
+ngroups <- 5
+
+col4wordtree <- c(wesanderson::wes_palettes$Royal2[1],
+                  wesanderson::wes_palettes$Rushmore1[3:4],
+                  wesanderson::wes_palettes$GrandBudapest1[3],
+                  wesanderson::wes_palettes$Royal1[1])
+                  
+
+col4words <- recode(fit.w3$cluster,#word.groups, 
+                    "1" = col4wordtree[1],
+                    "2" = col4wordtree[2],
+                    "3" = col4wordtree[3],
+                    "4" = col4wordtree[4],
+                    "5" = col4wordtree[5])
+                    #"6" = col4wordtree[6])
+
+#col4words <- col4words[fit.w$order]
+
+cols$adj.gc <- unique(col4words)
+cols$adj.oc <- col4words
+
+
+#colnames(adjrenorm$G_A) <- colnames(FJs.adj)
+rownames(transposedCA$ExPosition.Data$fj) <- muslabs
+
+axisone <- 1
+axistwo <- 2
+
+exmap.asym <- createFactorMapIJ(transposedCA$ExPosition.Data$fi,
+                                transposedCA$ExPosition.Data$fj,
+                                axis1 = axisone,axis2 = axistwo,
+                                col.points.j = cols$ex.oc, 
+                                col.labels.j = cols$ex.oc, 
+                                col.points.i = cols$adj.oc, 
+                                col.labels.i = cols$adj.oc, 
+                                text.cex.i = 4, text.cex.j = 4, 
+                                font.face.i = "bold.italic", font.family.i = "serif",
+                                font.face.j = "bold",#, font.family.i = "mono"
+                                )
+
+# It's a fairly complex simplex, so we specify the vertices between which the
+# simplex should be drawn.
+
+excerptedges.adj <- c("Fast", "Aggressive", "Disturbing", "Dark", "Sad", 
+                  "Slow", "Soft", "Warm", "Happy")
+
+excerptedges <- c("Excerpt.6", "Excerpt.7", "Excerpt.18", "Excerpt.24", "Excerpt.27", 
+                  "Excerpt.3", "Excerpt.10", "Excerpt.11", "Excerpt.28", "Excerpt.20", 
+                  "Excerpt.29", "Excerpt.23", "Excerpt.13", "Excerpt.26", "Excerpt.4", 
+                  "Excerpt.16", "Excerpt.25")
+
+simplexorder <- match(excerptedges, rownames(adj.contingency))
+
+color4simplex <- wesanderson::wes_palettes$IsleofDogs1[5]
+
+zePoly.J <- PTCA4CATA::ggdrawPolygon(transposedCA$ExPosition.Data$fj, 
+                                     order2draw = simplexorder,
+                                     color = color4simplex, 
+                                     fill = color4simplex,
+                                     alpha = .4
+                                     )
+
+vc.t.labels <- createxyLabels(resCA = transposedCA)
+
+mus.adj.004 <- exmap.asym$baseMap + zePoly.J + 
+            exmap.asym$I_points + 
+              exmap.asym$I_labels + 
+                exmap.asym$J_points + 
+                  exmap.asym$J_labels + 
+                    vc.t.labels + ggtitle('Asymmetric Map with Simplex')
+  
+  
+print(mus.adj.004)
+```
+
+We can also add the group means and confidence interval ellipses to the asymmetric plot. We've left the excerpt names on this plot.
+This plot shows us not only what the outline of the projection of the column space is, but also how the individual excerpts and the groups tend to be distributed in the same space. It allows us the most complete perspective on how the musical excerpts are related to one another and to the distribution of adjectives.
+```{r adjwithelliasym, fig.height=10}
+
+axisone <- 1
+axistwo <- 2
+adj.asymw.mean <- createFactorMapIJ(adj.asymmeans,
+                                    FJs.adj,
+                                    axis1 = axisone,axis2 = axistwo,
+                                col.points.i = cols$ex.gc, 
+                                col.labels.i = cols$ex.gc, 
+                                constraints = minmaxHelper4Brick(Bootasym.adj$BootCube[,1:2,], 
+                                                                 expandFactor = 1.35),
+                                alpha.points.i = 1,
+                                alpha.labels.i = 1,
+                                cex.i = 5,
+                                col.points.j = cols$adj.cols, 
+                                col.labels.j = cols$adj.cols,
+                                text.cex.i = 5, text.cex.j = 3.5
+                                )
+
+mus.adj.007 <- adj.asymw.mean$baseMap + zePoly.J+
+                  #asym.elliadj + vc.labels +
+                    adj.asymw.mean$I_labels + adj.asymw.mean$I_points +
+                      adj.asymw.mean$J_labels + adj.asymw.mean$J_points +
+                        exmap.asym$I_labels + exmap.asym$I_points +
+                        ggtitle('Asymmetric Map \nwith Simplex, Means, & CIs')
+
+print(mus.adj.007)
+```
+
+
+
+## Contributions
+
+```{r justsomeconts}
+
+signed.ctrI.adj <- adjsym.cares$ExPosition.Data$ci * sign(FIsym.adj)
+signed.ctrJ.adj <- adjsym.cares$ExPosition.Data$cj * sign(FJs.adj)
+
+CIlist <- vector(mode = "list", length = 3)
+CJlist <- vector(mode = "list", length= 3)
+
+names(CIlist) <- c("Dim1", "Dim2", "Dim3")
+names(CJlist) <- c("Dim1", "Dim2", "Dim3")
+
+for (i in 1:3){
+  CIlist[[i]] <- signed.ctrI.adj[which(abs(signed.ctrI.adj[,i]) > 1/nrow(signed.ctrI.adj)),i]
+  CJlist[[i]] <- signed.ctrJ.adj[which(abs(signed.ctrJ.adj[,i]) > 1/nrow(signed.ctrJ.adj)),i]
+}
+
+```
+
+
+```{r contributions}
+
+# plot contributions of rows for component 1
+ctradjI.1 <- PrettyBarPlot2(CIlist[[1]],
+                         threshold = 1 / NROW(signed.ctrI.adj),
+                         font.size = 3,
+                         color4bar = cols$ex.oc[which(abs(signed.ctrI.adj[,1]) > 1/nrow(signed.ctrI.adj))], # we need hex code
+                         ylab = 'Contributions',
+                         #sortValues = TRUE,
+                         ylim = c(1.2*min(CIlist[[1]]), 1.2*max(CIlist[[1]]))
+) + ggtitle("Component 1", subtitle = 'Rows')
+
+# plot contributions of columns for component 1
+ctradjJ.1 <- PrettyBarPlot2(CJlist$Dim1,
+                         threshold = 1 / NROW(signed.ctrJ.adj),
+                         font.size = 3,
+                         color4bar = cols$adj.cols[which(abs(signed.ctrJ.adj[,1]) > 1/nrow(signed.ctrJ.adj))], # we need hex code
+                         ylab = 'Contributions',
+                        # sortValues = TRUE,
+                         ylim = c(1.2*min(CJlist[[1]]), 1.2*max(CJlist[[1]]))
+) + ggtitle("", subtitle = 'Columns')
+
+# plot contributions of rows for component 2
+ctradjI.2 <- PrettyBarPlot2(CIlist[[2]],
+                         threshold = 1 / NROW(signed.ctrI.adj),
+                         font.size = 3,
+                         color4bar = cols$ex.oc[which(abs(signed.ctrI.adj[,2]) > 1/nrow(signed.ctrI.adj))], # we need hex code
+                         ylab = 'Contributions',
+                        # sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrI.adj[,2]), 1.2*max(signed.ctrI.adj[,2]))
+) + ggtitle("Component 2", subtitle = 'Rows')
+
+# plot contributions of columns for component 2
+ctradjJ.2 <- PrettyBarPlot2(CJlist$Dim2,
+                         threshold = 1 / NROW(signed.ctrJ.adj),
+                         font.size = 3,
+                         color4bar = cols$adj.cols[which(abs(signed.ctrJ.adj[,2]) > 1/nrow(signed.ctrJ.adj))], # we need hex code
+                         ylab = 'Contributions',
+                        # sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrJ.adj[,2]), 1.2*max(signed.ctrJ.adj[,2]))
+) + ggtitle("", subtitle = 'Columns')
+
+# plot contributions of rows for component 2
+ctradjI.3 <- PrettyBarPlot2(CIlist[[3]],
+                         threshold = 1 / NROW(signed.ctrI.adj),
+                         font.size = 3,
+                         color4bar = cols$ex.oc[which(abs(signed.ctrI.adj[,3]) > 1/nrow(signed.ctrI.adj))], # we need hex code
+                         ylab = 'Contributions',
+                        # sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrI.adj[,3]), 1.2*max(signed.ctrI.adj[,3]))
+) + ggtitle("Component 3", subtitle = 'Rows')
+
+# plot contributions of columns for component 2
+ctradjJ.3 <- PrettyBarPlot2(CJlist$Dim3,
+                         threshold = 1 / NROW(signed.ctrJ.adj),
+                         font.size = 3,
+                         color4bar = cols$adj.cols[which(abs(signed.ctrJ.adj[,3]) > 1/nrow(signed.ctrJ.adj))], # we need hex code
+                         ylab = 'Contributions',
+                        # sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrJ.adj[,3]), 1.2*max(signed.ctrJ.adj[,3]))
+) + ggtitle("", subtitle = 'Columns')
+
+
+```
+
+The contributions show which excerpts and which adjectives contribute significantly to the dimensions we've extracted. This reinforces some of the observations we've already made about Valence and Arousal, and it gives a clearer picture of what exactly is driving the dimensionality of the space.
+
+It shows that the first component is driven by groups 2 and 3, and the second component is driven by groups 1 and 4. For the columns we see the first dimension is "Fast", "Happy", "Dancing", "Bright", and "Colorful" versus "Dark", "Melancholy", and "Sad". The second dimension is largely driven by the juxtaposition of "Aggressive" and "Warm".  
+
+```{r thecons, fig.width=10}
+
+grid.arrange(
+    as.grob(ctradjI.1),as.grob(ctradjJ.1),
+    as.grob(ctradjI.2),as.grob(ctradjJ.2),
+    #as.grob(ctradjI.3),as.grob(ctradjJ.3),
+    ncol = 2,nrow = 2,
+    top = textGrob("Contributions", gp = gpar(fontsize = 18, font = 3))
+  )
+
+Ctradj.IJ <- recordPlot()
+```
+
+## Bootstrap ratios
+
+```{r bootstraps}
+BR.I <- bootRatadj.I$boot.ratios
+BR.J <- bootRatadj.J$boot.ratios
+
+laDim = 1
+
+# Plot the bootstrap ratios for Dimension 1
+badj001.BR1.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$ex.oc, # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+badj002.BR1.J <- PrettyBarPlot2(BR.J[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$adj.cols,#[-c(which(is.nan(probBR.J)))], # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle("", subtitle = 'Columns')
+
+# Plot the bootstrap ratios for Dimension 2
+laDim = 2
+badj003.BR2.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$ex.oc, # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+badj004.BR2.J <- PrettyBarPlot2(BR.J[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$adj.cols,#[-c(which(is.nan(probBR.J)))], # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle("", subtitle = 'Columns')
+
+laDim = 3
+badj005.BR2.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$ex.oc, # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+badj006.BR2.J <- PrettyBarPlot2(BR.J[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = cols$adj.cols,#[-c(which(is.nan(probBR.J)))], # we need hex code
+                  ylab = 'Bootstrap ratios',
+                         sortValues = TRUE
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle("", subtitle = 'Columns')
+
+```
+
+The bootstrap ratios show us which excerpts and adjectives consistently load on the extracted dimensions. Although they might not be contributing significantly in the same way that the values above do, we can see that they are loading consistently to a certain degree on a given dimension as identified below. Greater values indicate more consistent loadings. Columns that aren't consistent are gray and the ones that do meet our threshold are colored according to their assigned colors from above.  
+
+```{r theboots, fig.width=14}
+
+grid.arrange(
+    as.grob(badj001.BR1.I),as.grob(badj002.BR1.J),
+    as.grob(badj003.BR2.I),as.grob(badj004.BR2.J),
+    as.grob(badj005.BR2.I),as.grob(badj006.BR2.J),
+    ncol = 2,nrow = 3,
+    top = textGrob("Bootstrap ratios", gp = gpar(fontsize = 18, font = 3))
+  )
+
+BRadj.IJ <- recordPlot()
+
+```
+
+# Interpretation
+
+None of this analysis is useful without some sort of interpretation of the results. As stated above, there's a clear picture of the arousal/valence model here in these first two dimensions. One interesting thing here is that strongest signal here is the valence signal, followed by arousal. 
+
+The first dimension is anchored on the positive end by Excerpt 27 and adjectives Sad and Dark, and on the negative end by Excerpt 23^[Note: while Excerpt 27 is directly on the axis and 23 is not, 23 is the most distal in the negative direction, despite its slight distraction towards the negative second dimension. A factor score doesn't have to fall directly on the axis to be the strongest scoring on one dimension.] and adjectives Fast and Happy. This shows that the first dimension is the valence dimension.
+
+### Excerpt 27:
+
+While excerpt 27 is technically in major mode, it uses slow movement and complex harmony, including dissonant intervals, and high pitched solo violin carrying the salient line to create a dark, sad atmosphere.
+
+<figure>
+    <audio
+      controls
+      src="EX_27Gar.mp3">
+    </audio>
+</figure>
+
+### Excerpt 23:
+
+This excerpt is an approximation of the bluegrass style. It is fast, has lots of motion in the melody, and uses the major mode and the pentatonic scale. The pentatonic scale avoids dissonant intervals almost entirely and allows for simple harmony. In this case, harmony is limited to the I, IV, and V chords, all major. Additionally, having the melody in the 2nd violin with a descant in the first violin creates a very open texture, which gives us a bright, happy sound.
+
+<figure>
+    <audio
+      controls
+      src="EX_23Gar.mp3">
+    </audio>
+</figure>
+
+The second dimension is anchored on the positive end by Aggressive and Excerpt 6, and on the negative end by Warm and Excerpt 11. This suggests that the second dimension is the arousal dimension. 
+
+### Excerpt 6:
+
+This excerpt is an approximation of a Steve Reich-esque modern minimalist style. This excerpt doesn't have a melody as written, and although it technically follows a chord progression, because of the slow harmonic movement, it passes through a number of apparent cluster chords on the way. Because it lacks vertical motion, and the horizontal motion carries very little valence content, it seems like this excerpt is as close as you can get to a high arousal excerpt with very little in the way of valence.
+
+<figure>
+    <audio
+      controls
+      src="EX_6Gar.mp3">
+    </audio>
+</figure>
+
+### Excerpt 11:
+
+This excerpt is one of the few that doesn't use the violin to carry the melody. It instead presents a slow melody in the cello, which, because of the low register, creates a calm atmosphere.
+
+<figure>
+    <audio
+      controls
+      src="EX_11Gar.mp3">
+    </audio>
+</figure>
+
+## Future Directions
+
+As of 20 Jan. 2021, this analysis and interpretation does not include separate analyses for the adjective ratings by nationality. As we saw in the distance analysis for the participants, there does seem to be a discernible difference between the participants from either country. Future analyses could use either the American or French participants as the starting set and then evaluate the differences in factor score maps between the two. This might help distinguish what the systematic difference between the two groups was. Additionally, future experiments could evaluate other types of music or use different types of adjectives. This experiment used words taken from the musical domain, many are commonly used in scores as instructions. Future experiments might use words associated strictly with texture, for example (slimy, rough). 
+
+```{r saveGraphs, message = FALSE, warning = FALSE, error = FALSE}
+powerpointFilename <- 'MusicalDescriptorsFigures.pptx'
+path2pptx    <- './Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Musical Descriptors '
+
+
+
+pptx4musdim <- PTCA4CATA::saveGraph2pptx(file2Save.pptx = name4Graphs, 
+                 title = title4Graphs, 
+                 addGraphNames = TRUE)
+```
+
+# Citations & Packages used
+
+```{r citations, warning=FALSE}
+knitr::write_bib()
+```

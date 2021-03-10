@@ -1,0 +1,4 @@
+"0","grid.arrange(as.grob(mus.010w6), "
+"0","             as.grob(mus.010), ncol = 2,"
+"0","             top = textGrob(""Factor Scores for Expert Ratings"", "
+"0","                            gp = gpar(fontsize = 18, font = 3)))"

@@ -1,0 +1,8 @@
+"0","cols2drop <- c(which(colSums(musdimdata) == 1))"
+"0",""
+"0","musdimdata <- musdimdata[,-cols2drop]"
+"0","musdimdata <- musdimdata[,!stri_detect_fixed(colnames(musdimdata), ""None"")]"
+"0",""
+"0","dimensionscontarray <- dimensionscontarray[,-cols2drop,]"
+"0","dimensionscontarray <- dimensionscontarray[,!stri_detect_fixed(colnames(dimensionscontarray), ""None""),]"
+"0",""

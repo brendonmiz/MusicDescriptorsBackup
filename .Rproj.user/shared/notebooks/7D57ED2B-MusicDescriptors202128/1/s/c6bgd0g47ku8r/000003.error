@@ -1,0 +1,1 @@
+{"frames":[{"func":"getMeans(FIasym.adj, adjdesign)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0},{"func":"aggregate(G, list(factor), FUN)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in aggregate(G, list(factor), FUN) : object 'FIasym.adj' not found\n"}

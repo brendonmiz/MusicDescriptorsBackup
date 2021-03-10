@@ -1,0 +1,8 @@
+"0",""
+"0","grid.arrange("
+"0","    as.grob(ctradjI.1),as.grob(ctradjJ.1),"
+"0","    as.grob(ctradjI.2),as.grob(ctradjJ.2),"
+"0","    #as.grob(ctradjI.3),as.grob(ctradjJ.3),"
+"0","    ncol = 2,nrow = 2,"
+"0","    top = textGrob(""Contributions"", gp = gpar(fontsize = 18, font = 3))"
+"0","  )"

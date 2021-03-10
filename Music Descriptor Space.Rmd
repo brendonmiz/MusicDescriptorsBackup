@@ -898,6 +898,7 @@ Ctradj.IJ <- recordPlot()
   
   There are also differences in how the adjectives and the excerpts are distributed in the space. One clear example is that Excerpt 6 is in quadrant four in the american plot, but quadrant one in the french. This is a small change, but it suggests that the french participants were more likely to assign negative valence to this excerpt, and American Participants were more likely to assign positive valence. For the adjectives, 'bright' and 'dancing' are directly on top of one another in the American plot, but there is some space between the two in the French plot.  It's possible that this reflects the idea that although the meaning is shared between languages, there are semantic or associational differences between the words.
 
+I am now changing the file. Does this change the github thingy?
 
 ```{r factormapswsimplex.A, fig.height = 10, fig.show = 'hold', out.width='100%'}
 

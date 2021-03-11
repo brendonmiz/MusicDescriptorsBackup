@@ -534,7 +534,7 @@ cols$ex.gc <- unique(col4exgrp)
 cols$ex.oc <- col4exgrp
 
 
-#save(cols, file = "adjectivecolors")
+save(cols, file = "adjectivecolors.RData")
 
 ```
 

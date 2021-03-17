@@ -8,3 +8,123 @@
 
 \caption{ }\label{fig:screeRV}
 \end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1}
+
+}
+
+\caption{ }\label{fig:scree4excerptsq}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contributionsQ-1}
+
+}
+
+\caption{ }\label{fig:contributionsQ}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics[width=1\linewidth]{Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1}
+
+}
+
+\caption{ }\label{fig:factormapswsimplexQ}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1}
+
+}
+
+\caption{ }\label{fig:unnamed-chunk-1}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/map4RV.A-1}
+
+}
+
+\caption{ }(\#fig:map4RV.A)
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/scree4descriptors-1}
+
+}
+
+\caption{ }\label{fig:scree4descriptors}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contributions.A-1}
+
+}
+
+\caption{ }(\#fig:contributions.A)
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/mfasbs-1}
+
+}
+
+\caption{ }\label{fig:mfasbs}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/screePLSC-1}
+
+}
+
+\caption{ }\label{fig:screePLSC}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/loadingsplsc-1}
+
+}
+
+\caption{ }\label{fig:loadingsplsc}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contsplsc-1}
+
+}
+
+\caption{ }\label{fig:contsplsc}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1}
+
+}
+
+\caption{ }\label{fig:factorplotsPLSC}
+\end{figure*}

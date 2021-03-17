@@ -1,0 +1,8 @@
+"0",""
+"0","PlotScree(ev = pls.res$TExPosition.Data$eigs,"
+"0","          p.ev = resPerm4PLSC$pEigenvalues,"
+"0","          title = 'PLSC Music Features: Inertia Scree Plot',"
+"0","          plotKaiser = TRUE, "
+"0","          color4Kaiser = ggplot2::alpha('darkorchid4', .5),"
+"0","          lwd4Kaiser  = 2"
+"0","          )"

@@ -1,0 +1,8 @@
+"0","renameCols <- function(x){"
+"0","   colnames(x) <- paste(""Dimension"", 1:ncol(x))"
+"0","   x"
+"0","}"
+"0",""
+"0","RVtestmat <- mfatestres$mexPosition.Data$InnerProduct$RVMatrix"
+"0",""
+"0","corrplot::corrplot(RVtestmat, method = ""color"", addCoefasPercent = TRUE) "

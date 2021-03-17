@@ -26,5 +26,4 @@
 "0","           & gen.factor != ""Femme"" & gen.factor != ""Homme""] <- ""NB"""
 "0","gen.factor[gen.factor == ""Female"" | gen.factor == ""Femme""] <- ""F"""
 "0","gen.factor[gen.factor == ""Male"" | gen.factor == ""Homme""] <- ""M"""
-"0",""
 "0","gen.factor <- as.factor(gen.factor)"

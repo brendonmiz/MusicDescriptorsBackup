@@ -1,0 +1,6 @@
+"0","t.elliadj <- MakeCIEllipses(BootCadj.T$BootCube[,1:2,], "
+"0","                            names.of.factors = c(""Dimension 1"",""Dimension 2""),"
+"0","                            col = cols$t.gc)"
+"0","g.elliadj <- MakeCIEllipses(BootCadj.G$BootCube[,1:2,], "
+"0","                            names.of.factors = c(""Dimension 1"",""Dimension 2""),"
+"0","                            col = cols$g.gc)"

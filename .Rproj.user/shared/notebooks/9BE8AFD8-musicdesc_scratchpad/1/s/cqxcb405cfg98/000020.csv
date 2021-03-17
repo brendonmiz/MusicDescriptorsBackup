@@ -1,0 +1,4 @@
+"0",""
+"0","Eig4testscree <- mfatestres$mexPosition.Data$Table$eigs"
+"0",""
+"0","mfatestscree <- PlotScree(Eig4testscree, plotKaiser = TRUE)"

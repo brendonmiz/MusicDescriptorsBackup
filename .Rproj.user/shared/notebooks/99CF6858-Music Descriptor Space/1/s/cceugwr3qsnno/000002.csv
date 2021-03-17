@@ -1,0 +1,4 @@
+"0","mus.scree <- PlotScree(dimcares.inf$Fixed.Data$ExPosition.Data$eigs, "
+"0","                       dimcares.inf$Inference.Data$components$p.vals, "
+"0","                       plotKaiser = T, color4Kaiser = ""red"""
+"0","                                              ) "

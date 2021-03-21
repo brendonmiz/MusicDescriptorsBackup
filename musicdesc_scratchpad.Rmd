@@ -57,9 +57,11 @@ A recent study
 In this study, we attempt to address three specific issues with the field as a whole: sample & size, mode of investigation, and balancing  analysis. The gradual increase in complexity of studies in behavior and cognition, coupled with the rise of questions about the universality of experience and the democratization of science, compels us to find novel ways of investigating the experience of music. 
 
 
+  A review of the literature surrounding music perception quickly reveals a limited perspective. Firstly, the participants in these experiments are largely WEIRD (Western, Educated, Industrialized, Rich, and Democratic). The participant pool becomes even smaller when you realize that researchers commonly use students in their departments as participants, either psychology or music, or in some cases marketing or business. This practice inherently biases the sample towards wealth and the ethnic majority, as representation and access to higher education remains an issue. In terms of stimuli, although there is a database of over 20000 previously used musical excerpts [@Warrenburg2020], the vast majority of those are either western or popular music. These stimuli are also often presented under strict laboratory control, which we respectfully submit does not reflect an ecologically valid process for listening. 
 
-
-
+  In addition to the questions surrounding data collection, the gradual increase in complexity of studies in behavior and cognition, the rise of questions about the universality of experience, and the democratization of science all compel us to find novel ways of investigating the experience of music, among other aspects of life. The experimental paradigm we present below addresses a number of questions.  
+  
+  We as researchers need to develop experimental paradigms that are robust to violations in experimental procedure, in order to access a larger part of the population,  The burden to define testing parameters and provide clear analysis becomes much greater. Controlling for extraneous variables becomes a problem in and of itself. The balance between establishing a broad research question and analyzing with precision is very delicate. Additionally, accessing a broader population is necessary, but the concerns of parametrization and control are similar. 
 
 
 

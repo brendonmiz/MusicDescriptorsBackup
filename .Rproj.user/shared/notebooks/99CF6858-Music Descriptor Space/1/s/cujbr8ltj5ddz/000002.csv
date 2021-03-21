@@ -1,6 +1,7 @@
 "0","library(""papaja"")"
 "0","suppressMessages(library(ExPosition))"
 "0","suppressMessages(library(InPosition))"
+"0","suppressMessages(library(MExPosition))"
 "0","library(PTCA4CATA)"
 "0","library(purrr)"
 "0","library(plyr)"

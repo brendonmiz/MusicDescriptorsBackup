@@ -3,24 +3,24 @@
     "path": "~/GitHub/MusicDescriptorsBackup/musicdesc_scratchpad.Rmd",
     "project_path": "musicdesc_scratchpad.Rmd",
     "type": "r_markdown",
-    "hash": "2498776432",
+    "hash": "3144981693",
     "contents": "",
     "dirty": false,
     "created": 1615826574444.0,
     "source_on_save": false,
-    "relative_order": 6,
+    "relative_order": 4,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "184,53",
-        "scrollLine": "174",
-        "last_setup_crc32": "63B999DFbb338d19"
+        "cursorPosition": "63,557",
+        "scrollLine": "42",
+        "last_setup_crc32": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1615934734,
+    "lastKnownWriteTime": 1616185236,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1615934734691,
+    "last_content_update": 1616185236499,
     "read_only": false,
     "read_only_alternatives": []
 }

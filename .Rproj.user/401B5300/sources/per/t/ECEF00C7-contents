@@ -1,0 +1,2034 @@
+---
+title: "Music Dimensions"
+author: "Brendon Mizener, Mathilde Vandenberghe, Herve Abdi"
+date: "11/19/2020"
+output:
+  rmdformats::downcute:
+    highlight: kate
+    df_print: paged
+    code_folding: hide
+  pdf_document: default
+always_allow_html: true
+---
+
+
+```{r note, eval = FALSE, echo = FALSE, include = FALSE}
+
+Note: when knitting, check lines 270 and 490, the kable output should agree with the knitting output. When knitting to pdf, specify 'latex' output. When knitting to html, specify 'html' output.
+
+This document uses the following packages. The ones we're using for analysis are from Herve Abdi's github:
+
+* `ExPosition` 
+* `InPosition` 
+* `PTCA4CATA` 
+
+The following are used for cleaning and preparing data:
+
+* `purrr` 
+* `plyr` 
+* `tidyverse` 
+* `readxl` 
+* `stringr` 
+* `stringi` 
+* `rlist` 
+* `abind`
+
+The following are for displaying and plotting:  
+
+* `wesanderson` 
+* `kableExtra` 
+* `ggplotify` 
+* `gridExtra` 
+* `grid` 
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE, fig.align = "center")
+
+rm(list = ls())
+
+suppressMessages(library(ExPosition))
+suppressMessages(library(InPosition))
+library(PTCA4CATA)
+library(purrr)
+library(plyr)
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(stringi)
+library(rlist)
+library(wesanderson)
+library(kableExtra)
+library(ggplotify)
+library(gridExtra)
+library(grid)
+library(abind)
+```
+
+
+# Introduction
+
+## Purpose
+
+This RMD document is the first of three documents^[The other two are `MusicDescriptors.Rmd` and `MusdimensionsPLSC.Rmd`] that together are the first step in a set of experiments aimed at evaluating cross-modal perception between music listening and beer tasting. This document has three purposes:  
+
+1. To process and analyze the data from the Musical Descriptors dataset, which is the result of an experiment in which musical experts evaluate 30 excerpts using 33 adjectives. 
+2. To evaluate whether the composer's intent was realized in composition and was perceived by listeners.
+3. To use the analysis to determine if there is a musical 'cognitive space', to be compared to other sensory domains, such as beer taste. 
+
+The initial concept for this project comes from Mathilde Vandenberghe, Brendon Mizener composed the stimuli, administered the surveys, and ran primary analyses. The data cleaning and preparation code is by BM, with special thanks to Luke Moraglia & Ju-Chi Yu. Much of the analysis code is taken from HA's `MusicalBeersCATA.Rmd.`
+
+Initial document created: Nov. 19, 2020
+
+Most recent updates: `r date()`
+
+
+## File names for results
+
+In addition to the HTML output, the graphs will be saved in a powerpoint presentation, whose name and path are given below.
+
+```{R graphPath}
+powerpointFilename <- 'MusicalDimensionsFigures.pptx'
+path2pptx    <- './Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Musical Dimensions '
+```
+
+
+## File names for data
+The data are stored in two CSV files, exported from Qualtrics. The two files are `Musical Dimensions12_1.csv`, that contains the results of American Musical Experts who responded to this survey, and `Musical Dimensions_FR_12_2.csv`, that contains the results of French Musical Experts who responded to this survey. Both files are in the RProject subfolder `Analysis`.
+
+
+```{R findDataPath, include = TRUE, echo = TRUE}
+
+path2Data <- './Analysis/'
+
+dataFilename1 <- 'MusDim_US_data.csv'
+path2file1 <- paste0(path2Data,dataFilename1)
+# sheet2Read <- 'Data' Not necessary for this analysis, 
+# because the csv only has one sheet
+dimdata <- read.csv(path2file1)
+
+dataFilename2 <- 'Musical Dimensions_FR_12_2.csv'
+path2file2 <- paste0(path2Data,dataFilename2) #this CSV is in the same fold
+
+frdata <- read.csv(path2file2)
+
+```
+
+
+The csv files used in this and `MusicDescriptors.Rmd` will look like the figure below. As you can see, because this is the file that was downloaded directly from qualtrics, there is quite a bit of irrelevant data, so we will be doing quite a bit of preprocessing in order to prepare the data for analysis.
+
+In order to run this analysis, we will need the data in two forms: one that is a brick of data, which has excerpts on the rows, musical dimensions on the columns and participants on each slice/page, with a 1 at the intersection of each row and column indicating that the participant marked that the excerpt (row) possessed a certain musical quality or dimension (column). The other format is is a contingency table, which sums across pages each of the brick, with the intersection of each row and column indicating how many times total each musical excerpt was paired with a musical quality or dimension.
+
+```{r xls.datafile, echo=FALSE, fig.cap="The Data Excel File \\label{fig:spicesxl}", fig.height=3, fig.width=4, include=TRUE, out.width='70%', align = "center"}
+#knitr::include_graphics('./Figures4rmd/csvdata_ss.png')
+
+```
+# Data Cleaning
+
+## Breaking up the data
+
+### Participant data
+The data in the spreadsheet includes both responses to the experimental portion of the survey and the demographic data, much of which focuses on the participants' training. In order to break it up into two separate datasets, we have to find where the survey data starts and ends, and where the experimental data starts and ends. These two pieces of information are taken directly from the `.csv` file. We perform this for both the English and French versions of the survey.
+
+```{r breakitupen, echo = T}
+
+expertdataen <- str_which(dimdata, pattern = "Now, let's")
+thelastcolumn <- dim(dimdata)[2]
+
+# The first two rows are the question and the qualtrics question ID
+
+expartdata <- dimdata[3:dim(dimdata)[1],expertdataen:thelastcolumn]
+
+colnames(expartdata) <- c("age", "gender", "nationality", "job", "job_writein", 
+                          "tr_yrs", "tr_type", "inst", "cho", "cho_yrs", 
+                          "teach", "teach_yrs", "other_perf", 
+                          "other_type", "other_yrs")
+
+surveydatastarts <- which(colnames(dimdata) == "Q3")
+surveydataends <- expertdataen - 1
+
+expertrating <- dimdata[3:dim(dimdata)[1] ,surveydatastarts:surveydataends]
+
+#keep only participants with training > 10 years
+
+expertstokeep <- which(as.double(expartdata$tr_yrs) >= 10)
+expartdata <- expartdata[expertstokeep,]
+expertrating <- expertrating[expertstokeep,]
+
+```
+
+```{r breakitupfr}
+expertdatafr <- str_which(frdata, pattern = "Maintenant, parlez-nous")
+lastcolumnfr <- dim(frdata)[2]
+
+# The first two rows are the question and the qualtrics question ID
+exfrdata <- frdata[3:dim(frdata)[1],expertdatafr:lastcolumnfr]
+
+colnames(exfrdata) <- c("age", "gender", "nationality", "job", "job_writein", 
+                        "tr_yrs", "tr_type", "inst", "cho", "cho_yrs", 
+                        "teach", "teach_yrs", "other_perf",
+                        "other_type", "other_yrs")
+
+surveydatastartsfr <- which(colnames(frdata) == "Q6")
+surveydataendsfr <- expertdatafr - 1
+
+frrating <- frdata[3:dim(frdata)[1] ,surveydatastartsfr:surveydataendsfr]
+
+#keep only participants with training > 10 years
+
+expertstokeepfr <- which(as.double(exfrdata$tr_yrs) >= 10)
+expartdatafr <- exfrdata[expertstokeepfr,]
+frrating <- frrating[expertstokeepfr,]
+```
+
+### Survey data
+
+The designation of `+` after the name of a musical dimension indicates that that dimension had an 'other' option, so that participants could write in something if they thought the options provided did not accurately describe the excerpt. The columns are slightly different between the two surveys, because the French version of the survey didn't have an "Other" option for the genre, so we have two different sets of dimensions. Also, they are in a slightly different order between the two surveys. 
+
+```{r gethedims, echo = T}
+
+# The dimensions below is the musical dimensions on which 
+# each of the musical excerpts was rated.
+
+thedimensions <- c("harm", "harm+", "tempo", 
+                   "metersim", "metercomp", "meterplex", "density", 
+                   "genre", "genre+", "dyn", "dyn+", "cont", "cont+", 
+                   "motion", "motion+", "range", "artic", "artic+")
+
+thedimensionsfr <- c("harm", "harm+", "tempo", 
+                     "metersim", "metercomp", "meterplex", "density", 
+                     "genre", "range", "dyn", "dyn+", "motion", "motion+", 
+                     "cont", "cont+", "artic", "artic+")
+
+```
+
+We then transform the 2D dataframe into a 3D array, with the Excerpts on the rows, musical dimensions on the columns, and participants on the pages/slices of the array. We also need to make sure that we use the same dimension names for the excerpts for this dataset as we do for the adjectives dataset, so we use "Excerpt.n", where n is the number of the excerpt.
+
+```{r manage, echo=T}
+
+# First we assign the row numbers for the eventual combined dataset:
+lesdims <- c(1, dim(expertrating)[1], dim(expertrating)[1]+1, 
+             (dim(expertrating)[1]+dim(frrating)[1]))
+
+# Then we create the labels for dimensions for the each of the individual arrays 
+ilabelsen <- paste0("Excerpt.", 1:30) 
+klabelsen <- paste0("part", lesdims[1]:lesdims[2])
+dimlisten <- list(ilabelsen, thedimensions, klabelsen)
+
+ilabelsfr <- paste0("Excerpt.", 1:30)
+klabelsfr <- paste0("part", lesdims[3]:lesdims[4])
+dimlistfr <- list(ilabelsfr, thedimensionsfr, klabelsfr)
+
+# Initialize the array
+expertarray <- array("", dim = c(30,18,dim(expertrating)[[1]]),
+                     dimnames = dimlisten)
+expertarrayfr <- array("", dim = c(30,17,dim(frrating)[[1]]),
+                       dimnames = dimlistfr)
+
+# A sequence of numbers to use (18 columns of questions for each excerpt)
+eighteens <- seq.int(18, 540, 18)
+seventeens <- seq.int(1, 540, 18)
+
+# This loop creates a separate page for each American participant
+for (k in 1:length(expertstokeep)){
+  for (i in 1:30){  
+  expertarray[i,1:18,k] <- unlist(expertrating[(k),seventeens[i]:eighteens[i]])
+  }
+}
+
+seventeens <- seq.int(17, 510, 17) # Different sequence from above
+sixteens <- seq.int(1, 510, 17)
+
+# This loop creates a separate page for each French participant.
+for (k in 1:length(expertstokeepfr)){
+  for (i in 1:30){  
+  expertarrayfr[i,1:17,k] <- unlist(frrating[(k),sixteens[i]:seventeens[i]])
+  }
+}
+
+# Check the data to make sure that all of the responses are usable -
+# you can delete pages of the array using the line below. 
+# For example, if participant #1 was trial data and didn't have all of the 
+# same questions as the other participants, and participant 
+# 15 in this dataset didn't finish the survey. 
+# These may have already been cleaned out of the CSV file
+
+expertarray <- expertarray[,-9,]
+
+# Delete those participants from the expert participant data as well. 
+# Remember this is a 2d Dataframe, not an array, 
+# with the participants on the rows:
+
+# expartdata <- expartdata[-c(1,15)]
+
+# Double check that the dimensions are conformable
+
+# dim(expartdata)[1] == dim(expertarray)[3]
+
+```
+
+An example of one partially cleaned dataset shows that this participant rated excerpts 1, 2, 5, and 8, and did not rate excerpts 3, 4, 6, and 7. They did not opt to mark any 'other' harmonic content. 
+
+```{r ex_tables}
+
+#HTML Table
+kable(expertarray[1:8,1:8,1], booktabs = T, format = "html") %>% 
+  kable_styling(bootstrap_options = 'condensed', 
+                full_width = TRUE, font_size = 10
+                )
+
+#LaTex Table
+#kable(expertarray[1:8,1:8,1], booktabs = T, format = "latex") %>% 
+#  kable_styling(., latex_options = c("striped", "hold_position"), 
+#                full_width = T, font_size = 11)
+```
+
+## Translations and Recoding
+
+### Translations
+
+The next few chunks translate the french responses into English so that all of the responses can be processed.  We have already initialized vectors of French words and their English translations, under the objects `thefrenchwords` and `theenglishwords`.
+
+```{r french, echo = F}
+
+thefrenchwords <- c("Chromatique", "Diatonique: mineur", "Diatonique: majeur",
+                    "Harmonie structurée par les quintes / harmonie structurée par les quartes",
+                    "Ambigu", "Modale", "Gamme par ton", "Gamme blues",
+                    "Très lente", "Lente", "Moyennement lente", 
+                    "Moyennement rapide", 
+                    "Moyennement dense", 
+                    "Moyenne", "Rapide", "Très rapide",
+                    "Deux temps", "Trois temps", "Quatre temps",
+                    "Très épurée", "Modérément épurée",
+                    "Plutot épurée que dense", "Plutot dense qu'épurée", 
+                    "Très dense", "Classique", "Impressionniste", "Baroque", 
+                    "Romantique", "Contemporain", "Moderne", "Jazz-Blues",
+                    "Ambitus resserré", "Ambitus modéré", "Ambitus grand", 
+                    "Ambitus très grand", "Doux", "Moyen", "Fort", 
+                    "Varié : decrescendo progressif", 
+                    "Varié : crescendo progressif", 
+                    "Un peu des deux : doux et fort", 
+                    "Conjoint", "Disjoint", 
+                    "Une combinaison de conjoint et disjoint",
+                    "Ascendant", "Descendant", "Forme en arche", 
+                    "Petites vagues successives", "Grandes vagues successives", 
+                    "Plusieurs phases descendantes successives",
+                    "Non listé / Autre (précisez)", "Autre (précisez)", 
+                    "Je ne pense pas que cet extrait ait une mélodie"
+                    )
+
+theenglishwords <- c("Chromatic", "Diatonic: minor", "Diatonic: major", 
+                     "Quintal/Quartal", "Ambiguous", 
+                     "Modal", "Whole tone", "Blues",
+                     "Very Slow", "Slow", "Moderately Slow", "Moderately Fast",
+                     "Moderately Dense", 
+                     "Moderate", "Fast", "Very Fast",
+                     "Duple", "Triple", "Quadruple",
+                     "Very Sparse", "Moderately sparse", 
+                     "More sparse than dense", "More dense than sparse", 
+                     "Very Dense", "Classical", "Impressionist", "Baroque", 
+                     "Romantic", "Contemporary", "Modern", "Jazz/Blues",
+                     "Narrow range", "Moderate range", "Wide range", 
+                     "Very wide range", "Soft", "Mezzo", "Loud", 
+                     "Varied: gradual decrescendo", "Varied: gradual crescendo", 
+                     "Some of each, soft and loud", "Conjunct", "Disjunct", 
+                     "A combination of conjunct and disjunct",
+                     "Ascending", "Descending", "Arch", "Undulating", 
+                     "Pendulum", "Terrace", "", "", "None")
+
+```
+
+Here, `array_tree` turns our French survey array into a list, and then the loop uses the `map` function to apply the `gsub` function to all of the words in the list.\
+
+```{r translationloop, echo = TRUE}
+
+frlist <- array_tree(expertarrayfr, margin = 3)
+
+for(i in 1:length(thefrenchwords)){
+frlist <- map(frlist, ~gsub(pattern = thefrenchwords[i], x = ., 
+                            replacement = theenglishwords[i], fixed = T))
+}
+
+```
+
+Next, we translate a few outliers, some of which are recoded into other answers that were already options. 
+
+```{r frenchothers, echo = TRUE}
+frlist$part20[c(1,7),10] <- frlist$part20[c(1,7),11]
+frlist$part20[22,12] <- frlist$part20[22,13]
+frlist$part20[c(1,7),10] <- c("Some of each, soft and loud", 
+                              "Some of each, soft and loud")
+frlist$part22[16,4] <- ""
+frlist$part23[6,1] <- "Serial"
+frlist$part24[c(14,27),1] <- c("Blues", "Diatonic: major")
+frlist$part24[27,14:15] <- c("Inverted Arch", "")
+frlist$part24[14,17] <- ""
+frlist$part26[24:25,14] <- c("Monotone", "Inverted Arch")
+frlist$part26[25,14] <- "Monotone"
+
+frarray <- array(unlist(frlist), 
+                     dim = c(dim(frlist$part20)[1],dim(frlist$part20)[2],
+                             length(names(frlist))), 
+                     dimnames = list(rownames(frlist$part20), 
+                                     colnames(frlist$part20) ,names(frlist)))
+
+frarray <- frarray[,c(1:8,10,11,14,15,12,13,9,16,17),]
+
+expertarray <- abind::abind(expertarray, frarray, along = 3)
+
+#expertarray <- expertarray[,-c(2,10,12,14),]
+
+```
+
+Next, in order to shorten some of the words in the responses, we pull all of the answers, including the 'other' responses. 
+The next block of code pulls out all possible answers to all of the questions.
+
+```{r strings, echo = TRUE}
+# In order to make sure there are no duplicate words in the results, 
+# we change 'Moderate' under 'dynamics' to 'Mezzo'
+
+expertarray[,9,] <- gsub(unlist(expertarray[,9,]), fixed = T, 
+                         pattern = "Moderate", replacement = "Mezzo")
+
+# This line pulls out all unique responses from the entire array
+theterms <- map(array_branch(expertarray, margin = 2), ~unique(as.vector(.)))
+
+# Because there are some responses that are CATA, there are a number of 
+# cells with multiple words in them, so we need to run this as well, 
+# which allows us to separate out individual words.
+theterms <- map(theterms, ~unique(unlist(strsplit(., ","))))
+
+# We don't need these, because what we're really 
+# interested in is *what* the other item is. 
+wordstoremove <- c("Other", " please specify:", " please specify", 
+                   "Not listed/other (please specify)", ":")
+
+for (i in 1:length(wordstoremove)){
+  theterms <- map(theterms, ~str_remove_all(., coll(wordstoremove[i], 
+                                                    ignore_case = T)))
+}
+
+# The loop above replaces the words with empty strings, 
+# and we don't want empty strings, so we take them out.
+theterms <- map(theterms, ~stri_remove_empty(., na_empty = T))
+
+```
+
+At this point, you need to manually recode the terms (or at least some of them) in `expertarray` that are found in `wordstorecode` so that those what's there can be used to create the contingency table that we're going to make up. What follows is an example based on the preliminary data.
+
+There are also some options in the original survey that need to be recoded, for example "Other, please specify:", which should be replaced with an empty string, or "I do not think this excerpt has a melody", which should be replaced with "None", for the sake of making the column titles more concise when we make the whole thing into a contingency table. To do that, we want to look through the columns of lists that participants were allowed to offer their own responses to, which is the columns that end in a +. We don't actually need to recode all of them, but we do need to start by stripping away the "Other" options.
+
+We end up with a list, each element in the list is the cleaned responses of a single participant.
+
+```{r recoding}
+# Note that for in order for the loop below to work, 
+# the "Other, please specify:" With the semicolon has to be listed first 
+# in this character vector, otherwise you'll end up with a bunch of semicolons 
+# floating around.
+
+# We're going to replace these words:
+others <- c("Not listed/other (please specify)", "Other, please specify:", 
+            "Other, please specify", "I do not think this excerpt has a melody",
+            "I don't think this excerpt has a melody")
+
+# With these words
+otherreps <- c("", "", "", "None", "None")
+
+# We create a list, using each participant as an element in the list, but we
+# remove columns 2, 10, 12, and 14 from the datset.
+expertlist <- array_tree(expertarray[,-c(2,10,12,14),], 3)
+
+# What we're left with is there are a few 'other' elements for articulation, 
+# which are string-specific articulations, like 'detache', 
+# that were submitted by string players.
+wordstorecode <- c(theterms$`artic+`)
+
+# After looking through, select which of the terms actually need to be recoded. 
+# It looks like we can just drop harm, dyn, cont, & motion
+
+# theterms$`harm+` (col 2)
+# theterms$`dyn+`, (col 11)
+# theterms$`cont+` (col 13)
+# theterms$`motion+` (col 15)
+# theterms$`genre+`,  (col 9)
+
+wordstorecode <- c(others, wordstorecode)
+
+# Once you've done that, go back through 
+# wordstorecode and recode the values as necessary
+
+recodedwords <- c(otherreps, "Pizzicato", "Spiccato", 
+                  "Legato,Staccato", "Detache")
+
+for(i in 1:length(wordstorecode)){
+  expertlist <- map(expertlist, ~gsub(pattern = wordstorecode[i], x = ., 
+                                      replacement = recodedwords[i], fixed = T)) 
+}
+
+# When using these recoding loops, order is important- for example, if you have
+# a part of a string that is in another, longer, string, the loop will pick up 
+# the shorter part within the longer version, like 'Moderate' within 
+# 'Moderately Slow', so it will recode only the first part of that, and not the
+# rest of it. So always make sure that the longer string is listed first, 
+# so that it will have to read the entire string as a unit and won't replace
+# only part of the string.
+choicestorecode <- c("Moderately Slow", "Moderately Fast",
+                     "Very Sparse", "Moderately sparse", 
+                     "More sparse than dense","More dense than sparse", 
+                     "Moderately Dense", "Very Dense", "Narrow range", 
+                     "Moderate range", "Wide range", "Very wide range", 
+                     "Extremely wide range", "Varied: gradual decrescendo", 
+                     "Varied: gradual crescendo", "Some of each, soft and loud",
+                     "A combination of conjunct and disjunct", 
+                     "Diatonic: major", "Diatonic: minor", "Quintal/Quartal", 
+                      "Very Slow", "Slow", "Moderate", "Very Fast", "Fast",
+                     "Duple", "Triple", "Quadruple")
+
+recodedchoices <- c("F3", "F5", "D1", "D2", "D3", "D4", "D5", "D6", 
+                    "R.Nar", "R.Mod", "R.Wid", "R.Vwi", "R.Ewi", 
+                    "Gra_Decr", "Gra_Cresc", "BothS&L", "Con&Dis", "Major", 
+                    "Minor", "Quin", "F1", "F2", "F4", "F7", "F6", 
+                    "Dup", "Trip", "Quad")
+
+#Make sure these lists are the same length by checking the following:
+# length(choicestorecode) == length(recodedchoices)
+
+for(i in 1:length(choicestorecode)){
+expertlist <- map(expertlist, ~gsub(pattern = choicestorecode[i], x = ., 
+                                    replacement = recodedchoices[i], fixed = T))
+}
+```
+
+```{r}
+
+kable(expertlist$part1[1:8,1:8], booktabs = T, format = "html")  %>%
+kable_styling(bootstrap_options = 'condensed', 
+                full_width = TRUE, font_size = 10
+                )
+### ADD HTML TABLE HERE
+kable(expertlist$part1[1:8,1:8], format = "latex", booktabs = TRUE)  %>%
+  kable_styling(latex_options = c("Striped", "hold_position"), 
+                full_width = TRUE, font_size = 11)
+
+```
+
+## Transforming the data
+
+The next step is to turn that list into the formats that we want. There's probably an easier way to do all of this, but we turn the list back into an array. But first we need to specify the names of the dimensions for the array. \
+
+```{r dimnames4array}
+therownames <- unlist(dimnames(expertlist$part1)[1])
+thecolnames <- unlist(dimnames(expertlist$part1)[2])
+
+expertarray <- array(unlist(expertlist), 
+                     dim = c(dim(expertlist$part1)[1],
+                             dim(expertlist$part1)[2],
+                             length(names(expertlist))), 
+                     dimnames = list(therownames, 
+                                     thecolnames,
+                                     names(expertlist)))
+```
+
+
+```{r meterfix}
+themeter <- array(dim = c(dim(expertarray)[1],
+                          1,
+                          dim(expertarray)[3]),
+                  dimnames = list(therownames,
+                                  "meter",
+                                  names(expertlist))
+                  )
+
+for(j in 1:dim(expertarray)[3]){ # loop along participants/pages
+  for(i in 1:dim(expertarray)[1]){ # loop along rows
+    if(expertarray[i,"metersim",j] %stri==% "Dup")
+      themeter[i,1,j] <- "Dup"
+    else if(expertarray[i,"metersim",j] %stri==% "Trip")
+      themeter[i,1,j] <- "Trip"
+    else if(expertarray[i,"metersim",j] %stri==% "Quad")
+      themeter[i,1,j] <- "Quad"
+    else if(expertarray[i,"metercomp",j] %stri==% "Dup")
+      themeter[i,1,j] <- "Dup"
+    else if(expertarray[i,"metercomp",j] %stri==% "Trip")
+      themeter[i,1,j] <- "Trip"
+    else if(expertarray[i,"metercomp",j] %stri==% "Quad")
+      themeter[i,1,j] <- "Quad"
+    else if(expertarray[i,"meterplex",j] %stri==% "Dup")
+      themeter[i,1,j] <- "Dup"
+    else if(expertarray[i,"meterplex",j] %stri==% "Trip")
+      themeter[i,1,j] <- "Trip"
+    else if(expertarray[i,"meterplex",j] %stri==% "Quad")
+      themeter[i,1,j] <- "Quad"
+  }
+}
+
+themeter[is.na(themeter)] <- ""
+
+expertarray[,"metersim",] <- themeter
+
+thecolnames[3] <- "meter"
+thecolnames <- thecolnames[-c(4,5)]
+
+expertarray <- expertarray[,-c(4,5),]
+dimnames(expertarray)[2] <- list(thecolnames)
+
+```
+
+```{r nomelody}
+nomelody <- array(dim = c(dim(expertarray)[1],
+                          1,
+                          dim(expertarray)[3]),
+                  dimnames = list(therownames,
+                                  "melody",
+                                  names(expertlist))
+                  )
+
+
+for(j in 1:dim(expertarray)[3]){ # loop along participants/pages
+  for(i in 1:dim(expertarray)[1]){ # loop along rows
+    if(expertarray[i,"cont",j] %stri==% "None")
+      nomelody[i,1,j] <- "No"
+    else if(expertarray[i,"motion",j] %stri==% "None")
+      nomelody[i,1,j] <- "No"
+    else if(expertarray[i,"range",j] %stri==% "None")
+      nomelody[i,1,j] <- "No"
+  }
+}
+
+nomelody[is.na(nomelody)] <- "Yes"
+
+test <- expertarray
+
+expertarray <- abind(expertarray, array(nomelody, replace(dim(expertarray), 2, 1)), along = 2)
+
+colnames(expertarray)[12] <- "melody"
+
+```
+
+
+
+Also, because we're going to turn our data into a pseudo-contingency table, we're going to need to the unique elements in our new list, in the order that they occur. \
+
+```{r colnames, echo = TRUE}
+# This line gets all the elements
+colspecific <- map(array_branch(expertarray, margin = 2), ~unique(as.vector(.)))
+
+# This line removes the commas from the answers that haven't been removed yet.
+colspecific <- map(colspecific, ~unique(unlist(strsplit(., ","))))
+
+# numberofdims is the number of unique elements under each
+# musical dimension in colspecific
+numberofdims <- unlist(map(colspecific, ~length(.)))
+
+# We then replicate each 'stem', or dimension, the number of times specified
+# in numberofdims
+colstems <- rep(names(colspecific), numberofdims)
+
+# Because artic and artic+ both have responses, we want to combine them:
+colstems <- gsub(pattern = "+", replacement = "", colstems, fixed = T)
+
+# Create column names for the final array/list/contingency table
+allthecols <- paste(colstems, unlist(colspecific), sep = ".")
+
+# In case there are any that appear more than once
+taketheseout <- which(duplicated(allthecols))
+
+# And we're left with the names of the columns in the final dataset.
+allthecols <- allthecols[-taketheseout]
+
+# And we need this for later
+colstems <- colstems[-taketheseout]
+```
+
+## Nested loops all day, I guess
+
+`tocompareto` is the specific answers that we're going to use to compare to the data to create the array we want. We have to use `taketheseout` because we didn't remove those from that object yet. \
+
+```{r buildthearray, echo = TRUE}
+
+tocompareto <- unlist(colspecific, use.name = F)[-taketheseout]
+
+# Initialize the array of zeros 
+# that will be replaced with ones using the loop below.
+dimensionscontarray <- array(0, dim=c(30,
+                                      length(allthecols),
+                                      dim(expartdata)[1]+dim(expartdatafr)[1]), 
+                                 dimnames = list(therownames, 
+                                                 allthecols, 
+                                                 names(expertlist)))
+
+# Count all adjectives in each 
+for (k in 1:dim(expertarray)[3]){ # Cycle along pages the slowest
+  for (j in 1:dim(expertarray)[2]){ # then along columns
+    for (i in 1:dim(expertarray)[1]){ # then along rows
+      for(l in 1:length(allthecols)){ # for each individual possible response
+        if(stri_detect_fixed(expertarray[i,j,k], tocompareto[l]))
+          
+        dimensionscontarray[i,l,k] <- 1
+
+      } # ends the individual response comparison loop
+    } #ends the row loop
+  } # ends the column loop
+} # ends the page loop
+
+```
+
+Then we sum across pages of the array to create the contingency table:
+
+```{r makeitatable, echo = TRUE}
+musdimdata <- apply(dimensionscontarray,c(1,2),sum)
+```
+
+You can use `colSums(musdimdata)` to check how many of each response there are. If you're looking to remove outliers or elements for which there are fewer than n responses, that's a useful step.
+
+If not, we want to proceed to our analysis with the data only and a clear workspace, so we can create a list of the data that we want and save it, and then clear the environment.
+
+```{r fixitfirst, echo = FALSE}
+cols2drop <- c(which(colSums(musdimdata) == 1))
+
+musdimdata <- musdimdata[,-cols2drop]
+musdimdata <- musdimdata[,!stri_detect_fixed(colnames(musdimdata), "None")]
+
+dimensionscontarray <- dimensionscontarray[,-cols2drop,]
+dimensionscontarray <- dimensionscontarray[,!stri_detect_fixed(colnames(dimensionscontarray), "None"),]
+
+```
+
+
+```{r saveittoadatafile, echo = TRUE}
+catadata.list <- list("thebrick" = dimensionscontarray, 
+                      "contingency" = musdimdata, 
+                      "expert.data" = expartdata, 
+                      "french.expert.data" = exfrdata,
+                      "numberofdims" = numberofdims)
+
+save(catadata.list, file = "catadatamusdim.RData")
+
+rm(list = ls())
+```
+
+# Analysis
+
+## Organization and Factors
+
+The first thing to do once we've cleared the workspace is import the data using the `load` function, since the data is saved as an `RData` file.
+
+In this analysis, we're dropping any columns (and therefore responses) that were only selected by one of the 25 participants. This is important to note, because it also involves changing some of the numbers we have saved in the `numberofdims` list.
+
+```{r datain, echo = TRUE}
+
+load("catadatamusdim.RData")
+musdimdata <- catadata.list$contingency
+numberofdims <- catadata.list$numberofdims
+thebrick <- catadata.list$thebrick
+
+# Although we didn't take these elements out above, I did here for this analysis.
+#cols2drop <- c(which(colSums(musdimdata) == 1))
+
+rows2drop <- c(6,14) 
+
+#musdimdata <- musdimdata[,-cols2drop]
+#musdimdata <- musdimdata[,!stri_detect_fixed(colnames(musdimdata), "None")]
+
+#thebrick <- thebrick[,-cols2drop,]
+#thebrick <- thebrick[,!stri_detect_fixed(colnames(thebrick), "None"),]
+#Testing the analysis without excerpt 6:
+musdimdata.no6 <- musdimdata[-rows2drop,]
+thebrick.no6 <- thebrick[-rows2drop,,]
+
+```
+
+\
+Now, for the participants data, we basically have raw data still, so we're going to need to pick out what we need, and translate or recode things so that they are usable and simple. To make it simple, we're taking only Age, Gender, Nationality, Years of Training, and Training Type as variables for now. We'll recode gender to M/F, nationality to AM/FR, and training type to Inst/Voc (for instrumental, vocal).^[However, we ended up not using training type as a factor because we only had 2 vocalists out of 25 participants, so it's not really a balanced design there.]\ The other variables for the participants are all numeric.
+
+```{r somestuff, echo = TRUE}
+# reorder some of the columns in the french experts dataset, 
+# taking only the ones we want to analyse for now
+fr.ex.data <- catadata.list$french.expert.data[c(1:3,6,7,9:12),c(1,4,5,6,7)]
+colnames(fr.ex.data) <- c("age", "gen", "nat", "tr_yrs", "tr_type")
+fr.ex.data$gen[which(fr.ex.data$gen == "Homme")] <- "M"
+fr.ex.data$gen[which(fr.ex.data$gen == "Femme")] <- "F"
+fr.ex.data$nat <- "FR"
+fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Instrumentale")] <- "Inst"
+fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Vocale")] <- "Voc"
+
+am.ex.data <- catadata.list$expert.data[,c(1:3,6,7)]
+colnames(am.ex.data) <- colnames(fr.ex.data)
+am.ex.data$nat <- "AM"
+am.ex.data$gen[which(am.ex.data$gen == "Male")] <- "M"
+am.ex.data$gen[which(am.ex.data$gen == "Female")] <- "F"
+am.ex.data$tr_type[which(am.ex.data$tr_type == "Instrumental")] <- "Inst"
+am.ex.data$tr_type[which(am.ex.data$tr_type == "Vocal")] <- "Voc"
+
+# Bind it all together
+ex.data <- rbind(am.ex.data, fr.ex.data)
+```
+
+We assign the participant variables as factors to use as design variables in our analysis.
+
+```{r ParticipantFactors,echo=TRUE}
+bygender <- as.factor(ex.data$gen)
+bynationality <- as.factor(ex.data$nat)
+```
+
+## Cochran's Q and a Heat Map
+
+To get an idea of what our data look like, we compute Cochran's Q and then use that information to create a heatmap, including stars to indicate significance, corrected for multiple comparisons. This indicates that the majority, but not all of the musical dimensions were rated independently of one another.
+
+```{r Q4CATA, fig.width=15}
+# Compute Cochran's Q from the cube of data
+Q4CATA  <- Q4CATA.Cube(thebrick)
+# Create the vector of probability stars
+zeStars <-  p2Star( Q4CATA['Sidak p(FW)',])
+a.000.zeMapCATA <- makeggHeatMap4CT(
+                    CTstared(musdimdata, zeStars,'after'), 
+                    fontSize.x = 10, fontSize.y = 10
+                    ) + ggtitle("Heat Map and Cochran's Q (Sidak Corrected)")
+print(a.000.zeMapCATA)
+```
+
+## Run the CA
+
+Here we run the correspondence analysis. I've run the inference battery for the symmetric CA, and then renormalized to get the Asymmetric row factor scores. \
+
+```{r theca, cache = TRUE}
+
+dimcares.inf <- epCA.inference.battery(musdimdata.no6, 
+                 masses= NULL, weights= NULL, 
+                 hellinger = FALSE, symmetric = TRUE, 
+                 graphs =FALSE, test.iters = 1000)
+
+dimca.w6 <- epCA(musdimdata, 
+                  masses= NULL, weights= NULL, 
+                 hellinger = FALSE, symmetric = TRUE, 
+                 graphs =FALSE)
+
+# Renormalize the results of CA
+RenormFi <- CARenormalization(G = dimcares.inf$Fixed.Data$ExPosition.Data$fi,
+                  delta = dimcares.inf$Fixed.Data$ExPosition.Data$pdq$Dv,
+                  singularValues = TRUE,
+                  masses = NULL)
+```
+
+In order to make our lives easier, we can re-assign the row and column factor scores to objects to make them easier to reference. 
+
+```{r makelifeeasier, echo = TRUE}
+# Factor Scores
+FIsym  <- dimcares.inf$Fixed.Data$ExPosition.Data$fi
+FIasym <- RenormFi$G_A
+FJs    <- dimcares.inf$Fixed.Data$ExPosition.Data$fj
+CAEigs <- dimcares.inf$Fixed.Data$ExPosition.Data$eigs
+CApEig <- dimcares.inf$Inference.Data$components$eigs.perm
+
+```
+
+While we're at it, we can make some colors. The colors we're going to use are taken from the `wesanderson` package, which uses color palettes taken from Wes Anderson movies.
+
+```{r somecolors, echo = TRUE}
+# Participant colors:
+col4M <- wes_palettes$Rushmore1[3]
+col4F <- wes_palettes$Rushmore1[5]
+col4FR <- wes_palettes$Darjeeling1[1]
+col4AM <- wes_palettes$Darjeeling2[2]
+# 
+col4byG <- as.character(bygender)
+col4byG[col4byG == "F"] <- col4F
+col4byG[col4byG == "M"] <- col4M
+
+col4byN <- as.character(bynationality)
+col4byN[col4byN == "FR"] <- col4FR
+col4byN[col4byN == "AM"] <- col4AM
+
+# Row (musical excerpts) and Column (musical dimension/quality) colors
+# col4mus <- wes_palette("Darjeeling1", 30, type = "continuous")
+# This was used in the original analysis, but because of some reorganization,
+# it's no longer necessary.
+
+# To account for the fact that we removed some rows above:
+numberofdims[c(1,7,8,9,10)] <- c(8,7,3,4,6)
+numberofdims <- numberofdims[-11]
+
+col4cols <- wes_palette("FantasticFox1", 
+                        length(numberofdims), type = "continuous")
+col4cols <- rep(col4cols, numberofdims)
+
+```
+
+## Inferences
+
+### Bootstrap and bootstrap ratios:
+
+Bootstrapping will give us an idea of the consistency of the results, for that we use `Boot4PTCA` from the `PTCA4CATA` package.
+
+```{r bootCA, echo = TRUE,cache=TRUE}
+
+bootCA <- Boot4PTCA(ZeDataCube = thebrick.no6,
+           fi = FIsym,
+           fj = FJs,
+           eigs = CAEigs,
+           nf2keep = 3,
+           nBootIter = 500)
+# Compute Bootstrapped ratios
+bootRatios.I <- PTCA4CATA::boot.ratio.test(bootCA$RowsBoot,
+                                            critical.value = 2)
+bootRatios.J <- PTCA4CATA::boot.ratio.test(bootCA$ColumnsBoot,
+                                              critical.value = 2)
+# Probabilities 
+probBR.I  <- bootRatios.I$prob.boot.ratios
+probBR.J  <- bootRatios.J$prob.boot.ratios
+```
+
+### Permutation tests 
+
+Permutation tests allow us to determine how likely it is that our results are significant. By permuting through 1000 possible iterations of how the results turned out, how likely is it that the observed results occur? With 1000 permutations, we can determine p values as small as 0.001.
+
+```{r permut, echo = TRUE, cache = TRUE}
+# from PTCA4CATA
+#
+dimca.inf <- perm4PTCA(aCube = thebrick.no6,
+                       nIter = 1000,
+                       permType = 'byRows' ,
+                       Malinvaud = TRUE)
+Ind.Permu    <- dimca.inf$permInertia
+InertiaFixed <- dimca.inf$fixedInertia
+prob.cpt.lst <- dimca.inf$MalinvaudQ['p-perm',]
+# Get the p values for the components
+prob.cpt <- (unlist(prob.cpt.lst[2:length(prob.cpt.lst)]))
+prob.cpt[is.na(prob.cpt)] <- 1
+```
+
+
+## Distance analysis of the participants
+
+One of the initial questions we had for these surveys was whether or not there was any systemic difference between American and French participants and their ratings of the music. We may also want to try to track down a few vocalists to balance out the design and investigate whether or not there's a difference in perception between vocalists and instrumentalists.
+
+In order to do this, we need to calculate the distance between each of the respective matrices. In this specific case, because we have multiple lines with zeros throughout the dataset (remember that each participant only rated half of the excerpts), it is better to use a symmetric difference matrix instead of an RV or a chi squared distance.
+
+We then calculate the eigenvalues of the symmetric difference matrix, and from there, the factor scores, by multiplying the eigenvectors by the diagonal of singular values (square root of the eigenvalues).
+
+```{r ca4Judges}
+# We have a problem here because most matrices
+#  have lines with zeros. A symmetric difference matrix 
+#  would do better than an RV or a 
+#  chi2 distance so we use createSymDist4PTCA
+
+Cmat <- createSymDist4PTCA(thebrick)$CrossProduct
+
+# Calculate the eigenvalues and the percentage of variance extracted (tau)
+eigenCmat <- eigen(Cmat, symmetric = TRUE)
+eig4Cmat <-  eigenCmat$values
+tau4Cmat <- round( (100*eig4Cmat) / sum(eig4Cmat))
+
+# Calculate factor scores for the first three dimensions
+nk       <- 3
+F4Cmat   <- eigenCmat$vectors[,1:nk] %*% diag(eig4Cmat[1:nk]^(1/2))
+
+# Prep for plotting
+Shortnames4Participants <-  dimnames(thebrick[[3]])
+rownames(F4Cmat) <- Shortnames4Participants
+
+# Make labels
+labels4RV <- createxyLabels.gen(1,2,lambda = eig4Cmat, tau = tau4Cmat)
+```
+
+# Graphics
+
+## Participants Analysis
+
+### Scree
+
+Here we have the scree plot, it looks like we do in fact have significant dimensions. It looks like the last dimension may just be noise: 
+
+```{r screeRV, fig.height = 4, fig.width = 8, fig.align='center'}
+# Scree plot with significance
+ScreeInf <- PlotScree(ev = eig4Cmat,
+                      max.ev = NULL, alpha = 0.05,
+                      col.ns = "#006D2C",
+                      title = "RV Analysis: Explained Variance per Dimension")
+a000.00.screeRV <-  recordPlot()
+```
+
+### Participant maps
+
+In order to get the most out of the plots for the participants' factor scores, we can add a few things besides the factor scores obtained above. We can also calculate means and bootstrap them, which will give us confidence intervals for where the mean is likely to be on the plot. Additionally, we're doing this for two different factors, nationality and gender, so we'll use the colors we created above.
+
+We can create some base maps - these will show all of the individual participant factor scores. We're creating two, one with each set of colors. 
+
+```{r basemaps}
+
+BaseMap.Nationality <- createFactorMap(X = F4Cmat ,
+                              axis1 = 1, axis2 = 2,
+                              display.points = TRUE,
+                              col.points = col4byN,
+                              pch = 19, cex = 2.5, 
+                              title = "Colored according to Nationality",
+                              display.labels = TRUE,
+                              col.labels = col4byN,
+                              text.cex = 4, font.face = "bold",
+                              font.family = "sans",
+                              col.axes = "darkorchid",
+                              alpha.axes = 0.2,
+                              width.axes = 1.1,
+                              col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                              force = 1, segment.size = 3)
+
+BaseMap.Gender <- createFactorMap(X = F4Cmat ,
+                              axis1 = 1, axis2 = 2,
+                              display.points = TRUE,
+                              col.points = col4byG,
+                              pch = 19, cex = 2.5,
+                              title = "Colored according to Gender",
+                              display.labels = TRUE,
+                              col.labels = col4byG,
+                              text.cex = 4, font.face = "bold",
+                              font.family = "sans",
+                              col.axes = "darkorchid",
+                              alpha.axes = 0.2,
+                              width.axes = 1.1,
+                              col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                              force = 1, segment.size = 3)
+```
+
+Next, we calculate the means for the factor groupings, and then bootstrap them:
+
+```{r means4graphs}
+gendermeans <- getMeans(F4Cmat, bygender)
+nationmeans <- getMeans(F4Cmat, bynationality)
+
+BootCube.N <- PTCA4CATA::Boot4Mean(F4Cmat, design = bynationality,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(BootCube.N$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(BootCube.N$BootCube)[[2]])
+
+BootCube.G <- PTCA4CATA::Boot4Mean(F4Cmat, design = bygender,
+                      niter = 100,
+                      suppressProgressBar = TRUE)
+dimnames(BootCube.G$BootCube)[[2]] <- paste0('Dimension ',
+                                             1: dim(BootCube.G$BootCube)[[2]])
+```
+
+And use those bootstrapped means to plot our confidence intervals as ellipses:
+
+```{r ellipses, echo = TRUE}
+n.ellipse <- MakeCIEllipses(BootCube.N$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = c(col4AM, col4FR))
+g.ellipse <- MakeCIEllipses(BootCube.G$BootCube[,1:2,], 
+                            names.of.factors = c("Dimension 1","Dimension 2"),
+                            col = c(col4M, col4F))
+```
+
+And here we use all of the above to create factor plots with the individual factor scores for the participants, along with the group means and confidence intervals for the nationality design and the gender design.
+
+```{r}
+n.symdist.means <- createFactorMap(nationmeans,
+                              axis1 = 1, axis2 = 2, 
+                              title = "Colored according to Nationality",
+                              col.points =  c(col4AM, col4FR),
+                              alpha.points = 1, # no transparency
+                              constraints = BaseMap.Nationality$constraints,
+                              display.points = TRUE,
+                              pch = 19, cex = 5,
+                              display.labels = TRUE,
+                              col.labels = c(col4AM, col4FR), 
+                              text.cex = 4,font.face = "bold",
+                              font.family = "sans", col.axes = "darkorchid", 
+                              alpha.axes = 0.2, width.axes = 1.1, 
+                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
+                              force = 1, segment.size = 0)
+
+g.symdist.means <- createFactorMap(gendermeans,
+                              axis1 = 1, axis2 = 2, 
+                              title = "Colored according to Gender",
+                              col.points =  c(col4M, col4F),
+                              alpha.points = 1, # no transparency
+                              constraints = BaseMap.Gender$constraints,
+                              display.points = TRUE,
+                              pch = 19, cex = 5,
+                              display.labels = TRUE,
+                              col.labels = c(col4M, col4F), 
+                              text.cex = 4,font.face = "bold",
+                              font.family = "sans", col.axes = "darkorchid", 
+                              alpha.axes = 0.2, width.axes = 1.1, 
+                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
+                              force = 1, segment.size = 0)
+
+a.01.map4part <- BaseMap.Nationality$zeMap_background + labels4RV +
+                  BaseMap.Nationality$zeMap_dots +
+                  n.symdist.means$zeMap_text + 
+                    n.symdist.means$zeMap_dots + n.ellipse
+
+a.02.map4part <- BaseMap.Gender$zeMap_background + labels4RV +
+                  BaseMap.Gender$zeMap_dots + g.symdist.means$zeMap_text +
+                    g.symdist.means$zeMap_dots + g.ellipse
+```
+
+Here we have the RV Factor scores plot for the participants, colored by nationality on the left and by gender on the right. For the nationality plot, blue is American, red is French. For the gender plot, Male is orange, Female is green. It looks like both dimensions extract similar amounts of information from the dataset: the first dimension explains 8% of the variance and the second dimension explains 7% of the variance. 
+
+With the participant factor maps colored by design,  we see that neither gender nor nationality show any significant differences, with the ellipses overlapping quite a bit.
+
+```{r printRVbydesign, echo = true, fig.width=15,figure.show = 'hold'}
+grid.arrange(as.grob(a.01.map4part), 
+             as.grob(a.02.map4part), ncol = 2,
+             top = textGrob("Factor Scores for Expert Ratings", 
+                            gp = gpar(fontsize = 18, font = 3)))
+
+```
+
+## Plots for the Excerpts
+
+```{r, include = FALSE}
+dim1eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[1]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)
+
+dim2eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[2]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)
+
+dim3eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[3]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)
+
+```
+
+
+### Scree for the Excerpts
+First let's look at a scree plot for the excerpts. This suggests that there are 3 dimensions that explain between ~10% and 20% of the variance each. The first three dimensions explain `r dim1eigperc`, `r dim2eigperc` and `r dim3eigperc` percent of the variance, so we'll focus on those below. 
+
+```{r scree4excerpts}
+mus.scree <- PlotScree(dimcares.inf$Fixed.Data$ExPosition.Data$eigs, 
+                       dimcares.inf$Inference.Data$components$p.vals, 
+                       plotKaiser = T, color4Kaiser = "red"
+                                              )
+
+mus.00.scree <- recordPlot()
+
+```
+```{r perm4eigs, include=FALSE}
+zeDim = 12
+eigpermplot <- prettyHist(distribution = dimca.inf$ permEigenvalues, 
+                          observed = dimca.inf$fixedEigenvalues[zeDim], 
+                          xlim = c(0, (2*dimca.inf$fixedEigenvalues[zeDim])), # needs to be set by hand
+                          breaks = 20,
+                          border = "white", 
+                          main = paste0("Permutation Test for Eigenvalue ",zeDim),
+                          xlab = paste0("Eigenvalue ",zeDim), 
+                          ylab = "", 
+                          counts = FALSE, 
+                          cutoffs = c( 0.975))
+```
+
+### Hierarchical Cluster Analysis
+
+Because this study is exploratory in nature, we don't have any set groups to start with. Instead, we'll use an HCA to determine what groups arise between these excerpts. The tree shows us that we have five distinct groups, with Excerpt 6 in a group all by itself, and Excerpt 14 grouped by itself, but more closely with the rightmost branch of the tree. That may actually cause issues with the inferences and bootstrapping later, but for now let's leave it as is.
+
+```{r HCAW6}
+D <- dist(dimca.w6$ExPosition.Data$fi, method = "euclidean")
+fit.w6 <- hclust(D, method = "ward.D2")
+
+ngroups <- 6
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ 
+ex.groups <- cutree(fit.w6, k= ngroups)
+
+col4exgrp.w6 <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4],
+                    "5" = col4extree[5],
+                    "6" = col4extree[6]
+                    )
+
+col4extree.w6 <- col4exgrp.w6[fit.w6$order]
+
+mus.tree4excerpts.w6 <- factoextra::fviz_dend(fit.w6,  k = ngroups, 
+                        k_colors = unique(col4extree.w6), 
+                        label_cols = col4extree.w6,
+                        cex = .4, xlab = 'Excerpts',
+                        main = 'Cluster Analysis: Excerpts') 
+ 
+print(mus.tree4excerpts.w6)
+```
+
+It may make sense to save this design for use with the design for the analysis of the adjectives data.
+
+```{r getthedesignw6, echo = F}
+
+excerptsdesign.w6 <- col4exgrp.w6
+
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[1]] <- "ex.group1"
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[2]] <- "ex.group2"
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[3]] <- "ex.group3"
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[4]] <- "ex.group4"
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[5]] <- "ex.group5"
+excerptsdesign.w6[excerptsdesign.w6 == unique(col4exgrp.w6)[6]] <- "ex.group6"
+
+thedesign.w6 <- as.factor(excerptsdesign.w6)
+
+ex.design.w6 <- list("thedesign.w6" = thedesign.w6,
+                  "col4exgrp.w6" = col4exgrp.w6,
+                  "ex.cols.w6" = unique(col4exgrp.w6)
+                  )
+
+save(ex.design.w6, file = "excerptsdesignw6.RData")
+
+```
+
+### Row Factor Score Plots
+
+Next we create and print the factor score plot for the excerpts, colored according to the clusters extracted by the HCA. 
+
+It's clear that Excerpt 6 is a massive outlier. Excerpt 6 is written in a modern, minimalistic style, and doesn't have a 'melody' per se. It has no vertical motion, therefore no real contour. We may see this play out below when we look at the column factor score plots. 
+
+Additionally, it's strange to see Excerpt 14, which was grouped with the red group above, apparently right in the middle of those according to the first two dimensions. It may help to look at the 2nd and 3rd dimensions together to see what is up with this.
+
+```{r excerptsbytreew6, fig.height=10, fig.align = 'center'}
+
+axisone <- 1
+axistwo <- 2
+
+mustau.w6 <- dimca.w6$ExPosition.Data$pdq$tau
+muslam.w6 <- dimca.w6$ExPosition.Data$pdq$eigs
+
+muslabs <- paste("Ex", c(1:30), sep = ".")
+
+labelsforexcerpts <- createxyLabels.gen(axisone,axistwo,lambda = muslam.w6, tau = mustau.w6)
+
+rownames(dimca.w6$ExPosition.Data$fi) <- muslabs
+
+title4exgraph <- "Row Factor Scores, \nColored according to the HCA"
+
+Basemap.w6 <- createFactorMap(dimca.w6$ExPosition.Data$fi, 
+                                      axis1 = axisone, 
+                                      axis2 = axistwo, 
+                                      display.labels = T,
+                                      col.points = col4exgrp.w6, 
+                                      col.labels = col4exgrp.w6,
+                                      title = title4exgraph
+                                      )
+
+mus.010w612 <- Basemap.w6$zeMap_background + 
+              Basemap.w6$zeMap_text + 
+                Basemap.w6$zeMap_dots + 
+                  labelsforexcerpts
+
+axisone <- 3
+axistwo <- 2
+Basemap.w61 <- createFactorMap(dimca.w6$ExPosition.Data$fi, 
+                                      axis1 = axisone, 
+                                      axis2 = axistwo, 
+                                      display.labels = T,
+                                      col.points = col4exgrp.w6, 
+                                      col.labels = col4exgrp.w6,
+                                      title = title4exgraph
+                                      )
+
+
+mus.010w623 <- Basemap.w61$zeMap_background + 
+              Basemap.w61$zeMap_text + 
+                Basemap.w61$zeMap_dots + 
+                  labelsforexcerpts
+
+#print(mus.010w612)
+#rint(mus.010w623)
+
+```
+
+Excerpt 14 doesn't seem to bet an outlier in the first two dimensions, but it's clear looking at dimensions 2 and 3 that it is an outlier perhaps in some of the higher dimensions.
+
+```{r no6w6sbs,fig.width=14,figure.show = 'hold'}
+grid.arrange(as.grob(mus.010w612), 
+             as.grob(mus.010w623), ncol = 2,
+             top = textGrob("Factor Scores for Expert Ratings", 
+                            gp = gpar(fontsize = 18, font = 3)))
+```
+
+Removing the outlier from the dataset changes the space, as we see in the following plots. Because Excerpt 6 and 14 were in groups by themselves in the HCA above, and are outliers overall, we're going to continue with the visualizations using the other 28 excerpts as we see in this hierarchical cluster analysis: 
+
+```{r HCA}
+D <- dist(FIsym, method = "euclidean")
+fit <- hclust(D, method = "ward.D2")
+
+ngroups <- 4
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ 
+ex.groups <- cutree(fit, k= ngroups)
+
+col4exgrp <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4],
+                    #"5" = col4extree[5],
+                    )
+
+col4extree <- col4exgrp[fit$order]
+
+mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = unique(col4extree), 
+                        label_cols = col4extree,
+                        cex = .4, xlab = 'Excerpts',
+                        main = 'Cluster Analysis: Excerpts') 
+ 
+print(mus.tree4excerpts)
+
+#1 - blue, 2 - red, 3 - green, 4 - yellow
+
+```
+
+```{r whatif, include = FALSE}
+
+test <- epCA(musdimdata[-c(6,14),], graphs = FALSE)
+
+D <- dist(test$ExPosition.Data$fi, method = "euclidean")
+fit <- hclust(D, method = "ward.D2")
+
+ngroups <- 4
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ 
+ex.groups <- cutree(fit, k= ngroups)
+
+col4exgrp <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4],
+                    )
+
+col4extree <- col4exgrp[fit$order]
+
+mus.tree4excerpts.1 <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = unique(col4extree), 
+                        label_cols = col4extree,
+                        cex = .4, xlab = 'Excerpts',
+                        main = 'Cluster Analysis: Excerpts') 
+ 
+print(mus.tree4excerpts.1)
+
+
+```
+
+
+For which we save the design for future reference:
+
+```{r getthedesign}
+
+excerptsdesign <- col4exgrp
+
+excerptsdesign[excerptsdesign == unique(col4exgrp)[1]] <- "ex.group1"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[2]] <- "ex.group2"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[3]] <- "ex.group3"
+excerptsdesign[excerptsdesign == unique(col4exgrp)[4]] <- "ex.group4"
+
+
+thedesign <- as.factor(excerptsdesign)
+
+ex.design <- list("thedesign" = thedesign,
+                  "col4exgrp" = col4exgrp,
+                  "ex.cols" = unique(col4exgrp)
+                  )
+
+excerptsdesign <- list("ex.design" = ex.design,
+                       "ex.design.w6" = ex.design.w6)
+
+
+save(excerptsdesign, file = "excerptsdesign.RData")
+
+```
+
+And here in this row factor score plot.
+
+```{r excerptsbytree, fig.height=10, fig.align = 'center'}
+
+axisone <- 1
+axistwo <- 2
+
+mustau <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$tau
+muslam <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$eigs
+
+muslabs <- paste("Ex", c(1:5,7:13,15:30), sep = ".")
+
+labelsforexcerpts <- createxyLabels.gen(axisone,axistwo,lambda = muslam, tau = mustau)
+
+rownames(FIsym) <- muslabs
+
+title4exgraph <- "Row Factor Scores, \nColored according to the HCA"
+
+Basemap.excerpts <- createFactorMap(FIsym, 
+                                      axis1 = axisone, 
+                                      axis2 = axistwo, 
+                                      display.labels = T,
+                                      col.points = col4exgrp, 
+                                      col.labels = col4exgrp,
+                                      title = title4exgraph
+                                      )
+
+mus.010 <- Basemap.excerpts$zeMap_background + 
+              Basemap.excerpts$zeMap_text + 
+                Basemap.excerpts$zeMap_dots + 
+                  labelsforexcerpts
+
+print(mus.010)
+```
+
+```{r excerptsbytree, fig.height=10, fig.align = 'center', include = FALSE, eval=FALSE}
+
+axisone <- 1
+axistwo <- 2
+
+mustau <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$tau
+muslam <- dimcares.inf$Fixed.Data$ExPosition.Data$pdq$eigs
+
+muslabs <- paste("Ex", c(1:5,7:30), sep = ".")
+
+labelsforexcerpts <- createxyLabels.gen(axisone,axistwo,lambda = muslam, tau = mustau)
+
+rownames(FIsym) <- muslabs
+
+title4exgraph <- "Row Factor Scores, \nColored according to the HCA"
+
+Basemap.excerpts <- createFactorMap(FIsym, 
+                                      axis1 = axisone, 
+                                      axis2 = axistwo, 
+                                      display.labels = T,
+                                      col.points = col4exgrp, 
+                                      col.labels = col4exgrp,
+                                      title = title4exgraph
+                                      )
+
+mus.010 <- Basemap.excerpts$zeMap_background + 
+              Basemap.excerpts$zeMap_text + 
+                Basemap.excerpts$zeMap_dots + 
+                  labelsforexcerpts
+
+print(mus.010)
+```
+
+Seeing how the space changes may be easier if we plot the two side by side:
+
+```{r no6w6sbs,fig.width=12,figure.show = 'hold'}
+grid.arrange(as.grob(mus.010w6), 
+             as.grob(mus.010), ncol = 2,
+             top = textGrob("Factor Scores for Expert Ratings", 
+                            gp = gpar(fontsize = 18, font = 3)))
+```
+
+Because the excerpts we've pulled are so different, it may make sense to consider them 'out of sample' and project them into the original factor space.
+
+```{r project6, fig.height=10}
+
+mat6 <- as.matrix(catadata.list$contingency[c(6,14),])
+colnames(mat6) <- colnames(catadata.list$contingency)
+
+#test <- epCA(musdimdata.no6, 
+#                  masses= NULL, weights= NULL, 
+#                 hellinger = FALSE, symmetric = TRUE, 
+#                 graphs =FALSE)
+
+proj6 <- supplementaryRows(mat6, dimcares.inf$Fixed.Data)
+
+rownames(proj6$fii) <- c("Ex.6","Ex.14")
+
+scoresw6 <- rbind(FIsym, proj6$fii)
+
+cols4proj <- c(col4exgrp, gplots::col2hex(c("blueviolet", "blueviolet")))
+
+axisone <- 1
+axistwo <- 2
+
+dertitel <- "Row Factor Scores, Colored according to the HCA \nIncluding Supplementary projections"
+
+
+project6 <- createFactorMap(X = scoresw6,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = cols4proj,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = cols4proj,
+                                    text.cex = 4, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3,
+                                    title = dertitel
+                                    )
+
+mus.003.1 <- project6$zeMap_background + labelsforexcerpts + project6$zeMap_dots + project6$zeMap_text
+
+print(mus.003.1)
+
+```
+
+Here we have a plot of the excerpts using dimensions 2 and 3. What we've done here is essential rotate the above plot 90 degrees, so that the first dimension (the X axis above) is now in the orientation that the 3rd dimension (the Z axis above) was. 
+
+What this illustrates is how Excerpt 14 is now an outlier, whereas when looking at the first two dimensions, it seemed to lie much closer to the other excerpts. It will definitely be interesting to see how the column factor scores plot into this space.
+
+```{r excerptsmaps23, fig.height=10}
+
+axisone <- 3
+axistwo <- 2
+
+labelsforexcerpts <- createxyLabels.gen(axisone, axistwo,lambda = muslam, tau = mustau)
+
+Basemap.ex.dim23 <- createFactorMap(X = scoresw6,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = cols4proj,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = cols4proj,
+                                    text.cex = 4, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3,
+                                    title = dertitel
+                                    )
+                                    
+
+mus.004 <- Basemap.ex.dim23$zeMap_background + labelsforexcerpts + Basemap.ex.dim23$zeMap_dots
+mus.005 <- Basemap.ex.dim23$zeMap_background + labelsforexcerpts + Basemap.ex.dim23$zeMap_text
+mus.006 <- Basemap.ex.dim23$zeMap + labelsforexcerpts
+
+print(mus.006)
+```
+
+### Column Factor Score Plots
+
+Here we plot the column factor scores. These are the musical dimensions that the musical experts used to rate the excerpts. Because we're using the symmetric factor scores, it's plotted in the same space, albeit using different X and Y constraints as the Row (Excerpt) factor score plot of dimensions 1 and 2. 
+
+```{r colmaps, fig.height=10, echo = TRUE, out.width='100%'}
+
+axisone <- 1
+axistwo <- 2
+
+labelsforexcerpts <- createxyLabels.gen(axisone, axistwo,lambda = muslam, tau = mustau)
+
+Basemap.cols <- createFactorMap(X = FJs,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = col4cols,
+#                                    constraints = Basemap.excerpts$constraints,
+                                    title = "Column Factor Scores \nColored according to dimension group",
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = col4cols,
+                                    text.cex = 2.5, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3
+                                    )
+                                    
+
+mus.007 <- Basemap.cols$zeMap_background + labelsforexcerpts + Basemap.cols$zeMap_dots
+mus.008 <- Basemap.cols$zeMap_background + labelsforexcerpts + Basemap.cols$zeMap_text
+mus.009 <- Basemap.cols$zeMap + labelsforexcerpts
+
+print(mus.009)
+```
+
+This is incredibly busy, so we can create plots for each of the groups of musical dimensions: one plot for all Harmony classifications, one for all Tempo classifications, etc. For each of the dimensions that are labeled with a number, 1 is the least, and increasing numbers indicate increasing value of that dimension. For example, `tempo.F1` is very slow and `tempo.F7` is very fast. This will help us evaluate what is driving the dimensionality of this space.
+
+THe first two dimensions seem to be outlined by temporal dimensions. Tempo seems to track along the first dimension, with higher tempos (`F7`) being high on the positive end of dimension one and lower tempos (`F1`, `F2`) far out on the negative end of dimension one. Meter, the feeling of pulse, lays along the 2nd dimension. Tempo also seems to largely track with articulation, with the exception of Detache, with slower tempos more closely associated with legato, or smooth articulations, and faster tempos being associated with staccato & spiccato, or more short and separated articulations.
+
+Genre seems to be largely clustered around the barycenter, with two notable exceptions. This may be a factor of scarcity, as correspondence analysis highlights information that is rare. Besides those two, `genre.Folk/Country` and `genre.Jazz/Blues`, the other genres were more consistently associated with a greater number of excerpts.
+
+Range has an interesting effect of loading on both dimensions - very wide tracks with both high tempo and a couple of contour variables, and narrow range tracks with "cont.Monotone" and "melody.No".
+
+Finally, looking at the scale for each of these sets of variables gives an idea of how close or distant from the barycenter the variables score on the dimensions, and therefore also gives us an idea of how each of the musical qualities contributes to the space.
+
+```{r morecolmaps, fig.show = 'hold', out.width="50%", ncols = 2, echo = TRUE, fig.align="default"}
+# This was originally initialized as something else. Instead of changing each
+# instance, I'm just changing this one.
+FJ.all <- FJs
+#Initialize an empty list
+FJ.split <- vector(mode = "list", length = length(numberofdims))
+
+# Name the elements of the list with the names of each group of musical dimensions
+names(FJ.split) <- names(numberofdims)
+
+# This loop puts the factor scores for each group of musical dimensions 
+# in each element of the list
+for (i in 1:length(numberofdims)){
+    FJ.split[[i]] = FJ.all[which(stri_startswith(rownames(FJ.all), 
+                                                 coll = names(numberofdims)[i])), ]
+    }
+
+# We also need to do the same for the constraints
+FJ.constraints <- vector(mode = "list", length = length(numberofdims))
+names(FJ.constraints) = names(numberofdims)
+axisone <- 1
+axistwo <- 2
+
+for (i in 1:length(numberofdims)){
+    
+  FJ.constraints[[i]] <- minmaxHelper(FJ.split[[i]], 
+                                      axis1 = axisone, axis2 = axistwo)
+}
+
+# And finally we need to create a list for the actual maps
+FJ.maps <- vector(mode = "list", length = length(numberofdims))
+names(FJ.maps) = names(numberofdims)
+# This loop uses the three lists we've created to create a set of maps, with one
+# for each group of factor scores.
+
+
+for (i in 1:length(numberofdims)){
+  
+  FJ.maps[[i]] <- createFactorMap(FJ.split[[i]],
+                                  axis1 = axisone, axis2 = axistwo,
+                                  constraints = FJ.constraints[[i]],
+                                  col.points = unique(col4cols)[i],
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = unique(col4cols)[i],
+                                    text.cex = 2.5, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3
+                                    )
+  print(FJ.maps[[i]]$zeMap + labelsforexcerpts)
+}
+
+
+```
+
+We can also plot only the musical qualities that contribute significantly significant musical dimensions/qualities. What we're defining as significant contributions here is more than the average, i.e. more than `1/N`, where N is the number of columns in the contingency table. Notably missing from this plot is `genre.Folk/Country`, which we expected to see in the first quadrant.
+
+```{r plotfjsigonly, fig.height=10, echo = TRUE, out.width='100%'}
+unsignedCJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj[,1:2]
+signedCJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
+
+sig.colsonly <-  rownames(FJs)[(unsignedCJ[,1] > (1/nrow(FJs))) | 
+                                 (unsignedCJ[,2] > (1/nrow(FJs))) ]
+
+sig.FJs <- FJs[sig.colsonly,1:2]
+
+col4sigcolsonly <- col4cols[(unsignedCJ[,1] > (1/nrow(FJs))) | 
+                              (unsignedCJ[,2] > (1/nrow(FJs))) ]
+
+#Q.colsonly <- FJs[Q4CATA[3,] <= .05, ]
+
+Sig.cols.factorplot <- createFactorMap(X = sig.FJs,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = col4sigcolsonly,
+                                    constraints = Basemap.cols$constraints,
+                                    title = "Factor Scores for Musical Dimensions \nSignificant columns only",
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = col4sigcolsonly,
+                                    text.cex = 2.5, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1
+                                    )
+
+mus.009.sig <- Sig.cols.factorplot$zeMap + labelsforexcerpts
+
+print(mus.009.sig)
+```
+
+## Symmetric and Asymmetric Factor Score Plots
+
+Because this is a correspondence analysis, we can plot the rows and columns in the same space to see how they correspond to one another. Below are Asymmetric and Symmetric maps, each of which has a slightly different interpretation. The interpretations for each are included with the plots below. 
+
+
+### Symmetric map
+
+This map plots both the rows and columns on the same space. This plot is deceptively simple. Understanding the relationships between the row points and the column points requires interpretation of both the angle between the two and the total distance from the barycenter. As such, while this is all on the same plot, it's tough to evaluate exactly how the two correspond. 
+
+However, we can take some things away from this: to use a few examples from the extremes, we see that excerpt 6 most closely corresponds to dyn.Gra_Cresc, range.none, motion.none, and contour.none, in the 3rd quadrant, while in the fourth quadrant, although the row score for Excerpt 23 and the column score for dyn.Loud are right on top of each other, they shouldn't be considered equal. A more informative piece of information comes from the fact that the angle between the row score for Excerpt 23 and the column score for genre.Folk/Country is approximately 0, even though they're further apart. 
+
+Additionally, in both of these cases, it's important to mention that distance from the barycenter also indicates how unique each of these elements are. CA is useful in that it weights unique elements more strongly than common ones. The fact that genre.Folk/Country is so far from the barycenter suggests that is fairly unique in how it is distributed among the rows, possibly heavily or only in the row for Excerpt 23. We may get a clearer picture of this in the asymmetric plot.
+
+```{r symmetricmap, fig.show = 'hold', fig.height=10}
+exmap.sym <- createFactorMapIJ(scoresw6,
+                                sig.FJs,
+                                axis1 = axisone,axis2 = axistwo,
+                                col.points.i = cols4proj, 
+                                col.labels.i = cols4proj, 
+                                col.points.j = col4sigcolsonly, 
+                                col.labels.j = col4sigcolsonly,
+                                text.cex.i = 3, text.cex.j = 3
+                                )
+
+vc.labels <- createxyLabels(resCA = dimcares.inf$Fixed.Data)
+
+mus.011 <- exmap.sym$baseMap +  exmap.sym$I_points + 
+            exmap.sym$I_labels + exmap.sym$J_points + 
+              exmap.sym$J_labels + vc.labels + 
+                ggtitle('Symmetric Map')
+  
+print(mus.011)
+```
+
+
+
+### Asymmetric map with simplex
+
+The asymmetric plot features a simplex, which is basically the two dimensional polygonal projection of the outline of the column space. The interpretation of the relationships between the row and column scores is now much more direct, because the row factor scores have been renormalized. This plot does not include the supplementary projections of Excerpts 6 and 14.
+
+This plot does in fact show us that Excerpt 23 and genre.Folk/Country are right on top of one another, suggesting Excerpt 23 is the only Excerpt that participants thought belonged to the Folk/Country genre. Compare that to harm.Blues and genre.Jazz/Blues and Excerpt 14, that suggests that although Excerpt 14 was very commonly associated with those two columns, it isn't the only excerpt to be so.
+
+
+```{r factormapswsimplex, fig.height = 10, fig.show = 'hold', out.width='100%'}
+
+exmap.asym <- createFactorMapIJ(RenormFi$G_A,
+                                FJs,
+                                axis1 = axisone,axis2 = axistwo,
+                                col.points.i = col4exgrp, 
+                                col.labels.i = col4exgrp, 
+                                col.points.j = col4cols, 
+                                col.labels.j = col4cols,
+                                #constraints = Basemap.excerpts$constraints,
+                                text.cex.i = 2.5, text.cex.j = 2.5
+                                )
+
+# It's a fairly complex simplex, so we specify the vertices between which the
+# simplex should be drawn.
+
+excerptedges <- c("harm.Blues", "genre.Folk/Country", "tempo.F7", 
+                  "artic.Spiccato", "genre.Classical", "meter.Trip", 
+                  "dyn.Soft", "tempo.F1") 
+#"genre.Romantic",  "genre.Baroque", 
+#                    "harm.Ambiguous", 
+#                  "dyn.Gra_Cres",)
+#                   "harm.Quin", "artic.Detache", 
+#                  "range.None", "dyn.Soft", 
+#                  )
+
+simplexorder <- match(excerptedges, colnames(musdimdata))
+
+zePoly.J <- PTCA4CATA::ggdrawPolygon(FJs, order2draw = simplexorder)
+
+vc.labels <- createxyLabels(resCA = dimcares.inf$Fixed.Data)
+
+mus.012 <- exmap.asym$baseMap + zePoly.J + 
+            exmap.asym$I_points + 
+              exmap.asym$I_labels + 
+                exmap.asym$J_points + 
+                  exmap.asym$J_labels + 
+                    vc.labels + ggtitle('Asymmetric Map with Simplex')
+  
+  
+print(mus.012)
+```
+
+## Contributions
+
+Here we graph how each row or column contributes to the first through third dimensions. The rows and columns that contribute significantly to each dimension are colored and the ones that do not contribute significantly are grayed out for that dimension.
+
+We see on the first dimension, strong contributions in the positive direction from red excerpts, especially 4, 23, and 26. The negative dimension has strong contributions from the yellow-orange excerpts, especially excerpt 27, but also excerpt 3 from the green group. The columns contributing to the first dimension were the fast (positive) versus slow (negative) tempo columns, loud (positive) and soft (negative) dynamics, and staccato & marcato (positive) vs. legato (negative).
+
+On the second dimension, the excerpts that contribute significantly come from a few different groups. Besides excerpt 14, which is in a group by itself, we also see positive contributions from red and yellow-orange excerpts. We also see negative contributions from red and green excerpts, especially Excerpts 1, 2, 3, and and 11. The columns that contribute significantly are quadruple meter (positive) vs. triple meter (negative), along with more modern (positive) vs. archaic genre columns. Blues harmony (positive) vs. minor harmony (negative) are also contributing.
+
+Excerpt 14 dominates the third dimension, with the excerpt dominating the row contributions and Jazz/Blues genre and harmony columns dominating the column contributions.
+
+```{r justsomeconts}
+
+signed.ctrI <- dimcares.inf$Fixed.Data$ExPosition.Data$ci * sign(FIsym)
+signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
+
+CIlist.dim <- vector(mode = "list", length = 3)
+CJlist.dim <- vector(mode = "list", length= 3)
+
+names(CIlist.dim) <- c("Dim1", "Dim2", "Dim3")
+names(CJlist.dim) <- c("Dim1", "Dim2", "Dim3")
+
+for (i in 1:3){
+  CIlist.dim[[i]] <- signed.ctrI[which(abs(signed.ctrI[,i]) > 1/nrow(signed.ctrI)),i]
+  CJlist.dim[[i]] <- signed.ctrJ[which(abs(signed.ctrJ[,i]) > 1/nrow(signed.ctrJ)),i]
+}
+
+#orderedcolors <- vector(mode = "list", length = 6) 
+#names(orderedcolors) = c("CI1", "CI2", "CI3", "CJ1", "CJ2", "CJ3")
+
+#orderedcolors$CI1 <- col4exgrp[order(signed.ctrI[,1])]
+
+
+```
+
+
+```{r contributions, fig.width=14}
+# plot contributions of rows for component 1
+ctrI.1 <- PrettyBarPlot2(CIlist.dim$Dim1,
+                         threshold = 1 / NROW(signed.ctrI),
+                         font.size = 3,
+                         color4bar = col4exgrp[which(abs(signed.ctrI[,1]) > 1/nrow(signed.ctrI))] , # we need hex code
+                         ylab = 'Contributions', #sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrI), 1.2*max(signed.ctrI))
+) #+ ggtitle("Component 1", subtitle = 'Rows')
+
+# plot contributions of columns for component 1
+ctrJ.1 <- PrettyBarPlot2(CJlist.dim$Dim1,
+                         threshold = 1 / NROW(signed.ctrJ),
+                         font.size = 3,
+                         color4bar = col4cols[which(abs(signed.ctrJ[,1]) > 1/nrow(signed.ctrJ))], # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrJ), 1.2*max(signed.ctrJ))
+) #+ ggtitle("", subtitle = 'Columns')
+
+# plot contributions of rows for component 2
+ctrI.2 <- PrettyBarPlot2(CIlist.dim$Dim2,
+                         threshold = 1 / NROW(signed.ctrI),
+                         font.size = 3,
+                         color4bar = col4exgrp[which(abs(signed.ctrI[,2]) > 1/nrow(signed.ctrI))] , # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrI), 1.2*max(signed.ctrI))
+) #+ ggtitle("Component 2", subtitle = 'Rows')
+
+# plot contributions of columns for component 2
+ctrJ.2 <- PrettyBarPlot2(CJlist.dim$Dim2,
+                         threshold = 1 / NROW(signed.ctrJ),
+                         font.size = 3,
+                         color4bar = col4cols[which(abs(signed.ctrJ[,2]) > 1/nrow(signed.ctrJ))], # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrJ), 1.2*max(signed.ctrJ))
+)# + ggtitle("", subtitle = 'Columns')
+
+# plot contributions of rows for component 2
+ctrI.3 <- PrettyBarPlot2(CIlist.dim$Dim3,
+                         threshold = 1 / NROW(signed.ctrI),
+                         font.size = 3,
+                         color4bar = col4exgrp[which(abs(signed.ctrI[,3]) > 1/nrow(signed.ctrI))] , # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrI), 1.2*max(signed.ctrI))
+)# + ggtitle("Component 3", subtitle = 'Rows')
+
+# plot contributions of columns for component 2
+ctrJ.3 <- PrettyBarPlot2(CJlist.dim$Dim3,
+                         threshold = 1 / NROW(signed.ctrJ),
+                         font.size = 3,
+                         color4bar = col4cols[which(abs(signed.ctrJ[,3]) > 1/nrow(signed.ctrJ))], # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrJ), 1.2*max(signed.ctrJ))
+)# + ggtitle("", subtitle = 'Columns')
+
+grid.arrange(
+    as.grob(ctrI.1),as.grob(ctrJ.1),
+    as.grob(ctrI.2),as.grob(ctrJ.2),
+    as.grob(ctrI.3),as.grob(ctrJ.3),
+    ncol = 2,nrow = 3,
+    top = textGrob("Contributions", gp = gpar(fontsize = 18, font = 3))
+  )
+
+Ctr.IJ <- recordPlot()
+```
+
+## Bootstrap ratios
+
+The bootstrap ratios tell us how consistently across the bootstrapping the rows and columns load on a given dimension. Although they might not be contributing significantly in the same way that the values above do, we can see that they are loading consistently to a certain degree on a given dimension as identified below. Higher values indicate more consistent loadings. Columns that aren't consistent are gray and the ones that do meet our threshold are colored according to their assigned colors from above. The code above the plotting removes the values that had NANs from the bootstrapping. Generally that occurs if there aren't enough values to bootstrap, or if there were only entries in one row. Those columns are omitted from the plots below.
+
+```{r bootstraps}
+BR.I <- bootRatios.I$boot.ratios
+
+BRJ.list <- vector(mode = "list", length = 6)
+names(BRJ.list) <- c("BR.J.1", "BR.J.2", "BR.J.3", 
+                     "BR.J.1cols", "BR.J.2cols", "BR.J.3cols")
+
+BRJ.list$BR.J.1 <- bootRatios.J$boot.ratios[!is.nan(bootRatios.J$boot.ratios[,1]),1]
+BRJ.list$BR.J.1cols <- col4cols[!is.nan(bootRatios.J$boot.ratios[,1])]
+BRJ.list$BR.J.2 <- bootRatios.J$boot.ratios[!is.nan(bootRatios.J$boot.ratios[,2]),2]
+BRJ.list$BR.J.2cols <- col4cols[!is.nan(bootRatios.J$boot.ratios[,2])]
+BRJ.list$BR.J.3 <- bootRatios.J$boot.ratios[!is.nan(bootRatios.J$boot.ratios[,3]),3]
+BRJ.list$BR.J.3cols <- col4cols[!is.nan(bootRatios.J$boot.ratios[,3])]
+
+
+laDim = 1
+
+# Plot the bootstrap ratios for Dimension 1
+ba001.BR1.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = col4exgrp, # we need hex code
+                  ylab = 'Bootstrap ratios'
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+ba002.BR1.J <- PrettyBarPlot2(BRJ.list$BR.J.1,
+                        threshold = 2,
+                        font.size = 2,
+                   color4bar = BRJ.list$BR.J.1cols,
+                  ylab = 'Bootstrap ratios',
+                  
+) + ggtitle("", subtitle = 'Columns')
+
+# Plot the bootstrap ratios for Dimension 2
+laDim = 2
+ba003.BR2.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = col4exgrp, # we need hex code
+                  ylab = 'Bootstrap ratios'
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+ba004.BR2.J <- PrettyBarPlot2(BRJ.list$BR.J.2,
+                        threshold = 2,
+                        font.size = 2,
+                   color4bar = BRJ.list$BR.J.2cols,#[-c(which(is.nan(probBR.J)))], # we need hex code
+                  ylab = 'Bootstrap ratios'
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle("", subtitle = 'Columns')
+
+laDim = 3
+ba005.BR2.I <- PrettyBarPlot2(BR.I[,laDim],
+                        threshold = 2,
+                        font.size = 3,
+                   color4bar = col4exgrp, # we need hex code
+                  ylab = 'Bootstrap ratios'
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
+
+ba006.BR2.J <- PrettyBarPlot2(BRJ.list$BR.J.3,
+                        threshold = 2,
+                        font.size = 2,
+                   color4bar = BRJ.list$BR.J.3cols,#[-c(which(is.nan(probBR.J)))], # we need hex code
+                  ylab = 'Bootstrap ratios'
+                  #ylim = c(1.2*min(BR[,laDim]), 1.2*max(BR[,laDim]))
+) + ggtitle("", subtitle = 'Columns')
+
+```
+
+
+```{r theboots, fig.width=14}
+
+grid.arrange(
+    as.grob(ba001.BR1.I),as.grob(ba002.BR1.J),
+    as.grob(ba003.BR2.I),as.grob(ba004.BR2.J),
+    as.grob(ba005.BR2.I),as.grob(ba006.BR2.J),
+    ncol = 2,nrow = 3,
+    top = textGrob("Bootstrap ratios", gp = gpar(fontsize = 18, font = 3))
+  )
+
+BR.IJ <- recordPlot()
+
+```
+
+# Interpretation
+
+Sometimes looking at the factor score plots creates a clear picture of how the various rows and columns are related, and sometimes the differences are slightly more difficult to parse. In cases like that, the contributions help clarify what the relationships are. 
+
+What is really interesting here is that looking at the contributions, one of the confounding points of this experiment becomes clear. Many aspects of music are very closely associated, it's difficult to separate them. For example, certain genres are associated with certain harmonic or structural elements, and certain types of articulation are much more likely to be associated with certain tempos. 
+
+There are a few musical elements revealed from the associations. The term staccato means short or light and separated, and the term legato means smooth and connected. The participants in this experiment didn't have access to scores, so they would be judging the excerpts aurally only. With faster excerpts, the notes by definition take up less time, and may be more likely to be judged as light and separate, regardless of what the actual articulation was. Slow tempo and legato are associated in different ways. In terms of performance practice or pedagogy, slow notes are often intended to be connected as smoothly as possible, in order to create a sense of continuity. In terms of genre and harmony, while jazz/blues (on the third dimension) is the most extreme example of this, many genres have harmonies associated with them. For example, the classical genre has fairly structured rules for both harmony and voice leading, but the romantic era relaxed those rules and introduced more complex harmonies. The gradual devolution of those rules and the increase in complexity of harmony continued through the modern and contemporary styles. Although these specific contributions aren't as strong as some of the others, a glance back at the factor scores plot shows that the older genres: baroque, classical, and romantic, are both negative on the 2nd dimension, as are the simpler harmonies of major and minor. Likewise the newer genres: impressionist, modern, and contemporary, load positively on the 2nd dimension, along with the more complex harmonies of chromatic, whole tone, and ambiguous. Historically speaking, the whole tone scale gained great popularity with composers in the impressionist era. 
+
+One perceptual element that is revealed here is that tempo and dynamics seem to contribute, intensity-wise, similarly to the first dimension. The excerpts were not intentionally composed with those characteristics being similar in mind, but it's entirely possible that participants associated high or low arousal levels of the various excerpts and that turned up in the results. For example, given two excerpts of similar tempo, one may have been rated slightly faster if it was also louder, and the other slightly slower if it was quieter. Likewise, given excerpts of similar volume, a faster one may have been rated louder than a slower one. Perception of tempo is also affected by note rate, which is also tied to arousal. In two pieces played at the same tempo, the one with more notes per unit time is more likely to be judged faster than one with fewer.
+
+One thing that is very clear in this analysis is that excerpts that are opposite one another in the space are about as different as can be. For example:
+
+## Excerpts 16 and 24
+
+These two excerpts, 16 and 24, differ in terms of qualities that contribute to the first dimension, perhaps most notably, tempo. They are also very different in terms of articulation and volume, and perhaps range and motion. They don't really differ in terms of qualities that contribute to the second dimension: they have similarly complex harmony and similar genre. Although meter does load on the second dimension, they do have different meters. 24 is in 12/8 and 16 is in 3/4. It's remarkable how different two excerpts can be but only differ on a few quantifiable musical dimensions.
+
+### 16
+
+<figure>
+    <audio
+      controls
+      src="EX_16Gar.mp3">
+    </audio>
+</figure>
+
+### 24
+
+<figure>
+    <audio
+      controls
+      src="EX_24Gar.mp3">
+    </audio>
+</figure>
+
+## Excerpts 14 and 11
+
+Similarly, Excerpt 14 and Excerpt 11 differ in terms of musical qualities that load on the second dimension. Excerpt 14 is the jazzy excerpt, and Excerpt 11, is incredibly square. It's obvious that are very different, but quantifiably, they differ on harmonic material, meter, and genre, but not as much on dimensions that load on the first dimension. They have similar articulation styles, range, and dynamics. Also, they differ on a few musical qualities that were not measured in this experiment, for example melodic complexity.  
+
+### 14
+
+<figure>
+    <audio
+      controls
+      src="EX_14Gar.mp3">
+    </audio>
+</figure>
+
+### 11
+
+<figure>
+    <audio
+      controls
+      src="EX_11Gar.mp3">
+    </audio>
+</figure>
+
+## Excerpts 12 and 13
+
+Excerpts 12 and 13 differ on qualities in both the 1st and 2nd dimensions. The most striking feature of Excerpt 12 is that it features quintal harmony. It also has a deceptively fast metronome marking, although the rhythmic complexity makes that difficult to ascertain.  Excerpt 13 is harmonically incredibly simple, and although it features a modulation to and from the relative minor, it uses very simple chord progressions. Technically the tempo marking, the dotted quarter note pulse is 133 bpm, is slower than that of excerpt 12, for which the quarter note pulse is 144 bpm, but because of the faster note rate it appeared to be faster. Excerpt 12, the fastest rhythm is an eighth note, which is only used for emphasis, but it overall could easily be perceived as the pulse being set to the half note.
+
+### 12
+
+<figure>
+    <audio
+      controls
+      src="EX_12Gar.mp3">
+    </audio>
+</figure>
+
+### 13
+
+<figure>
+    <audio
+      controls
+      src="EX_13Gar.mp3">
+    </audio>
+</figure>
+
+As a final note, it's interesting that numbers all clustered like this. The numbers are the order in which I wrote these excerpts, so it's not surprising to see that, for example, some sequential excerpts are directly opposed to one another.
+
+```{R regraphPath, echo = FALSE, include = FALSE}
+powerpointFilename <- 'MusicalDimensionsFigures.pptx'
+path2pptx    <- '../Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Musical Dimensions '
+```
+
+```{r saveGraphs, message = FALSE, warning = FALSE, error = FALSE, eval = FALSE}
+pptx4musdim <- PTCA4CATA::saveGraph2pptx(file2Save.pptx = name4Graphs, 
+                 title = title4Graphs, 
+                 addGraphNames = TRUE)
+```
+
+# Citations & Packages used
+
+```{r citations}
+knitr::write_bib()
+```
+

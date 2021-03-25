@@ -1,0 +1,4 @@
+"0","powerpointFilename <- 'Music-Descriptor-Space.pptx'"
+"0","path2pptx    <- './Analysis/'"
+"0","name4Graphs  <- paste0(path2pptx,powerpointFilename)"
+"0","title4Graphs <- 'Music Descriptor Space '"

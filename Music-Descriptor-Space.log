@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.10)  17 MAR 2021 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.10)  26 MAR 2021 21:57
 entering extended mode
 **./Music-Descriptor-Space.tex
 (Music-Descriptor-Space.tex
@@ -920,214 +920,225 @@ Underfull \vbox (badness 1028) has occurred while \output is active []
 [3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[4] [5]
+[4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[6] [7] [8] [9]
+[5] [6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[10]
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[9] [10] [11] [12]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-63.
+68.
 ("C:\Users\Brendon\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (258.89534pt too wide) in paragraph at lines 267--267
+Overfull \hbox (258.89534pt too wide) in paragraph at lines 272--272
 []\T1/lmtt/m/n/12 ## [1] "R is not in interactive() mode. Resample-based tests 
 will be conducted. Please take note of the progress bar."[] 
  []
 
 
-Overfull \hbox (42.77023pt too wide) in paragraph at lines 267--267
+Overfull \hbox (42.77023pt too wide) in paragraph at lines 272--272
 []\T1/lmtt/m/n/12 ## ==========================================================
 ======================[] 
  []
 
-<Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf, id=76, 578.16pt x 289
+<Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf, id=88, 578.16pt x 289
 .08pt>
 File: Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf Graphic file (typ
 e pdf)
 <use Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/screeRV-1.pd
-f  used on input line 276.
+f  used on input line 281.
 (pdftex.def)             Requested size: 469.75385pt x 234.8769pt.
-[11 <./Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf, id=99, 469.75
-5pt x 325.215pt>
+<Music-Descriptor-Space_files/figure-latex/judgesplot.Q-1.pdf, id=89, 469.755pt
+ x 433.62pt>
+File: Music-Descriptor-Space_files/figure-latex/judgesplot.Q-1.pdf Graphic file
+ (type pdf)
+<use Music-Descriptor-Space_files/figure-latex/judgesplot.Q-1.pdf>
+Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/judgesplot.Q
+-1.pdf  used on input line 290.
+(pdftex.def)             Requested size: 234.87692pt x 216.80946pt.
+[13] [14 <./Music-Descriptor-Space_files/figure-latex/screeRV-1.pdf> <./Music-D
+escriptor-Space_files/figure-latex/judgesplot.Q-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf, id=134, 469.7
+55pt x 325.215pt>
 File: Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf Graphic f
 ile (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/scree4excerp
-tsq-1.pdf  used on input line 290.
+tsq-1.pdf  used on input line 304.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[12 <./Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf, id=112, 722.7p
+[15 <./Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf, id=147, 722.7p
 t x 325.215pt>
 File: Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf Graphic fi
 le (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/contribution
-sQ-1.pdf  used on input line 304.
+sQ-1.pdf  used on input line 317.
 (pdftex.def)             Requested size: 469.76045pt x 211.3922pt.
-[13]
+
+LaTeX Warning: Reference `fig:factormapswsimplexQ' on page 16 undefined on inpu
+t line 327.
+
+[16 <./Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[14 <./Music-Descriptor-Space_files/figure-latex/contributionsQ-1.pdf>]
+[17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15]
-<Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1.pdf, id=139, 4
-69.755pt x 578.16pt>
-File: Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1.pdf Graph
-ic file (type pdf)
-<use Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1.pdf>
-Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/factormapsws
-implexQ-1.pdf  used on input line 322.
+[18]
+<Music-Descriptor-Space_files/figure-latex/factormaps.Q-1.pdf, id=171, 469.755p
+t x 578.16pt>
+File: Music-Descriptor-Space_files/figure-latex/factormaps.Q-1.pdf Graphic file
+ (type pdf)
+<use Music-Descriptor-Space_files/figure-latex/factormaps.Q-1.pdf>
+Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/factormaps.Q
+-1.pdf  used on input line 335.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1.pdf, id=140, 469.7
-55pt x 325.215pt>
-File: Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1.pdf Graphic f
-ile (type pdf)
-<use Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1.pdf>
-Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/unnamed-chun
-k-1-1.pdf  used on input line 339.
+<Music-Descriptor-Space_files/figure-latex/a.part.scree-1.pdf, id=172, 469.755p
+t x 325.215pt>
+File: Music-Descriptor-Space_files/figure-latex/a.part.scree-1.pdf Graphic file
+ (type pdf)
+<use Music-Descriptor-Space_files/figure-latex/a.part.scree-1.pdf>
+Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/a.part.scree
+-1.pdf  used on input line 352.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[16] [17 <./Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1.pdf
->]
-<Music-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf, id=167, 469.755pt x 
+<Music-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf, id=173, 469.755pt x 
 433.62pt>
 File: Music-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf Graphic file (ty
 pe pdf)
 <use Music-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/map4RV.A-1.p
-df  used on input line 350.
+df  used on input line 363.
 (pdftex.def)             Requested size: 469.75386pt x 433.61894pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[18 <./Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1.pdf>] [19 <.
-/Music-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf, id=201, 469
+[19] [20 <./Music-Descriptor-Space_files/figure-latex/factormaps.Q-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf, id=204, 469
 .755pt x 325.215pt>
 File: Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf Graphic
  file (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/scree4descri
-ptors-1.pdf  used on input line 365.
+ptors-1.pdf  used on input line 378.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[20 <./Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf, id=213, 469.7
+
+Underfull \vbox (badness 2334) has occurred while \output is active []
+
+[21 <./Music-Descriptor-Space_files/figure-latex/a.part.scree-1.pdf>] [22 <./Mu
+sic-Descriptor-Space_files/figure-latex/map4RV.A-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf, id=235, 469.7
 55pt x 325.215pt>
 File: Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf Graphic f
 ile (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/contribution
-s.A-1.pdf  used on input line 377.
+s.A-1.pdf  used on input line 390.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[21 <./Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf>]
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 398--398
+[23 <./Music-Descriptor-Space_files/figure-latex/scree4descriptors-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24 <./Music-Descriptor-Space_files/figure-latex/contributions.A-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/theboots.A-1.pdf, id=261, 1011.78pt 
+x 325.215pt>
+File: Music-Descriptor-Space_files/figure-latex/theboots.A-1.pdf Graphic file (
+type pdf)
+<use Music-Descriptor-Space_files/figure-latex/theboots.A-1.pdf>
+Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/theboots.A-1
+.pdf  used on input line 402.
+(pdftex.def)             Requested size: 469.76266pt x 150.99513pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[25 <./Music-Descriptor-Space_files/figure-latex/theboots.A-1.pdf>]
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 422--422
 []\T1/lmtt/m/n/12 ## [1] "Preprocessed the Tables of the data matrix using:  MF
 A_Normalization"[] 
  []
 
 
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 407--407
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 431--431
 []\T1/lmtt/m/n/12 ## [1] "Preprocessed the Tables of the data matrix using:  MF
 A_Normalization"[] 
  []
 
-<Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf, id=230, 469.755pt x 57
+
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+[26]
+<Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf, id=283, 469.755pt x 57
 8.16pt>
 File: Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf Graphic file (type
  pdf)
 <use Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf
-  used on input line 413.
+  used on input line 437.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Music-Descriptor-Space_files/figure-latex/mfasbs-2.pdf, id=231, 469.755pt x 57
-8.16pt>
-File: Music-Descriptor-Space_files/figure-latex/mfasbs-2.pdf Graphic file (type
- pdf)
-<use Music-Descriptor-Space_files/figure-latex/mfasbs-2.pdf>
-Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/mfasbs-2.pdf
-  used on input line 421.
-(pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Music-Descriptor-Space_files/figure-latex/mfasbs-3.pdf, id=232, 469.755pt x 57
-8.16pt>
-File: Music-Descriptor-Space_files/figure-latex/mfasbs-3.pdf Graphic file (type
- pdf)
-<use Music-Descriptor-Space_files/figure-latex/mfasbs-3.pdf>
-Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/mfasbs-3.pdf
-  used on input line 429.
-(pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[22] [23 <./Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf>] [24 <./Mus
-ic-Descriptor-Space_files/figure-latex/mfasbs-2.pdf>] [25 <./Music-Descriptor-S
-pace_files/figure-latex/mfasbs-3.pdf>]
-<Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf, id=299, 469.755pt x
+[27] [28 <./Music-Descriptor-Space_files/figure-latex/mfasbs-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf, id=312, 469.755pt x
  325.215pt>
 File: Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf Graphic file (t
 ype pdf)
 <use Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/screePLSC-1.
-pdf  used on input line 447.
+pdf  used on input line 456.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \vbox (badness 8113) has occurred while \output is active []
-
-[26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[27 <./Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf, id=319, 722.7pt 
+[29 <./Music-Descriptor-Space_files/figure-latex/screePLSC-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf, id=327, 722.7pt 
 x 289.08pt>
 File: Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf Graphic file
  (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/loadingsplsc
--1.pdf  used on input line 459.
+-1.pdf  used on input line 468.
 (pdftex.def)             Requested size: 469.76045pt x 187.90417pt.
-[28 <./Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf, id=333, 578.16pt x 
+[30 <./Music-Descriptor-Space_files/figure-latex/loadingsplsc-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf, id=341, 578.16pt x 
 433.62pt>
 File: Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf Graphic file (t
 ype pdf)
 <use Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/contsplsc-1.
-pdf  used on input line 471.
+pdf  used on input line 480.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
-[29 <./Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf>]
-<Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf, id=349, 867.2
+[31 <./Music-Descriptor-Space_files/figure-latex/contsplsc-1.pdf>]
+<Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf, id=358, 867.2
 4pt x 433.62pt>
 File: Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf Graphic f
 ile (type pdf)
 <use Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf>
 Package pdftex.def Info: Music-Descriptor-Space_files/figure-latex/factorplotsP
-LSC-1.pdf  used on input line 485.
+LSC-1.pdf  used on input line 494.
 (pdftex.def)             Requested size: 469.75827pt x 234.87912pt.
-[30 <./Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf>]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[31]
+[32 <./Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1.pdf>]
+Underfull \vbox (badness 1028) has occurred while \output is active []
 
-LaTeX Warning: Reference `fig:mfasbs' on page 32 undefined on input line 503.
+[33]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[32] [33] AED endfloat: Processing end Figures and Tables [34] (Music-Descripto
-r-Space.aux)
+[34] [35] [36] [37] AED endfloat: Processing end Figures and Tables [38] (Music
+-Descriptor-Space.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17530 strings out of 479584
- 273136 string characters out of 2860516
- 616437 words of memory out of 3000000
- 34157 multiletter control sequences out of 15000+200000
- 460806 words of font info for 120 fonts, out of 3000000 for 9000
+ 17548 strings out of 479584
+ 273280 string characters out of 2860516
+ 617424 words of memory out of 3000000
+ 34159 multiletter control sequences out of 15000+200000
+ 460774 words of font info for 120 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,11n,88p,2263b,495s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 85i,11n,88p,2263b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Brendon/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mat
 hit.enc}{C:/Users/Brendon/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
 lm-ec.enc}<C:/Users/Brendon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
@@ -1138,9 +1149,9 @@ fonts/type1/public/lm/lmr8.pfb><C:/Users/Brendon/AppData/Local/Programs/MiKTeX
 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Brendon/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/Brendon/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Music-Descriptor-Space.pdf (34 pages, 395350 bytes).
+Output written on Music-Descriptor-Space.pdf (38 pages, 411705 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
- 28956 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 115 named destinations out of 1000 (max. 500000)
+ 28980 words of extra memory for PDF output out of 29859 (max. 10000000)
 

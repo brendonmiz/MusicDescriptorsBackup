@@ -1,4 +1,7 @@
-"0","library(TExPosition)"
-"0","library(TInPosition)"
-"0","library(data4PCCAR)"
-"0","pls.res <- tepPLS(dimcontingency, adjcontingency, DESIGN = adj.design$thedesign[-c(6,14)])"
+"0","library(TExPosition)
+library(TInPosition)
+library(data4PCCAR)
+"
+"2","Error: package or namespace load failed for ‘data4PCCAR’:
+ object ‘epGPCA’ is not exported by 'namespace:ExPosition'
+"

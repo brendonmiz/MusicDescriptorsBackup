@@ -1,0 +1,1361 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Music Descriptors Supplementary materials},
+  pdfauthor={Brendon Mizener},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Manuscript styling
+\usepackage{upgreek}
+\usepackage{caption}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+\usepackage{endfloat}
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Music Descriptors Supplementary materials}
+\author{Brendon Mizener}
+\date{3/29/2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{supplementary-tables-plots-for-musical-qualities-survey}{%
+\section{Supplementary Tables \& Plots for Musical Qualities
+Survey}\label{supplementary-tables-plots-for-musical-qualities-survey}}
+
+\begin{lltable}
+
+\scriptsize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.fi.table1}Row Factor Scores, Musical Qualities Survey, Dimensions 1:14}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.fi.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endhead
+Excerpt.1 & 0.34 & -0.27 & 0.58 & -0.31 & 0.03 & -0.14 & 0.13 & -0.33 & 0.16 & 0.03 & 0.12 & -0.14 & -0.01 & -0.08\\
+Excerpt.2 & 0.06 & -0.42 & 0.42 & -0.25 & -0.04 & 0.17 & 0.09 & 0.11 & 0.13 & 0.11 & -0.19 & 0.30 & 0.01 & 0.17\\
+Excerpt.3 & -0.42 & -0.56 & -0.02 & -0.20 & 0.08 & 0.03 & -0.12 & -0.06 & 0.07 & 0.06 & -0.06 & -0.10 & 0.03 & -0.05\\
+Excerpt.4 & 0.59 & -0.06 & 0.24 & -0.01 & 0.18 & -0.40 & 0.12 & 0.17 & 0.10 & -0.09 & -0.18 & -0.22 & 0.05 & -0.05\\
+Excerpt.5 & -0.24 & -0.06 & 0.16 & -0.12 & 0.00 & 0.07 & 0.11 & 0.27 & -0.23 & -0.05 & 0.05 & -0.28 & 0.12 & 0.22\\
+Excerpt.7 & -0.38 & 0.32 & 0.20 & -0.15 & -0.24 & -0.28 & 0.14 & 0.10 & -0.07 & -0.15 & 0.19 & 0.16 & -0.36 & 0.03\\
+Excerpt.8 & 0.15 & 0.27 & -0.14 & -0.01 & -0.32 & 0.11 & 0.05 & -0.03 & 0.21 & -0.17 & 0.09 & 0.00 & 0.15 & 0.01\\
+Excerpt.9 & 0.11 & 0.22 & 0.17 & 0.19 & -0.40 & 0.19 & -0.02 & 0.01 & 0.02 & -0.07 & -0.11 & 0.03 & -0.11 & -0.12\\
+Excerpt.10 & -0.43 & 0.24 & 0.06 & -0.08 & 0.19 & -0.34 & -0.55 & 0.15 & -0.01 & -0.09 & 0.10 & 0.10 & 0.04 & -0.01\\
+Excerpt.11 & -0.19 & -0.52 & -0.23 & 0.25 & 0.06 & -0.01 & 0.07 & 0.21 & 0.08 & -0.06 & 0.22 & 0.02 & 0.14 & -0.04\\
+Excerpt.12 & -0.34 & 0.47 & 0.50 & 0.39 & 0.07 & 0.33 & -0.19 & 0.16 & 0.00 & 0.21 & -0.04 & -0.24 & -0.04 & -0.14\\
+Excerpt.13 & 0.44 & -0.26 & -0.18 & 0.04 & 0.17 & -0.08 & 0.03 & 0.28 & -0.27 & 0.02 & -0.11 & 0.16 & -0.03 & -0.30\\
+Excerpt.15 & -0.24 & 0.33 & -0.05 & 0.44 & 0.00 & -0.26 & 0.28 & -0.18 & -0.01 & 0.20 & -0.14 & 0.11 & -0.05 & -0.04\\
+Excerpt.16 & 0.35 & 0.10 & 0.24 & 0.29 & 0.00 & 0.00 & 0.03 & 0.09 & -0.24 & 0.27 & 0.20 & 0.19 & 0.20 & 0.15\\
+Excerpt.17 & -0.26 & -0.43 & -0.19 & -0.15 & -0.04 & 0.14 & 0.10 & 0.01 & 0.13 & 0.20 & 0.32 & 0.04 & -0.07 & -0.17\\
+Excerpt.18 & -0.19 & 0.07 & 0.04 & -0.20 & -0.10 & 0.08 & 0.20 & 0.19 & -0.07 & -0.16 & -0.04 & -0.04 & -0.12 & 0.01\\
+Excerpt.19 & 0.33 & 0.49 & -0.05 & -0.15 & -0.15 & 0.02 & -0.14 & 0.01 & 0.18 & -0.13 & 0.14 & 0.02 & 0.25 & -0.06\\
+Excerpt.20 & 0.17 & -0.09 & -0.41 & 0.14 & -0.39 & -0.05 & 0.13 & 0.04 & -0.10 & 0.12 & 0.00 & -0.22 & -0.06 & 0.10\\
+Excerpt.21 & -0.35 & 0.09 & -0.25 & -0.09 & 0.16 & 0.09 & 0.12 & -0.18 & -0.09 & -0.10 & -0.08 & -0.12 & -0.02 & -0.13\\
+Excerpt.22 & 0.05 & -0.08 & -0.18 & -0.37 & -0.36 & -0.09 & -0.44 & -0.14 & -0.09 & 0.38 & -0.12 & -0.06 & -0.09 & 0.03\\
+Excerpt.23 & 0.59 & 0.30 & -0.27 & -0.11 & 0.53 & 0.32 & -0.06 & 0.10 & 0.19 & 0.03 & 0.07 & -0.02 & -0.30 & 0.14\\
+Excerpt.24 & -0.52 & -0.03 & 0.04 & -0.06 & 0.22 & 0.14 & 0.03 & -0.26 & -0.33 & -0.15 & -0.03 & 0.03 & 0.08 & 0.05\\
+Excerpt.25 & 0.24 & 0.23 & -0.04 & -0.29 & -0.05 & 0.24 & 0.01 & -0.12 & -0.16 & -0.12 & -0.12 & 0.13 & 0.13 & -0.10\\
+Excerpt.26 & 0.60 & -0.12 & -0.03 & 0.25 & 0.12 & -0.07 & -0.11 & -0.36 & -0.22 & -0.07 & 0.16 & -0.03 & -0.09 & 0.07\\
+Excerpt.27 & -0.44 & 0.56 & -0.26 & -0.16 & 0.31 & -0.19 & 0.26 & -0.10 & 0.21 & 0.27 & -0.07 & 0.04 & 0.15 & 0.05\\
+Excerpt.28 & -0.23 & -0.25 & -0.15 & 0.18 & 0.00 & -0.08 & -0.13 & -0.04 & 0.10 & -0.28 & -0.15 & 0.00 & -0.03 & 0.15\\
+Excerpt.29 & 0.22 & -0.12 & -0.30 & 0.07 & -0.08 & -0.05 & -0.09 & 0.07 & 0.06 & 0.03 & -0.22 & 0.06 & 0.02 & 0.08\\
+Excerpt.30 & -0.21 & -0.31 & 0.14 & 0.62 & -0.01 & 0.10 & -0.10 & -0.15 & 0.29 & -0.10 & -0.08 & 0.09 & -0.05 & 0.01\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\scriptsize{
+
+\begin{longtable}{llllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.fi.table2}Row Factor Scores, Musical Qualities Survey, Dimensions 15 - 27}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.fi.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endhead
+Excerpt.1 & 0.11 & 0.12 & -0.15 & -0.09 & -0.01 & 0.01 & 0.01 & 0.01 & 0.05 & -0.06 & -0.06 & 0.02 & 0.02\\
+Excerpt.2 & 0.16 & -0.01 & 0.16 & -0.03 & 0.04 & 0.00 & 0.01 & 0.02 & 0.01 & 0.03 & 0.01 & -0.04 & -0.05\\
+Excerpt.3 & -0.25 & 0.00 & 0.08 & -0.08 & 0.04 & 0.04 & -0.09 & -0.01 & -0.02 & 0.04 & 0.01 & -0.07 & 0.08\\
+Excerpt.4 & -0.13 & -0.10 & 0.02 & 0.14 & -0.03 & -0.05 & 0.07 & 0.04 & 0.00 & 0.05 & 0.05 & -0.01 & -0.03\\
+Excerpt.5 & 0.03 & 0.03 & -0.04 & -0.14 & 0.02 & -0.08 & -0.03 & -0.14 & -0.06 & 0.03 & 0.05 & 0.06 & -0.01\\
+Excerpt.7 & -0.02 & -0.02 & -0.09 & -0.01 & -0.04 & 0.03 & -0.08 & 0.08 & -0.06 & 0.08 & 0.02 & 0.00 & 0.01\\
+Excerpt.8 & -0.06 & -0.07 & 0.08 & -0.14 & 0.07 & 0.13 & 0.11 & 0.07 & 0.05 & 0.00 & 0.08 & 0.04 & 0.02\\
+Excerpt.9 & -0.06 & -0.13 & 0.05 & -0.12 & -0.15 & -0.24 & 0.09 & -0.05 & -0.05 & -0.07 & -0.04 & -0.04 & 0.03\\
+Excerpt.10 & 0.09 & 0.03 & 0.06 & -0.03 & 0.04 & -0.08 & 0.03 & -0.04 & 0.14 & -0.03 & 0.01 & -0.01 & 0.01\\
+Excerpt.11 & -0.03 & 0.11 & 0.10 & -0.02 & -0.15 & -0.04 & -0.01 & 0.11 & 0.00 & 0.03 & -0.10 & 0.04 & -0.03\\
+Excerpt.12 & 0.04 & -0.07 & 0.00 & 0.01 & 0.07 & 0.08 & -0.07 & 0.11 & 0.00 & 0.00 & -0.02 & 0.00 & -0.03\\
+Excerpt.13 & 0.12 & 0.07 & -0.03 & -0.10 & 0.06 & 0.07 & 0.01 & 0.00 & -0.09 & -0.06 & 0.05 & 0.01 & 0.02\\
+Excerpt.15 & -0.18 & 0.17 & 0.05 & -0.11 & 0.13 & 0.01 & 0.04 & -0.11 & 0.04 & 0.04 & -0.05 & 0.01 & -0.05\\
+Excerpt.16 & -0.12 & -0.04 & -0.13 & 0.05 & -0.15 & 0.10 & 0.03 & -0.03 & 0.05 & -0.02 & 0.02 & -0.05 & 0.04\\
+Excerpt.17 & -0.04 & -0.19 & -0.10 & 0.11 & 0.11 & -0.07 & 0.03 & -0.08 & 0.03 & -0.03 & 0.04 & 0.00 & -0.06\\
+Excerpt.18 & -0.03 & 0.02 & 0.16 & 0.21 & 0.02 & 0.12 & 0.01 & -0.09 & 0.05 & -0.09 & -0.08 & 0.03 & 0.04\\
+Excerpt.19 & 0.06 & 0.10 & -0.01 & 0.08 & 0.08 & 0.03 & -0.03 & -0.08 & -0.14 & 0.05 & -0.06 & -0.07 & -0.02\\
+Excerpt.20 & 0.16 & 0.15 & -0.01 & 0.04 & 0.08 & -0.08 & -0.03 & 0.08 & 0.07 & -0.02 & 0.03 & -0.07 & 0.02\\
+Excerpt.21 & 0.20 & -0.07 & 0.00 & -0.05 & -0.23 & 0.12 & 0.04 & -0.08 & 0.07 & 0.08 & 0.02 & -0.05 & -0.04\\
+Excerpt.22 & -0.05 & 0.08 & 0.03 & 0.07 & -0.11 & 0.06 & 0.09 & 0.01 & -0.08 & 0.01 & 0.00 & 0.06 & -0.03\\
+Excerpt.23 & -0.08 & 0.11 & -0.04 & -0.04 & -0.01 & -0.02 & 0.06 & 0.00 & 0.01 & 0.01 & -0.01 & -0.01 & 0.01\\
+Excerpt.24 & -0.01 & 0.01 & -0.06 & 0.08 & 0.10 & -0.06 & 0.18 & 0.10 & -0.06 & 0.02 & -0.02 & -0.01 & 0.01\\
+Excerpt.25 & -0.13 & 0.09 & -0.06 & 0.06 & -0.03 & -0.09 & -0.16 & 0.03 & 0.10 & 0.01 & 0.04 & 0.04 & -0.02\\
+Excerpt.26 & 0.05 & -0.16 & 0.22 & -0.01 & 0.04 & 0.00 & -0.10 & -0.01 & -0.03 & -0.01 & 0.00 & 0.02 & -0.01\\
+Excerpt.27 & 0.10 & -0.09 & 0.06 & 0.02 & -0.07 & -0.06 & -0.08 & 0.05 & -0.07 & -0.08 & 0.02 & 0.02 & 0.04\\
+Excerpt.28 & -0.09 & -0.04 & -0.18 & -0.04 & -0.02 & 0.08 & -0.06 & 0.02 & -0.04 & -0.16 & 0.00 & -0.03 & -0.08\\
+Excerpt.29 & 0.09 & -0.24 & -0.21 & -0.02 & 0.09 & 0.01 & -0.03 & -0.01 & 0.05 & 0.09 & -0.12 & 0.05 & 0.05\\
+Excerpt.30 & 0.11 & 0.14 & -0.05 & 0.17 & -0.04 & -0.02 & -0.01 & -0.07 & -0.04 & 0.04 & 0.10 & 0.05 & 0.05\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\tiny{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.fj.table1}Column Factor Scores, Musical Qualities Survey, Dimensions 1 - 14}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.fj.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endhead
+harm.Minor & -0.30 & -0.38 & 0.36 & -0.81 & 0.01 & 0.19 & -0.17 & -0.25 & -0.01 & 0.16 & -0.22 & 0.04 & 0.07 & 0.10\\
+harm.Modal & -0.30 & 0.30 & 0.42 & -0.11 & 0.09 & 0.25 & -0.36 & 0.12 & -0.26 & 0.00 & 0.16 & -0.50 & 0.11 & -0.13\\
+harm.Major & 0.34 & -0.14 & -0.32 & 0.52 & 0.06 & -0.18 & 0.00 & 0.06 & 0.15 & -0.12 & 0.00 & 0.05 & 0.06 & 0.01\\
+harm.Ambiguous & -0.60 & 0.44 & 0.14 & -0.23 & -0.24 & -0.24 & 0.54 & 0.13 & -0.22 & 0.34 & 0.40 & 0.31 & -0.38 & 0.28\\
+harm.Chromatic & -0.04 & 0.10 & 0.08 & -0.14 & -0.35 & -0.15 & 0.33 & -0.10 & -0.34 & 0.00 & -0.01 & 0.19 & -0.36 & -0.09\\
+harm.Quin & 0.22 & 0.70 & 0.21 & -0.16 & -0.27 & 0.13 & -0.08 & -0.12 & 0.03 & -0.23 & 0.07 & 0.20 & 0.55 & -0.25\\
+harm.Blues & 0.18 & 0.91 & -0.40 & -0.34 & 0.78 & 0.41 & 0.01 & 0.16 & 0.60 & 0.21 & 0.00 & -0.10 & -0.06 & 0.02\\
+harm.Whole tone & -0.60 & 0.15 & 0.11 & 0.32 & -0.12 & 0.29 & 0.26 & 0.17 & -0.03 & 0.25 & 0.04 & -0.43 & -0.05 & -0.18\\
+tempo.F5 & 0.66 & 0.11 & -0.06 & -0.23 & -0.35 & 0.14 & -0.11 & 0.15 & 0.04 & 0.13 & -0.07 & 0.18 & 0.21 & 0.22\\
+tempo.F4 & -0.10 & -0.15 & -0.22 & 0.02 & -0.55 & 0.12 & 0.15 & 0.21 & 0.10 & -0.13 & -0.04 & 0.05 & 0.00 & 0.24\\
+tempo.F3 & -0.68 & -0.25 & -0.09 & 0.13 & 0.03 & 0.09 & -0.07 & 0.00 & -0.06 & -0.13 & 0.01 & -0.12 & -0.18 & -0.11\\
+tempo.F6 & 1.10 & -0.06 & 0.35 & -0.31 & 0.27 & -0.10 & 0.04 & -0.19 & -0.04 & 0.02 & 0.03 & 0.03 & 0.04 & -0.23\\
+tempo.F2 & -0.94 & 0.25 & 0.15 & 0.23 & 0.35 & -0.17 & -0.14 & 0.07 & -0.03 & 0.21 & 0.11 & -0.04 & -0.02 & -0.14\\
+tempo.F7 & 1.43 & 0.12 & 0.31 & 0.10 & 0.65 & -0.30 & -0.09 & -0.52 & -0.10 & -0.16 & 0.45 & -0.30 & -0.08 & 0.24\\
+tempo.F1 & -1.12 & 0.97 & -0.39 & 0.00 & 0.80 & -0.41 & 0.69 & -0.68 & -0.07 & 0.44 & -0.37 & 0.07 & 0.20 & -0.13\\
+meter.Dup & 0.20 & 0.17 & -0.03 & 0.20 & 0.28 & -0.12 & -0.32 & 0.00 & -0.39 & -0.02 & -0.09 & 0.04 & -0.04 & 0.11\\
+meter.Trip & -0.34 & -0.77 & 0.19 & -0.15 & 0.14 & 0.21 & 0.18 & -0.16 & 0.24 & 0.03 & 0.18 & 0.12 & 0.03 & -0.01\\
+meter.Quad & 0.16 & 0.51 & -0.17 & -0.06 & -0.32 & -0.08 & 0.17 & 0.12 & 0.07 & -0.01 & -0.08 & -0.09 & 0.04 & -0.02\\
+density.D4 & 0.17 & 0.13 & 0.03 & 0.02 & -0.07 & -0.08 & -0.09 & -0.28 & 0.17 & 0.05 & -0.09 & 0.05 & -0.11 & 0.10\\
+density.D2 & -0.32 & -0.27 & -0.16 & -0.16 & 0.11 & 0.07 & 0.09 & 0.31 & -0.13 & 0.12 & 0.32 & -0.08 & 0.17 & -0.13\\
+density.D5 & 0.13 & 0.25 & 0.11 & 0.19 & -0.11 & -0.01 & 0.03 & -0.22 & 0.00 & 0.02 & 0.04 & -0.10 & -0.16 & -0.02\\
+density.D3 & -0.05 & -0.06 & -0.05 & -0.01 & 0.07 & 0.03 & -0.13 & 0.09 & 0.01 & -0.14 & -0.21 & 0.14 & 0.07 & 0.05\\
+density.D6 & -0.08 & 0.35 & 0.61 & 0.10 & -0.48 & -0.41 & 0.48 & -0.40 & 0.15 & 0.03 & 0.49 & 0.52 & -0.49 & -0.30\\
+density.D1 & 0.33 & -0.05 & 0.04 & -0.08 & 0.13 & 0.00 & 0.37 & 0.58 & -0.41 & 0.11 & -0.09 & -0.38 & 0.25 & 0.04\\
+genre.Classical & 0.45 & -0.58 & 0.07 & 0.20 & 0.22 & -0.26 & 0.20 & 0.25 & -0.09 & 0.08 & -0.32 & 0.10 & -0.01 & -0.15\\
+genre.Contemporary & -0.12 & 0.61 & 0.18 & -0.33 & -0.04 & -0.16 & -0.08 & 0.13 & 0.17 & -0.19 & 0.17 & -0.01 & 0.10 & -0.06\\
+genre.Romantic & -0.27 & -0.64 & 0.01 & 0.37 & 0.05 & 0.11 & -0.03 & -0.32 & 0.13 & -0.17 & -0.07 & 0.17 & 0.11 & 0.19\\
+genre.Modern & -0.32 & 0.55 & -0.03 & -0.05 & -0.18 & 0.26 & 0.08 & -0.06 & 0.02 & -0.43 & 0.04 & -0.02 & 0.01 & -0.12\\
+genre.Baroque & 0.28 & -0.51 & -0.44 & -0.11 & -0.55 & -0.17 & -0.28 & -0.37 & -0.23 & 0.60 & 0.09 & -0.32 & -0.17 & -0.03\\
+genre.Impressionist & -0.46 & 0.31 & 0.56 & 0.06 & 0.12 & -0.09 & 0.23 & 0.23 & -0.44 & 0.20 & 0.18 & 0.21 & 0.07 & 0.30\\
+genre.Jazz/Blues & 0.18 & 0.91 & -0.40 & -0.34 & 0.78 & 0.41 & 0.01 & 0.16 & 0.60 & 0.21 & 0.00 & -0.10 & -0.06 & 0.02\\
+genre.Folk/Country & 1.68 & 0.98 & -1.13 & -0.47 & 2.52 & 1.77 & -0.35 & 0.59 & 1.14 & 0.17 & 0.49 & -0.17 & -2.24 & 1.21\\
+dyn.BothS\&L & 0.22 & -0.22 & 0.80 & -0.26 & 0.02 & -0.55 & 0.31 & 0.03 & 0.27 & -0.21 & -0.13 & -0.31 & -0.08 & 0.09\\
+dyn.Loud & 0.51 & 0.38 & -0.14 & 0.02 & -0.10 & 0.22 & 0.08 & -0.36 & -0.15 & -0.23 & 0.13 & 0.10 & 0.01 & -0.06\\
+dyn.Mezzo & -0.09 & -0.15 & -0.48 & -0.10 & 0.06 & 0.06 & 0.09 & 0.09 & -0.05 & 0.17 & 0.06 & 0.07 & -0.01 & -0.01\\
+dyn.Gra\_Cresc & -0.24 & 0.27 & 0.97 & 0.92 & -0.22 & 0.49 & -0.21 & 0.11 & 0.10 & 0.43 & -0.31 & -0.06 & -0.22 & -0.12\\
+dyn.Gra\_Decr & -0.49 & 0.90 & -0.14 & -0.66 & -0.16 & -1.00 & -1.39 & 0.17 & 0.27 & 0.10 & 0.41 & 0.37 & 0.19 & 0.02\\
+dyn.Soft & -0.75 & -0.54 & -0.17 & 0.02 & 0.30 & 0.02 & -0.02 & -0.01 & -0.13 & -0.19 & -0.09 & -0.08 & 0.41 & 0.34\\
+cont.Terrace & -0.09 & -0.35 & 0.13 & -0.11 & -0.09 & -0.13 & 0.16 & 0.00 & 0.48 & 0.12 & 0.19 & -0.07 & 0.13 & -0.11\\
+cont.Arch & -0.12 & -0.24 & -0.21 & -0.05 & -0.02 & -0.06 & 0.11 & 0.12 & -0.16 & -0.21 & 0.14 & -0.29 & -0.03 & 0.08\\
+cont.Undulating & 0.34 & -0.04 & -0.21 & 0.01 & 0.10 & 0.04 & -0.02 & 0.07 & -0.17 & -0.12 & -0.05 & 0.10 & -0.18 & -0.09\\
+cont.Descending & -0.13 & -0.20 & -0.09 & -0.36 & 0.03 & -0.36 & -0.36 & 0.18 & 0.11 & 0.06 & -0.24 & 0.03 & -0.08 & 0.01\\
+cont.Ascending & 0.04 & 0.38 & 0.33 & 0.36 & -0.08 & 0.24 & -0.06 & 0.00 & 0.03 & 0.18 & -0.03 & 0.07 & 0.22 & 0.03\\
+cont.Pendulum & -0.05 & -0.14 & -0.05 & -0.06 & 0.15 & -0.05 & -0.05 & -0.28 & -0.07 & -0.28 & 0.07 & -0.03 & -0.08 & -0.16\\
+cont.Monotone & -0.41 & 0.34 & 0.00 & -0.74 & 0.39 & 1.05 & 0.14 & -1.11 & -1.49 & -0.87 & -0.53 & 0.60 & 0.79 & -0.22\\
+motion.Disjunct & -0.47 & 0.17 & 0.19 & -0.31 & 0.11 & 0.08 & -0.04 & 0.02 & -0.17 & -0.23 & -0.20 & 0.12 & -0.19 & 0.04\\
+motion.Conjunct & 0.24 & -0.02 & -0.13 & 0.11 & -0.07 & 0.01 & 0.02 & -0.05 & 0.13 & 0.11 & 0.05 & -0.06 & 0.08 & -0.04\\
+motion.Con\&Dis & -0.04 & -0.12 & 0.03 & 0.03 & 0.04 & 0.01 & -0.03 & 0.03 & -0.07 & -0.07 & 0.09 & 0.00 & 0.06 & 0.02\\
+range.R.Mod & 0.00 & -0.12 & -0.07 & 0.00 & -0.08 & 0.07 & -0.11 & -0.06 & 0.08 & -0.01 & -0.10 & -0.08 & -0.01 & -0.02\\
+range.R.Wid & -0.03 & -0.05 & 0.17 & -0.01 & -0.06 & -0.02 & -0.03 & 0.24 & -0.01 & -0.05 & 0.21 & 0.19 & -0.13 & -0.01\\
+range.R.Vwi & 0.53 & -0.11 & 0.60 & 0.41 & 0.26 & -0.19 & -0.14 & -0.19 & 0.04 & -0.08 & 0.48 & -0.29 & 0.27 & 0.33\\
+range.R.Nar & -0.10 & 0.31 & -0.39 & -0.27 & 0.21 & 0.00 & 0.29 & -0.28 & -0.23 & 0.09 & -0.18 & -0.08 & 0.20 & -0.07\\
+artic.Marcato & 0.33 & -0.04 & 0.04 & -0.30 & -0.20 & 0.22 & 0.04 & 0.00 & -0.01 & -0.01 & 0.01 & 0.01 & 0.00 & 0.00\\
+artic.Staccato & 0.65 & -0.22 & 0.21 & -0.04 & 0.25 & 0.11 & 0.08 & 0.29 & -0.12 & 0.09 & -0.02 & 0.12 & 0.03 & -0.10\\
+artic.Tenuto & -0.19 & 0.22 & 0.00 & 0.05 & -0.03 & 0.04 & 0.11 & -0.06 & -0.09 & -0.10 & -0.06 & -0.27 & -0.07 & 0.26\\
+artic.Legato & -0.45 & 0.01 & -0.10 & 0.24 & 0.01 & -0.13 & -0.07 & -0.05 & 0.07 & -0.08 & 0.01 & 0.04 & -0.01 & -0.06\\
+artic.Spiccato & 1.36 & -0.05 & 0.44 & 1.14 & 0.28 & -0.21 & -0.22 & -0.81 & -1.42 & 0.63 & 1.29 & 0.60 & 0.42 & 0.97\\
+artic.Detache & 0.58 & 0.02 & 0.58 & -0.44 & 0.18 & -0.89 & 0.90 & 1.06 & 0.08 & -0.82 & -0.79 & -0.94 & -0.26 & -0.17\\
+melody.Yes & -0.01 & -0.01 & 0.01 & 0.02 & -0.02 & 0.01 & -0.03 & 0.01 & 0.01 & 0.02 & -0.02 & 0.00 & -0.02 & -0.01\\
+melody.No & -0.28 & 0.70 & -0.03 & 0.10 & 0.25 & -0.58 & 0.69 & -0.18 & 0.19 & 0.48 & -0.14 & 0.20 & 0.13 & 0.28\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\tiny{
+
+\begin{longtable}{llllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.fj.table2}Column Factor Scores, Musical Qualities Survey, Dimensions 15 - 17}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.fj.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endhead
+harm.Minor & -0.06 & 0.18 & 0.11 & -0.07 & 0.02 & 0.05 & -0.07 & -0.04 & 0.11 & -0.03 & 0.02 & -0.02 & -0.02\\
+harm.Modal & 0.08 & -0.04 & 0.00 & -0.05 & 0.18 & 0.17 & 0.20 & -0.04 & -0.15 & 0.06 & -0.05 & 0.00 & -0.01\\
+harm.Major & 0.08 & 0.00 & 0.00 & 0.02 & 0.05 & -0.03 & 0.07 & 0.05 & 0.03 & 0.00 & -0.01 & 0.00 & -0.04\\
+harm.Ambiguous & -0.04 & -0.22 & -0.10 & 0.29 & 0.04 & 0.14 & 0.00 & 0.27 & -0.25 & 0.00 & 0.18 & 0.07 & 0.09\\
+harm.Chromatic & -0.17 & -0.03 & -0.03 & 0.06 & -0.03 & -0.02 & -0.02 & -0.07 & 0.01 & -0.11 & -0.06 & 0.05 & 0.06\\
+harm.Quin & -0.08 & -0.16 & -0.27 & 0.02 & -0.22 & -0.13 & -0.04 & 0.06 & 0.05 & 0.14 & -0.07 & -0.20 & 0.11\\
+harm.Blues & 0.02 & -0.09 & -0.03 & 0.19 & -0.01 & -0.09 & -0.18 & 0.08 & 0.03 & -0.06 & -0.02 & 0.05 & 0.04\\
+harm.Whole tone & 0.00 & 0.05 & -0.03 & -0.19 & -0.14 & -0.33 & -0.42 & -0.12 & -0.06 & 0.23 & 0.19 & 0.11 & -0.10\\
+tempo.F5 & 0.01 & -0.01 & -0.06 & -0.08 & -0.01 & 0.15 & 0.15 & 0.07 & -0.02 & 0.17 & 0.00 & 0.07 & 0.04\\
+tempo.F4 & 0.14 & -0.05 & 0.03 & -0.03 & 0.02 & -0.17 & -0.07 & -0.01 & 0.01 & -0.09 & -0.03 & -0.03 & 0.00\\
+tempo.F3 & -0.17 & 0.10 & -0.03 & 0.11 & 0.00 & 0.07 & 0.07 & -0.13 & -0.05 & -0.05 & 0.04 & -0.01 & -0.02\\
+tempo.F6 & 0.05 & 0.20 & -0.14 & -0.08 & -0.01 & 0.03 & -0.02 & 0.09 & 0.00 & -0.10 & 0.04 & 0.04 & 0.02\\
+tempo.F2 & -0.10 & -0.04 & 0.06 & -0.01 & 0.20 & -0.03 & -0.07 & 0.07 & 0.11 & 0.08 & -0.09 & 0.00 & 0.05\\
+tempo.F7 & -0.22 & -0.27 & 0.32 & 0.30 & -0.04 & -0.06 & -0.19 & -0.07 & -0.11 & 0.13 & -0.03 & -0.16 & -0.13\\
+tempo.F1 & 0.45 & -0.18 & 0.15 & -0.12 & -0.31 & 0.01 & 0.17 & 0.08 & -0.09 & 0.05 & 0.02 & -0.12 & -0.07\\
+meter.Dup & -0.02 & -0.08 & -0.15 & -0.08 & 0.06 & -0.14 & 0.03 & -0.06 & 0.02 & -0.05 & 0.01 & 0.00 & 0.02\\
+meter.Trip & 0.14 & -0.01 & 0.07 & 0.02 & 0.06 & 0.04 & 0.04 & 0.00 & -0.04 & 0.02 & -0.01 & 0.00 & 0.03\\
+meter.Quad & -0.16 & 0.11 & 0.04 & 0.05 & -0.04 & 0.07 & -0.02 & 0.03 & -0.03 & 0.03 & -0.02 & -0.01 & -0.02\\
+density.D4 & 0.06 & -0.07 & 0.14 & -0.03 & -0.07 & -0.06 & -0.01 & -0.03 & -0.12 & 0.01 & -0.02 & 0.02 & 0.04\\
+density.D2 & -0.07 & 0.02 & 0.06 & 0.02 & -0.02 & -0.10 & 0.09 & -0.01 & 0.00 & 0.05 & -0.04 & 0.02 & -0.01\\
+density.D5 & -0.03 & 0.14 & 0.06 & -0.10 & -0.05 & 0.18 & 0.00 & 0.12 & 0.23 & -0.05 & 0.07 & -0.04 & -0.03\\
+density.D3 & 0.01 & -0.09 & -0.13 & 0.13 & 0.12 & 0.09 & -0.02 & -0.04 & 0.06 & 0.01 & -0.05 & -0.02 & -0.01\\
+density.D6 & -0.26 & 0.36 & -0.58 & -0.09 & -0.04 & -0.17 & -0.19 & -0.26 & -0.07 & 0.27 & -0.08 & -0.01 & -0.03\\
+density.D1 & 0.32 & 0.37 & -0.08 & 0.01 & 0.17 & -0.16 & -0.05 & 0.10 & -0.17 & -0.14 & 0.19 & -0.04 & 0.05\\
+genre.Classical & -0.05 & 0.04 & 0.12 & -0.10 & 0.15 & 0.05 & -0.08 & -0.04 & -0.08 & 0.04 & 0.03 & -0.06 & 0.10\\
+genre.Contemporary & 0.15 & 0.07 & -0.09 & 0.03 & 0.08 & 0.08 & -0.16 & -0.04 & -0.04 & -0.06 & -0.05 & -0.01 & -0.03\\
+genre.Romantic & 0.01 & 0.13 & -0.08 & 0.22 & -0.03 & -0.01 & 0.00 & 0.00 & 0.02 & 0.06 & 0.08 & 0.03 & -0.05\\
+genre.Modern & -0.07 & -0.14 & 0.14 & -0.20 & -0.14 & -0.02 & 0.17 & -0.05 & 0.03 & -0.04 & 0.08 & 0.04 & 0.03\\
+genre.Baroque & 0.04 & -0.01 & -0.02 & 0.06 & -0.02 & -0.07 & 0.04 & 0.14 & 0.03 & -0.05 & -0.12 & 0.01 & 0.00\\
+genre.Impressionist & -0.04 & -0.03 & -0.07 & -0.01 & -0.04 & -0.05 & 0.13 & -0.04 & 0.10 & 0.08 & -0.01 & -0.02 & -0.07\\
+genre.Jazz/Blues & 0.02 & -0.09 & -0.03 & 0.19 & -0.01 & -0.09 & -0.18 & 0.08 & 0.03 & -0.06 & -0.02 & 0.05 & 0.04\\
+genre.Folk/Country & -0.74 & 1.04 & -0.39 & -0.47 & -0.13 & -0.30 & 0.76 & 0.01 & 0.11 & 0.20 & -0.10 & -0.20 & 0.20\\
+dyn.BothS\&L & 0.09 & -0.03 & -0.15 & 0.01 & -0.07 & -0.09 & 0.09 & 0.03 & 0.07 & 0.06 & -0.06 & 0.02 & 0.03\\
+dyn.Loud & -0.10 & 0.06 & 0.22 & 0.01 & 0.23 & -0.05 & 0.02 & 0.04 & -0.04 & 0.03 & 0.02 & -0.01 & 0.01\\
+dyn.Mezzo & 0.03 & -0.06 & -0.14 & -0.01 & -0.03 & 0.09 & -0.05 & -0.06 & 0.04 & 0.01 & 0.03 & -0.02 & -0.01\\
+dyn.Gra\_Cresc & 0.15 & 0.00 & 0.12 & 0.13 & -0.02 & -0.10 & 0.00 & 0.04 & -0.03 & 0.01 & 0.04 & -0.02 & -0.02\\
+dyn.Gra\_Decr & 0.35 & 0.24 & 0.26 & 0.07 & 0.00 & -0.13 & 0.14 & -0.10 & -0.04 & -0.01 & 0.08 & 0.02 & 0.00\\
+dyn.Soft & -0.40 & 0.23 & 0.05 & -0.14 & -0.24 & -0.01 & -0.08 & 0.14 & -0.25 & -0.12 & -0.17 & -0.01 & -0.02\\
+cont.Terrace & -0.30 & -0.51 & -0.04 & -0.25 & 0.13 & -0.08 & 0.05 & 0.05 & 0.11 & -0.11 & 0.05 & -0.01 & -0.02\\
+cont.Arch & 0.14 & 0.14 & 0.09 & 0.03 & -0.14 & -0.06 & -0.04 & 0.02 & 0.12 & 0.08 & 0.04 & -0.09 & 0.06\\
+cont.Undulating & 0.19 & 0.01 & 0.14 & -0.07 & -0.09 & 0.08 & -0.06 & -0.05 & 0.03 & 0.04 & -0.07 & 0.06 & -0.01\\
+cont.Descending & -0.25 & -0.09 & 0.10 & 0.04 & -0.02 & -0.04 & -0.02 & 0.03 & -0.02 & 0.06 & 0.16 & 0.00 & -0.03\\
+cont.Ascending & -0.07 & 0.06 & -0.01 & 0.03 & -0.04 & 0.05 & -0.03 & -0.01 & 0.03 & -0.05 & -0.02 & 0.00 & 0.03\\
+cont.Pendulum & 0.00 & -0.05 & -0.19 & -0.03 & 0.07 & 0.02 & -0.01 & 0.07 & -0.08 & -0.03 & 0.00 & 0.00 & -0.04\\
+cont.Monotone & -0.62 & 0.45 & -0.59 & 0.77 & 0.41 & -0.97 & 0.11 & 1.01 & 0.29 & 0.27 & 0.14 & 0.34 & -0.10\\
+motion.Disjunct & 0.13 & -0.10 & -0.06 & 0.02 & -0.06 & 0.00 & 0.03 & 0.11 & -0.04 & -0.03 & -0.02 & -0.05 & 0.01\\
+motion.Conjunct & -0.01 & 0.04 & -0.07 & 0.03 & 0.03 & 0.03 & 0.06 & -0.02 & -0.02 & -0.02 & 0.04 & -0.04 & 0.01\\
+motion.Con\&Dis & -0.02 & -0.01 & 0.12 & -0.03 & 0.02 & -0.04 & -0.09 & 0.02 & 0.05 & 0.04 & -0.03 & 0.06 & 0.04\\
+range.R.Mod & -0.05 & -0.03 & -0.07 & -0.03 & 0.01 & 0.02 & -0.02 & 0.01 & -0.03 & 0.05 & -0.02 & -0.01 & 0.02\\
+range.R.Wid & 0.06 & 0.06 & 0.09 & 0.00 & 0.04 & 0.04 & -0.01 & 0.10 & 0.03 & -0.03 & 0.00 & -0.03 & -0.04\\
+range.R.Vwi & 0.04 & 0.04 & -0.14 & 0.01 & -0.19 & 0.12 & -0.05 & -0.17 & 0.01 & -0.10 & 0.14 & 0.17 & 0.07\\
+range.R.Nar & 0.10 & -0.01 & 0.01 & 0.15 & 0.01 & -0.03 & 0.05 & -0.07 & 0.08 & 0.02 & 0.06 & 0.05 & 0.02\\
+artic.Marcato & 0.03 & -0.05 & 0.04 & 0.05 & 0.06 & -0.15 & 0.02 & -0.10 & 0.00 & -0.03 & 0.01 & -0.02 & -0.02\\
+artic.Staccato & -0.09 & -0.09 & 0.07 & -0.03 & -0.15 & 0.00 & 0.02 & 0.05 & -0.01 & -0.03 & -0.01 & 0.03 & -0.07\\
+artic.Tenuto & 0.05 & -0.13 & -0.02 & -0.13 & 0.19 & 0.13 & -0.09 & 0.03 & 0.00 & 0.02 & 0.02 & 0.03 & -0.04\\
+artic.Legato & -0.05 & 0.06 & 0.02 & -0.03 & -0.05 & -0.01 & -0.02 & 0.04 & 0.02 & -0.03 & 0.01 & 0.02 & 0.03\\
+artic.Spiccato & -0.33 & -0.94 & 0.46 & 0.26 & -0.59 & 0.64 & -0.48 & -0.31 & 0.14 & -0.25 & 0.11 & -0.40 & 0.35\\
+artic.Detache & -0.70 & -0.38 & 0.89 & 1.97 & -0.06 & 0.44 & 0.56 & -0.37 & 0.43 & -0.36 & -0.30 & 0.20 & 0.22\\
+melody.Yes & 0.02 & -0.01 & -0.03 & 0.00 & -0.03 & 0.00 & 0.01 & -0.03 & -0.02 & 0.00 & -0.01 & 0.00 & -0.01\\
+melody.No & -0.14 & 0.34 & 0.20 & -0.17 & 0.32 & -0.09 & 0.15 & -0.20 & 0.02 & -0.09 & -0.09 & 0.03 & -0.06\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\scriptsize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.ci.table1}Unsigned Row Contributions, Musical Qualities Survey, Dimensions 1 - 14}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.ci.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endhead
+Excerpt.1 & 0.03 & 0.03 & 0.21 & 0.06 & 0.00 & 0.02 & 0.02 & 0.13 & 0.03 & 0.00 & 0.03 & 0.04 & 0.00 & 0.02\\
+Excerpt.2 & 0.00 & 0.07 & 0.11 & 0.04 & 0.00 & 0.03 & 0.01 & 0.02 & 0.02 & 0.02 & 0.07 & 0.18 & 0.00 & 0.09\\
+Excerpt.3 & 0.06 & 0.13 & 0.00 & 0.03 & 0.01 & 0.00 & 0.02 & 0.00 & 0.01 & 0.01 & 0.01 & 0.02 & 0.00 & 0.01\\
+Excerpt.4 & 0.11 & 0.00 & 0.04 & 0.00 & 0.03 & 0.18 & 0.02 & 0.04 & 0.01 & 0.01 & 0.06 & 0.10 & 0.01 & 0.01\\
+Excerpt.5 & 0.02 & 0.00 & 0.02 & 0.01 & 0.00 & 0.01 & 0.01 & 0.08 & 0.07 & 0.00 & 0.01 & 0.14 & 0.03 & 0.13\\
+Excerpt.7 & 0.04 & 0.04 & 0.02 & 0.02 & 0.05 & 0.09 & 0.02 & 0.01 & 0.01 & 0.03 & 0.07 & 0.05 & 0.27 & 0.00\\
+Excerpt.8 & 0.01 & 0.03 & 0.01 & 0.00 & 0.10 & 0.01 & 0.00 & 0.00 & 0.07 & 0.05 & 0.02 & 0.00 & 0.05 & 0.00\\
+Excerpt.9 & 0.00 & 0.02 & 0.01 & 0.02 & 0.11 & 0.03 & 0.00 & 0.00 & 0.00 & 0.01 & 0.02 & 0.00 & 0.02 & 0.04\\
+Excerpt.10 & 0.05 & 0.02 & 0.00 & 0.00 & 0.03 & 0.12 & 0.34 & 0.03 & 0.00 & 0.01 & 0.02 & 0.02 & 0.00 & 0.00\\
+Excerpt.11 & 0.01 & 0.11 & 0.04 & 0.04 & 0.00 & 0.00 & 0.01 & 0.06 & 0.01 & 0.01 & 0.09 & 0.00 & 0.04 & 0.01\\
+Excerpt.12 & 0.03 & 0.08 & 0.14 & 0.09 & 0.00 & 0.11 & 0.04 & 0.03 & 0.00 & 0.06 & 0.00 & 0.11 & 0.00 & 0.05\\
+Excerpt.13 & 0.06 & 0.03 & 0.02 & 0.00 & 0.02 & 0.01 & 0.00 & 0.10 & 0.10 & 0.00 & 0.02 & 0.05 & 0.00 & 0.25\\
+Excerpt.15 & 0.01 & 0.04 & 0.00 & 0.11 & 0.00 & 0.06 & 0.08 & 0.04 & 0.00 & 0.05 & 0.03 & 0.02 & 0.00 & 0.00\\
+Excerpt.16 & 0.03 & 0.00 & 0.03 & 0.05 & 0.00 & 0.00 & 0.00 & 0.01 & 0.08 & 0.10 & 0.07 & 0.07 & 0.08 & 0.06\\
+Excerpt.17 & 0.02 & 0.07 & 0.02 & 0.01 & 0.00 & 0.02 & 0.01 & 0.00 & 0.02 & 0.06 & 0.18 & 0.00 & 0.01 & 0.07\\
+Excerpt.18 & 0.01 & 0.00 & 0.00 & 0.03 & 0.01 & 0.01 & 0.05 & 0.05 & 0.01 & 0.04 & 0.00 & 0.00 & 0.03 & 0.00\\
+Excerpt.19 & 0.03 & 0.09 & 0.00 & 0.02 & 0.02 & 0.00 & 0.02 & 0.00 & 0.04 & 0.03 & 0.04 & 0.00 & 0.13 & 0.01\\
+Excerpt.20 & 0.01 & 0.00 & 0.11 & 0.01 & 0.13 & 0.00 & 0.02 & 0.00 & 0.01 & 0.02 & 0.00 & 0.10 & 0.01 & 0.03\\
+Excerpt.21 & 0.03 & 0.00 & 0.03 & 0.00 & 0.02 & 0.01 & 0.01 & 0.04 & 0.01 & 0.01 & 0.01 & 0.03 & 0.00 & 0.04\\
+Excerpt.22 & 0.00 & 0.00 & 0.02 & 0.08 & 0.09 & 0.01 & 0.19 & 0.02 & 0.01 & 0.18 & 0.02 & 0.01 & 0.02 & 0.00\\
+Excerpt.23 & 0.10 & 0.04 & 0.05 & 0.01 & 0.23 & 0.12 & 0.00 & 0.01 & 0.05 & 0.00 & 0.01 & 0.00 & 0.18 & 0.05\\
+Excerpt.24 & 0.09 & 0.00 & 0.00 & 0.00 & 0.04 & 0.02 & 0.00 & 0.09 & 0.16 & 0.04 & 0.00 & 0.00 & 0.02 & 0.01\\
+Excerpt.25 & 0.02 & 0.02 & 0.00 & 0.06 & 0.00 & 0.07 & 0.00 & 0.02 & 0.04 & 0.02 & 0.03 & 0.04 & 0.04 & 0.03\\
+Excerpt.26 & 0.12 & 0.01 & 0.00 & 0.05 & 0.01 & 0.01 & 0.02 & 0.18 & 0.07 & 0.01 & 0.06 & 0.00 & 0.02 & 0.01\\
+Excerpt.27 & 0.05 & 0.11 & 0.04 & 0.02 & 0.08 & 0.04 & 0.07 & 0.01 & 0.06 & 0.10 & 0.01 & 0.00 & 0.04 & 0.01\\
+Excerpt.28 & 0.01 & 0.02 & 0.01 & 0.02 & 0.00 & 0.01 & 0.02 & 0.00 & 0.01 & 0.11 & 0.04 & 0.00 & 0.00 & 0.06\\
+Excerpt.29 & 0.01 & 0.01 & 0.05 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.08 & 0.01 & 0.00 & 0.01\\
+Excerpt.30 & 0.01 & 0.03 & 0.01 & 0.22 & 0.00 & 0.01 & 0.01 & 0.03 & 0.10 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\scriptsize{
+
+\begin{longtable}{llllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.ci.table2}Unsigned Row Contributions, Musical Qualities Survey, Dimensions 15 - 27}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.ci.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endhead
+Excerpt.1 & 0.04 & 0.05 & 0.08 & 0.04 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.04 & 0.05 & 0.01 & 0.02\\
+Excerpt.2 & 0.08 & 0.00 & 0.10 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.03 & 0.07\\
+Excerpt.3 & 0.20 & 0.00 & 0.02 & 0.03 & 0.01 & 0.01 & 0.06 & 0.00 & 0.01 & 0.02 & 0.00 & 0.12 & 0.17\\
+Excerpt.4 & 0.05 & 0.04 & 0.00 & 0.10 & 0.00 & 0.02 & 0.04 & 0.01 & 0.00 & 0.03 & 0.03 & 0.01 & 0.02\\
+Excerpt.5 & 0.00 & 0.00 & 0.01 & 0.08 & 0.00 & 0.03 & 0.01 & 0.15 & 0.04 & 0.01 & 0.03 & 0.09 & 0.00\\
+Excerpt.7 & 0.00 & 0.00 & 0.03 & 0.00 & 0.01 & 0.00 & 0.04 & 0.05 & 0.03 & 0.08 & 0.01 & 0.00 & 0.00\\
+Excerpt.8 & 0.01 & 0.02 & 0.03 & 0.10 & 0.02 & 0.11 & 0.09 & 0.05 & 0.02 & 0.00 & 0.10 & 0.04 & 0.01\\
+Excerpt.9 & 0.01 & 0.05 & 0.01 & 0.05 & 0.10 & 0.27 & 0.04 & 0.02 & 0.02 & 0.05 & 0.02 & 0.02 & 0.03\\
+Excerpt.10 & 0.02 & 0.00 & 0.01 & 0.01 & 0.01 & 0.04 & 0.01 & 0.01 & 0.18 & 0.01 & 0.00 & 0.00 & 0.00\\
+Excerpt.11 & 0.00 & 0.04 & 0.04 & 0.00 & 0.11 & 0.01 & 0.00 & 0.11 & 0.00 & 0.01 & 0.15 & 0.04 & 0.02\\
+Excerpt.12 & 0.00 & 0.01 & 0.00 & 0.00 & 0.02 & 0.03 & 0.03 & 0.08 & 0.00 & 0.00 & 0.01 & 0.00 & 0.02\\
+Excerpt.13 & 0.04 & 0.01 & 0.00 & 0.04 & 0.02 & 0.03 & 0.00 & 0.00 & 0.07 & 0.04 & 0.03 & 0.00 & 0.01\\
+Excerpt.15 & 0.09 & 0.08 & 0.01 & 0.04 & 0.07 & 0.00 & 0.01 & 0.08 & 0.02 & 0.01 & 0.03 & 0.00 & 0.06\\
+Excerpt.16 & 0.04 & 0.01 & 0.06 & 0.01 & 0.09 & 0.05 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.05 & 0.03\\
+Excerpt.17 & 0.00 & 0.12 & 0.03 & 0.05 & 0.05 & 0.03 & 0.01 & 0.05 & 0.01 & 0.01 & 0.03 & 0.00 & 0.08\\
+Excerpt.18 & 0.00 & 0.00 & 0.09 & 0.20 & 0.00 & 0.09 & 0.00 & 0.07 & 0.02 & 0.09 & 0.08 & 0.02 & 0.05\\
+Excerpt.19 & 0.01 & 0.03 & 0.00 & 0.03 & 0.03 & 0.00 & 0.01 & 0.05 & 0.18 & 0.02 & 0.05 & 0.10 & 0.01\\
+Excerpt.20 & 0.08 & 0.07 & 0.00 & 0.01 & 0.03 & 0.04 & 0.01 & 0.05 & 0.05 & 0.01 & 0.01 & 0.14 & 0.01\\
+Excerpt.21 & 0.11 & 0.01 & 0.00 & 0.01 & 0.22 & 0.08 & 0.01 & 0.05 & 0.04 & 0.08 & 0.00 & 0.06 & 0.03\\
+Excerpt.22 & 0.01 & 0.02 & 0.00 & 0.02 & 0.05 & 0.02 & 0.05 & 0.00 & 0.05 & 0.00 & 0.00 & 0.08 & 0.02\\
+Excerpt.23 & 0.02 & 0.04 & 0.01 & 0.01 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+Excerpt.24 & 0.00 & 0.00 & 0.01 & 0.03 & 0.06 & 0.02 & 0.23 & 0.09 & 0.03 & 0.00 & 0.01 & 0.00 & 0.01\\
+Excerpt.25 & 0.06 & 0.03 & 0.01 & 0.02 & 0.01 & 0.06 & 0.20 & 0.01 & 0.09 & 0.00 & 0.02 & 0.04 & 0.01\\
+Excerpt.26 & 0.01 & 0.09 & 0.20 & 0.00 & 0.01 & 0.00 & 0.07 & 0.00 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00\\
+Excerpt.27 & 0.03 & 0.03 & 0.01 & 0.00 & 0.02 & 0.02 & 0.04 & 0.02 & 0.05 & 0.08 & 0.01 & 0.01 & 0.04\\
+Excerpt.28 & 0.02 & 0.00 & 0.10 & 0.01 & 0.00 & 0.03 & 0.02 & 0.00 & 0.01 & 0.28 & 0.00 & 0.02 & 0.14\\
+Excerpt.29 & 0.02 & 0.18 & 0.14 & 0.00 & 0.03 & 0.00 & 0.01 & 0.00 & 0.02 & 0.09 & 0.19 & 0.05 & 0.05\\
+Excerpt.30 & 0.03 & 0.06 & 0.01 & 0.11 & 0.01 & 0.00 & 0.00 & 0.03 & 0.01 & 0.02 & 0.12 & 0.04 & 0.06\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\tiny{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.cj.table1}Unsigned Column Contributions, Musical Qualities Survey, Dimensions 1 - 14}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.cj.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14}\\
+\midrule
+\endhead
+harm.Minor & 0.01 & 0.02 & 0.04 & 0.19 & 0.00 & 0.02 & 0.01 & 0.04 & 0.00 & 0.02 & 0.04 & 0.00 & 0.00 & 0.01\\
+harm.Modal & 0.01 & 0.01 & 0.03 & 0.00 & 0.00 & 0.02 & 0.03 & 0.00 & 0.02 & 0.00 & 0.01 & 0.11 & 0.01 & 0.01\\
+harm.Major & 0.03 & 0.01 & 0.06 & 0.16 & 0.00 & 0.03 & 0.00 & 0.00 & 0.03 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00\\
+harm.Ambiguous & 0.01 & 0.01 & 0.00 & 0.00 & 0.01 & 0.01 & 0.04 & 0.00 & 0.01 & 0.02 & 0.04 & 0.03 & 0.04 & 0.03\\
+harm.Chromatic & 0.00 & 0.00 & 0.00 & 0.00 & 0.03 & 0.01 & 0.03 & 0.00 & 0.04 & 0.00 & 0.00 & 0.02 & 0.07 & 0.01\\
+harm.Quin & 0.00 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.08 & 0.02\\
+harm.Blues & 0.00 & 0.04 & 0.01 & 0.01 & 0.07 & 0.02 & 0.00 & 0.00 & 0.06 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00\\
+harm.Whole tone & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.03 & 0.00 & 0.01\\
+tempo.F5 & 0.05 & 0.00 & 0.00 & 0.01 & 0.04 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.02 & 0.03 & 0.05\\
+tempo.F4 & 0.00 & 0.00 & 0.01 & 0.00 & 0.12 & 0.01 & 0.01 & 0.03 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.08\\
+tempo.F3 & 0.07 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.03 & 0.02\\
+tempo.F6 & 0.13 & 0.00 & 0.03 & 0.02 & 0.02 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.05\\
+tempo.F2 & 0.08 & 0.01 & 0.00 & 0.01 & 0.03 & 0.01 & 0.01 & 0.00 & 0.00 & 0.02 & 0.01 & 0.00 & 0.00 & 0.02\\
+tempo.F7 & 0.07 & 0.00 & 0.01 & 0.00 & 0.04 & 0.01 & 0.00 & 0.04 & 0.00 & 0.00 & 0.04 & 0.02 & 0.00 & 0.02\\
+tempo.F1 & 0.04 & 0.04 & 0.01 & 0.00 & 0.06 & 0.02 & 0.06 & 0.06 & 0.00 & 0.03 & 0.03 & 0.00 & 0.01 & 0.01\\
+meter.Dup & 0.01 & 0.01 & 0.00 & 0.02 & 0.04 & 0.01 & 0.07 & 0.00 & 0.12 & 0.00 & 0.01 & 0.00 & 0.00 & 0.02\\
+meter.Trip & 0.02 & 0.16 & 0.02 & 0.01 & 0.01 & 0.03 & 0.03 & 0.02 & 0.05 & 0.00 & 0.04 & 0.02 & 0.00 & 0.00\\
+meter.Quad & 0.01 & 0.09 & 0.01 & 0.00 & 0.07 & 0.01 & 0.03 & 0.02 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00\\
+density.D4 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.06 & 0.02 & 0.00 & 0.01 & 0.00 & 0.02 & 0.02\\
+density.D2 & 0.01 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.06 & 0.01 & 0.01 & 0.09 & 0.01 & 0.03 & 0.02\\
+density.D5 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.01 & 0.02 & 0.00\\
+density.D3 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00 & 0.01 & 0.04 & 0.02 & 0.01 & 0.00\\
+density.D6 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.01 & 0.02 & 0.02 & 0.00 & 0.00 & 0.03 & 0.04 & 0.04 & 0.02\\
+density.D1 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.05 & 0.03 & 0.00 & 0.00 & 0.04 & 0.02 & 0.00\\
+genre.Classical & 0.03 & 0.05 & 0.00 & 0.01 & 0.02 & 0.03 & 0.02 & 0.03 & 0.00 & 0.00 & 0.08 & 0.01 & 0.00 & 0.02\\
+genre.Contemporary & 0.00 & 0.06 & 0.01 & 0.03 & 0.00 & 0.01 & 0.00 & 0.01 & 0.02 & 0.02 & 0.02 & 0.00 & 0.01 & 0.00\\
+genre.Romantic & 0.01 & 0.05 & 0.00 & 0.03 & 0.00 & 0.00 & 0.00 & 0.04 & 0.01 & 0.01 & 0.00 & 0.02 & 0.01 & 0.04\\
+genre.Modern & 0.01 & 0.04 & 0.00 & 0.00 & 0.01 & 0.03 & 0.00 & 0.00 & 0.00 & 0.10 & 0.00 & 0.00 & 0.00 & 0.01\\
+genre.Baroque & 0.01 & 0.03 & 0.04 & 0.00 & 0.08 & 0.01 & 0.03 & 0.06 & 0.02 & 0.18 & 0.00 & 0.07 & 0.02 & 0.00\\
+genre.Impressionist & 0.01 & 0.01 & 0.05 & 0.00 & 0.00 & 0.00 & 0.01 & 0.02 & 0.06 & 0.01 & 0.01 & 0.02 & 0.00 & 0.06\\
+genre.Jazz/Blues & 0.00 & 0.04 & 0.01 & 0.01 & 0.07 & 0.02 & 0.00 & 0.00 & 0.06 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00\\
+genre.Folk/Country & 0.01 & 0.01 & 0.01 & 0.00 & 0.09 & 0.06 & 0.00 & 0.01 & 0.03 & 0.00 & 0.01 & 0.00 & 0.18 & 0.07\\
+dyn.BothS\&L & 0.01 & 0.01 & 0.15 & 0.02 & 0.00 & 0.12 & 0.04 & 0.00 & 0.04 & 0.02 & 0.01 & 0.07 & 0.00 & 0.01\\
+dyn.Loud & 0.03 & 0.03 & 0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.07 & 0.01 & 0.04 & 0.01 & 0.01 & 0.00 & 0.00\\
+dyn.Mezzo & 0.00 & 0.01 & 0.12 & 0.01 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00 & 0.04 & 0.01 & 0.01 & 0.00 & 0.00\\
+dyn.Gra\_Cresc & 0.00 & 0.01 & 0.14 & 0.13 & 0.01 & 0.06 & 0.01 & 0.00 & 0.00 & 0.07 & 0.04 & 0.00 & 0.02 & 0.01\\
+dyn.Gra\_Decr & 0.01 & 0.03 & 0.00 & 0.03 & 0.00 & 0.11 & 0.22 & 0.00 & 0.01 & 0.00 & 0.03 & 0.03 & 0.01 & 0.00\\
+dyn.Soft & 0.03 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.07 & 0.06\\
+cont.Terrace & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.07 & 0.00 & 0.02 & 0.00 & 0.01 & 0.01\\
+cont.Arch & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.01 & 0.03 & 0.02 & 0.07 & 0.00 & 0.01\\
+cont.Undulating & 0.02 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.01 & 0.00 & 0.01 & 0.04 & 0.01\\
+cont.Descending & 0.00 & 0.01 & 0.00 & 0.04 & 0.00 & 0.06 & 0.06 & 0.02 & 0.01 & 0.00 & 0.05 & 0.00 & 0.01 & 0.00\\
+cont.Ascending & 0.00 & 0.03 & 0.04 & 0.05 & 0.00 & 0.04 & 0.00 & 0.00 & 0.00 & 0.03 & 0.00 & 0.01 & 0.06 & 0.00\\
+cont.Pendulum & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.04 & 0.00 & 0.00 & 0.00 & 0.02\\
+cont.Monotone & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.02 & 0.04 & 0.01 & 0.01 & 0.01 & 0.02 & 0.00\\
+motion.Disjunct & 0.03 & 0.00 & 0.01 & 0.03 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.03 & 0.03 & 0.01 & 0.03 & 0.00\\
+motion.Conjunct & 0.02 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.02 & 0.01 & 0.01 & 0.01 & 0.01\\
+motion.Con\&Dis & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.00\\
+range.R.Mod & 0.00 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.02 & 0.01 & 0.00 & 0.00\\
+range.R.Wid & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.05 & 0.00 & 0.00 & 0.05 & 0.05 & 0.02 & 0.00\\
+range.R.Vwi & 0.01 & 0.00 & 0.03 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.05 & 0.02 & 0.02 & 0.04\\
+range.R.Nar & 0.00 & 0.01 & 0.03 & 0.02 & 0.01 & 0.00 & 0.03 & 0.03 & 0.02 & 0.00 & 0.02 & 0.00 & 0.03 & 0.00\\
+artic.Marcato & 0.02 & 0.00 & 0.00 & 0.04 & 0.02 & 0.04 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+artic.Staccato & 0.07 & 0.01 & 0.02 & 0.00 & 0.03 & 0.01 & 0.00 & 0.06 & 0.01 & 0.01 & 0.00 & 0.02 & 0.00 & 0.02\\
+artic.Tenuto & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.07 & 0.01 & 0.10\\
+artic.Legato & 0.07 & 0.00 & 0.01 & 0.04 & 0.00 & 0.02 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01\\
+artic.Spiccato & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.03 & 0.01 & 0.04 & 0.01 & 0.00 & 0.03\\
+artic.Detache & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.02 & 0.00 & 0.01 & 0.01 & 0.02 & 0.00 & 0.00\\
+melody.Yes & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+melody.No & 0.00 & 0.02 & 0.00 & 0.00 & 0.01 & 0.05 & 0.07 & 0.01 & 0.01 & 0.04 & 0.00 & 0.01 & 0.00 & 0.03\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\tiny{
+
+\begin{longtable}{llllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:Q.cj.table2}Unsigned Column Contributions, Musical Qualities Survey, Dimensions 15 - 27}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:Q.cj.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  15} & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27}\\
+\midrule
+\endhead
+harm.Minor & 0.00 & 0.05 & 0.02 & 0.01 & 0.00 & 0.01 & 0.02 & 0.01 & 0.05 & 0.00 & 0.00 & 0.01 & 0.01\\
+harm.Modal & 0.00 & 0.00 & 0.00 & 0.00 & 0.04 & 0.04 & 0.06 & 0.00 & 0.05 & 0.01 & 0.01 & 0.00 & 0.00\\
+harm.Major & 0.02 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.03 & 0.02 & 0.01 & 0.00 & 0.00 & 0.00 & 0.04\\
+harm.Ambiguous & 0.00 & 0.02 & 0.00 & 0.05 & 0.00 & 0.01 & 0.00 & 0.08 & 0.08 & 0.00 & 0.06 & 0.02 & 0.03\\
+harm.Chromatic & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.03 & 0.01 & 0.01 & 0.02\\
+harm.Quin & 0.00 & 0.01 & 0.03 & 0.00 & 0.03 & 0.01 & 0.00 & 0.00 & 0.00 & 0.03 & 0.01 & 0.11 & 0.04\\
+harm.Blues & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.03 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01\\
+harm.Whole tone & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.05 & 0.11 & 0.01 & 0.00 & 0.05 & 0.05 & 0.03 & 0.03\\
+tempo.F5 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.05 & 0.05 & 0.01 & 0.00 & 0.13 & 0.00 & 0.04 & 0.02\\
+tempo.F4 & 0.03 & 0.00 & 0.00 & 0.00 & 0.00 & 0.08 & 0.01 & 0.00 & 0.00 & 0.05 & 0.01 & 0.01 & 0.00\\
+tempo.F3 & 0.04 & 0.02 & 0.00 & 0.03 & 0.00 & 0.01 & 0.02 & 0.06 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00\\
+tempo.F6 & 0.00 & 0.05 & 0.03 & 0.01 & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.05 & 0.01 & 0.01 & 0.00\\
+tempo.F2 & 0.01 & 0.00 & 0.00 & 0.00 & 0.06 & 0.00 & 0.01 & 0.01 & 0.04 & 0.02 & 0.04 & 0.00 & 0.03\\
+tempo.F7 & 0.02 & 0.03 & 0.04 & 0.05 & 0.00 & 0.00 & 0.03 & 0.00 & 0.01 & 0.02 & 0.00 & 0.07 & 0.05\\
+tempo.F1 & 0.07 & 0.01 & 0.01 & 0.01 & 0.05 & 0.00 & 0.02 & 0.01 & 0.01 & 0.00 & 0.00 & 0.04 & 0.02\\
+meter.Dup & 0.00 & 0.01 & 0.05 & 0.02 & 0.01 & 0.07 & 0.00 & 0.02 & 0.00 & 0.02 & 0.00 & 0.00 & 0.01\\
+meter.Trip & 0.04 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01\\
+meter.Quad & 0.06 & 0.03 & 0.00 & 0.01 & 0.01 & 0.02 & 0.00 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00 & 0.01\\
+density.D4 & 0.01 & 0.01 & 0.04 & 0.00 & 0.01 & 0.01 & 0.00 & 0.01 & 0.07 & 0.00 & 0.00 & 0.01 & 0.02\\
+density.D2 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.03 & 0.03 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00\\
+density.D5 & 0.00 & 0.02 & 0.00 & 0.02 & 0.00 & 0.06 & 0.00 & 0.04 & 0.17 & 0.01 & 0.03 & 0.02 & 0.01\\
+density.D3 & 0.00 & 0.01 & 0.03 & 0.05 & 0.04 & 0.03 & 0.00 & 0.01 & 0.02 & 0.00 & 0.02 & 0.01 & 0.00\\
+density.D6 & 0.02 & 0.03 & 0.09 & 0.00 & 0.00 & 0.01 & 0.02 & 0.04 & 0.00 & 0.07 & 0.01 & 0.00 & 0.00\\
+density.D1 & 0.04 & 0.06 & 0.00 & 0.00 & 0.02 & 0.02 & 0.00 & 0.01 & 0.04 & 0.03 & 0.07 & 0.00 & 0.01\\
+genre.Classical & 0.00 & 0.00 & 0.02 & 0.02 & 0.05 & 0.01 & 0.02 & 0.01 & 0.02 & 0.01 & 0.01 & 0.04 & 0.11\\
+genre.Contemporary & 0.03 & 0.01 & 0.01 & 0.00 & 0.01 & 0.01 & 0.07 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.01\\
+genre.Romantic & 0.00 & 0.02 & 0.01 & 0.08 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.03 & 0.01 & 0.02\\
+genre.Modern & 0.00 & 0.02 & 0.03 & 0.07 & 0.03 & 0.00 & 0.07 & 0.01 & 0.00 & 0.01 & 0.03 & 0.01 & 0.01\\
+genre.Baroque & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.06 & 0.00 & 0.01 & 0.07 & 0.00 & 0.00\\
+genre.Impressionist & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.03 & 0.00 & 0.02 & 0.02 & 0.00 & 0.00 & 0.03\\
+genre.Jazz/Blues & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.03 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01\\
+genre.Folk/Country & 0.03 & 0.06 & 0.01 & 0.02 & 0.00 & 0.01 & 0.07 & 0.00 & 0.00 & 0.01 & 0.00 & 0.02 & 0.02\\
+dyn.BothS\&L & 0.01 & 0.00 & 0.03 & 0.00 & 0.01 & 0.02 & 0.02 & 0.00 & 0.02 & 0.02 & 0.02 & 0.00 & 0.01\\
+dyn.Loud & 0.01 & 0.00 & 0.08 & 0.00 & 0.12 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00\\
+dyn.Mezzo & 0.00 & 0.01 & 0.06 & 0.00 & 0.00 & 0.04 & 0.02 & 0.03 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00\\
+dyn.Gra\_Cresc & 0.02 & 0.00 & 0.01 & 0.02 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00\\
+dyn.Gra\_Decr & 0.04 & 0.02 & 0.02 & 0.00 & 0.00 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00\\
+dyn.Soft & 0.09 & 0.03 & 0.00 & 0.02 & 0.05 & 0.00 & 0.01 & 0.03 & 0.11 & 0.03 & 0.08 & 0.00 & 0.00\\
+cont.Terrace & 0.06 & 0.19 & 0.00 & 0.07 & 0.02 & 0.01 & 0.00 & 0.01 & 0.02 & 0.03 & 0.01 & 0.00 & 0.00\\
+cont.Arch & 0.02 & 0.03 & 0.01 & 0.00 & 0.04 & 0.01 & 0.00 & 0.00 & 0.05 & 0.03 & 0.01 & 0.07 & 0.04\\
+cont.Undulating & 0.06 & 0.00 & 0.04 & 0.01 & 0.02 & 0.02 & 0.01 & 0.01 & 0.00 & 0.01 & 0.04 & 0.05 & 0.00\\
+cont.Descending & 0.08 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.16 & 0.00 & 0.01\\
+cont.Ascending & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.01 & 0.02 & 0.00 & 0.00 & 0.02\\
+cont.Pendulum & 0.00 & 0.00 & 0.04 & 0.00 & 0.01 & 0.00 & 0.00 & 0.02 & 0.02 & 0.00 & 0.00 & 0.00 & 0.01\\
+cont.Monotone & 0.01 & 0.01 & 0.01 & 0.03 & 0.01 & 0.06 & 0.00 & 0.09 & 0.01 & 0.01 & 0.00 & 0.03 & 0.00\\
+motion.Disjunct & 0.02 & 0.02 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.04 & 0.01 & 0.01 & 0.00 & 0.03 & 0.00\\
+motion.Conjunct & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00 & 0.01 & 0.03 & 0.04 & 0.00\\
+motion.Con\&Dis & 0.00 & 0.00 & 0.04 & 0.00 & 0.00 & 0.01 & 0.04 & 0.00 & 0.02 & 0.02 & 0.01 & 0.06 & 0.03\\
+range.R.Mod & 0.01 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.03 & 0.00 & 0.00 & 0.01\\
+range.R.Wid & 0.01 & 0.01 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00 & 0.05 & 0.00 & 0.01 & 0.00 & 0.02 & 0.03\\
+range.R.Vwi & 0.00 & 0.00 & 0.01 & 0.00 & 0.02 & 0.01 & 0.00 & 0.03 & 0.00 & 0.02 & 0.03 & 0.08 & 0.02\\
+range.R.Nar & 0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00 & 0.01 & 0.01 & 0.02 & 0.00 & 0.01 & 0.02 & 0.00\\
+artic.Marcato & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.08 & 0.00 & 0.05 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01\\
+artic.Staccato & 0.01 & 0.02 & 0.01 & 0.00 & 0.06 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01 & 0.08\\
+artic.Tenuto & 0.00 & 0.03 & 0.00 & 0.04 & 0.09 & 0.05 & 0.03 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.03\\
+artic.Legato & 0.01 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.00 & 0.01 & 0.03\\
+artic.Spiccato & 0.00 & 0.03 & 0.01 & 0.00 & 0.02 & 0.03 & 0.02 & 0.01 & 0.00 & 0.01 & 0.00 & 0.04 & 0.04\\
+artic.Detache & 0.02 & 0.01 & 0.03 & 0.21 & 0.00 & 0.01 & 0.03 & 0.01 & 0.02 & 0.02 & 0.02 & 0.01 & 0.01\\
+melody.Yes & 0.00 & 0.00 & 0.02 & 0.00 & 0.02 & 0.00 & 0.00 & 0.03 & 0.01 & 0.00 & 0.01 & 0.00 & 0.01\\
+melody.No & 0.01 & 0.05 & 0.02 & 0.02 & 0.06 & 0.01 & 0.02 & 0.04 & 0.00 & 0.01 & 0.02 & 0.00 & 0.01\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:Q.booti.table}Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Excerpt.1 & 7.49\ \ * * * & 1.13 & -8.25\ \ * * *\\
+Excerpt.2 & 9.9\ \ * * * & -3.8\ \ * * & -6.27\ \ * * *\\
+Excerpt.3 & 3.05 & 1.81 & -7.95\ \ * * *\\
+Excerpt.4 & -2.94 & -9.69\ \ * * * & 5.79\ \ * * *\\
+Excerpt.5 & -4.16\ \ * * & 4.68\ \ * * * & -5.05\ \ * * *\\
+Excerpt.7 & -2.4 & 6.52\ \ * * * & 2.34\\
+Excerpt.8 & -7.61\ \ * * * & 0.75 & 9.09\ \ * * *\\
+Excerpt.9 & -13.17\ \ * * * & 3.65\ \ * & 10.61\ \ * * *\\
+Excerpt.10 & -6.61\ \ * * * & -3.83\ \ * * & 2.95\\
+Excerpt.11 & -4.61\ \ * * * & -3.86\ \ * * & -6.81\ \ * * *\\
+Excerpt.12 & -11.6\ \ * * * & -1.13 & -0.88\\
+Excerpt.13 & 7.44\ \ * * * & 3.38\ \ * & 2.51\\
+Excerpt.15 & 3.1 & -10.61\ \ * * * & 7.18\ \ * * *\\
+Excerpt.16 & -7.11\ \ * * * & 4.4\ \ * * * & 1.39\\
+Excerpt.17 & -5.19\ \ * * * & 0.98 & 7.89\ \ * * *\\
+Excerpt.18 & -1.83 & 1.27 & -1.63\\
+Excerpt.19 & 3.95\ \ * * & -0.43 & 3.57\ \ *\\
+Excerpt.20 & -2.3 & 7.42\ \ * * * & -4.18\ \ * *\\
+Excerpt.21 & -2.2 & -6.87\ \ * * * & 8.31\ \ * * *\\
+Excerpt.22 & 4.93\ \ * * * & -0.3 & 3.45\ \ *\\
+Excerpt.23 & 1.93 & 2.61 & -2.92\\
+Excerpt.24 & 1.76 & 1.06 & -6.4\ \ * * *\\
+Excerpt.25 & 8.27\ \ * * * & -3.72\ \ * & -0.8\\
+Excerpt.26 & 2.46 & -3.34\ \ * & 0.62\\
+Excerpt.27 & -0.7 & -7.24\ \ * * * & -4.18\ \ * *\\
+Excerpt.28 & -3.56\ \ * & -4.12\ \ * * & 0.45\\
+Excerpt.29 & -0.71 & -0.53 & -3.21\\
+Excerpt.30 & -3.6\ \ * & -5.79\ \ * * * & 1.64\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected. 
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:Q.bootj.table}Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3}
+
+\footnotesize{
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+harm.Minor & -3.75\ \ * & -1.93 & 4.23\ \ * *\\
+harm.Modal & -4.13\ \ * * & -0.49 & 0.67\\
+harm.Major & 0.78 & -2.7 & 6.61\ \ * * *\\
+harm.Ambiguous & -1.32 & -7.39\ \ * * * & 15.09\ \ * * *\\
+harm.Chromatic & -16.1\ \ * * * & 14.58\ \ * * * & -21.41\ \ * * *\\
+harm.Quin & 2.2 & -4.55\ \ * * * & 2.24\\
+harm.Blues & 1.69 & -2.82 & 1.37\\
+harm.Whole tone & -0.7 & -0.24 & 1.2\\
+tempo.F5 & 4.72\ \ * * * & -1.02 & -2.6\\
+tempo.F4 & -3.01 & 2.19 & -2.71\\
+tempo.F3 & 0.78 & 0 & 1.81\\
+tempo.F6 & 4.37\ \ * * & -1.36 & -2.32\\
+tempo.F2 & -2.69 & -7.35\ \ * * * & -0.6\\
+tempo.F7 & -1.13 & 2.92 & -1.07\\
+tempo.F1 & 0.45 & -0.41 & 0\\
+meter.Dup & -3.74\ \ * & 4.58\ \ * * * & -0.61\\
+meter.Trip & -0.11 & -0.42 & 2.45\\
+meter.Quad & -0.67 & 3.64\ \ * & 7.35\ \ * * *\\
+density.D4 & -1.84 & -6.23\ \ * * * & 0\\
+density.D2 & 0 & -2.15 & -1.4\\
+density.D5 & -4.21\ \ * * & 2.6 & -2.79\\
+density.D3 & 2.41 & 0.96 & 3.98\ \ * *\\
+density.D6 & 6.58\ \ * * * & 0.62 & 1.18\\
+density.D1 & -1.47 & -2.57 & -0.65\\
+genre.Classical & 1.58 & 0.65 & 5.43\ \ * * *\\
+genre.Contemporary & 2.44 & -8.75\ \ * * * & 8.6\ \ * * *\\
+genre.Romantic & 1.47 & -1.77 & 2.45\\
+genre.Modern & -0.59 & 1.55 & -0.36\\
+genre.Baroque & -8.25\ \ * * * & 5.53\ \ * * * & -5.25\ \ * * *\\
+genre.Impressionist & 6.1\ \ * * * & -6.09\ \ * * * & 2.39\\
+genre.Jazz/Blues & 6.58\ \ * * * & 0 & -2.54\\
+genre.Folk/Country & 4.46\ \ * * & -1.97 & 1.75\\
+dyn.BothS\&L & 6.47\ \ * * * & -3.74\ \ * & -1.56\\
+dyn.Loud & -3.06 & -0.54 & -1.61\\
+dyn.Mezzo & 4.57\ \ * * * & -1.21 & 0\\
+dyn.Gra\_Cresc & 1.58 & -0.31 & -1.31\\
+dyn.Gra\_Decr & -1.7 & -0.45 & -0.82\\
+dyn.Soft & 2.53 & -0.64 & -2.17\\
+cont.Terrace & 2.21 & 0.14 & 0\\
+cont.Arch & 0 & -1.05 & 3.96\ \ * *\\
+cont.Undulating & 3.9\ \ * & 2.58 & -6.36\ \ * * *\\
+cont.Descending & 1.09 & 1.02 & 0.79\\
+cont.Ascending & -1.61 & 0.46 & -0.28\\
+cont.Pendulum & -2.16 & -0.88 & 2.16\\
+cont.Monotone & 1.9 & 1.32 & -2.18\\
+motion.Disjunct & -0.36 & 2.08 & -2.41\\
+motion.Conjunct & 0.34 & -1.58 & 0.97\\
+motion.Con\&Dis & -0.39 & 1.95 & 0.11\\
+range.R.Mod & 0.57 & 1.62 & 0.02\\
+range.R.Wid & -0.24 & -3.73\ \ * & 4.89\ \ * * *\\
+range.R.Vwi & -1.61 & 0 & 7.27\ \ * * *\\
+range.R.Nar & -1.25 & -9.31\ \ * * * & 7.77\ \ * * *\\
+artic.Marcato & -0.75 & -1.43 & 0.75\\
+artic.Staccato & -2.08 & -2.7 & -0.89\\
+artic.Tenuto & 3.64\ \ * & -0.43 & 0\\
+artic.Legato & 2.55 & -1.55 & 0.51\\
+artic.Spiccato & -0.94 & 1.8 & 2.39\\
+artic.Detache & -3.72\ \ * & 0.68 & 2\\
+melody.Yes & 0.09 & -1.68 & 0\\
+melody.No & 0 & 1.55 & -0.22\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected. 
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/HCA-1} \end{center}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/HCAW6-1} \end{center}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/excerptsmaps23-1} \end{center}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/excerptsmaps23-2} \end{center}
+
+\hypertarget{supplementary-tables-plots-for-adjectives-survey}{%
+\section{Supplementary Tables \& Plots for Adjectives
+Survey}\label{supplementary-tables-plots-for-adjectives-survey}}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{llllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.fi.table1}Row Factor Scores, Adjectives Survey, Dimensions 1 - 15}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.fi.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endhead
+Excerpt.1 & -0.32 & 0.55 & -0.41 & 0.09 & -0.06 & 0.03 & 0.00 & 0.08 & -0.02 & 0.01 & 0.03 & -0.11 & 0.08 & -0.04 & -0.02\\
+Excerpt.2 & -0.12 & 0.39 & 0.02 & 0.42 & 0.14 & -0.29 & 0.10 & -0.10 & 0.00 & 0.00 & -0.08 & 0.10 & 0.06 & -0.02 & 0.01\\
+Excerpt.3 & 0.92 & -0.15 & 0.13 & -0.02 & -0.17 & -0.22 & -0.19 & -0.07 & -0.09 & 0.04 & -0.01 & -0.07 & 0.04 & 0.10 & 0.07\\
+Excerpt.4 & -0.69 & 0.03 & 0.15 & 0.08 & -0.07 & -0.16 & 0.16 & -0.06 & -0.04 & 0.09 & 0.01 & -0.02 & 0.04 & -0.06 & -0.03\\
+Excerpt.5 & 0.60 & 0.32 & 0.25 & 0.20 & 0.10 & 0.03 & -0.13 & 0.03 & -0.21 & -0.03 & 0.04 & 0.03 & -0.03 & -0.03 & -0.02\\
+Excerpt.6 & -0.04 & 0.81 & -0.08 & -0.63 & 0.29 & 0.07 & 0.02 & 0.01 & 0.04 & 0.09 & -0.08 & 0.02 & 0.00 & 0.02 & -0.02\\
+Excerpt.7 & 0.81 & 0.53 & 0.43 & 0.07 & 0.01 & 0.28 & 0.19 & 0.02 & 0.01 & -0.05 & 0.05 & -0.04 & -0.02 & 0.00 & 0.04\\
+Excerpt.8 & -0.39 & -0.31 & -0.05 & 0.16 & 0.01 & 0.19 & 0.02 & 0.03 & -0.04 & -0.05 & -0.03 & 0.00 & -0.01 & 0.05 & -0.04\\
+Excerpt.9 & -0.44 & 0.18 & -0.24 & 0.22 & -0.01 & 0.04 & 0.06 & -0.13 & -0.05 & 0.06 & -0.02 & 0.00 & -0.13 & 0.10 & -0.04\\
+Excerpt.10 & 0.60 & -0.42 & -0.20 & -0.09 & -0.13 & -0.11 & 0.09 & 0.04 & 0.15 & -0.12 & -0.09 & -0.01 & -0.05 & 0.00 & -0.04\\
+Excerpt.11 & 0.16 & -0.70 & -0.05 & -0.10 & 0.34 & -0.01 & 0.06 & 0.08 & -0.12 & -0.03 & 0.06 & -0.03 & 0.00 & -0.06 & -0.03\\
+Excerpt.12 & 0.24 & 0.28 & -0.42 & 0.20 & -0.01 & 0.12 & 0.10 & -0.02 & 0.01 & 0.04 & 0.05 & 0.10 & 0.00 & 0.01 & 0.08\\
+Excerpt.13 & -0.80 & -0.08 & 0.19 & -0.12 & -0.16 & 0.00 & -0.08 & -0.02 & 0.03 & 0.04 & -0.01 & 0.01 & 0.04 & -0.02 & 0.00\\
+Excerpt.14 & -0.18 & 0.02 & 0.09 & 0.33 & 0.18 & 0.01 & -0.18 & 0.16 & 0.17 & 0.03 & 0.00 & 0.04 & -0.06 & 0.01 & -0.08\\
+Excerpt.15 & 0.52 & -0.33 & -0.41 & -0.14 & -0.18 & 0.15 & -0.07 & -0.09 & 0.01 & -0.04 & 0.06 & 0.16 & 0.05 & -0.01 & -0.01\\
+Excerpt.16 & -0.50 & 0.46 & -0.08 & -0.38 & 0.09 & -0.23 & 0.01 & -0.05 & -0.02 & -0.15 & 0.05 & -0.01 & -0.06 & 0.00 & 0.04\\
+Excerpt.17 & 0.43 & -0.12 & 0.17 & 0.02 & 0.19 & -0.08 & -0.05 & -0.06 & 0.28 & 0.07 & 0.10 & -0.02 & 0.02 & 0.01 & 0.07\\
+Excerpt.18 & 0.78 & 0.23 & 0.29 & 0.17 & 0.01 & -0.01 & 0.04 & 0.04 & 0.04 & -0.09 & -0.06 & 0.00 & 0.11 & 0.07 & -0.07\\
+Excerpt.19 & -0.66 & -0.09 & 0.04 & 0.01 & -0.07 & 0.10 & -0.04 & -0.08 & 0.03 & 0.09 & -0.02 & -0.08 & 0.00 & 0.00 & -0.05\\
+Excerpt.20 & -0.13 & -0.54 & -0.04 & -0.13 & 0.23 & 0.13 & -0.06 & -0.25 & -0.04 & -0.09 & -0.07 & -0.02 & 0.06 & 0.00 & -0.03\\
+Excerpt.21 & 0.54 & -0.30 & -0.08 & -0.04 & 0.11 & -0.18 & -0.05 & 0.03 & -0.04 & 0.08 & 0.12 & 0.06 & -0.06 & -0.02 & -0.04\\
+Excerpt.22 & -0.10 & 0.14 & -0.08 & 0.25 & 0.06 & 0.01 & -0.13 & -0.09 & 0.06 & -0.13 & -0.04 & -0.09 & -0.08 & -0.12 & 0.06\\
+Excerpt.23 & -0.88 & -0.21 & 0.33 & -0.13 & -0.22 & 0.00 & 0.02 & 0.09 & 0.02 & -0.06 & 0.03 & 0.11 & 0.02 & -0.03 & 0.00\\
+Excerpt.24 & 0.93 & 0.15 & 0.25 & -0.17 & -0.08 & 0.09 & -0.05 & -0.07 & -0.01 & 0.06 & 0.04 & -0.01 & 0.02 & -0.05 & -0.04\\
+Excerpt.25 & -0.37 & 0.56 & -0.16 & -0.02 & -0.06 & -0.03 & -0.15 & 0.17 & -0.05 & -0.04 & -0.04 & 0.02 & 0.03 & 0.03 & 0.02\\
+Excerpt.26 & -0.77 & -0.04 & 0.15 & -0.05 & -0.16 & -0.03 & 0.05 & -0.02 & 0.00 & -0.06 & 0.13 & -0.05 & -0.04 & 0.07 & 0.00\\
+Excerpt.27 & 0.95 & -0.04 & 0.02 & -0.14 & -0.33 & -0.08 & 0.08 & 0.05 & -0.04 & 0.07 & -0.13 & -0.01 & -0.10 & -0.05 & -0.01\\
+Excerpt.28 & -0.06 & -0.70 & 0.00 & -0.04 & 0.23 & -0.05 & 0.13 & 0.14 & -0.05 & 0.03 & -0.03 & -0.01 & 0.02 & 0.06 & 0.05\\
+Excerpt.29 & -0.60 & -0.46 & 0.17 & 0.04 & 0.03 & 0.17 & -0.07 & 0.03 & -0.03 & 0.06 & -0.11 & 0.01 & -0.03 & -0.01 & 0.11\\
+Excerpt.30 & 0.36 & -0.39 & -0.40 & 0.03 & -0.11 & 0.02 & 0.04 & 0.07 & 0.03 & 0.03 & 0.03 & -0.12 & 0.05 & -0.01 & 0.01\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.fi.table2}Row Factor Scores, Adjectives Survey, Dimensions 16 - 29}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.fi.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endhead
+Excerpt.1 & -0.03 & -0.04 & 0.00 & 0.05 & -0.02 & 0.00 & -0.01 & -0.01 & -0.01 & -0.01 & -0.02 & 0.01 & 0.00 & 0.01\\
+Excerpt.2 & 0.01 & -0.05 & 0.01 & 0.02 & 0.00 & -0.02 & 0.00 & 0.02 & -0.02 & -0.02 & 0.00 & -0.01 & 0.00 & -0.01\\
+Excerpt.3 & -0.03 & 0.00 & -0.06 & -0.01 & 0.03 & 0.01 & -0.02 & -0.01 & -0.01 & -0.02 & 0.00 & 0.00 & 0.00 & 0.00\\
+Excerpt.4 & -0.01 & 0.05 & -0.03 & -0.05 & -0.01 & 0.00 & -0.02 & 0.00 & 0.03 & 0.00 & 0.01 & 0.00 & 0.00 & 0.01\\
+Excerpt.5 & 0.03 & 0.04 & -0.03 & 0.03 & -0.07 & 0.02 & 0.02 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & -0.01 & 0.00\\
+Excerpt.6 & 0.00 & 0.02 & -0.02 & -0.03 & -0.01 & 0.01 & 0.01 & -0.01 & -0.02 & -0.02 & 0.00 & -0.01 & 0.00 & 0.00\\
+Excerpt.7 & -0.03 & -0.02 & 0.02 & 0.02 & 0.02 & 0.00 & -0.03 & 0.00 & 0.00 & -0.02 & 0.02 & 0.01 & 0.00 & 0.00\\
+Excerpt.8 & 0.03 & 0.10 & -0.02 & 0.00 & -0.01 & -0.02 & -0.05 & 0.02 & -0.02 & 0.00 & -0.03 & -0.01 & 0.01 & 0.00\\
+Excerpt.9 & -0.02 & 0.00 & 0.00 & 0.00 & 0.00 & -0.06 & 0.03 & -0.03 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00\\
+Excerpt.10 & -0.04 & 0.01 & -0.02 & 0.03 & -0.02 & 0.00 & -0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & -0.02 & 0.00\\
+Excerpt.11 & 0.00 & -0.03 & -0.05 & 0.03 & 0.05 & -0.02 & 0.01 & -0.03 & -0.01 & 0.01 & 0.01 & -0.02 & 0.00 & 0.00\\
+Excerpt.12 & -0.03 & 0.03 & -0.03 & -0.01 & 0.03 & 0.05 & 0.01 & -0.01 & 0.00 & 0.03 & -0.01 & 0.00 & -0.01 & 0.00\\
+Excerpt.13 & -0.03 & 0.08 & 0.04 & 0.07 & 0.05 & 0.00 & 0.03 & 0.01 & -0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00\\
+Excerpt.14 & -0.03 & -0.03 & -0.05 & -0.01 & 0.03 & 0.03 & 0.00 & 0.02 & 0.02 & -0.01 & 0.00 & 0.01 & 0.01 & 0.00\\
+Excerpt.15 & 0.07 & -0.02 & -0.01 & 0.00 & 0.01 & -0.01 & -0.01 & 0.01 & 0.01 & -0.02 & 0.01 & 0.00 & 0.00 & 0.01\\
+Excerpt.16 & 0.05 & 0.02 & 0.00 & 0.04 & 0.02 & 0.01 & 0.00 & 0.00 & 0.04 & 0.00 & -0.02 & 0.01 & 0.00 & 0.00\\
+Excerpt.17 & 0.03 & 0.02 & -0.02 & 0.03 & -0.06 & -0.04 & -0.01 & -0.01 & -0.01 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00\\
+Excerpt.18 & 0.04 & 0.02 & 0.04 & -0.02 & 0.01 & 0.02 & 0.03 & -0.04 & 0.02 & 0.01 & -0.01 & 0.00 & 0.00 & 0.00\\
+Excerpt.19 & 0.10 & -0.05 & 0.00 & 0.00 & 0.01 & 0.03 & -0.03 & -0.01 & -0.01 & 0.01 & 0.01 & 0.00 & -0.01 & -0.01\\
+Excerpt.20 & -0.10 & -0.03 & 0.02 & 0.00 & -0.03 & 0.02 & 0.00 & 0.01 & 0.00 & 0.02 & 0.01 & 0.01 & 0.01 & 0.00\\
+Excerpt.21 & -0.03 & 0.01 & 0.12 & -0.01 & -0.01 & 0.02 & -0.03 & -0.02 & -0.01 & -0.01 & -0.01 & 0.00 & 0.00 & 0.00\\
+Excerpt.22 & 0.03 & 0.03 & 0.02 & -0.07 & 0.02 & 0.00 & 0.02 & -0.01 & -0.03 & -0.01 & 0.00 & 0.00 & 0.00 & 0.00\\
+Excerpt.23 & -0.03 & -0.02 & -0.03 & -0.03 & -0.02 & 0.00 & 0.00 & -0.03 & -0.02 & -0.01 & -0.01 & 0.01 & 0.00 & -0.01\\
+Excerpt.24 & -0.02 & -0.03 & 0.00 & -0.03 & 0.02 & -0.05 & 0.02 & 0.03 & 0.01 & 0.01 & -0.03 & 0.00 & -0.01 & 0.00\\
+Excerpt.25 & -0.01 & -0.01 & 0.03 & -0.03 & 0.00 & -0.04 & -0.02 & 0.01 & 0.01 & 0.03 & 0.02 & 0.00 & 0.00 & 0.00\\
+Excerpt.26 & 0.00 & -0.04 & 0.00 & -0.02 & -0.02 & 0.02 & 0.02 & 0.02 & -0.01 & 0.00 & 0.00 & -0.02 & 0.00 & 0.00\\
+Excerpt.27 & 0.02 & -0.02 & 0.00 & 0.02 & -0.01 & 0.02 & 0.01 & 0.00 & -0.01 & 0.02 & 0.00 & 0.00 & 0.02 & 0.00\\
+Excerpt.28 & 0.04 & -0.01 & 0.02 & -0.02 & 0.00 & 0.00 & 0.02 & 0.03 & -0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00\\
+Excerpt.29 & -0.01 & -0.03 & 0.03 & 0.02 & -0.02 & 0.00 & 0.00 & -0.01 & 0.04 & -0.01 & -0.01 & -0.02 & 0.00 & 0.00\\
+Excerpt.30 & 0.00 & 0.04 & 0.01 & -0.04 & -0.02 & 0.00 & 0.03 & 0.00 & 0.02 & -0.02 & 0.01 & -0.01 & 0.00 & -0.01\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{llllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.fj.table1}Column Factor Scores, Adjectives Survey, Dimensions 1 - 15}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.fj.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endhead
+Aggressive & -0.22 & 0.87 & -0.35 & -0.45 & 0.14 & 0.02 & 0.01 & 0.11 & -0.06 & 0.05 & -0.03 & 0.03 & 0.00 & 0.08 & 0.05\\
+Bright & -0.67 & -0.22 & 0.07 & -0.01 & -0.13 & 0.07 & 0.05 & -0.09 & 0.03 & -0.01 & 0.06 & -0.01 & 0.01 & 0.05 & -0.06\\
+Colorful & -0.67 & -0.17 & 0.14 & 0.13 & -0.10 & 0.01 & 0.04 & 0.01 & -0.02 & 0.06 & -0.02 & 0.01 & -0.02 & 0.05 & -0.05\\
+Complex & -0.07 & 0.37 & -0.12 & 0.23 & 0.04 & -0.05 & 0.09 & -0.02 & -0.02 & -0.08 & 0.07 & 0.03 & -0.09 & 0.09 & 0.05\\
+Dancing & -0.72 & -0.22 & 0.34 & 0.01 & -0.08 & -0.01 & -0.08 & 0.13 & 0.04 & 0.05 & -0.01 & 0.11 & 0.03 & -0.05 & 0.07\\
+Dark & 1.03 & 0.33 & 0.46 & 0.00 & -0.14 & 0.10 & -0.05 & 0.05 & -0.20 & 0.01 & -0.01 & -0.08 & -0.06 & -0.05 & 0.01\\
+Dense & 0.03 & 0.20 & -0.01 & -0.04 & 0.03 & 0.08 & 0.02 & -0.01 & 0.00 & -0.12 & 0.12 & 0.06 & -0.10 & -0.06 & 0.03\\
+Disturbing & 0.79 & 0.71 & 0.48 & -0.15 & 0.13 & 0.35 & 0.23 & 0.01 & 0.08 & 0.04 & 0.01 & -0.05 & 0.04 & 0.00 & 0.02\\
+Dull & 0.72 & -0.08 & 0.29 & -0.04 & 0.20 & 0.01 & -0.20 & -0.07 & 0.09 & 0.05 & 0.17 & -0.13 & 0.00 & 0.05 & 0.03\\
+Exotic & -0.21 & 0.27 & 0.19 & 0.26 & 0.00 & -0.04 & -0.24 & 0.17 & 0.16 & -0.07 & -0.04 & 0.07 & -0.06 & 0.08 & -0.09\\
+Fast & -0.83 & 0.47 & 0.02 & -0.40 & -0.12 & -0.19 & -0.01 & 0.02 & -0.01 & -0.07 & 0.04 & -0.06 & 0.05 & -0.01 & -0.03\\
+Happy & -0.78 & -0.35 & 0.25 & -0.02 & -0.13 & 0.09 & 0.05 & -0.09 & -0.03 & 0.02 & -0.01 & 0.00 & 0.00 & -0.01 & 0.00\\
+Incisive & -0.08 & 0.37 & -0.04 & 0.02 & 0.11 & -0.12 & -0.17 & -0.07 & 0.02 & -0.11 & -0.09 & 0.01 & -0.01 & -0.16 & 0.05\\
+Light & -0.45 & -0.37 & 0.09 & 0.00 & 0.13 & -0.07 & 0.06 & -0.04 & 0.00 & -0.04 & 0.02 & -0.05 & -0.03 & -0.02 & 0.03\\
+Long & 0.45 & -0.11 & -0.16 & -0.20 & -0.07 & 0.06 & 0.13 & -0.01 & 0.13 & -0.08 & -0.11 & 0.05 & -0.04 & -0.03 & -0.10\\
+Melancholy & 0.90 & -0.34 & -0.12 & -0.09 & -0.21 & -0.11 & 0.03 & 0.01 & 0.10 & 0.01 & -0.01 & 0.01 & 0.07 & 0.06 & 0.04\\
+Monotonous & 0.33 & 0.13 & 0.02 & -0.56 & 0.33 & 0.11 & -0.12 & -0.20 & 0.03 & 0.10 & -0.06 & 0.08 & -0.05 & 0.00 & -0.07\\
+Mysterious & 0.65 & 0.44 & 0.31 & 0.28 & 0.05 & -0.04 & -0.04 & 0.04 & 0.00 & -0.06 & -0.03 & 0.03 & 0.09 & 0.03 & -0.05\\
+Powerful & 0.01 & 0.17 & -0.46 & 0.06 & -0.14 & 0.14 & -0.03 & 0.08 & -0.06 & 0.04 & 0.03 & -0.03 & 0.05 & -0.04 & -0.03\\
+Round & 0.09 & -0.57 & -0.11 & -0.03 & 0.25 & -0.02 & 0.06 & 0.20 & -0.02 & -0.11 & -0.08 & 0.03 & -0.09 & -0.02 & 0.00\\
+Sad & 1.03 & -0.28 & -0.05 & -0.14 & -0.40 & -0.12 & 0.06 & 0.02 & 0.10 & 0.02 & -0.10 & -0.05 & -0.09 & -0.02 & 0.03\\
+Short & -0.16 & 0.01 & 0.10 & -0.10 & 0.02 & -0.24 & -0.16 & -0.04 & -0.12 & 0.18 & -0.09 & -0.10 & -0.07 & 0.09 & 0.09\\
+Slow & 0.85 & -0.41 & -0.06 & -0.06 & -0.02 & -0.11 & -0.07 & 0.02 & -0.08 & 0.08 & 0.15 & 0.08 & -0.05 & -0.03 & -0.07\\
+Soft & 0.33 & -0.70 & -0.14 & -0.07 & 0.38 & -0.11 & 0.04 & 0.19 & -0.01 & 0.02 & -0.01 & -0.12 & 0.05 & 0.00 & -0.03\\
+Solemn & 0.65 & -0.35 & -0.17 & -0.01 & -0.09 & 0.03 & -0.04 & -0.17 & -0.14 & -0.12 & -0.02 & 0.04 & 0.09 & 0.01 & 0.03\\
+Sparse & 0.11 & -0.05 & 0.09 & 0.18 & 0.32 & -0.31 & 0.06 & -0.16 & -0.10 & 0.02 & -0.10 & 0.09 & 0.06 & 0.03 & 0.03\\
+Strong & -0.12 & 0.12 & -0.39 & 0.09 & -0.06 & 0.20 & -0.02 & 0.04 & 0.01 & 0.06 & 0.03 & 0.06 & 0.04 & -0.01 & 0.03\\
+Surprising & -0.20 & 0.45 & -0.13 & 0.22 & 0.05 & -0.11 & 0.12 & -0.06 & -0.02 & 0.12 & -0.08 & 0.06 & -0.02 & -0.03 & -0.02\\
+Transparent & -0.07 & -0.31 & 0.00 & -0.05 & 0.28 & 0.04 & 0.09 & -0.03 & 0.25 & 0.02 & 0.13 & -0.05 & 0.05 & -0.05 & 0.07\\
+Valiant & -0.34 & -0.02 & -0.24 & 0.19 & 0.01 & 0.22 & -0.24 & -0.07 & 0.07 & -0.04 & -0.08 & -0.10 & -0.03 & 0.03 & 0.01\\
+Varied & -0.09 & 0.23 & -0.14 & 0.35 & 0.05 & -0.10 & 0.06 & -0.04 & 0.03 & 0.05 & 0.03 & -0.09 & 0.00 & -0.06 & -0.02\\
+Warm & -0.36 & -0.69 & 0.01 & -0.04 & 0.17 & 0.15 & 0.06 & 0.05 & -0.07 & -0.05 & -0.03 & -0.02 & 0.01 & 0.02 & 0.01\\
+Weak & 0.54 & -0.17 & -0.02 & -0.02 & 0.27 & -0.11 & -0.06 & -0.17 & 0.43 & 0.03 & 0.11 & 0.09 & 0.07 & -0.04 & 0.08\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.fj.table2}Column Factor Scores, Adjectives Survey, dimensions 16 - 29}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.fj.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endhead
+Aggressive & -0.06 & 0.02 & 0.00 & 0.05 & 0.02 & 0.02 & 0.01 & 0.01 & 0.04 & 0.01 & 0.00 & 0.01 & 0.00 & -0.01\\
+Bright & -0.01 & 0.06 & 0.03 & 0.05 & 0.00 & 0.00 & 0.02 & 0.02 & -0.03 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00\\
+Colorful & 0.02 & 0.00 & -0.01 & 0.01 & 0.01 & -0.03 & -0.02 & 0.03 & 0.02 & 0.00 & -0.01 & -0.01 & -0.01 & 0.00\\
+Complex & -0.02 & -0.03 & 0.03 & -0.02 & -0.01 & -0.02 & 0.01 & 0.00 & -0.02 & 0.01 & 0.00 & -0.01 & 0.00 & 0.00\\
+Dancing & -0.04 & -0.03 & 0.02 & -0.01 & 0.00 & 0.00 & 0.01 & 0.00 & -0.02 & -0.01 & -0.01 & 0.01 & 0.00 & 0.00\\
+Dark & 0.01 & 0.01 & -0.05 & 0.03 & -0.01 & 0.02 & 0.03 & 0.00 & -0.01 & 0.03 & 0.00 & 0.01 & 0.00 & 0.00\\
+Dense & 0.05 & 0.09 & 0.02 & -0.01 & -0.02 & 0.04 & -0.01 & 0.01 & 0.04 & -0.02 & -0.02 & 0.00 & 0.00 & 0.01\\
+Disturbing & 0.00 & 0.02 & 0.04 & -0.01 & 0.02 & -0.02 & -0.02 & 0.00 & -0.01 & -0.03 & 0.01 & 0.01 & 0.00 & 0.00\\
+Dull & -0.05 & 0.02 & -0.09 & -0.01 & -0.02 & -0.05 & -0.04 & -0.03 & 0.00 & -0.01 & -0.01 & 0.00 & -0.01 & 0.00\\
+Exotic & -0.04 & 0.06 & -0.09 & -0.08 & -0.01 & 0.01 & 0.02 & 0.00 & 0.00 & -0.01 & 0.02 & 0.01 & 0.01 & 0.00\\
+Fast & 0.02 & -0.02 & -0.01 & 0.00 & 0.01 & 0.01 & -0.02 & -0.01 & -0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+Happy & -0.02 & 0.03 & -0.01 & 0.00 & -0.02 & 0.01 & 0.00 & -0.02 & 0.02 & 0.01 & 0.01 & -0.02 & 0.01 & 0.00\\
+Incisive & 0.00 & 0.07 & 0.04 & -0.01 & 0.00 & -0.06 & -0.01 & 0.02 & -0.01 & 0.02 & 0.02 & -0.01 & -0.01 & -0.01\\
+Light & 0.03 & -0.04 & -0.02 & 0.00 & 0.06 & -0.05 & 0.04 & -0.01 & 0.03 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00\\
+Long & -0.07 & -0.04 & 0.01 & 0.03 & -0.06 & -0.02 & 0.02 & -0.04 & 0.02 & 0.00 & -0.01 & 0.01 & -0.01 & 0.01\\
+Melancholy & 0.07 & 0.04 & 0.03 & -0.04 & 0.00 & 0.01 & 0.03 & -0.02 & 0.00 & 0.01 & -0.01 & 0.00 & -0.01 & 0.00\\
+Monotonous & 0.03 & -0.03 & 0.01 & -0.05 & 0.01 & 0.01 & 0.03 & 0.02 & -0.03 & 0.00 & -0.02 & -0.02 & 0.00 & 0.00\\
+Mysterious & 0.03 & -0.04 & 0.03 & 0.02 & 0.01 & 0.01 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & -0.01 & 0.00 & 0.00\\
+Powerful & 0.03 & -0.02 & 0.01 & -0.03 & -0.05 & -0.05 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00\\
+Round & 0.03 & -0.01 & -0.01 & 0.06 & -0.01 & 0.00 & 0.00 & -0.01 & -0.03 & -0.03 & 0.02 & -0.01 & 0.00 & -0.01\\
+Sad & -0.01 & -0.02 & -0.03 & 0.01 & 0.03 & 0.00 & -0.03 & 0.03 & -0.01 & 0.00 & -0.01 & -0.01 & 0.01 & 0.00\\
+Short & 0.00 & -0.01 & 0.07 & 0.00 & -0.09 & 0.00 & 0.00 & -0.01 & 0.01 & -0.03 & 0.03 & -0.01 & 0.01 & 0.01\\
+Slow & 0.00 & -0.03 & 0.04 & 0.02 & 0.02 & 0.00 & -0.01 & -0.01 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00\\
+Soft & -0.05 & 0.08 & 0.02 & -0.01 & 0.02 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & -0.01 & 0.00 & 0.01\\
+Solemn & -0.09 & -0.01 & -0.02 & -0.02 & 0.02 & 0.01 & 0.00 & 0.01 & 0.00 & -0.02 & 0.01 & 0.00 & 0.00 & 0.00\\
+Sparse & 0.10 & 0.05 & -0.07 & 0.08 & -0.04 & -0.02 & -0.01 & 0.00 & -0.02 & -0.02 & -0.02 & 0.02 & 0.00 & 0.00\\
+Strong & 0.02 & 0.02 & -0.06 & 0.03 & 0.02 & 0.00 & 0.00 & -0.02 & -0.02 & 0.00 & 0.00 & -0.02 & 0.00 & 0.00\\
+Surprising & 0.00 & 0.01 & -0.01 & -0.06 & 0.02 & 0.01 & -0.03 & -0.02 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.00\\
+Transparent & 0.09 & -0.13 & -0.11 & -0.01 & -0.06 & 0.08 & 0.05 & 0.07 & 0.03 & 0.01 & 0.07 & 0.00 & -0.02 & 0.00\\
+Valiant & 0.03 & -0.02 & 0.04 & 0.03 & 0.03 & 0.02 & -0.01 & -0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00\\
+Varied & -0.04 & -0.01 & 0.00 & 0.00 & 0.00 & 0.03 & 0.02 & 0.00 & -0.01 & -0.01 & -0.02 & 0.00 & 0.00 & -0.01\\
+Warm & 0.03 & -0.04 & 0.00 & -0.04 & -0.02 & 0.02 & -0.04 & 0.00 & -0.01 & 0.02 & -0.01 & 0.01 & 0.00 & 0.00\\
+Weak & -0.08 & -0.03 & 0.02 & 0.11 & -0.06 & -0.01 & -0.07 & 0.03 & 0.01 & 0.06 & -0.01 & 0.01 & 0.03 & 0.00\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{llllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.ci.table1}Unsigned Row Contributions, Adjectives Survey, Dimensions 1 - 15}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.ci.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endhead
+Excerpt.1 & 0.01 & 0.08 & 0.13 & 0.01 & 0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00 & 0.01 & 0.11 & 0.09 & 0.03 & 0.01\\
+Excerpt.2 & 0.00 & 0.03 & 0.00 & 0.15 & 0.03 & 0.17 & 0.03 & 0.04 & 0.00 & 0.00 & 0.05 & 0.08 & 0.04 & 0.00 & 0.00\\
+Excerpt.3 & 0.08 & 0.01 & 0.01 & 0.00 & 0.04 & 0.10 & 0.12 & 0.02 & 0.04 & 0.01 & 0.00 & 0.04 & 0.02 & 0.13 & 0.08\\
+Excerpt.4 & 0.06 & 0.00 & 0.02 & 0.01 & 0.01 & 0.06 & 0.11 & 0.02 & 0.01 & 0.08 & 0.00 & 0.00 & 0.02 & 0.07 & 0.01\\
+Excerpt.5 & 0.03 & 0.02 & 0.04 & 0.03 & 0.01 & 0.00 & 0.06 & 0.00 & 0.21 & 0.00 & 0.01 & 0.01 & 0.01 & 0.02 & 0.01\\
+Excerpt.6 & 0.00 & 0.15 & 0.00 & 0.33 & 0.12 & 0.01 & 0.00 & 0.00 & 0.01 & 0.05 & 0.05 & 0.00 & 0.00 & 0.01 & 0.01\\
+Excerpt.7 & 0.07 & 0.07 & 0.12 & 0.00 & 0.00 & 0.17 & 0.13 & 0.00 & 0.00 & 0.02 & 0.02 & 0.02 & 0.01 & 0.00 & 0.03\\
+Excerpt.8 & 0.01 & 0.02 & 0.00 & 0.02 & 0.00 & 0.07 & 0.00 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.00 & 0.03 & 0.03\\
+Excerpt.9 & 0.02 & 0.01 & 0.03 & 0.04 & 0.00 & 0.00 & 0.01 & 0.07 & 0.01 & 0.02 & 0.00 & 0.00 & 0.19 & 0.15 & 0.03\\
+Excerpt.10 & 0.04 & 0.04 & 0.03 & 0.01 & 0.02 & 0.03 & 0.03 & 0.01 & 0.11 & 0.11 & 0.06 & 0.00 & 0.03 & 0.00 & 0.02\\
+Excerpt.11 & 0.00 & 0.11 & 0.00 & 0.01 & 0.15 & 0.00 & 0.01 & 0.03 & 0.07 & 0.01 & 0.02 & 0.01 & 0.00 & 0.05 & 0.01\\
+Excerpt.12 & 0.01 & 0.02 & 0.12 & 0.04 & 0.00 & 0.03 & 0.04 & 0.00 & 0.00 & 0.02 & 0.02 & 0.09 & 0.00 & 0.00 & 0.11\\
+Excerpt.13 & 0.07 & 0.00 & 0.03 & 0.01 & 0.04 & 0.00 & 0.03 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.02 & 0.01 & 0.00\\
+Excerpt.14 & 0.00 & 0.00 & 0.00 & 0.08 & 0.04 & 0.00 & 0.11 & 0.09 & 0.13 & 0.01 & 0.00 & 0.01 & 0.04 & 0.00 & 0.09\\
+Excerpt.15 & 0.03 & 0.02 & 0.11 & 0.02 & 0.04 & 0.04 & 0.02 & 0.03 & 0.00 & 0.01 & 0.03 & 0.21 & 0.03 & 0.00 & 0.00\\
+Excerpt.16 & 0.02 & 0.05 & 0.00 & 0.11 & 0.01 & 0.10 & 0.00 & 0.01 & 0.00 & 0.14 & 0.02 & 0.00 & 0.04 & 0.00 & 0.02\\
+Excerpt.17 & 0.02 & 0.00 & 0.02 & 0.00 & 0.04 & 0.01 & 0.01 & 0.01 & 0.32 & 0.03 & 0.07 & 0.00 & 0.00 & 0.00 & 0.06\\
+Excerpt.18 & 0.06 & 0.01 & 0.05 & 0.02 & 0.00 & 0.00 & 0.01 & 0.01 & 0.01 & 0.05 & 0.03 & 0.00 & 0.13 & 0.07 & 0.07\\
+Excerpt.19 & 0.05 & 0.00 & 0.00 & 0.00 & 0.01 & 0.02 & 0.01 & 0.03 & 0.00 & 0.06 & 0.01 & 0.05 & 0.00 & 0.00 & 0.04\\
+Excerpt.20 & 0.00 & 0.06 & 0.00 & 0.01 & 0.06 & 0.03 & 0.01 & 0.23 & 0.01 & 0.05 & 0.03 & 0.00 & 0.04 & 0.00 & 0.01\\
+Excerpt.21 & 0.03 & 0.02 & 0.00 & 0.00 & 0.02 & 0.06 & 0.01 & 0.00 & 0.01 & 0.05 & 0.11 & 0.03 & 0.04 & 0.00 & 0.03\\
+Excerpt.22 & 0.00 & 0.00 & 0.00 & 0.04 & 0.00 & 0.00 & 0.05 & 0.03 & 0.01 & 0.09 & 0.01 & 0.06 & 0.06 & 0.19 & 0.05\\
+Excerpt.23 & 0.09 & 0.01 & 0.08 & 0.02 & 0.07 & 0.00 & 0.00 & 0.04 & 0.00 & 0.03 & 0.01 & 0.13 & 0.01 & 0.02 & 0.00\\
+Excerpt.24 & 0.08 & 0.00 & 0.04 & 0.02 & 0.01 & 0.02 & 0.01 & 0.02 & 0.00 & 0.03 & 0.01 & 0.00 & 0.00 & 0.04 & 0.03\\
+Excerpt.25 & 0.01 & 0.08 & 0.02 & 0.00 & 0.00 & 0.00 & 0.08 & 0.14 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.01 & 0.01\\
+Excerpt.26 & 0.07 & 0.00 & 0.02 & 0.00 & 0.04 & 0.00 & 0.01 & 0.00 & 0.00 & 0.03 & 0.16 & 0.03 & 0.02 & 0.09 & 0.00\\
+Excerpt.27 & 0.09 & 0.00 & 0.00 & 0.02 & 0.14 & 0.01 & 0.02 & 0.01 & 0.01 & 0.03 & 0.12 & 0.00 & 0.10 & 0.03 & 0.00\\
+Excerpt.28 & 0.00 & 0.11 & 0.00 & 0.00 & 0.07 & 0.01 & 0.06 & 0.08 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.05 & 0.05\\
+Excerpt.29 & 0.03 & 0.05 & 0.02 & 0.00 & 0.00 & 0.06 & 0.02 & 0.00 & 0.00 & 0.03 & 0.10 & 0.00 & 0.01 & 0.00 & 0.19\\
+Excerpt.30 & 0.01 & 0.03 & 0.10 & 0.00 & 0.02 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.01 & 0.11 & 0.03 & 0.00 & 0.00\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.ci.table2}Unsigned Row Contributions, Adjectives Survey, Dimensions 16 - 29}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.ci.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endhead
+Excerpt.1 & 0.02 & 0.05 & 0.00 & 0.12 & 0.03 & 0.00 & 0.00 & 0.00 & 0.01 & 0.02 & 0.08 & 0.04 & 0.00 & 0.07\\
+Excerpt.2 & 0.00 & 0.06 & 0.00 & 0.02 & 0.00 & 0.01 & 0.00 & 0.04 & 0.03 & 0.04 & 0.00 & 0.06 & 0.00 & 0.07\\
+Excerpt.3 & 0.02 & 0.00 & 0.09 & 0.00 & 0.04 & 0.01 & 0.04 & 0.01 & 0.01 & 0.04 & 0.00 & 0.01 & 0.00 & 0.00\\
+Excerpt.4 & 0.00 & 0.07 & 0.04 & 0.09 & 0.00 & 0.00 & 0.04 & 0.00 & 0.13 & 0.00 & 0.03 & 0.00 & 0.00 & 0.09\\
+Excerpt.5 & 0.02 & 0.04 & 0.03 & 0.03 & 0.22 & 0.02 & 0.04 & 0.00 & 0.00 & 0.00 & 0.03 & 0.00 & 0.05 & 0.00\\
+Excerpt.6 & 0.00 & 0.01 & 0.01 & 0.03 & 0.01 & 0.01 & 0.00 & 0.00 & 0.04 & 0.07 & 0.00 & 0.03 & 0.00 & 0.00\\
+Excerpt.7 & 0.02 & 0.01 & 0.01 & 0.01 & 0.03 & 0.00 & 0.08 & 0.00 & 0.00 & 0.04 & 0.07 & 0.02 & 0.00 & 0.01\\
+Excerpt.8 & 0.02 & 0.24 & 0.01 & 0.00 & 0.00 & 0.02 & 0.18 & 0.03 & 0.04 & 0.00 & 0.14 & 0.04 & 0.04 & 0.00\\
+Excerpt.9 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.18 & 0.07 & 0.07 & 0.00 & 0.00 & 0.00 & 0.05 & 0.00 & 0.00\\
+Excerpt.10 & 0.04 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.02 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.29 & 0.01\\
+Excerpt.11 & 0.00 & 0.02 & 0.09 & 0.02 & 0.12 & 0.03 & 0.00 & 0.09 & 0.01 & 0.01 & 0.02 & 0.08 & 0.00 & 0.00\\
+Excerpt.12 & 0.03 & 0.02 & 0.02 & 0.00 & 0.03 & 0.16 & 0.01 & 0.00 & 0.00 & 0.13 & 0.02 & 0.00 & 0.03 & 0.00\\
+Excerpt.13 & 0.02 & 0.17 & 0.05 & 0.20 & 0.12 & 0.00 & 0.08 & 0.01 & 0.03 & 0.00 & 0.05 & 0.00 & 0.00 & 0.00\\
+Excerpt.14 & 0.02 & 0.02 & 0.06 & 0.00 & 0.04 & 0.06 & 0.00 & 0.05 & 0.05 & 0.01 & 0.00 & 0.01 & 0.04 & 0.00\\
+Excerpt.15 & 0.12 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.01 & 0.07 & 0.05 & 0.00 & 0.02 & 0.06\\
+Excerpt.16 & 0.05 & 0.01 & 0.00 & 0.04 & 0.02 & 0.01 & 0.00 & 0.00 & 0.17 & 0.00 & 0.06 & 0.02 & 0.01 & 0.03\\
+Excerpt.17 & 0.02 & 0.01 & 0.01 & 0.03 & 0.13 & 0.07 & 0.00 & 0.02 & 0.01 & 0.07 & 0.00 & 0.00 & 0.02 & 0.00\\
+Excerpt.18 & 0.04 & 0.01 & 0.06 & 0.01 & 0.01 & 0.02 & 0.06 & 0.15 & 0.03 & 0.01 & 0.01 & 0.01 & 0.00 & 0.04\\
+Excerpt.19 & 0.24 & 0.06 & 0.00 & 0.00 & 0.01 & 0.06 & 0.06 & 0.02 & 0.01 & 0.02 & 0.01 & 0.01 & 0.10 & 0.07\\
+Excerpt.20 & 0.17 & 0.02 & 0.01 & 0.00 & 0.04 & 0.03 & 0.00 & 0.01 & 0.00 & 0.06 & 0.01 & 0.02 & 0.04 & 0.01\\
+Excerpt.21 & 0.02 & 0.00 & 0.39 & 0.01 & 0.00 & 0.02 & 0.08 & 0.02 & 0.00 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00\\
+Excerpt.22 & 0.01 & 0.01 & 0.01 & 0.16 & 0.02 & 0.00 & 0.02 & 0.00 & 0.08 & 0.01 & 0.00 & 0.00 & 0.00 & 0.04\\
+Excerpt.23 & 0.02 & 0.02 & 0.02 & 0.04 & 0.02 & 0.00 & 0.00 & 0.11 & 0.04 & 0.01 & 0.03 & 0.07 & 0.00 & 0.07\\
+Excerpt.24 & 0.01 & 0.02 & 0.00 & 0.03 & 0.03 & 0.12 & 0.03 & 0.11 & 0.01 & 0.03 & 0.20 & 0.00 & 0.07 & 0.00\\
+Excerpt.25 & 0.00 & 0.01 & 0.03 & 0.04 & 0.00 & 0.11 & 0.05 & 0.01 & 0.00 & 0.18 & 0.11 & 0.01 & 0.00 & 0.00\\
+Excerpt.26 & 0.00 & 0.06 & 0.00 & 0.01 & 0.02 & 0.03 & 0.04 & 0.07 & 0.02 & 0.00 & 0.00 & 0.20 & 0.00 & 0.04\\
+Excerpt.27 & 0.01 & 0.01 & 0.00 & 0.02 & 0.01 & 0.02 & 0.00 & 0.00 & 0.02 & 0.06 & 0.00 & 0.00 & 0.23 & 0.00\\
+Excerpt.28 & 0.04 & 0.00 & 0.02 & 0.01 & 0.00 & 0.00 & 0.03 & 0.13 & 0.02 & 0.00 & 0.00 & 0.21 & 0.02 & 0.02\\
+Excerpt.29 & 0.00 & 0.02 & 0.02 & 0.02 & 0.02 & 0.00 & 0.00 & 0.02 & 0.17 & 0.03 & 0.04 & 0.09 & 0.01 & 0.02\\
+Excerpt.30 & 0.00 & 0.03 & 0.00 & 0.04 & 0.01 & 0.00 & 0.07 & 0.00 & 0.05 & 0.05 & 0.01 & 0.01 & 0.01 & 0.32\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{llllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.cj.table1}Unsigned Column Contributions, Adjectives Survey, Dimensions 1 - 15}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.cj.table1} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3} & \multicolumn{1}{c}{Dim.  4} & \multicolumn{1}{c}{Dim.  5} & \multicolumn{1}{c}{Dim.  6} & \multicolumn{1}{c}{Dim.  7} & \multicolumn{1}{c}{Dim.  8} & \multicolumn{1}{c}{Dim.  9} & \multicolumn{1}{c}{Dim.  10} & \multicolumn{1}{c}{Dim.  11} & \multicolumn{1}{c}{Dim.  12} & \multicolumn{1}{c}{Dim.  13} & \multicolumn{1}{c}{Dim.  14} & \multicolumn{1}{c}{Dim.  15}\\
+\midrule
+\endhead
+Aggressive & 0.00 & 0.13 & 0.06 & 0.12 & 0.02 & 0.00 & 0.00 & 0.04 & 0.02 & 0.01 & 0.01 & 0.01 & 0.00 & 0.06 & 0.04\\
+Bright & 0.05 & 0.01 & 0.00 & 0.00 & 0.03 & 0.01 & 0.01 & 0.04 & 0.01 & 0.00 & 0.03 & 0.00 & 0.00 & 0.04 & 0.06\\
+Colorful & 0.06 & 0.01 & 0.02 & 0.02 & 0.02 & 0.00 & 0.01 & 0.00 & 0.00 & 0.04 & 0.00 & 0.00 & 0.01 & 0.04 & 0.05\\
+Complex & 0.00 & 0.04 & 0.01 & 0.06 & 0.00 & 0.01 & 0.04 & 0.00 & 0.00 & 0.07 & 0.05 & 0.01 & 0.12 & 0.14 & 0.06\\
+Dancing & 0.07 & 0.02 & 0.10 & 0.00 & 0.01 & 0.00 & 0.03 & 0.10 & 0.01 & 0.02 & 0.00 & 0.13 & 0.02 & 0.04 & 0.12\\
+Dark & 0.09 & 0.02 & 0.12 & 0.00 & 0.02 & 0.02 & 0.01 & 0.01 & 0.17 & 0.00 & 0.00 & 0.04 & 0.04 & 0.03 & 0.00\\
+Dense & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.07 & 0.08 & 0.02 & 0.10 & 0.04 & 0.02\\
+Disturbing & 0.04 & 0.08 & 0.11 & 0.01 & 0.02 & 0.17 & 0.14 & 0.00 & 0.02 & 0.01 & 0.00 & 0.01 & 0.01 & 0.00 & 0.01\\
+Dull & 0.03 & 0.00 & 0.03 & 0.00 & 0.03 & 0.00 & 0.07 & 0.01 & 0.02 & 0.01 & 0.11 & 0.07 & 0.00 & 0.02 & 0.01\\
+Exotic & 0.00 & 0.01 & 0.01 & 0.03 & 0.00 & 0.00 & 0.10 & 0.06 & 0.06 & 0.02 & 0.01 & 0.02 & 0.02 & 0.05 & 0.06\\
+Fast & 0.11 & 0.08 & 0.00 & 0.21 & 0.03 & 0.13 & 0.00 & 0.00 & 0.00 & 0.06 & 0.03 & 0.04 & 0.04 & 0.00 & 0.03\\
+Happy & 0.09 & 0.04 & 0.06 & 0.00 & 0.03 & 0.02 & 0.01 & 0.06 & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+Incisive & 0.00 & 0.02 & 0.00 & 0.00 & 0.01 & 0.01 & 0.06 & 0.01 & 0.00 & 0.05 & 0.03 & 0.00 & 0.00 & 0.21 & 0.02\\
+Light & 0.02 & 0.03 & 0.01 & 0.00 & 0.02 & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.00 & 0.02 & 0.01 & 0.01 & 0.02\\
+Long & 0.01 & 0.00 & 0.01 & 0.02 & 0.00 & 0.00 & 0.04 & 0.00 & 0.06 & 0.03 & 0.07 & 0.01 & 0.02 & 0.01 & 0.11\\
+Melancholy & 0.09 & 0.03 & 0.01 & 0.01 & 0.07 & 0.03 & 0.00 & 0.00 & 0.06 & 0.00 & 0.00 & 0.00 & 0.06 & 0.06 & 0.03\\
+Monotonous & 0.01 & 0.00 & 0.00 & 0.17 & 0.10 & 0.02 & 0.03 & 0.12 & 0.00 & 0.04 & 0.02 & 0.04 & 0.02 & 0.00 & 0.05\\
+Mysterious & 0.06 & 0.06 & 0.08 & 0.09 & 0.00 & 0.00 & 0.01 & 0.01 & 0.00 & 0.04 & 0.01 & 0.01 & 0.13 & 0.01 & 0.05\\
+Powerful & 0.00 & 0.01 & 0.15 & 0.00 & 0.03 & 0.05 & 0.00 & 0.03 & 0.02 & 0.01 & 0.01 & 0.01 & 0.03 & 0.03 & 0.01\\
+Round & 0.00 & 0.04 & 0.00 & 0.00 & 0.05 & 0.00 & 0.01 & 0.09 & 0.00 & 0.04 & 0.03 & 0.01 & 0.05 & 0.00 & 0.00\\
+Sad & 0.09 & 0.02 & 0.00 & 0.01 & 0.19 & 0.03 & 0.01 & 0.00 & 0.05 & 0.00 & 0.07 & 0.02 & 0.08 & 0.00 & 0.02\\
+Short & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.05 & 0.04 & 0.00 & 0.03 & 0.10 & 0.03 & 0.04 & 0.02 & 0.05 & 0.06\\
+Slow & 0.08 & 0.04 & 0.00 & 0.00 & 0.00 & 0.02 & 0.02 & 0.00 & 0.04 & 0.05 & 0.20 & 0.07 & 0.03 & 0.01 & 0.08\\
+Soft & 0.01 & 0.08 & 0.01 & 0.00 & 0.14 & 0.02 & 0.00 & 0.12 & 0.00 & 0.00 & 0.00 & 0.09 & 0.03 & 0.00 & 0.01\\
+Solemn & 0.04 & 0.03 & 0.02 & 0.00 & 0.01 & 0.00 & 0.00 & 0.13 & 0.11 & 0.10 & 0.00 & 0.02 & 0.10 & 0.00 & 0.01\\
+Sparse & 0.00 & 0.00 & 0.00 & 0.01 & 0.06 & 0.09 & 0.01 & 0.05 & 0.02 & 0.00 & 0.04 & 0.03 & 0.02 & 0.01 & 0.01\\
+Strong & 0.00 & 0.00 & 0.11 & 0.01 & 0.01 & 0.10 & 0.00 & 0.01 & 0.00 & 0.03 & 0.01 & 0.04 & 0.02 & 0.00 & 0.02\\
+Surprising & 0.00 & 0.05 & 0.01 & 0.04 & 0.00 & 0.02 & 0.06 & 0.01 & 0.00 & 0.10 & 0.05 & 0.03 & 0.01 & 0.02 & 0.00\\
+Transparent & 0.00 & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.01 & 0.00 & 0.07 & 0.00 & 0.03 & 0.00 & 0.01 & 0.01 & 0.02\\
+Valiant & 0.01 & 0.00 & 0.04 & 0.03 & 0.00 & 0.09 & 0.21 & 0.02 & 0.02 & 0.01 & 0.05 & 0.08 & 0.01 & 0.01 & 0.00\\
+Varied & 0.00 & 0.02 & 0.02 & 0.14 & 0.00 & 0.03 & 0.02 & 0.01 & 0.01 & 0.02 & 0.01 & 0.11 & 0.00 & 0.07 & 0.01\\
+Warm & 0.01 & 0.12 & 0.00 & 0.00 & 0.05 & 0.05 & 0.02 & 0.01 & 0.03 & 0.02 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00\\
+Weak & 0.01 & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.02 & 0.17 & 0.00 & 0.02 & 0.01 & 0.01 & 0.01 & 0.02\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{lltable}
+
+\footnotesize{
+
+\begin{longtable}{lllllllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:A.cj.table2}Unsigned Column Contributions, Adjectives Survey, Dimensions 16 - 29}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:A.cj.table2} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Dim.  16} & \multicolumn{1}{c}{Dim.  17} & \multicolumn{1}{c}{Dim.  18} & \multicolumn{1}{c}{Dim.  19} & \multicolumn{1}{c}{Dim.  20} & \multicolumn{1}{c}{Dim.  21} & \multicolumn{1}{c}{Dim.  22} & \multicolumn{1}{c}{Dim.  23} & \multicolumn{1}{c}{Dim.  24} & \multicolumn{1}{c}{Dim.  25} & \multicolumn{1}{c}{Dim.  26} & \multicolumn{1}{c}{Dim.  27} & \multicolumn{1}{c}{Dim.  28} & \multicolumn{1}{c}{Dim.  29}\\
+\midrule
+\endhead
+Aggressive & 0.07 & 0.01 & 0.00 & 0.07 & 0.01 & 0.01 & 0.01 & 0.01 & 0.12 & 0.02 & 0.00 & 0.02 & 0.00 & 0.09\\
+Bright & 0.00 & 0.11 & 0.02 & 0.08 & 0.00 & 0.00 & 0.02 & 0.04 & 0.13 & 0.01 & 0.03 & 0.07 & 0.00 & 0.00\\
+Colorful & 0.01 & 0.00 & 0.00 & 0.00 & 0.01 & 0.06 & 0.02 & 0.17 & 0.08 & 0.00 & 0.02 & 0.02 & 0.15 & 0.00\\
+Complex & 0.01 & 0.03 & 0.03 & 0.02 & 0.01 & 0.02 & 0.00 & 0.00 & 0.08 & 0.04 & 0.00 & 0.03 & 0.00 & 0.01\\
+Dancing & 0.04 & 0.02 & 0.02 & 0.00 & 0.00 & 0.00 & 0.02 & 0.00 & 0.04 & 0.02 & 0.04 & 0.03 & 0.01 & 0.01\\
+Dark & 0.00 & 0.00 & 0.05 & 0.02 & 0.01 & 0.01 & 0.05 & 0.00 & 0.02 & 0.13 & 0.00 & 0.02 & 0.00 & 0.01\\
+Dense & 0.04 & 0.15 & 0.01 & 0.00 & 0.01 & 0.07 & 0.01 & 0.01 & 0.12 & 0.06 & 0.05 & 0.00 & 0.00 & 0.06\\
+Disturbing & 0.00 & 0.01 & 0.03 & 0.00 & 0.01 & 0.02 & 0.02 & 0.00 & 0.01 & 0.10 & 0.04 & 0.01 & 0.01 & 0.00\\
+Dull & 0.03 & 0.00 & 0.11 & 0.00 & 0.01 & 0.07 & 0.06 & 0.05 & 0.00 & 0.01 & 0.02 & 0.00 & 0.09 & 0.02\\
+Exotic & 0.02 & 0.05 & 0.12 & 0.10 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.00 & 0.03 & 0.02 & 0.08 & 0.01\\
+Fast & 0.02 & 0.02 & 0.01 & 0.00 & 0.00 & 0.01 & 0.04 & 0.02 & 0.02 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01\\
+Happy & 0.02 & 0.03 & 0.00 & 0.00 & 0.03 & 0.01 & 0.00 & 0.06 & 0.06 & 0.02 & 0.01 & 0.15 & 0.07 & 0.02\\
+Incisive & 0.00 & 0.07 & 0.03 & 0.00 & 0.00 & 0.10 & 0.00 & 0.02 & 0.00 & 0.06 & 0.04 & 0.03 & 0.07 & 0.07\\
+Light & 0.02 & 0.03 & 0.01 & 0.00 & 0.17 & 0.17 & 0.14 & 0.02 & 0.08 & 0.00 & 0.00 & 0.03 & 0.06 & 0.00\\
+Long & 0.06 & 0.03 & 0.00 & 0.02 & 0.12 & 0.02 & 0.02 & 0.10 & 0.02 & 0.00 & 0.00 & 0.01 & 0.08 & 0.06\\
+Melancholy & 0.13 & 0.05 & 0.03 & 0.06 & 0.00 & 0.00 & 0.05 & 0.05 & 0.00 & 0.01 & 0.01 & 0.00 & 0.03 & 0.04\\
+Monotonous & 0.01 & 0.01 & 0.00 & 0.06 & 0.01 & 0.00 & 0.05 & 0.03 & 0.05 & 0.00 & 0.06 & 0.05 & 0.01 & 0.00\\
+Mysterious & 0.02 & 0.04 & 0.03 & 0.02 & 0.00 & 0.01 & 0.00 & 0.00 & 0.03 & 0.00 & 0.00 & 0.08 & 0.01 & 0.00\\
+Powerful & 0.02 & 0.01 & 0.00 & 0.03 & 0.14 & 0.15 & 0.00 & 0.04 & 0.00 & 0.00 & 0.00 & 0.02 & 0.06 & 0.00\\
+Round & 0.01 & 0.00 & 0.00 & 0.07 & 0.00 & 0.00 & 0.00 & 0.01 & 0.05 & 0.10 & 0.04 & 0.02 & 0.00 & 0.14\\
+Sad & 0.00 & 0.01 & 0.03 & 0.00 & 0.04 & 0.00 & 0.06 & 0.08 & 0.01 & 0.00 & 0.01 & 0.01 & 0.04 & 0.00\\
+Short & 0.00 & 0.00 & 0.07 & 0.00 & 0.15 & 0.00 & 0.00 & 0.00 & 0.00 & 0.07 & 0.07 & 0.01 & 0.01 & 0.02\\
+Slow & 0.00 & 0.02 & 0.05 & 0.01 & 0.02 & 0.00 & 0.01 & 0.02 & 0.01 & 0.00 & 0.04 & 0.01 & 0.00 & 0.01\\
+Soft & 0.05 & 0.11 & 0.01 & 0.01 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00 & 0.02 & 0.00 & 0.18\\
+Solemn & 0.17 & 0.00 & 0.01 & 0.02 & 0.01 & 0.01 & 0.00 & 0.02 & 0.00 & 0.07 & 0.02 & 0.00 & 0.00 & 0.00\\
+Sparse & 0.09 & 0.03 & 0.07 & 0.10 & 0.03 & 0.01 & 0.00 & 0.00 & 0.01 & 0.02 & 0.03 & 0.05 & 0.01 & 0.01\\
+Strong & 0.01 & 0.01 & 0.12 & 0.04 & 0.03 & 0.00 & 0.00 & 0.05 & 0.03 & 0.00 & 0.00 & 0.15 & 0.00 & 0.04\\
+Surprising & 0.00 & 0.00 & 0.01 & 0.11 & 0.02 & 0.01 & 0.09 & 0.04 & 0.00 & 0.02 & 0.06 & 0.06 & 0.01 & 0.01\\
+Transparent & 0.04 & 0.09 & 0.07 & 0.00 & 0.03 & 0.09 & 0.04 & 0.11 & 0.02 & 0.00 & 0.23 & 0.00 & 0.07 & 0.00\\
+Valiant & 0.02 & 0.01 & 0.05 & 0.03 & 0.05 & 0.03 & 0.01 & 0.02 & 0.00 & 0.00 & 0.00 & 0.04 & 0.00 & 0.02\\
+Varied & 0.04 & 0.01 & 0.00 & 0.00 & 0.00 & 0.09 & 0.05 & 0.00 & 0.00 & 0.04 & 0.11 & 0.00 & 0.00 & 0.08\\
+Warm & 0.02 & 0.04 & 0.00 & 0.05 & 0.02 & 0.03 & 0.12 & 0.00 & 0.00 & 0.06 & 0.04 & 0.02 & 0.00 & 0.04\\
+Weak & 0.02 & 0.00 & 0.00 & 0.08 & 0.03 & 0.00 & 0.07 & 0.01 & 0.00 & 0.10 & 0.00 & 0.01 & 0.13 & 0.00\\
+\bottomrule
+\end{longtable}
+
+}
+
+\end{lltable}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:A.booti.table}Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Excerpt.1 & -9.98\ \ * * * & -2.77 & 23.08\ \ * * *\\
+Excerpt.2 & -27.79\ \ * * * & 13.91\ \ * * * & -1.07\\
+Excerpt.3 & 23.27\ \ * * * & -8.64\ \ * * * & -14.38\ \ * * *\\
+Excerpt.4 & 10.36\ \ * * * & 2.93 & 5.52\ \ * * *\\
+Excerpt.5 & -28.7\ \ * * * & -3.43\ \ * & 9.78\ \ * * *\\
+Excerpt.6 & -12.59\ \ * * * & 6.81\ \ * * * & 19.58\ \ * * *\\
+Excerpt.7 & -20.89\ \ * * * & -2.21 & 11.97\ \ * * *\\
+Excerpt.8 & -2.06 & -42.55\ \ * * * & 21.8\ \ * * *\\
+Excerpt.9 & -10.84\ \ * * * & -31.25\ \ * * * & 27.16\ \ * * *\\
+Excerpt.10 & -1.48 & -15.98\ \ * * * & 6.95\ \ * * *\\
+Excerpt.11 & 16.97\ \ * * * & 10.87\ \ * * * & -3.84\ \ * *\\
+Excerpt.12 & 0.91 & 7.97\ \ * * * & 19.71\ \ * * *\\
+Excerpt.13 & 15.22\ \ * * * & -7.11\ \ * * * & 4.7\ \ * * *\\
+Excerpt.14 & -9.04\ \ * * * & -18.99\ \ * * * & 6.1\ \ * * *\\
+Excerpt.15 & -2.08 & 0.36 & -8.78\ \ * * *\\
+Excerpt.16 & 9.61\ \ * * * & -2.49 & 5.21\ \ * * *\\
+Excerpt.17 & -2.61 & -10.74\ \ * * * & -6.03\ \ * * *\\
+Excerpt.18 & 3.13 & -7.05\ \ * * * & 3.55\ \ *\\
+Excerpt.19 & 15.78\ \ * * * & -1.26 & -1.08\\
+Excerpt.20 & -17.5\ \ * * * & -11.81\ \ * * * & -9.29\ \ * * *\\
+Excerpt.21 & -11.34\ \ * * * & 0.58 & 3.29\\
+Excerpt.22 & 4.97\ \ * * * & 6.53\ \ * * * & -2.09\\
+Excerpt.23 & 11.17\ \ * * * & -1.24 & -6.65\ \ * * *\\
+Excerpt.24 & -5.67\ \ * * * & -1.45 & -10.4\ \ * * *\\
+Excerpt.25 & 5.88\ \ * * * & 2.19 & -10.89\ \ * * *\\
+Excerpt.26 & -2.54 & 4.72\ \ * * * & 7.06\ \ * * *\\
+Excerpt.27 & 1.21 & -1.03 & -2.23\\
+Excerpt.28 & -1.78 & 10.7\ \ * * * & 6.05\ \ * * *\\
+Excerpt.29 & -4.32\ \ * * & 4.92\ \ * * * & 0.58\\
+Excerpt.30 & 0.19 & 4.43\ \ * * * & -11.69\ \ * * *\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected. 
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:A.bootj.table}Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Aggressive & -5.55\ \ * * * & -20.99\ \ * * * & -24.91\ \ * * *\\
+Bright & -2.31 & -27.92\ \ * * * & 34.39\ \ * * *\\
+Colorful & 0.52 & 16.29\ \ * * * & 13.79\ \ * * *\\
+Complex & -3.7\ \ * & -49.21\ \ * * * & -35.18\ \ * * *\\
+Dancing & -1.43 & -12.27\ \ * * * & 9.38\ \ * * *\\
+Dark & 33.44\ \ * * * & 6.58\ \ * * * & 23.96\ \ * * *\\
+Dense & 0.4 & 1.8 & 43.3\ \ * * *\\
+Disturbing & -2.5 & 37.39\ \ * * * & 8.66\ \ * * *\\
+Dull & 19.71\ \ * * * & 1.86 & -3.85\ \ * *\\
+Exotic & -5.84\ \ * * * & -0.85 & -10.98\ \ * * *\\
+Fast & -3.16 & -10.09\ \ * * * & 6.84\ \ * * *\\
+Happy & 21.37\ \ * * * & -6.32\ \ * * * & -6.04\ \ * * *\\
+Incisive & 12.09\ \ * * * & -7.28\ \ * * * & 8.04\ \ * * *\\
+Light & 4.82\ \ * * * & 16.36\ \ * * * & -1.65\\
+Long & 5.74\ \ * * * & 19.78\ \ * * * & -14.72\ \ * * *\\
+Melancholy & 7.02\ \ * * * & -10.31\ \ * * * & -2.3\\
+Monotonous & -9.9\ \ * * * & 2.37 & 15.8\ \ * * *\\
+Mysterious & 4.88\ \ * * * & -10.35\ \ * * * & -8.11\ \ * * *\\
+Powerful & 0.29 & -14.88\ \ * * * & -16.17\ \ * * *\\
+Round & -9.68\ \ * * * & -0.78 & 3.45\ \ *\\
+Sad & 12.2\ \ * * * & -3.72\ \ * & -0.56\\
+Short & 7.79\ \ * * * & -22.24\ \ * * * & -1.84\\
+Slow & -7.62\ \ * * * & 2.2 & 5.28\ \ * * *\\
+Soft & -3.7\ \ * & 13.83\ \ * * * & 9.92\ \ * * *\\
+Solemn & -0.36 & 8.6\ \ * * * & 5.41\ \ * * *\\
+Sparse & 3.61\ \ * & 0.91 & 10.4\ \ * * *\\
+Strong & -0.81 & 2.82 & -3.26\\
+Surprising & -2.79 & 0.44 & 9.03\ \ * * *\\
+Transparent & -11.92\ \ * * * & -2.32 & -0.98\\
+Valiant & 2.33 & -1.71 & -3.73\ \ *\\
+Varied & -4.19\ \ * * & 2.05 & -9.96\ \ * * *\\
+Warm & -3.75\ \ * & -0.02 & -6.95\ \ * * *\\
+Weak & -4.75\ \ * * * & 0.4 & -0.16\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected. 
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/HCA.adj-1} \end{center}
+
+\begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/kmeans4words-1} \end{center}
+
+\end{document}

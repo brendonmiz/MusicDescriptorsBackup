@@ -1,0 +1,257 @@
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:Q.booti.table}Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Excerpt.1 & 7.49\ \ * * * & 1.13 & -8.25\ \ * * *\\
+Excerpt.2 & 9.9\ \ * * * & -3.8\ \ * * & -6.27\ \ * * *\\
+Excerpt.3 & 3.05 & 1.81 & -7.95\ \ * * *\\
+Excerpt.4 & -2.94 & -9.69\ \ * * * & 5.79\ \ * * *\\
+Excerpt.5 & -4.16\ \ * * & 4.68\ \ * * * & -5.05\ \ * * *\\
+Excerpt.7 & -2.4 & 6.52\ \ * * * & 2.34\\
+Excerpt.8 & -7.61\ \ * * * & 0.75 & 9.09\ \ * * *\\
+Excerpt.9 & -13.17\ \ * * * & 3.65\ \ * & 10.61\ \ * * *\\
+Excerpt.10 & -6.61\ \ * * * & -3.83\ \ * * & 2.95\\
+Excerpt.11 & -4.61\ \ * * * & -3.86\ \ * * & -6.81\ \ * * *\\
+Excerpt.12 & -11.6\ \ * * * & -1.13 & -0.88\\
+Excerpt.13 & 7.44\ \ * * * & 3.38\ \ * & 2.51\\
+Excerpt.15 & 3.1 & -10.61\ \ * * * & 7.18\ \ * * *\\
+Excerpt.16 & -7.11\ \ * * * & 4.4\ \ * * * & 1.39\\
+Excerpt.17 & -5.19\ \ * * * & 0.98 & 7.89\ \ * * *\\
+Excerpt.18 & -1.83 & 1.27 & -1.63\\
+Excerpt.19 & 3.95\ \ * * & -0.43 & 3.57\ \ *\\
+Excerpt.20 & -2.3 & 7.42\ \ * * * & -4.18\ \ * *\\
+Excerpt.21 & -2.2 & -6.87\ \ * * * & 8.31\ \ * * *\\
+Excerpt.22 & 4.93\ \ * * * & -0.3 & 3.45\ \ *\\
+Excerpt.23 & 1.93 & 2.61 & -2.92\\
+Excerpt.24 & 1.76 & 1.06 & -6.4\ \ * * *\\
+Excerpt.25 & 8.27\ \ * * * & -3.72\ \ * & -0.8\\
+Excerpt.26 & 2.46 & -3.34\ \ * & 0.62\\
+Excerpt.27 & -0.7 & -7.24\ \ * * * & -4.18\ \ * *\\
+Excerpt.28 & -3.56\ \ * & -4.12\ \ * * & 0.45\\
+Excerpt.29 & -0.71 & -0.53 & -3.21\\
+Excerpt.30 & -3.6\ \ * & -5.79\ \ * * * & 1.64\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected.
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+\efloatseparator
+ 
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:Q.bootj.table}Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3}
+
+\footnotesize{
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+harm.Minor & -3.75\ \ * & -1.93 & 4.23\ \ * *\\
+harm.Modal & -4.13\ \ * * & -0.49 & 0.67\\
+harm.Major & 0.78 & -2.7 & 6.61\ \ * * *\\
+harm.Ambiguous & -1.32 & -7.39\ \ * * * & 15.09\ \ * * *\\
+harm.Chromatic & -16.1\ \ * * * & 14.58\ \ * * * & -21.41\ \ * * *\\
+harm.Quin & 2.2 & -4.55\ \ * * * & 2.24\\
+harm.Blues & 1.69 & -2.82 & 1.37\\
+harm.Whole tone & -0.7 & -0.24 & 1.2\\
+tempo.F5 & 4.72\ \ * * * & -1.02 & -2.6\\
+tempo.F4 & -3.01 & 2.19 & -2.71\\
+tempo.F3 & 0.78 & 0 & 1.81\\
+tempo.F6 & 4.37\ \ * * & -1.36 & -2.32\\
+tempo.F2 & -2.69 & -7.35\ \ * * * & -0.6\\
+tempo.F7 & -1.13 & 2.92 & -1.07\\
+tempo.F1 & 0.45 & -0.41 & 0\\
+meter.Dup & -3.74\ \ * & 4.58\ \ * * * & -0.61\\
+meter.Trip & -0.11 & -0.42 & 2.45\\
+meter.Quad & -0.67 & 3.64\ \ * & 7.35\ \ * * *\\
+density.D4 & -1.84 & -6.23\ \ * * * & 0\\
+density.D2 & 0 & -2.15 & -1.4\\
+density.D5 & -4.21\ \ * * & 2.6 & -2.79\\
+density.D3 & 2.41 & 0.96 & 3.98\ \ * *\\
+density.D6 & 6.58\ \ * * * & 0.62 & 1.18\\
+density.D1 & -1.47 & -2.57 & -0.65\\
+genre.Classical & 1.58 & 0.65 & 5.43\ \ * * *\\
+genre.Contemporary & 2.44 & -8.75\ \ * * * & 8.6\ \ * * *\\
+genre.Romantic & 1.47 & -1.77 & 2.45\\
+genre.Modern & -0.59 & 1.55 & -0.36\\
+genre.Baroque & -8.25\ \ * * * & 5.53\ \ * * * & -5.25\ \ * * *\\
+genre.Impressionist & 6.1\ \ * * * & -6.09\ \ * * * & 2.39\\
+genre.Jazz/Blues & 6.58\ \ * * * & 0 & -2.54\\
+genre.Folk/Country & 4.46\ \ * * & -1.97 & 1.75\\
+dyn.BothS\&L & 6.47\ \ * * * & -3.74\ \ * & -1.56\\
+dyn.Loud & -3.06 & -0.54 & -1.61\\
+dyn.Mezzo & 4.57\ \ * * * & -1.21 & 0\\
+dyn.Gra\_Cresc & 1.58 & -0.31 & -1.31\\
+dyn.Gra\_Decr & -1.7 & -0.45 & -0.82\\
+dyn.Soft & 2.53 & -0.64 & -2.17\\
+cont.Terrace & 2.21 & 0.14 & 0\\
+cont.Arch & 0 & -1.05 & 3.96\ \ * *\\
+cont.Undulating & 3.9\ \ * & 2.58 & -6.36\ \ * * *\\
+cont.Descending & 1.09 & 1.02 & 0.79\\
+cont.Ascending & -1.61 & 0.46 & -0.28\\
+cont.Pendulum & -2.16 & -0.88 & 2.16\\
+cont.Monotone & 1.9 & 1.32 & -2.18\\
+motion.Disjunct & -0.36 & 2.08 & -2.41\\
+motion.Conjunct & 0.34 & -1.58 & 0.97\\
+motion.Con\&Dis & -0.39 & 1.95 & 0.11\\
+range.R.Mod & 0.57 & 1.62 & 0.02\\
+range.R.Wid & -0.24 & -3.73\ \ * & 4.89\ \ * * *\\
+range.R.Vwi & -1.61 & 0 & 7.27\ \ * * *\\
+range.R.Nar & -1.25 & -9.31\ \ * * * & 7.77\ \ * * *\\
+artic.Marcato & -0.75 & -1.43 & 0.75\\
+artic.Staccato & -2.08 & -2.7 & -0.89\\
+artic.Tenuto & 3.64\ \ * & -0.43 & 0\\
+artic.Legato & 2.55 & -1.55 & 0.51\\
+artic.Spiccato & -0.94 & 1.8 & 2.39\\
+artic.Detache & -3.72\ \ * & 0.68 & 2\\
+melody.Yes & 0.09 & -1.68 & 0\\
+melody.No & 0 & 1.55 & -0.22\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected.
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+\efloatseparator
+ 
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:A.booti.table}Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Excerpt.1 & -9.98\ \ * * * & -2.77 & 23.08\ \ * * *\\
+Excerpt.2 & -27.79\ \ * * * & 13.91\ \ * * * & -1.07\\
+Excerpt.3 & 23.27\ \ * * * & -8.64\ \ * * * & -14.38\ \ * * *\\
+Excerpt.4 & 10.36\ \ * * * & 2.93 & 5.52\ \ * * *\\
+Excerpt.5 & -28.7\ \ * * * & -3.43\ \ * & 9.78\ \ * * *\\
+Excerpt.6 & -12.59\ \ * * * & 6.81\ \ * * * & 19.58\ \ * * *\\
+Excerpt.7 & -20.89\ \ * * * & -2.21 & 11.97\ \ * * *\\
+Excerpt.8 & -2.06 & -42.55\ \ * * * & 21.8\ \ * * *\\
+Excerpt.9 & -10.84\ \ * * * & -31.25\ \ * * * & 27.16\ \ * * *\\
+Excerpt.10 & -1.48 & -15.98\ \ * * * & 6.95\ \ * * *\\
+Excerpt.11 & 16.97\ \ * * * & 10.87\ \ * * * & -3.84\ \ * *\\
+Excerpt.12 & 0.91 & 7.97\ \ * * * & 19.71\ \ * * *\\
+Excerpt.13 & 15.22\ \ * * * & -7.11\ \ * * * & 4.7\ \ * * *\\
+Excerpt.14 & -9.04\ \ * * * & -18.99\ \ * * * & 6.1\ \ * * *\\
+Excerpt.15 & -2.08 & 0.36 & -8.78\ \ * * *\\
+Excerpt.16 & 9.61\ \ * * * & -2.49 & 5.21\ \ * * *\\
+Excerpt.17 & -2.61 & -10.74\ \ * * * & -6.03\ \ * * *\\
+Excerpt.18 & 3.13 & -7.05\ \ * * * & 3.55\ \ *\\
+Excerpt.19 & 15.78\ \ * * * & -1.26 & -1.08\\
+Excerpt.20 & -17.5\ \ * * * & -11.81\ \ * * * & -9.29\ \ * * *\\
+Excerpt.21 & -11.34\ \ * * * & 0.58 & 3.29\\
+Excerpt.22 & 4.97\ \ * * * & 6.53\ \ * * * & -2.09\\
+Excerpt.23 & 11.17\ \ * * * & -1.24 & -6.65\ \ * * *\\
+Excerpt.24 & -5.67\ \ * * * & -1.45 & -10.4\ \ * * *\\
+Excerpt.25 & 5.88\ \ * * * & 2.19 & -10.89\ \ * * *\\
+Excerpt.26 & -2.54 & 4.72\ \ * * * & 7.06\ \ * * *\\
+Excerpt.27 & 1.21 & -1.03 & -2.23\\
+Excerpt.28 & -1.78 & 10.7\ \ * * * & 6.05\ \ * * *\\
+Excerpt.29 & -4.32\ \ * * & 4.92\ \ * * * & 0.58\\
+Excerpt.30 & 0.19 & 4.43\ \ * * * & -11.69\ \ * * *\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected.
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+\efloatseparator
+ 
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:A.bootj.table}Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3}
+
+\begin{tabular}{llll}
+\toprule
+ & \multicolumn{1}{c}{Dim.  1} & \multicolumn{1}{c}{Dim.  2} & \multicolumn{1}{c}{Dim.  3}\\
+\midrule
+Aggressive & -5.55\ \ * * * & -20.99\ \ * * * & -24.91\ \ * * *\\
+Bright & -2.31 & -27.92\ \ * * * & 34.39\ \ * * *\\
+Colorful & 0.52 & 16.29\ \ * * * & 13.79\ \ * * *\\
+Complex & -3.7\ \ * & -49.21\ \ * * * & -35.18\ \ * * *\\
+Dancing & -1.43 & -12.27\ \ * * * & 9.38\ \ * * *\\
+Dark & 33.44\ \ * * * & 6.58\ \ * * * & 23.96\ \ * * *\\
+Dense & 0.4 & 1.8 & 43.3\ \ * * *\\
+Disturbing & -2.5 & 37.39\ \ * * * & 8.66\ \ * * *\\
+Dull & 19.71\ \ * * * & 1.86 & -3.85\ \ * *\\
+Exotic & -5.84\ \ * * * & -0.85 & -10.98\ \ * * *\\
+Fast & -3.16 & -10.09\ \ * * * & 6.84\ \ * * *\\
+Happy & 21.37\ \ * * * & -6.32\ \ * * * & -6.04\ \ * * *\\
+Incisive & 12.09\ \ * * * & -7.28\ \ * * * & 8.04\ \ * * *\\
+Light & 4.82\ \ * * * & 16.36\ \ * * * & -1.65\\
+Long & 5.74\ \ * * * & 19.78\ \ * * * & -14.72\ \ * * *\\
+Melancholy & 7.02\ \ * * * & -10.31\ \ * * * & -2.3\\
+Monotonous & -9.9\ \ * * * & 2.37 & 15.8\ \ * * *\\
+Mysterious & 4.88\ \ * * * & -10.35\ \ * * * & -8.11\ \ * * *\\
+Powerful & 0.29 & -14.88\ \ * * * & -16.17\ \ * * *\\
+Round & -9.68\ \ * * * & -0.78 & 3.45\ \ *\\
+Sad & 12.2\ \ * * * & -3.72\ \ * & -0.56\\
+Short & 7.79\ \ * * * & -22.24\ \ * * * & -1.84\\
+Slow & -7.62\ \ * * * & 2.2 & 5.28\ \ * * *\\
+Soft & -3.7\ \ * & 13.83\ \ * * * & 9.92\ \ * * *\\
+Solemn & -0.36 & 8.6\ \ * * * & 5.41\ \ * * *\\
+Sparse & 3.61\ \ * & 0.91 & 10.4\ \ * * *\\
+Strong & -0.81 & 2.82 & -3.26\\
+Surprising & -2.79 & 0.44 & 9.03\ \ * * *\\
+Transparent & -11.92\ \ * * * & -2.32 & -0.98\\
+Valiant & 2.33 & -1.71 & -3.73\ \ *\\
+Varied & -4.19\ \ * * & 2.05 & -9.96\ \ * * *\\
+Warm & -3.75\ \ * & -0.02 & -6.95\ \ * * *\\
+Weak & -4.75\ \ * * * & 0.4 & -0.16\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Stars indicate significance, Sidak/Bonferroni corrected.
+* < .05, ** < .01, *** < .001}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}

@@ -1,0 +1,8 @@
+"0","colnames(dimcares.inf$Fixed.Data$ExPosition.Data$cj) <- paste(""Dim. "", c(1:27))"
+"0",""
+"0","cj.caption.q1 <- ""Unsigned Column Contributions, Musical Qualities Survey, Dimensions 1 - 14"""
+"0","cjtable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$cj[,1:14], "
+"0","                       caption = cj.caption.q1,"
+"0","                       landscape = TRUE, font_size = ""tiny"")"
+"0","write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$cj, file = ""CSVS/Qualities_CJ.csv"")"
+"0","#cjtable.q1"

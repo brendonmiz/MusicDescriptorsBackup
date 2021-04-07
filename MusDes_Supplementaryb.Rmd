@@ -1,0 +1,768 @@
+---
+title: "Music Descriptors Supplementary materials"
+author: "Brendon Mizener"
+date: "3/29/2021"
+output: 
+   pdf_document:
+      keep_tex: TRUE
+      includes: 
+         in_header:  
+             - "musdes_sup_preamble.tex"
+
+---
+
+```{r setup, include = FALSE}
+# Seed for random number generation
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message=FALSE, fig.align = "center",cache.extra = knitr::rand_seed)
+set.seed(42)
+
+papaja::r_refs("r-references.bib")
+```
+
+```{r analysis-preferences}
+library("papaja")
+library(ExPosition)
+library(InPosition)
+library(MExPosition)
+library(PTCA4CATA)
+library(purrr)
+library(plyr)
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(stringi)
+library(rlist)
+library(wesanderson)
+library(kableExtra)
+library(ggplotify)
+library(gridExtra)
+library(grid)
+library(abind)
+library(apaTables)
+library(pander)
+library(flextable)
+```
+
+```{R graphPath}
+powerpointFilename <- 'Music-Descriptor-Supp.pptx'
+path2pptx    <- './Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Music Descriptors Supp '
+```
+
+
+
+
+
+```{r qual4sup}
+
+load("catadatamusdim.RData")
+musdimdata <- catadata.list$contingency
+numberofdims <- catadata.list$numberofdims
+thebrick <- catadata.list$thebrick
+
+rows2drop <- c(6,14) 
+
+musdimdata.no6 <- musdimdata[-rows2drop,]
+thebrick.no6 <- thebrick[-rows2drop,,]
+```
+
+```{r Q.parts.sup}
+
+# reorder some of the columns in the french experts dataset, 
+# taking only the ones we want to analyse for now
+fr.ex.data <- catadata.list$french.expert.data[c(1:3,6,7,9:12),c(1,4,5,6,7)]
+colnames(fr.ex.data) <- c("age", "gen", "nat", "tr_yrs", "tr_type")
+fr.ex.data$gen[which(fr.ex.data$gen == "Homme")] <- "M"
+fr.ex.data$gen[which(fr.ex.data$gen == "Femme")] <- "F"
+fr.ex.data$nat <- "FR"
+fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Instrumentale")] <- "Inst"
+fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Vocale")] <- "Voc"
+
+am.ex.data <- catadata.list$expert.data[,c(1:3,6,7)]
+colnames(am.ex.data) <- colnames(fr.ex.data)
+am.ex.data$nat <- "AM"
+am.ex.data$gen[which(am.ex.data$gen == "Male")] <- "M"
+am.ex.data$gen[which(am.ex.data$gen == "Female")] <- "F"
+am.ex.data$tr_type[which(am.ex.data$tr_type == "Instrumental")] <- "Inst"
+am.ex.data$tr_type[which(am.ex.data$tr_type == "Vocal")] <- "Voc"
+
+# Bind it all together
+ex.data <- rbind(am.ex.data, fr.ex.data)
+
+bygender <- as.factor(ex.data$gen)
+bynationality <- as.factor(ex.data$nat)
+
+```
+
+```{r Q.ca.sup, cache = T, message=FALSE, warning=FALSE, include = FALSE}
+
+dimcares.inf <- epCA.inference.battery(musdimdata.no6, 
+                 masses= NULL, weights= NULL, 
+                 hellinger = FALSE, symmetric = TRUE, 
+                 graphs =FALSE, test.iters = 1000)
+
+# Factor Scores
+FIsym  <- dimcares.inf$Fixed.Data$ExPosition.Data$fi
+FJs    <- dimcares.inf$Fixed.Data$ExPosition.Data$fj
+CA.Q.Eigs <- dimcares.inf$Fixed.Data$ExPosition.Data$eigs
+CA.Q.pEig <- dimcares.inf$Inference.Data$components$eigs.perm
+```
+
+```{r someQcolors.sup}
+# Participant colors:
+col4M <- wes_palettes$Rushmore1[3]
+col4F <- wes_palettes$Rushmore1[5]
+col4FR <- wes_palettes$Darjeeling1[1]
+col4AM <- wes_palettes$Darjeeling2[2]
+# 
+col4byG <- as.character(bygender)
+col4byG[col4byG == "F"] <- col4F
+col4byG[col4byG == "M"] <- col4M
+
+col4byN <- as.character(bynationality)
+col4byN[col4byN == "FR"] <- col4FR
+col4byN[col4byN == "AM"] <- col4AM
+
+# To account for the fact that we removed some rows above:
+numberofdims[c(1,7,8,9,10)] <- c(8,7,3,4,6)
+numberofdims <- numberofdims[-11]
+
+col4cols <- wes_palette("FantasticFox1", 
+                        length(numberofdims), type = "continuous")
+col4cols <- rep(col4cols, numberofdims)
+
+```
+
+```{r bootQCA.sup, cache=TRUE}
+
+bootCA <- Boot4PTCA(ZeDataCube = thebrick.no6,
+           fi = FIsym,
+           fj = FJs,
+           eigs = CA.Q.Eigs,
+           nf2keep = 3,
+           nBootIter = 500)
+# Compute Bootstrapped ratios
+bootRatios.I <- PTCA4CATA::boot.ratio.test(bootCA$RowsBoot,
+                                            critical.value = 2)
+bootRatios.J <- PTCA4CATA::boot.ratio.test(bootCA$ColumnsBoot,
+                                              critical.value = 2)
+# Probabilities 
+probBR.I  <- bootRatios.I$prob.boot.ratios
+probBR.J  <- bootRatios.J$prob.boot.ratios
+```
+
+# Supplementary Materials for Experiment 1
+
+```{=latex}
+
+\begin{lltable}
+\begin{footnotesize}
+\begin{longtable}{p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:qualitiestable}Musical Qualities and the provided survey response options.}\\
+\toprule
+ \multicolumn{2}{c}{Harmonic Material} & \multicolumn{2}{c}{Tempo} & \multicolumn{2}{c}{Meter} & \multicolumn{2}{c}{Density} & \multicolumn{2}{c}{Genre} & \multicolumn{2}{c}{Articulation}\\
+ \midrule
+      \multicolumn{2}{l}{Diatonic: Major} &  \multicolumn{2}{l}{Very slow} &  \multicolumn{2}{l}{Simple Duple} &  \multicolumn{2}{l}{Very sparse} &  \multicolumn{2}{l}{Baroque} &  \multicolumn{2}{l}{Staccato} \\
+      
+       \multicolumn{2}{l}{Diatonic: Minor} &  \multicolumn{2}{l}{Slow} &  \multicolumn{2}{l}{Simple Triple} &  \multicolumn{2}{l}{Moderately sparse} &  \multicolumn{2}{l}{Classical} &  \multicolumn{2}{l}{Marcato} \\
+       
+      \multicolumn{2}{l}{Blues} & \multicolumn{2}{l}{Moderately Slow} & \multicolumn{2}{l}{Simple Quadruple}  & \multicolumn{2}{l}{More sparse than dense} & \multicolumn{2}{l}{Romantic} & \multicolumn{2}{l}{Legato}\\
+      
+      \multicolumn{2}{l}{Chromatic} & \multicolumn{2}{l}{Moderate} & \multicolumn{2}{l}{Compound Duple} & \multicolumn{2}{l}{More dense than sparse} & \multicolumn{2}{l}{Impressionist} & \multicolumn{2}{l}{Tenuto}\\
+      
+      \multicolumn{2}{l}{Whole tone} & \multicolumn{2}{l}{Moderately Fast} & \multicolumn{2}{l}{Compound Triple} & \multicolumn{2}{l}{Moderately Dense} & \multicolumn{2}{l}{Modern} & \multicolumn{2}{l}{Other} \\    
+      
+      \multicolumn{2}{l}{Modal}  & \multicolumn{2}{l}{Fast} & \multicolumn{2}{l}{Compound Quadruple} & \multicolumn{2}{l}{Very Dense} & \multicolumn{2}{l}{Jazz/Blues} & \multicolumn{2}{l}{}\\
+      
+      \multicolumn{2}{l}{Quintal/Quartal}  & \multicolumn{2}{l}{Very Fast} & \multicolumn{2}{l}{Complex} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{Contemporary} & \multicolumn{2}{l}{} \\
+      
+      \multicolumn{2}{l}{Ambiguous}  & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{Other} & \multicolumn{2}{l}{}\\
+      
+      \multicolumn{2}{l}{Other}  & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} & \multicolumn{2}{l}{} \\
+      
+\bottomrule
+  \multicolumn{3}{c}{Contour} & \multicolumn{3}{c}{Motion} & \multicolumn{3}{c}{Range} & \multicolumn{3}{c}{Dynamics}  \\
+ \midrule
+   \multicolumn{3}{l}{Ascending} & \multicolumn{3}{l}{Conjunct} & \multicolumn{3}{l}{Narrow} & \multicolumn{3}{l}{Soft}  \\
+   
+   \multicolumn{3}{l}{Descending} & \multicolumn{3}{l}{Disjunct} & \multicolumn{3}{l}{Moderate} & \multicolumn{3}{l}{Moderate}   \\
+   
+   \multicolumn{3}{l}{Arch} & \multicolumn{3}{l}{Combination of conjunct and disjunct} & \multicolumn{3}{l}{Wide} & \multicolumn{3}{l}{Loud}  \\
+   
+   \multicolumn{3}{l}{Undulating} & \multicolumn{3}{l}{I do not think this excerpt has a melody}  & \multicolumn{3}{l}{Very Wide} & \multicolumn{3}{l}{Varied: gradual crescendo} \\
+   
+   \multicolumn{3}{l}{Pendulum} & \multicolumn{3}{l}{Other} & \multicolumn{3}{l}{I do not think this excerpt has a melody} & \multicolumn{3}{l}{Varied: gradual decrescendo} \\
+   
+   \multicolumn{3}{l}{Terrace} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{Some of each, soft and loud}  \\
+   
+   \multicolumn{3}{l}{I do not think this excerpt has a melody} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{Other}  \\
+   
+  \multicolumn{3}{l}{Other} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{} & \multicolumn{3}{l}{}  \\
+
+  
+\bottomrule
+
+\end{longtable}
+\end{footnotesize}
+\end{lltable}
+
+```
+
+
+
+```{r Q.fi.table1}
+colnames(dimcares.inf$Fixed.Data$ExPosition.Data$fi) <- paste("Dim. ", c(1:27))
+
+fi.caption.q1 <- "Row Factor Scores, Musical Qualities Survey, Dimensions 1:14"
+fitable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$fi[,1:14], 
+                       caption = fi.caption.q1,
+                       landscape = TRUE, font_size = "scriptsize")
+
+write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$fi, file = "CSVS/Qualities_FI.csv")
+
+#fitable.q1
+```
+
+```{r Q.fi.table2}
+fi.caption.q2 <- "Row Factor Scores, Musical Qualities Survey, Dimensions 15 - 27"
+fitable.q2 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$fi[,15:27], 
+                       caption = fi.caption.q2,
+                       landscape = TRUE, font_size = "scriptsize")
+
+#fitable.q2
+```
+
+```{r Q.fj.table1}
+colnames(dimcares.inf$Fixed.Data$ExPosition.Data$fj) <- paste("Dim. ", c(1:27))
+
+fj.caption.q1 <- "Column Factor Scores, Musical Qualities Survey, Dimensions 1 - 14"
+fjtable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$fj[,1:14], 
+                       caption = fj.caption.q1,
+                       landscape = TRUE, font_size = "tiny")
+write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$fj, file = "CSVS/Qualities_FJ.csv")
+#fjtable.q1
+```
+
+```{r Q.fj.table2}
+fj.caption.q2 <- "Column Factor Scores, Musical Qualities Survey, Dimensions 15 - 17"
+fjtable.q2 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$fj[,15:27], 
+                       caption = fj.caption.q2,
+                       landscape = TRUE, font_size = "tiny")
+
+#fjtable.q2
+```
+
+```{r Q.ci.table1}
+colnames(dimcares.inf$Fixed.Data$ExPosition.Data$ci) <- paste("Dim. ", c(1:27))
+
+ci.caption.q1 <- "Unsigned Row Contributions, Musical Qualities Survey, Dimensions 1 - 14"
+citable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$ci[,1:14], 
+                       caption = ci.caption.q1,
+                       landscape = TRUE, font_size = "scriptsize")
+write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$ci, file = "CSVS/Qualities_CI.csv")
+#citable.q1
+```
+
+```{r Q.ci.table2}
+ci.caption.q2 <- "Unsigned Row Contributions, Musical Qualities Survey, Dimensions 15 - 27"
+citable.q2 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$ci[,15:27], 
+                       caption = ci.caption.q2,
+                       landscape = TRUE, font_size = "scriptsize")
+#citable.q2
+```
+
+```{r Q.cj.table1}
+colnames(dimcares.inf$Fixed.Data$ExPosition.Data$cj) <- paste("Dim. ", c(1:27))
+
+cj.caption.q1 <- "Unsigned Column Contributions, Musical Qualities Survey, Dimensions 1 - 14"
+cjtable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$cj[,1:14], 
+                       caption = cj.caption.q1,
+                       landscape = TRUE, font_size = "tiny")
+write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$cj, file = "CSVS/Qualities_CJ.csv")
+#cjtable.q1
+```
+
+```{r Q.cj.table2}
+cj.caption.q2 <- "Unsigned Column Contributions, Musical Qualities Survey, Dimensions 15 - 27"
+cjtable.q2 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$cj[,15:27], 
+                       caption = cj.caption.q2,
+                       landscape = TRUE, font_size = "tiny")
+#cjtable.q2
+```
+
+```{r Q.booti.table}
+
+bri.t.q <- bootRatios.I$boot.ratios
+bri.t.q[is.nan(bri.t.q)] <- 0
+
+bri.t.qsig <- bootRatios.I$prob.boot.ratios.corr
+bri.t.qsig[is.nan(bri.t.qsig)] <- 1
+
+
+bootswstars.QI <- matrix(paste(as.matrix(round(bri.t.q, 2)), as.matrix(add.significance.stars(bri.t.qsig))),
+                        nrow = 3, ncol = 28)
+colnames(bootswstars.QI) <- rownames(dimcares.inf$Fixed.Data$ExPosition.Data$fi)
+rownames(bootswstars.QI) <- paste("Dim. ", c(1:3))
+boots.caption.qi <- "Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3"
+boots.note.qi <- "Stars indicate significance, Sidak/Bonferroni corrected. \n* < .05, ** < .01, *** < .001"
+
+bootstable.qi <- apa_table(t(bootswstars.QI), caption = boots.caption.qi, note = boots.note.qi, 
+                           landscape = F)
+
+write.csv(bootswstars.QI, file = "CSVS/Qualities_BootI.csv")
+
+#bootstable.qi
+```
+
+```{r Q.bootj.table}
+
+brj.t.q <- bootRatios.J$boot.ratios
+brj.t.q[is.nan(brj.t.q)] <- 0
+
+brj.t.qsig <- bootRatios.J$prob.boot.ratios.corr
+brj.t.qsig[is.nan(brj.t.qsig)] <- 1
+
+bootswstars.QJ <- matrix(paste(as.matrix(round(brj.t.q, 2)), as.matrix(add.significance.stars(brj.t.qsig))),
+                        nrow = 3, ncol = 60)
+colnames(bootswstars.QJ) <- rownames(dimcares.inf$Fixed.Data$ExPosition.Data$fj)
+rownames(bootswstars.QJ) <- paste("Dim. ", c(1:3))
+boots.caption.qj <- "Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3"
+boots.note.qj <- "Stars indicate significance, Sidak/Bonferroni corrected. \n* < .05, ** < .01, *** < .001"
+
+bootstable.qj <- apa_table(t(bootswstars.QJ), caption = boots.caption.qj, note = boots.note.qj, 
+                           landscape = F, font_size = "footnotesize")
+
+write.csv(bootswstars.QJ, file = "CSVS/Qualities_BootJ.csv")
+
+#bootstable.qj
+```
+
+
+```{r HCA}
+D <- dist(FIsym, method = "euclidean")
+fit <- hclust(D, method = "ward.D2")
+
+ngroups <- 4
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ 
+ex.groups <- cutree(fit, k= ngroups)
+
+col4exgrp <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4],
+                    )
+
+col4extree <- col4exgrp[fit$order]
+
+mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = unique(col4extree), 
+                        label_cols = col4extree,
+                        cex = .4, xlab = 'Excerpts',
+                        main = 'Hierarchical Cluster Analysis: Excerpts, Musical Qualities Survey', 
+                        rect = TRUE, rect_fill = TRUE) 
+ 
+print(mus.tree4excerpts)
+
+```
+```{r HCAW6}
+caresw6 <- epCA(musdimdata, graphs = FALSE)
+
+D <- dist(caresw6$ExPosition.Data$fi, method = "euclidean")
+fit.w6 <- hclust(D, method = "ward.D2")
+
+ngroups <- 6
+
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ 
+ex.groups <- cutree(fit.w6, k= ngroups)
+
+col4exgrp.w6 <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4],
+                    "5" = col4extree[5],
+                    "6" = col4extree[6]
+                    )
+
+col4extree.w6 <- col4exgrp.w6[fit.w6$order]
+
+mus.tree4excerpts.w6 <- factoextra::fviz_dend(fit.w6,  k = ngroups, 
+                        k_colors = unique(col4extree.w6), 
+                        label_cols = col4extree.w6,
+                        cex = .4, xlab = 'Excerpts',
+                        main = 'Hierarchical Cluster Analysis: Excerpts, Musical Qualities Survey\nIncluding Excerpts 6 and 14', 
+                        rect = TRUE, rect_fill = TRUE) 
+ 
+print(mus.tree4excerpts.w6)
+```
+
+
+
+```{r excerptsmaps23, fig.height=10}
+
+axisone <- 1
+axistwo <- 2
+
+labelsforexcerpts12 <- createxyLabels(resCA = caresw6)
+dertitel1 <- "Dimensions 1 and 2"
+
+fiw614 <- caresw6$ExPosition.Data$fi
+
+#rownames(fiw614)<- c(1:30)
+
+Basemap.Q.12 <- createFactorMap(X = fiw614,
+                                    axis1 = axisone,
+                                    axis2 = axistwo, 
+                                    col.points = col4exgrp.w6,
+                                    display.points = T,
+                                    pch = 19, cex = 2.5,
+                                    display.labels = T,
+                                    col.labels = col4exgrp.w6,
+                                    text.cex = 4, font.face = "bold",
+                                    font.family = "sans",
+                                    col.axes = "darkorchid",
+                                    alpha.axes = 0.2,
+                                    width.axes = 1.1,
+                                    col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                    force = 1, segment.size = 3,
+                                    title = dertitel1
+                                    )
+
+
+groupvec <- fiw614[,1]
+groupvec.Q <- data.frame(ex.groups)
+groupvec.Q <- data.frame(abind(groupvec, groupvec.Q, along = 2))
+groupvec.Q$ex.groups <- as.factor(groupvec.Q$ex.groups)
+
+ti.q.12 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi), 
+                                  design = as.factor(groupvec.Q$ex.groups), 
+                                  col = unique(col4exgrp.w6))
+
+
+
+mus.006 <- Basemap.Q.12$zeMap + labelsforexcerpts12 + ti.q.12
+print(mus.006)
+
+
+axisone = 3
+dertitel2 <- "Dimensions 2 and 3"
+labelsforexcerpts23 <- createxyLabels(resCA = caresw6, x_axis = axisone)
+Basemap.Q.23 <- createFactorMap(X = fiw614,
+                                axis1 = axisone,
+                                axis2 = axistwo, 
+                                col.points = col4exgrp.w6,
+                                display.points = T,
+                                pch = 19, cex = 2.5,
+                                display.labels = T,
+                                col.labels = col4exgrp.w6,
+                                text.cex = 4, font.face = "bold",
+                                font.family = "sans",
+                                col.axes = "darkorchid",
+                                alpha.axes = 0.2,
+                                width.axes = 1.1,
+                                col.background = adjustcolor("lavender",
+                                                       alpha.f = 0.2),
+                                force = 1, segment.size = 3,
+                                title = dertitel2,
+                                )
+
+ti.q.23 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi),
+                                  axis1 = 3, axis2 = 2,
+                                  design = as.factor(groupvec.Q$ex.groups), 
+                                  col = unique(col4exgrp.w6))
+
+mus.007 <- Basemap.Q.23$zeMap + labelsforexcerpts23 +ti.q.23
+print(mus.007)
+
+#grid.arrange(
+#    as.grob(mus.006),as.grob(mus.007),
+#    ncol = 2,nrow = 1, 
+#    top = textGrob("Row Factor Scores Plots, Qualities Survey, Including Excerpts 6 and 14", gp = gpar(fontsize = 18, font = 1)), 
+#    bottom = textGrob("Note: Colored according to the results of the Hierarchical Cluster Analysis", gp = gpar(fontsize = 12, font = 3))
+# )
+
+
+
+```
+
+
+
+
+# Supplementary Tables & Plots for Adjectives Survey
+
+```{r Adatain}
+load("adj.catadata.list.RData")
+load("excerptsdesign.RData")
+load("adjdesign.RData")
+load("adjectivecolors.RData")
+
+```
+
+```{r A.CA}
+adj.contingency <- adj.catadata.list$adjcontingency
+
+adjsym.cares <- epCA(adj.contingency, 
+                     symmetric = TRUE)
+
+adjrenorm <- CARenormalization(adjsym.cares$ExPosition.Data$fi,
+                               delta = adjsym.cares$ExPosition.Data$pdq$Dv,
+                               singularValues = T,
+                               masses = adjsym.cares$ExPosition.Data$M
+                               )
+
+FIsym.adj <- adjsym.cares$ExPosition.Data$fi
+FIasym.adj <- adjrenorm$G_A
+FJs.adj <- adjsym.cares$ExPosition.Data$fj
+CAEigs.adj <- adjsym.cares$ExPosition.Data$eigs
+```
+
+```{r adjtable}
+
+tr <- read_xlsx("translations.xlsx")
+
+apa_table(tr, caption = "CATA Adjectives", placement = 'h')
+
+```
+
+
+```{r inferences.A, cache = TRUE}
+
+adjbrick <- adj.catadata.list$adjbrick
+# Bootstrapping
+bootCA.adj <- Boot4PTCA(ZeDataCube = adjbrick,
+                        fi = FIsym.adj,
+                        fj = FJs.adj,
+                        eigs = CAEigs.adj,
+                        nf2keep = 3,
+                        nBootIter = 500)
+# Compute Bootstrapped ratios
+bootRatadj.I <- PTCA4CATA::boot.ratio.test(bootCA.adj$RowsBoot,
+                                            critical.value = 2)
+bootRatadj.J <- PTCA4CATA::boot.ratio.test(bootCA.adj$ColumnsBoot,
+                                              critical.value = 2)
+# Probabilities 
+probBRadj.I  <- bootRatadj.I$prob.boot.ratios
+probBRadj.J  <- bootRatadj.J$prob.boot.ratios
+
+# Permutation tests
+adjca.inf <- perm4PTCA(aCube = adjbrick,
+                       nIter = 1000,
+                       permType = 'byRows' ,
+                       Malinvaud = TRUE)
+Ind.Permu.adj    <- adjca.inf$permInertia
+InertiaFixed.adj <- adjca.inf$fixedInertia
+prob.cpt.lst.adj <- adjca.inf$MalinvaudQ['p-perm',]
+# Get the p values for the components
+prob.cpt.adj <- (unlist(prob.cpt.lst.adj[2:length(prob.cpt.lst.adj)]))
+prob.cpt.adj[is.na(prob.cpt.adj)] <- 1
+```
+
+
+
+```{r A.fi.table1}
+colnames(FIsym.adj) <- paste("Dim. ", c(1:29))
+
+fi.caption.a1 <- "Row Factor Scores, Adjectives Survey, Dimensions 1 - 15"
+fitable.a1 <- apa_table(FIsym.adj[,1:15], 
+                       caption = fi.caption.a1,
+                       landscape = TRUE, font_size = "footnotesize")
+
+write.csv(FIsym.adj, file = "CSVS/Adjectives_FI.csv")
+
+#fitable.a1
+```
+
+```{r A.fi.table2}
+fi.caption.a2 <- "Row Factor Scores, Adjectives Survey, Dimensions 16 - 29"
+fitable.a2 <- apa_table(FIsym.adj[,16:29], 
+                       caption = fi.caption.a2,
+                       landscape = TRUE, font_size = "footnotesize")
+
+#fitable.a2
+```
+
+```{r A.fj.table1}
+colnames(FJs.adj) <- paste("Dim. ", c(1:29))
+
+fj.caption.a1 <- "Column Factor Scores, Adjectives Survey, Dimensions 1 - 15"
+fjtable.a1 <- apa_table(FJs.adj[,1:15], 
+                       caption = fj.caption.a1,
+                       landscape = TRUE, font_size = "footnotesize")
+
+write.csv(FJs.adj, file = "CSVS/Adjectives_FJ.csv")
+
+#fjtable.a1
+```
+
+```{r A.fj.table2}
+fj.caption.a2 <- "Column Factor Scores, Adjectives Survey, dimensions 16 - 29"
+fjtable.a2 <- apa_table(FJs.adj[,16:29], 
+                       caption = fj.caption.a2,
+                       landscape = TRUE, font_size = "footnotesize")
+
+#fjtable.a2
+```
+
+
+
+```{r A.ci.table1}
+a.cis <- adjsym.cares$ExPosition.Data$ci
+
+colnames(a.cis) <- paste("Dim. ", c(1:29))
+
+ci.caption.a1 <- "Unsigned Row Contributions, Adjectives Survey, Dimensions 1 - 15"
+citable.a1 <- apa_table(a.cis[,1:15], 
+                       caption = ci.caption.a1,
+                       landscape = TRUE, font_size = "footnotesize")
+write.csv(a.cis, file = "CSVS/Adjectives_CI.csv")
+
+#citable.a1
+```
+
+```{r A.ci.table2}
+ci.caption.a2 <- "Unsigned Row Contributions, Adjectives Survey, Dimensions 16 - 29"
+citable.a2 <- apa_table(a.cis[,16:29], 
+                       caption = ci.caption.a2,
+                       landscape = TRUE, font_size = "footnotesize")
+#citable.a2
+```
+
+
+```{r A.cj.table1}
+a.cjs <- adjsym.cares$ExPosition.Data$cj
+
+colnames(a.cjs) <- paste("Dim. ", c(1:29))
+
+cj.caption.a1 <- "Unsigned Column Contributions, Adjectives Survey, Dimensions 1 - 15"
+cjtable.a1 <- apa_table(a.cjs[,1:15], 
+                       caption = cj.caption.a1,
+                       landscape = TRUE, font_size = "footnotesize")
+
+write.csv(a.cjs, file = "CSVS/Adjectives_CJ.csv")
+
+#cjtable.a1
+```
+
+```{r A.cj.table2}
+cj.caption.a2 <- "Unsigned Column Contributions, Adjectives Survey, Dimensions 16 - 29"
+cjtable.a2 <- apa_table(a.cjs[,16:29], 
+                       caption = cj.caption.a2,
+                       landscape = TRUE, font_size = "footnotesize")
+#cjtable.a2
+```
+
+```{r A.booti.table}
+
+bri.t.a <- bootRatadj.I$boot.ratios
+bri.t.a[is.nan(bri.t.a)] <- 0
+
+bri.t.asig <- bootRatadj.I$prob.boot.ratios.corr
+bri.t.asig[is.nan(bri.t.asig)] <- 1
+
+
+bootswstars.aI <- matrix(paste(as.matrix(round(bri.t.a, 2)), as.matrix(add.significance.stars(bri.t.asig))),
+                        nrow = 3, ncol = 30)
+colnames(bootswstars.aI) <- rownames(adjsym.cares$ExPosition.Data$fi)
+rownames(bootswstars.aI) <- paste("Dim. ", c(1:3))
+boots.caption.ai <- "Bootstrapped Row Factor Score Ratios for Dimensions 1 - 3"
+boots.note.ai <- "Stars indicate significance, Sidak/Bonferroni corrected. \n* < .05, ** < .01, *** < .001"
+
+bootstable.ai <- apa_table(t(bootswstars.aI), caption = boots.caption.ai, note = boots.note.ai, 
+                           landscape = F)
+
+write.csv(bootswstars.aI, file = "CSVS/Adjectives_BootI.csv")
+
+#bootstable.ai
+```
+
+```{r A.bootj.table}
+
+brj.t.a <- bootRatadj.J$boot.ratios
+brj.t.a[is.nan(brj.t.a)] <- 0
+
+brj.t.asig <- bootRatadj.J$prob.boot.ratios.corr
+brj.t.asig[is.nan(brj.t.asig)] <- 1
+
+bootswstars.aJ <- matrix(paste(as.matrix(round(brj.t.a, 2)), as.matrix(add.significance.stars(brj.t.asig))),
+                        nrow = 3, ncol = 33)
+colnames(bootswstars.aJ) <- rownames(adjsym.cares$ExPosition.Data$fj)
+rownames(bootswstars.aJ) <- paste("Dim. ", c(1:3))
+boots.caption.aj <- "Bootstrapped Column Factor Score Ratios for Dimensions 1 - 3"
+boots.note.aj <- "Stars indicate significance, Sidak/Bonferroni corrected. \n* < .05, ** < .01, *** < .001"
+
+bootstable.aj <- apa_table(t(bootswstars.aJ), caption = boots.caption.aj, note = boots.note.aj, 
+                           landscape = F)
+
+write.csv(bootswstars.aJ, file = "CSVS/Adjectives_BootJ.csv")
+
+#bootstable.aj
+```
+
+
+```{r HCA.adj}
+D <- dist(FIsym.adj, method = "euclidean")
+fit <- hclust(D)
+ngroups <- 4
+col4extree <- wes_palette("Darjeeling1", ngroups, type = "continuous")
+ex.groups <- cutree(fit, k= ngroups)
+col4exgrp <- recode(ex.groups, 
+                    "1" = col4extree[1],
+                    "2" = col4extree[2],
+                    "3" = col4extree[3],
+                    "4" = col4extree[4])
+
+col4extree <- col4exgrp[fit$order]
+mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
+                        k_colors = unique(col4extree), 
+                        label_cols = col4extree,
+                        cex = .4, xlab = 'Excerpts', rect = T,
+                        rect_fill = T,
+                        main = 'Hierarchical Cluster Analysis: Excerpts, Adjectives Survey') 
+ 
+mus.tree4excerpts
+```
+
+
+```{r kmeans4words}
+
+D.w <- dist(t(adj.contingency), method = "euclidean")
+fit.w <- hclust(D.w, method = "ward.D2")
+fit.w3 <- kmeans(adjsym.cares$ExPosition.Data$fj, 5)
+fit.w2 <- kmeans(t(adj.contingency), 5)
+
+ngroups <- 4
+
+col4wordtree <- c(wesanderson::wes_palettes$Royal2[1],
+                  wesanderson::wes_palettes$Rushmore1[3:5],
+                  wesanderson::wes_palettes$Royal1[1])
+                  
+
+word.groups <- cutree(fit.w, k= ngroups)
+
+col4words <- recode(word.groups,#,fit.w3$cluster, 
+                    "1" = col4wordtree[1],
+                    "2" = col4wordtree[2],
+                    "3" = col4wordtree[3],
+                    "4" = col4wordtree[4])
+                   # "5" = col4wordtree[5])
+                    #"6" = col4wordtree[6])
+
+#col4words <- col4words[fit.w$order]
+
+cols$adj.gc <- unique(col4words)
+cols$adj.oc <- col4words
+
+tree4words <- factoextra::fviz_dend(fit.w,  k = ngroups, 
+                              k_colors = unique(col4words[fit.w$order]), 
+                              label_cols = col4words[fit.w$order],
+                        cex = .4, xlab = 'Adjectives', rect = T, rect_fill = T,
+                        main = "Hierarchical Cluster Analysis, using Ward's Distance: Adjectives") 
+ 
+tree4words
+```

@@ -1,0 +1,6 @@
+"0","fi.caption.q2 <- ""Row Factor Scores, Musical Qualities Survey, Dimensions 15 - 27"""
+"0","fitable.q2 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$fi[,15:27], "
+"0","                       caption = fi.caption.q2,"
+"0","                       landscape = TRUE, font_size = ""scriptsize"")"
+"0",""
+"0","#fitable.q2"

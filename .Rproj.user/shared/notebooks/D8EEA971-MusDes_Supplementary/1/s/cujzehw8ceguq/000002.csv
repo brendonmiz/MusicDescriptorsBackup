@@ -1,0 +1,6 @@
+"0","fi.caption.a2 <- ""Row Factor Scores, Adjectives Survey, Dimensions 16 - 29"""
+"0","fitable.a2 <- apa_table(FIsym.adj[,16:29], "
+"0","                       caption = fi.caption.a2,"
+"0","                       landscape = TRUE, font_size = ""footnotesize"")"
+"0",""
+"0","#fitable.a2"

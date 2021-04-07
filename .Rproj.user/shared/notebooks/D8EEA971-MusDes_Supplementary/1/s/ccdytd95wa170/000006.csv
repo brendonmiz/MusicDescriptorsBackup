@@ -1,5 +1,0 @@
-"0","colnames(a.cis) <- paste(""Dim. "", c(1:29))
-"
-"2","Error in `colnames<-`(`*tmp*`, value = c(""Dim.  1"", ""Dim.  2"", ""Dim.  3"",  : 
-  attempt to set 'colnames' on an object with less than two dimensions
-"

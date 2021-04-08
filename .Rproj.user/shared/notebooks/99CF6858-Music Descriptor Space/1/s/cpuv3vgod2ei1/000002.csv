@@ -1,5 +1,0 @@
-"0","dim1eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[1]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)"
-"0",""
-"0","dim2eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[2]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)"
-"0",""
-"0","dim3eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[3]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)"

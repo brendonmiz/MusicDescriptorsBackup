@@ -280,16 +280,16 @@ Since we did not use \emph{a priori} grouping variables for the excerpts or adje
 \hypertarget{participants-1}{%
 \subsubsection{Participants}\label{participants-1}}
 
-The scree plot in Figure \ref{fig:screeRV} shows the eigenvalues for the distance analysis between musical experts. The usual guideline of analyzing only dimensions with eigenvalues greater than one seems prohibitive here, as all dimensions except the last have \(\lambda\) \textgreater{} 1. For the purposes of this experiment, we've opted to focus on the first two dimensions, with \(\lambda\) = 9.06 and \(\lambda\) = 7.52, respectively.
+The scree plot in Figure @ref(fig:screeRV) shows the eigenvalues for the distance analysis between musical experts. The usual guideline of analyzing only dimensions with eigenvalues greater than one seems prohibitive here, as all dimensions except the last have \(\lambda\) \textgreater{} 1. For the purposes of this experiment, we've opted to focus on the first two dimensions, with \(\lambda\) = 9.06 and \(\lambda\) = 7.52, respectively.
 
 \begin{wrapfigure}{h}{.5\textwidth}  
   \begin{center}
     \includegraphics{./Music-Descriptor-Space_files/figure-latex/screeRV-1.png}
-  \caption{ }\label{fig:screeRV}  
+  \caption{ }(\#fig:screeRV)  
  \end{center}
 \end{wrapfigure}
 
-This scree plot suggests that each of the participants is contributing similarly to the dimensionality of this analysis. To evaluate this, we ran a Multidimensional Scaling (MDS) analysis on a double-centered cross product symmetric distance matrix calculated from the pages of the brick. This analysis revealed no significant difference between the experts based on any of the grouping variables used. The factor plots in Figure \ref{fig:judgesplotQ} show how the means of the factor scores, grouped by either nationality or gender, show the means clustered on top of one another, right at the origin. The overlapping ellipses are the confidence intervals for the means.
+This scree plot suggests that each of the participants is contributing similarly to the dimensionality of this analysis. To evaluate this, we ran a Multidimensional Scaling (MDS) analysis on a double-centered cross product symmetric distance matrix calculated from the pages of the brick. This analysis revealed no significant difference between the experts based on any of the grouping variables used. The factor plots in Figure @ref(fig:judgesplotQ) show how the means of the factor scores, grouped by either nationality or gender, show the means clustered on top of one another, right at the origin. The overlapping ellipses are the confidence intervals for the means.
 
 \begin{figure}
 
@@ -297,13 +297,13 @@ This scree plot suggests that each of the participants is contributing similarly
 
 }
 
-\caption{ }\label{fig:judgesplotQ}
+\caption{ }(\#fig:judgesplotQ)
 \end{figure}
 
 \hypertarget{excerpts}{%
 \subsubsection{Excerpts}\label{excerpts}}
 
-The scree plot for the analysis of the musical quality ratings survey, Figure \ref{fig:scree4excerptsq}, shows the high dimensionality of this space, with the first three dimensions extracting a total of 18.44\%, 14.09\% and 8.81\% respectively, totaling only 41.34\% of the variance. It isn't until we get to the 11th dimension that we see \textgreater80\% of the variance explained. However, given that the assumption in an analysis like this is that the sample is random, it's important to take these numbers with a grain of salt. Music itself is not random, and in a single excerpt of music of the type that was presented in this study, repetition is common, and some musical qualities are inextricably linked, for example some stylistic elements with genre.
+The scree plot for the analysis of the musical quality ratings survey, Figure @ref(fig:scree4excerptsq), shows the high dimensionality of this space, with the first three dimensions extracting a total of 18.44\%, 14.09\% and 8.81\% respectively, totaling only 41.34\% of the variance. It isn't until we get to the 11th dimension that we see \textgreater80\% of the variance explained. However, given that the assumption in an analysis like this is that the sample is random, it's important to take these numbers with a grain of salt. Music itself is not random, and in a single excerpt of music of the type that was presented in this study, repetition is common, and some musical qualities are inextricably linked, for example some stylistic elements with genre.
 
 \begin{figure}
 
@@ -311,10 +311,10 @@ The scree plot for the analysis of the musical quality ratings survey, Figure \r
 
 }
 
-\caption{ }\label{fig:scree4excerptsq}
+\caption{ }(\#fig:scree4excerptsq)
 \end{figure}
 
-Graphing the variable loadings (see Figure \ref{fig:contributionsQ}) of the musical qualities shows which ones contribute the most to the first two dimensions. Because of how CA is calculated, we know that the excerpts that load on the same dimension and direction as the musical qualities are the excerpts that are most associated with those qualities. The contributions shown here are only those that contribute significantly to the first two dimensions.
+Graphing the variable loadings (see Figure @ref(fig:contributionsQ)) of the musical qualities shows which ones contribute the most to the first two dimensions. Because of how CA is calculated, we know that the excerpts that load on the same dimension and direction as the musical qualities are the excerpts that are most associated with those qualities. The contributions shown here are only those that contribute significantly to the first two dimensions.
 There are some obvious groups of variables, especially tempo and articulation in the first dimension, with fewer contributions from the dynamics group. The tempo variables, which are a continuum, load from high (tempo.F6 and tempo.F7) in the positive direction to low (tempo.F2 and tempo.F1) in the negative direction. Other contributions are one-off: major harmony, triple meter, classical genre, undulating contour, and disjunct motion. The excerpts that load positively, and are therefore associated with the qualities that load in the positive direction, are all from group 2: Excerpts 4, 13, 23, and 26. The ones that load in the negative direction are from mostly from group 4: Excerpts 7, 10, 24, and 27, with one from group 3, Excerpt 3.\\
 The second dimension seems to dominated by a few groups: harmony, meter, genre, dynamics. The one-offs are slow tempo, ascending contour, and ``no melody.'' The excerpts that load significantly on this dimension are from all four groups. In the positive direction, it's Excerpts 7, 12, 15, and 27 from Group 4, and Excerpt 19 from Group 1. In the negative direction it's Excerpts 2, 3, 11, and 17. All are from group 3 except for Excerpt 2, which is from Group 2. For a full enumeration of contributions, loadings, and boostrap ratios, see table {[}insert table number, also, make up table.{]} in the supplementary materials.
 
@@ -324,13 +324,13 @@ The second dimension seems to dominated by a few groups: harmony, meter, genre, 
 
 }
 
-\caption{ }\label{fig:contributionsQ}
+\caption{ }(\#fig:contributionsQ)
 \end{figure}
 
 \hypertarget{discussion}{%
 \subsubsection{Discussion}\label{discussion}}
 
-The graph depicted in Figure \ref{fig:factormapsQ} is a biplot depicting how excerpts and variables plot in the same space. This biplot is possible because of the nature of correspondence analysis. Because the rows and columns of the contingency table X by definition have the same variance, the eigenvalues extracted from X are the same as X\^{}T. Thus the axes on which the factor scores are plotted are the same for both the rows and the columns. However, interpretation requires some discernment. The distance between the excerpts can be interpreted directly as similarity, and the distance between the musical qualities can be interpreted directly as similarity, but the distance between a quality and an excerpt cannot. Instead, the angle between an excerpt and a quality is indicative of their correlation. An angle of 0 indicates a correlation of 1, an angle of 90 indicates a correlation of 0, and an angle of 180 indicates a correlation of -1.\\
+The graph depicted in Figure @ref(fig:factormapsQ) is a biplot depicting how excerpts and variables plot in the same space. This biplot is possible because of the nature of correspondence analysis. Because the rows and columns of the contingency table X by definition have the same variance, the eigenvalues extracted from X are the same as X\^{}T. Thus the axes on which the factor scores are plotted are the same for both the rows and the columns. However, interpretation requires some discernment. The distance between the excerpts can be interpreted directly as similarity, and the distance between the musical qualities can be interpreted directly as similarity, but the distance between a quality and an excerpt cannot. Instead, the angle between an excerpt and a quality is indicative of their correlation. An angle of 0 indicates a correlation of 1, an angle of 90 indicates a correlation of 0, and an angle of 180 indicates a correlation of -1.\\
 Overall, this helps us to evaluate what contribute to the excerpt groupings. These first two dimensions suggest that the hierarchical cluster analysis \emph{{[}see supplementary materials{]}} revealed groupings roughly according to genre. However, there are two notable outliers. Excerpts 6 and 14 are unique in that they are each the only representative of their respective genres. Excerpt 6 is minimalist, a la Steve Reich, and Excerpt 14 is jazzy. Preliminary versions of this analysis showed that they dominated the 2nd and 3rd dimensions, respectively (see supplementary materials for visualizations). In the plot below, they are included instead as supplementary projections, essentially `out of sample' elements. Their placement on the plot below alludes to the fact that the dimensionality of this space may in fact be related to musical genre or family. Although they dominated the space when included in the sample, they are much closer to the barycenter of the plot when included as out of sample. Were they to fall exactly on the origin, that would suggest that they shared no information whatsoever with the other excerpts included in the analysis. The disparity between their placement on the graph below and their placement on the graphs in which they are included in the main sample suggests that they share some information, but there is still a large amount of information that is not accounted for in the factor space below.\\
 One perceptual element that is revealed here is that tempo and dynamics seem to contribute, intensity-wise, similarly to the first dimension. This points to two specific things. Firstly, it highlights possible bias in the compositional process. The excerpts were not intentionally composed with those characteristics being similar in mind, but it's entirely possible that the high or low arousal levels of the various excerpts that participants respond to also drove some of the compositional process, and that turned up in the results. Secondly, it's possible that the level of arousal was conflated between various musical qualities. For example, given two excerpts of similar tempo, one may have been rated slightly faster if it was also louder, and the other slightly slower if it was quieter. Likewise, given excerpts of similar volume, a faster one may have been rated louder than a slower one. Perception of tempo is also affected by note rate, which is also tied to arousal. In two pieces played at the same tempo, the one with more notes per unit time is more likely to be judged faster than one with fewer. {[}citations for all of this{]}
 There are also a few musical elements revealed from the associations. The term staccato means short or light and separated, and the term legato means smooth and connected. The participants in this experiment didn't have access to the notation, so they would be judging the excerpts aurally only. Between faster and slower excerpts, notes of the same rhythmic value take up less time in the faster excerpts, and may be more likely to be judged as light and separate, regardless of what the actual articulation was. Slow tempo and legato are associated differently. In terms of performance practice or pedagogy, slow notes are often intended to be connected as smoothly as possible, in order to create a sense of continuity. In terms of genre and harmony, while jazz/blues (on the third dimension) is the most extreme example of this, many genres have harmonies associated with them. For example, the classical genre has fairly structured rules for both harmony and voice leading, but the romantic era relaxed those rules and introduced more complex harmonies. The gradual devolution of those rules and the increase in complexity of harmony continued through the modern and contemporary styles. Although these specific contributions aren't as strong as some of the others, a glance back at the factor scores plot shows that the older styles: baroque, classical, and romantic, are both negative on the 2nd dimension, as are the simpler harmonies of major and minor. Likewise the newer western styles: impressionist, modern, and contemporary, load positively on the 2nd dimension, along with the more complex harmonies of chromatic, whole tone, and ambiguous. Historically speaking, the whole tone scale gained great popularity with composers in the impressionist era.
@@ -342,7 +342,7 @@ However, because of the nature of this survey, this tells us more about the exce
 
 }
 
-\caption{ }\label{fig:factormapsQ}
+\caption{ }(\#fig:factormapsQ)
 \end{figure}
 
 \hypertarget{experiment-2-musical-adjectives-survey}{%
@@ -351,7 +351,7 @@ However, because of the nature of this survey, this tells us more about the exce
 \hypertarget{participants-2}{%
 \subsubsection{Participants}\label{participants-2}}
 
-The scree plot depicted in Figure \ref{fig:apartscree} shows the explained variance per dimension for the distance analysis of participants in the adjectives survey. Again, having a high number of participants means that the dimensionality is high, and each dimension is only extracting a little bit of variance. However, the first five dimensions all have \(\lambda\) \textgreater{} 1: 1.66, 1.27, 1.13, 1.09, and 1.06, respectively. However, because of the high dimensionality here, the first dimension extracts only \textasciitilde3\% of the overall variance, the second dimension extracts only \textasciitilde2\%, and each successive dimension extracts incrementally less.
+The scree plot depicted in Figure @ref(fig:apartscree) shows the explained variance per dimension for the distance analysis of participants in the adjectives survey. Again, having a high number of participants means that the dimensionality is high, and each dimension is only extracting a little bit of variance. However, the first five dimensions all have \(\lambda\) \textgreater{} 1: 1.66, 1.27, 1.13, 1.09, and 1.06, respectively. However, because of the high dimensionality here, the first dimension extracts only \textasciitilde3\% of the overall variance, the second dimension extracts only \textasciitilde2\%, and each successive dimension extracts incrementally less.
 
 \begin{figure}
 
@@ -359,10 +359,10 @@ The scree plot depicted in Figure \ref{fig:apartscree} shows the explained varia
 
 }
 
-\caption{ }\label{fig:apartscree}
+\caption{ }(\#fig:apartscree)
 \end{figure}
 
-An MDS analysis of a distance matrix calculated from the pages of the brick revealed significant group differences in how French and American participants described the excerpts, \(\textit p\). \textless{} .01. The factor scores of the participants are plotted in Figure \ref{fig:map4RVA}, with with group means and bootstrapped confidence intervals shown for those means. The bootstrapping resampling was performed with 1000 iterations. We also analyzed the data using two other participant groupings as factors: gender identity, with three levels: Male, Female, or Non-Binary, and level of music training, with three levels: \textless{} 2 years, 2-5 years, and \textgreater5 years. Neither of these analyses revealed any significant differences between groups.
+An MDS analysis of a distance matrix calculated from the pages of the brick revealed significant group differences in how French and American participants described the excerpts, \(\textit p\). \textless{} .01. The factor scores of the participants are plotted in Figure @ref(fig:map4RVA), with with group means and bootstrapped confidence intervals shown for those means. The bootstrapping resampling was performed with 1000 iterations. We also analyzed the data using two other participant groupings as factors: gender identity, with three levels: Male, Female, or Non-Binary, and level of music training, with three levels: \textless{} 2 years, 2-5 years, and \textgreater5 years. Neither of these analyses revealed any significant differences between groups.
 
 \begin{figure}
 
@@ -370,13 +370,13 @@ An MDS analysis of a distance matrix calculated from the pages of the brick reve
 
 }
 
-\caption{ }\label{fig:map4RVA}
+\caption{ }(\#fig:map4RVA)
 \end{figure}
 
 \hypertarget{excerpts-1}{%
 \subsubsection{Excerpts}\label{excerpts-1}}
 
-The plot in Figure \ref{fig:scree4descriptors} shows the explained variance per dimension in the analysis of the excerpts contingency table. Although there are no components with \(\lambda\) \textgreater{} 1, there are two strong dimensions that extract a majority of the variance. The first two dimensions extract 72.25\% of the variance, with the first dimension extracting a majority: 50.05\%, and the second dimension extracting almost a quarter of the overall variance: 50.05\%. This plot also suggests that there are multiple `elbows,' at the 3rd, 5th, and 7th dimensions, respectively, with the third and fourth dimensions forming an `eigen-plane,' of two dimensions which extract similar amounts of variance and should be considered together. For this analysis, however, we're focused on the two first dimensions.
+The plot in Figure @ref(fig:scree4descriptors) shows the explained variance per dimension in the analysis of the excerpts contingency table. Although there are no components with \(\lambda\) \textgreater{} 1, there are two strong dimensions that extract a majority of the variance. The first two dimensions extract 72.25\% of the variance, with the first dimension extracting a majority: 50.05\%, and the second dimension extracting almost a quarter of the overall variance: 50.05\%. This plot also suggests that there are multiple `elbows,' at the 3rd, 5th, and 7th dimensions, respectively, with the third and fourth dimensions forming an `eigen-plane,' of two dimensions which extract similar amounts of variance and should be considered together. For this analysis, however, we're focused on the two first dimensions.
 Although excerpts 6 and 14 are outliers in the musical qualities survey, for reasons detailed above, they were not outliers in this analysis. We therefore included them in all of the analyses for Experiment 2.
 
 \begin{figure}
@@ -385,10 +385,10 @@ Although excerpts 6 and 14 are outliers in the musical qualities survey, for rea
 
 }
 
-\caption{ }\label{fig:scree4descriptors}
+\caption{ }(\#fig:scree4descriptors)
 \end{figure}
 
-The contributions to the first two dimensions are depicted in Figure \ref{fig:contributionsA}. Contributing significantly to the positive end of the first dimension are excerpts from group three (green) and to the negative end are excerpts from group one (yellow). Strong contributions on the positive end of the dimension from the adjectives ``Sad,'' ``Dark,'' ``Melancholy,'' ``Slow,'' ``Mysterious,'' ``Solemn,'' and ``Disturbing.'' The negative end of the first dimension is defined by the adjectives ``Fast,'' ``Happy,'' ``Dancing,'' ``Colorful,'' and ``Bright.''
+The contributions to the first two dimensions are depicted in Figure @ref(fig:contributionsA). Contributing significantly to the positive end of the first dimension are excerpts from group three (green) and to the negative end are excerpts from group one (yellow). Strong contributions on the positive end of the dimension from the adjectives ``Sad,'' ``Dark,'' ``Melancholy,'' ``Slow,'' ``Mysterious,'' ``Solemn,'' and ``Disturbing.'' The negative end of the first dimension is defined by the adjectives ``Fast,'' ``Happy,'' ``Dancing,'' ``Colorful,'' and ``Bright.''
 The second dimension is dominated by excerpts from group 4 (red) in the positive direction and group 2 (blue) in the negative direction. Two excerpts from group 3 also contribute significantly, excerpts 7 in the positive direction and excerpt 10 in the negative direction. The columns contributing strongly in the positive direction are ``Aggressive,'' ``Fast,'' ``Disturbing,'' ``Mysterious,'' ``Surprising'' and ``Complex.'' The columns contributing in the negative direction are ``Warm,''Soft``,''Happy``,''Slow``,''Round``, and''Light".
 
 \begin{figure}
@@ -397,10 +397,10 @@ The second dimension is dominated by excerpts from group 4 (red) in the positive
 
 }
 
-\caption{ }\label{fig:contributionsA}
+\caption{ }(\#fig:contributionsA)
 \end{figure}
 
-The barplots in Figure \ref{fig:thebootsA} show the bootstrap ratios calculated for the rows and columns. Here we've included all of the rows and columns, because it's useful to see both which are significant and which are not. This is an inferential method that tells us is how consistently each of the observations and variables load on the first two dimensions. The threshold in this case is \emph{p} \textless{} .05. From this we get an idea of which of the rows and columns are stable, in other words, which ones tended to be rated in a certain way consistently across all participants, and also how likely these are to be observations reflective of the population as a whole. In this plot, the more extreme value of the bootstrap ratio, the more likely that it is a reflection of the `real' value. The values in the center of each plot that are grayed out identify the rows or columns that are not consistently loading on the dimensions. With the observations and variables ordered like this, it makes it easy to see how the consistently the clusters are distributed in the space. This plot was not included for experiment 1 because it would be less informative given what the survey in experiment 1 was assessing. Experiment 1 doesn't evaluate the behavior of participants, but the nature of the excerpts.
+The barplots in Figure @ref(fig:thebootsA) show the bootstrap ratios calculated for the rows and columns. Here we've included all of the rows and columns, because it's useful to see both which are significant and which are not. This is an inferential method that tells us is how consistently each of the observations and variables load on the first two dimensions. The threshold in this case is \emph{p} \textless{} .05. From this we get an idea of which of the rows and columns are stable, in other words, which ones tended to be rated in a certain way consistently across all participants, and also how likely these are to be observations reflective of the population as a whole. In this plot, the more extreme value of the bootstrap ratio, the more likely that it is a reflection of the `real' value. The values in the center of each plot that are grayed out identify the rows or columns that are not consistently loading on the dimensions. With the observations and variables ordered like this, it makes it easy to see how the consistently the clusters are distributed in the space. This plot was not included for experiment 1 because it would be less informative given what the survey in experiment 1 was assessing. Experiment 1 doesn't evaluate the behavior of participants, but the nature of the excerpts.
 Note that there are far more significant bootstrap ratios than there are significant contributions. That just means that while not everything is contributing, overall the model seems to be stable. Fewer significant bootstrap ratios would suggest that there was a greater amount of variance in the observations and variables than were accounted for, at least in the first two dimensions. Looking at the nonsignificant values for the adjectives may inform our understanding of the participants' use of the adjectives. `Incisive,' `transparent,' `poweful,' `dense,' `round,' and `sparse,' are all nonsignificant on the first dimension, and `weak,' `dull,' `sparse,' `valiant,' and `short' are all nonsignificant on the second dimension. All but `sparse' are significant on one dimension or the other. Looking at the column sum for `sparse' tells us that it was used, so this isn't an effect of participants not using this word. It's more likely that `sparse' doesn't really fit into the Valence-arousal plane. It's a neutrally valenced word that could describe excerpts that fall anywhere within that plane. `Weak' and `transparent' give us another important perspective. These were the two least commonly used adjectives, but the fact that they are consistently loading on one dimension or the other suggests that when they were used, they were used in the same way.
 
 \begin{figure}
@@ -409,7 +409,7 @@ Note that there are far more significant bootstrap ratios than there are signifi
 
 }
 
-\caption{ }\label{fig:thebootsA}
+\caption{ }(\#fig:thebootsA)
 \end{figure}
 
 \hypertarget{discussion-1}{%
@@ -426,7 +426,7 @@ Additionally, a post-hoc Multiple Factor Analysis revealed the following in term
 
 }
 
-\caption{ }\label{fig:mfasbs}
+\caption{ }(\#fig:mfasbs)
 \end{figure}
 
 \hypertarget{experiment-3-combined-surveys}{%
@@ -445,7 +445,7 @@ This analysis revealed two dimensions that extracted the majority of the varianc
 
 }
 
-\caption{ }\label{fig:screePLSC}
+\caption{ }(\#fig:screePLSC)
 \end{figure}
 
 The plot below shows which variables from each data table load the most on the first and second dimensions. For the purposes of this visualization, we are showing only the variables for which 70\% or more of the variance is explained. The nature of the PLSC also suggests that these are the variables that are most associated with one another between the two tables. The strongest signal on the first dimension juxtaposes the slow and legato musical qualities in the positive direction with the fast, staccato, marcato, and conjunct musical qualities in the negative direction. The adjectives associated with the qualities in the positive direction are ``Dark,'' ``Dull,'' ``Long,'' ``Melancholy,'' ``Sad,'' ``Slow,'' ``Solemn,'' and ``Weak.'' The adjectives associated with the negative direction are ``Bright,'' ``Colorful,'' ``Dancing,'' ``Fast,'' ``Happy,'' and ``Light.''\\
@@ -457,10 +457,10 @@ The second dimension identified in the positive direction major harmony and mezz
 
 }
 
-\caption{ }\label{fig:loadingsplsc}
+\caption{ }(\#fig:loadingsplsc)
 \end{figure}
 
-Contributions and loadings are similar, but not exactly the same. Here were see that there are quite a few more variables that contribute significantly to these dimensions than for which a significant portion of the variance is explained. We do see similar groups, however: on the first dimension, the tempo variables are contributing significantly, along with some from harmony, density, genre, dynamics, motion, range, and articulation. The adjectives contributing significantly are Bright, colorful, Dancing, Fast, Happy, Light, and Valiant in the negative direction, and Dark, Dull, Long, Melancholy, Monotonous, Sad, Slow, Solemn, and Weak in the positive direction. What's notable here is that while some of these variables did contribute significantly in the plots above (see Figure \ref{fig:factormapsA} and Figure \ref{fig:factormapsQ}), some didn't contribute much at all and fell near the barycenter of the factor plot. We also see that this juxtaposes some negatively and positively valenced adjectives, which allows us to identify which of the musical qualities contributes to the valence dimension.
+Contributions and loadings are similar, but not exactly the same. Here were see that there are quite a few more variables that contribute significantly to these dimensions than for which a significant portion of the variance is explained. We do see similar groups, however: on the first dimension, the tempo variables are contributing significantly, along with some from harmony, density, genre, dynamics, motion, range, and articulation. The adjectives contributing significantly are Bright, colorful, Dancing, Fast, Happy, Light, and Valiant in the negative direction, and Dark, Dull, Long, Melancholy, Monotonous, Sad, Slow, Solemn, and Weak in the positive direction. What's notable here is that while some of these variables did contribute significantly in the plots above (see Figure @ref(fig:factormapsA) and Figure @ref(fig:factormapsQ)), some didn't contribute much at all and fell near the barycenter of the factor plot. We also see that this juxtaposes some negatively and positively valenced adjectives, which allows us to identify which of the musical qualities contributes to the valence dimension.
 The second dimension tells us a similar story. Here we see more of the harmony variables, along with one tempo variable, some density, genre, a few dynamics, contour, motion, range, and articulation. The adjectives contributing negatively are Aggressive, Complex, Dense, Disturbing, Incisive, Mysterious, Powerful, Surprising, and Varied, and those contributing positively are Light, Round, Soft, Transparent, and Warm. Again we see similar effects of variables that may not have contributed significantly to their respective plots above, but are contributing significantly here. Also, this second latent variable seems to be defining the arousal dimension.\\
 
 \begin{figure}
@@ -469,7 +469,7 @@ The second dimension tells us a similar story. Here we see more of the harmony v
 
 }
 
-\caption{ }\label{fig:contsplsc}
+\caption{ }(\#fig:contsplsc)
 \end{figure}
 
 \hypertarget{discussion-2}{%
@@ -483,7 +483,7 @@ The factor score plots for this analysis shows that the first two sets of latent
 
 }
 
-\caption{ }\label{fig:factorplotsPLSC}
+\caption{ }(\#fig:factorplotsPLSC)
 \end{figure}
 
 \hypertarget{general-discussion}{%
@@ -499,7 +499,7 @@ An important overall takeaway from this is that with a deep general understandin
 \subsection{Limitations \& future directions}\label{limitations-future-directions}}
 
 Although we evaluate the scores and ratings of participants from different countries, we recognize that the issue of multiculturality is not addressed to a significant degree in this study. The sample was still largely students, and France and the United States share similar musical cultures. To truly address this question, it would be very interesting to include participants from multiple, contrasting musical cultures, with languages that are more distinct than English and French. This presents new problems, however, as the specific musical qualities included in the surveys may not all apply to or translate well to other musical cultures. Harmony, for example, is a concept that is developed to a significant degree in western music, but melody or rhythm may be the fundamental focus of other musical cultures (cite patel here? I forget.).
-Another question that fell beyond the scope of this study is the concept of semantic drift between languages. Although illustrated in Figure \ref{fig:mfasbs}, the source of the differences between French and American participants is not entirely clear. We humbly hazard to guess that some of the sources of the difference include aspects of perception that extend beyond the musical. These could be linguistic sources, such as the physical characteristics of the words themselves, the cultural associations with the words, or the frequency of use in either language. Diving more into those questions of linguistics and semantic drift between languages would be a fascinating future study.
+Another question that fell beyond the scope of this study is the concept of semantic drift between languages. Although illustrated in Figure @ref(fig:mfasbs), the source of the differences between French and American participants is not entirely clear. We humbly hazard to guess that some of the sources of the difference include aspects of perception that extend beyond the musical. These could be linguistic sources, such as the physical characteristics of the words themselves, the cultural associations with the words, or the frequency of use in either language. Diving more into those questions of linguistics and semantic drift between languages would be a fascinating future study.
 Another interesting study would be to repeat this study using adjectives from specific domains or that that avoid explicit emotional or musical content, to see how music maps onto different sensory spaces. For example, `moist,' `slimy,' `dry,' `puckered,' `smooth.' Although some of these adjectives may carry musical weight, in the context of other words that all relate to haptic sensation, it may provide some interesting feedback regarding how the music maps into other sensory domains.
 Finally, using these studies may provide pilot work for the way in which people without language react to music, nonverbal autistic people, for example. Whereas this study explicitly uses language as an interlocutor for music perception, it offers insight into ways to better communicate with people who do not have that ability.
 

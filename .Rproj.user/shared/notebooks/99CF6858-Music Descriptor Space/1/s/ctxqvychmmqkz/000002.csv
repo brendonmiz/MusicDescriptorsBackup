@@ -1,7 +1,0 @@
-"0","library(TExPosition)
-library(TInPosition)
-library(data4PCCAR)
-"
-"2","Error: package or namespace load failed for ‘data4PCCAR’:
- object ‘epGPCA’ is not exported by 'namespace:ExPosition'
-"

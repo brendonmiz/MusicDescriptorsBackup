@@ -33,7 +33,7 @@ affiliation:
   - id            : "1"
     institution   : "University of Texas at Dallas"
   - id            : "2"
-    institution   : "YNCREA"
+    institution   : "Junia, Univ. Artois, Université de Liège, Univ. Littoral Côte d’Opale, UMRT 1158 BioEcoAgro, F-62000 Arras, France"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
@@ -43,7 +43,7 @@ authornote: |
 abstract: |
   French and American participants listened to new music stimuli and evaluated the stimuli using either adjectives or quantitative musical dimensions. Results were analyzed using Correspondence Analysis (CA), Hierarchical Cluster Analysis (HCA), Multiple Factor Analysis (MFA), and Partial Least Squares Correlation (PLSC). All except the HCA used Bootstrapping and Permutation testing for inferences. French and American listeners differed when they described the musical stimuli using adjectives, but not when using the quantitative dimensions. The present work serves as a case study in research methodology that allows for a balance between relaxing experimental control and maintaining statistical rigor.
   
-keywords          : "Music, Emotion, Multivariate Analyses"
+keywords          : "Music, Perception, Cognition, Multivariate Analyses"
 wordcount         : "5631"
 
 bibliography      : ["Music Descriptor Space.bib"]
@@ -118,27 +118,28 @@ title4Graphs <- 'Music Descriptor Space '
 
   Doesn’t beer taste better in a bar? Or when you’re listening to your favorite song? The present study was designed to quantify a music listening ‘space’ that captures perceptual and cognitive dimensions for the sake of investigating cross-modal sensory mapping between beer drinking and music listening. It also addresses other questions: Are there differences in how people from different countries --- and by extension musical cultures --- perceive and describe music? And: What parallels exist between qualitative and quantitative descriptions of music?
 
-  For the present study, we have defined 1) perceptual dimensions as quantitative musical qualities, such as tempo, range, and meter and 2) cognitive dimensions as qualitative descriptions of music, such as 'dark', 'warm', and 'round'. These cognitive/qualitative dimensions are similar to the commonly investigated affective or emotional dimensions, but do not specifically assess affective quality. To quantify individual and combined spaces for these two concepts, we created two separate surveys, using simple multiple choice questions and a check-all-that-apply paradigm (CATA, Katz & Braly, 1933; Meyners & Castura, 2014; Coombs et al., 1956), both of which are easy for researchers to present and for participants to complete. 
+  For the present study, we have defined 1) perceptual dimensions as quantitative musical qualities, such as tempo, range, and meter and 2) cognitive dimensions as qualitative descriptions of music, such as 'dark', 'warm', and 'round'. These cognitive/qualitative dimensions are similar to the commonly investigated affective or emotional dimensions, but do not specifically assess affective quality. We designed three experiments to quantify individual and combined spaces for these concepts, using separate surveys. The first experiment included highly trained musicians and featured a simple multiple choice survey about the perceptual dimensions; the second included participants with any level of music training performing a check-all-that-apply task (CATA, Katz & Braly, 1933; Meyners & Castura, 2014; Coombs et al., 1956); the third experiment incorporated both surveys in a single analysis.  
   
-  To analyze our data, we selected a set of multivariate analyses that allowed us to visualize answers to each of our questions. The mental spaces revealed by the individual surveys were calculated and visualized using Correspondence Analysis (CA), a method similar to Principal Components Analysis (PCA) that analyzes qualitative data. We used Multidimensional Scaling (MDS), a distance analysis, to visualize the differences between participants and participant groups. To find parallels between the surveys, we used Partial Least Squares Correlation (PLSC) --- a method that analyzes two data tables with different sets of variables measured on the same observations. We used a Multiple Factor Analysis to evaluate how French and American participants' responses differed.
+  To analyze our data, we selected a set of multivariate analyses that allowed us to visualize answers to each of our questions. The mental spaces revealed by the individual surveys were calculated and visualized using Correspondence Analysis (CA), a method similar to Principal Components Analysis (PCA) that analyzes qualitative data. We used Multidimensional Scaling (MDS), a distance analysis, to visualize the differences between participants and participant groups. To find parallels between the surveys, we used Partial Least Squares Correlation (PLSC), a method that analyzes two data tables with different sets of variables measured on the same observations. We used a Multiple Factor Analysis to evaluate how French and American participants' responses differed. Each of these analyses provide different visualizations and interpretations of the data, which are discussed in more detail below and in the discussion sections of each experiment.
  
 ## Music Perception
 
   Quantifying music perception is an interesting test case for this kind of data gathering and analytical paradigm. Most music or auditory perception studies have the inherent confound that small changes can affect listeners' perception, especially when the study involves timing, tuning, or sound localization. However, the experimental controls may be loosened slightly when investigating holistic music listening, because no single musical element is more important than the whole.  
   
   Quantitative and qualitative elements of music are theoretically distinct but practically inseparable [@BrunerII1990]. Listeners respond affectively to technical aspects of music using internal perceptual and cognitive schemata informed by their individual musical experiences and personality traits [@Kopacz2005], and composers use various musical and compositional techniques to convey the emotions they want to express [@BrunerII1990; @Battcock2019]. However, quantifying the perceptual interactions between more than one or two musical qualities is a challenge. One reason is that models like ANOVA and its variations are limited by how many variables a researcher can include while remaining coherent. Another is that asking participants to respond to multiple aspects of a stimulus taxes participants' perceptual capacity and is thus difficult to measure [@Thompson1994].  
-
+  
   One specific area that has attempted to capture a greater dimensionality is music emotion research. This is a well trod domain --- see, for example @Juslin2010 --- and the application of multivariate analyses to these questions is similarly well established. Early studies, including @Gray1967, @Wedin1969, and @Wedin1972 used MDS to capture the affective space of various musical stimuli. MDS continues to be used commonly in more modern studies [@Madsen1997; @Bigand2005; @Roda2014], with a narrow focus on valence and arousal, two dimensions first proposed to be the most salient dimensions of perception by @Osgood1955. 
   
-  A few studies have specifically investigated dimensions beyond those first two (for example Rodà et al., 2014), and there is  recent conflicting evidence as to whether the valence-arousal plane represents the fundamental dimensionality behind music emotion perception [@Cowen2020]. Some hypotheses suggest there are "at least 13 dimensions" [@Cowen2020] to the subjective music and emotion perceptual space [@Juslin2008a].    
- 
-  An important distinction between the present study and work in music emotion perception is that the adjectives we chose were informed by music composition and performance, rather than emotion [@Wallmark2019]. The present study, therefore, is in some ways more aligned with studies that evaluate timbre (for a full treatment see Wallmark & Kendall, 2018). 
-
+  A few studies have specifically investigated dimensions beyond those first two (for example Rodà et al., 2014), and there is  recent conflicting evidence as to whether the valence-arousal plane represents the fundamental dimensionality behind music emotion perception [@Cowen2020]. Some hypotheses suggest there are "at least 13 dimensions" [@Cowen2020] to the subjective music and emotion perceptual space [@Juslin2008a]. However, an important distinction between the present study and work in music emotion perception is that the adjectives we chose were informed by music composition and performance, rather than emotion [@Wallmark2019]. 
+  
+  There are many studies that evaluate the differences between trained and untrained musicians. The verdict as to whether trained musicians are better music listeners is still out, partially due to the fact that there is little standardization in how much training is required for a participant to be "highly trained" [@Bigand2006]. There are, however, reported benefits with regard to sensitivity to the emotional content in music [@Ladinig2012] and familiarity with tonal systems [@Dowling1978; @Bartlett1980]. Recent works suggest that these benefits may be limited to specific technical aspects, and depend on the extent of training (Mizener & Dowling, *in prep*; Raman & Dowling 2017). Our inclusion of highly trained musicians is based on the fact that these participants are more sensitive to these technical aspects of music and will be able to more accurately quantify the stimuli. Additionally, some of the response options to questions on the survey for Experiment 1 would only be familiar to participants with significant music training.   
+  
+  
 ### Intercultural music perception
 
   There are a few common goals in intercultural studies of music perception. Some aim to quantify the shared emotional experience between musical cultures [@Fritz2009; @Balkwill1999; @Cowen2020; @Gregory1996; @Darrow1987; @Balkwill2004], and some ask participants to identify technical aspects of the intercultural music [@Raman2016; @Raman2017]. There are fewer studies that include semantics in their evaluation of music perception [@Zacharakis2014; @Zacharakis2015], which makes this a prime area for research.
 
- The research program presented in @Zacharakis2014 and @Zacharakis2015 deal specifically with timbre perception (as opposed to holistic music perception, as in the present study). However, their use of adjectives is similar. @Zacharakis2014 and @Zacharakis2015 asked Greek and English participants to describe timbre in their own languages, and found that while there are some specific differences, overall, participants' descriptions of timbre do not differ much between languages.  
+ The research program presented in @Zacharakis2014 and @Zacharakis2015 deals specifically with timbre perception (as opposed to holistic music perception, as in the present study). However, the researchers' use of adjectives in these experiments is similar to how they are used in the present study. @Zacharakis2014 and @Zacharakis2015 asked Greek and English participants to describe timbre in their own languages, and found that while there are some specific differences, overall, participants' descriptions of timbre do not differ much between languages.  
 
 
 ## Present questions & methods of analysis
@@ -147,7 +148,7 @@ title4Graphs <- 'Music Descriptor Space '
 
 ### Check-all-that-apply (CATA)
 
-  The CATA technique --- a method widely used in sensory evaluation --- measures how participants evaluate a set of stimuli [@Katz1933; @Meyners2014; @Coombs1956; @Valentin2012]. In a CATA task, stimuli are presented one at a time, and for each stimulus, participants are shown a list of descriptors and are asked to select the descriptors that describe the presented stimulus [@Meyners2014]. CATA easily assesses questions with multiple 'correct' responses [@Coombs1956], and places little cognitive demand on participants because they do not have to generate responses [@Ares2010].  
+  The CATA technique --- a method widely used in sensory evaluation --- measures how participants describe a set of stimuli [@Katz1933; @Meyners2014; @Coombs1956; @Valentin2012]. In a CATA task, stimuli are presented one at a time, and for each stimulus, participants are shown a list of descriptors and are asked to select the descriptors that describe the presented stimulus [@Meyners2014]. CATA easily assesses questions with multiple 'correct' responses [@Coombs1956], and places little cognitive demand on participants because they do not have to generate responses [@Ares2010].  
   CATA data are analyzed by 1) computing a pseudo contingency table that records the number of times descriptors were associated with stimuli and 2) analyzing this data table with Corresponence Analysis (CA) in order to visualize the patters of association between a) stimuli, b) descriptors, and c) stimuli and descriptors.  
   
 ### Correspondence Analysis
@@ -164,44 +165,41 @@ title4Graphs <- 'Music Descriptor Space '
 
 ### Multiple Factor Analysis
 
-  Multiple Factor Analysis (MFA) [@Abdi2013] is an extension of PCA that analyzes and visualizes multiple tables or sets of variables that each describe the same observations. MFA visualizations are focused on the relationships between observations, and, for each observation, the relationships between the tables that contributed to that observation.  
-  
+  Multiple Factor Analysis (MFA) [@Abdi2013] is an extension of PCA that analyzes and visualizes multiple tables or sets of variables that each describe the same observations. MFA visualizations are focused on the relationships between observations, and, for each observation, the relationships between the tables that contributed to that observation. Practically speaking, the most basic difference between MFA and PLSC is that PLSC shows where and how the tables of data are the same or similar, and MFA shows how they are different.  
+
 ### Inference Methods
 
   Because the methods outlined above are not inferential methods, and do not inherently allow for hypothesis testing, we use permutation testing [@Berry2011] and bootstrapping [@Hesterberg2011]. For both of these methods, the significance level to which we can infer depends on the number of iterations, with more iterations required for stricter significance levels.
   Permutation testing indicates the overall significance of our observed data. This technique depends on the fact that for any data table, extracting larger eigenvalues means that there is a clearer signal in the data. To see whether our data have a signal that is more salient than a random table, we shuffle the data, compute eigenvalues on each iteration, and compare those eigenvalues to the ones computed from the original data. If our observed data are less random than the randomly shuffled permutations, then the original eigenvalues should be larger than at least 95% of the permuted eigenvalues (for the standard $\alpha$ of .05). 
   Bootstrapping indicates whether our data are stable. This technique involves resampling the data with replacement --- which means that the same observation may be selected multiple times in the same iteration --- and calculating the mean for each iteration. If the data are stable, as we add iterations, each mean that we calculate will fall somewhere near the original mean. The narrower the distribution, the more stable the data. Calculating the distribution of these means gives us a confidence interval from which we can infer significance, that can be displayed visually in our multivariate plots. There are two primary applications for this: 1) to see if mean differences between groups of observations are significantly different and 2) to see if the individual observations or variables are consistent across participants.   
   
-# Methods
-
-## Participants
-  Participants (*N* = 604) with self-reported normal hearing were recruited in multiple ways for both experiments: Participants in the United States (*N* = 292) were recruited using the traditional method of offering experimental participation credit, and also via social media. French participants (*N* = 312) were recruited by word of mouth, email, and social media. Although we suggest that data collected in this way hypothetically have a much greater reach, we recognize that the data collected for these experiments represent a convenience sample that is limited to participants that have access to the internet. Additionally because of the nature of social media, many of the participants in the researchers' social circles are themselves students. 
-  The population we recruited was different for the two experiments. For Experiment 1, we specifically sought out highly trained musicians (*N* = 84) with ten years or more of music training. We recruited this population because trained musicians would be able to more precisely evaluate the perceptual dimensions of the stimuli as it relates specifically to the musical qualities, and would be able to to ascertain whether the stimuli truly reflected the composer's intent of varying on a wide range of musical dimensions [@Raman2017]. Participants were recruited for Experiment 2 (*N* = 520) without regard to level of music training.  
-  Of the responses to Experiment 1, 51 were removed to incomplete data ($\textit{N}_F$ = 45, $\textit{N}_A$ = 6), leaving a total of 33 for the analysis. Of the responses to Experiment 2, 160 were removed for not completing the survey ($\textit{N}_F$ = 140, $\textit{N}_A$ = 20), leaving a total of 360. Responses to the survey administered in the US on which participants indicated a nationality other than American were excluded from analysis. "Ghanian", for example, was not included, but responses such as "Asian-American" were. This left a total of 279 survey responses for Experiment 2 and 312 for analysis across both experiments.  
-  All recruitment measures were approved by the UT Dallas IRB.  
-
-## Material
-
-### Stimuli
-  All stimuli were new, original musical excerpts, in various Western styles, composed by the first author specifically for this study (scores and audio files available upon request). The stimuli were all string quartets, designed to control for the confounding factor that different instruments are described in different ways [@Zacharakis2014; @Zacharakis2015] and otherwise vary along a number of music perceptual dimensions. The stimuli were composed to be coherent snippets approximately 30 s in length (actual range: 27 - 40 s, *M* = 32.4 s). Stimuli were composed using Finale composition software (Finale v25, MakeMusic, Inc.). Each stimulus was a wav file generated using the Finale human playback engine and embedded into a qualtrics question in that format.  
-
-### Surveys
-  There were two separate surveys presented to participants, one for each experiment, both administered using Qualtrics. The survey used in Experiment 1 (hereafter: Qualities Survey/QS) evaluated the musical stimuli on ten music perceptual dimensions such as tempo, range, and meter. The survey used in Experiment 2 (hereafter: Adjectives Survey/AS) consisted of a CATA task in which participants evaluated the stimuli using 33 adjectives such as 'dark', 'warm', and 'round'. Both surveys also gathered demographic data, including age, gender identity, nationality, occupation, and musical experience.  
-  The qualities assessed in the QS were selected from standard music-theoretical descriptors of western music. The responses for each quality were presented in the vernacular, not using musical terminology. For example, when rating the excerpts on tempo, participants were asked to rate the excerpt using the scale *Very Slow*, *Slow*, *Moderately Slow*, *Moderate*, *Moderately Fast*, *Fast*, and *Very Fast*. The full list of musical qualities and answer choices is listed in the supplementary materials. The words for the AS were selected using @Wallmark2019 as a guide and in consult with a French professional musician. Some words were initially selected in French and some in English. In all cases, words were selected for which there was a clear French (vis-à-vis English) translation. The words are listed in English and in French in the supplementary materials.  
-
-## Procedure
-  Participants were provided with a link to either the QS or the AS. After standard informed consent procedures, participants listened to 15 excerpts presented one at time in a random order, and answered questions. Participants were instructed to listen to the excerpts presented either using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. Participants in Experiment 1 answered 10 questions per excerpt, one for each of the musical qualities being assessed. Participants in Experiment 2 answered a single CATA question per excerpt. All adjectives were presented, in a random order, for each question. Demographic survey questions followed the experimental task.  
-
 ### Data Processing
   Raw data were cleaned and processed in Excel and R. As described above, each of the analyses requires data in a different format. CA requires a contingency table or something like it, PLSC requires two tables with the same rows, MFA requires multiple tables with the same rows, and MDS requires a distance matrix. 
-  To transform the data into these formats, we first translated all French responses into English. Then the response data for each participant was transformed into a pseudo contingency table, with the stimuli, as observations, on the rows, and the responses, as variables, on the columns. This way, instead of a table with qualitative information in each cell, we had a table with the response options as variables and ones and zeros as counts in each cell. These individual tables were then compiled into three-dimensional arrays, or "bricks", of data, one for each survey, such that each 'page' was an individual participant's responses. 
+  To transform the data into these formats, we first translated all French responses into English. Then the response data for each participant was transformed into a pseudo contingency table, with the stimuli, as observations, on the rows, and the responses, as variables, on the columns. This way, instead of a table with qualitative information in each cell, we had a table with the response options as variables and ones and zeros as counts in each cell. These individual tables were then compiled into three-dimensional arrays, or "bricks", of data, one for each survey, such that each "page" was an individual participant's responses. 
   To get the contingency table for CA, we summed each array along the pages into a pseudo-contingency table, which contained the responses as count data. The CAs for the experiments were performed on each pseudo-contingency table separately, and the PLSC was performed using both at the same time. 
   To get the distance matrix for the MDS, we computed a distance matrix for each of the bricks, so that the distance in each cell represented the distance between participants.  
-  We only performed one MFA, on the results of the AS. To get the tables for MFA, we separated the AS brick into separate bricks for French and American participants and summed each along the pages. 
+  We only performed one MFA, on the results of the AS. To get the tables for MFA, we separated the AS brick into separate bricks for French and American participants and summed each along the pages, resulting  
   To establish groups for inferences and visualization, the variables from the QS were grouped by quality (e.g., levels of tempo, types of genre). However, since we did not use *a priori* grouping variables for the excerpts or adjectives, the pseudo-contingency tables were evaluated using hierarchical cluster analyses (see supplementary materials) to see what groupings arose during evaluation.    
 
-# Results
-## Experiment 1: Musical Qualities Survey
+
+# Experiment 1: Musical Qualities Survey
+
+## Methods
+
+### Participants
+
+For the first experiment, we recruited highly trained musicians with a minimum of 10 years of formal music training to evaluate the perceptual dimensions or musical qualities of the stimuli, and to ascertain whether the stimuli truly reflected the composer's intent of varying on a wide range of musical dimensions [@Raman2017]. Participants in the United States and in France were recruited by word of mouth and social media. There were a total of 84 responses to the survey, of which 51 were removed to incomplete data, leaving a total of 27 ($\textit{N}_F$ = 9, $\textit{N}_A$ = 18) for the analysis.  All recruitment measures were approved by the UT Dallas IRB.
+
+### Stimuli
+  
+  All stimuli were new, original musical excerpts, in various Western styles, composed by the first author specifically for this study (scores and audio files available upon request). The stimuli were all string quartets, designed to control for the confounding factor that different instruments are described in different ways [@Zacharakis2014; @Zacharakis2015] and otherwise vary along a number of music perceptual dimensions. The stimuli were composed to be coherent snippets approximately 30 s in length (actual range: 27 - 40 s, *M* = 32.4 s). Stimuli were composed using Finale composition software (Finale v25, MakeMusic, Inc.). Each stimulus was a wav file generated using the Finale human playback engine and embedded into a qualtrics question in that format.  
+  
+### Survey
+  
+  Participants in Experiment 1 completed a survey (hereafter: Qualities Survey/QS) on Qualtrics that evaluated the musical stimuli on ten music perceptual dimensions such as tempo, range, and meter and gathered demographic data, including age, gender identity, nationality, occupation, and musical experience. The qualities assessed in the QS were selected from standard music-theoretical descriptors of western music. The responses for each quality were presented in the vernacular, either French or English, depending on the nationality of the participant. For example, when rating the excerpts on tempo, participants were asked to rate the excerpt using the scale *Very Slow*, *Slow*, *Moderately Slow*, *Moderate*, *Moderately Fast*, *Fast*, and *Very Fast* (French: *Très lente*, *lente*, *moyennement lent*, *moyenne*, *moyennement rapide*, *rapide*, *Très rapide*). The full list of musical qualities and answer choices is listed in the supplementary materials.    
+
+### Procedure
+  Participants were provided with a link to the survey and were instructed to listen to the excerpts presented in the survey either using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. After standard informed consent procedures, participants listened to 15 excerpts, presented one at time in a random order, and 10 questions per excerpt, one for each of the musical qualities being assessed. Demographic survey questions followed the experimental task.   
 
 ```{r importQualdata}
 
@@ -325,7 +323,27 @@ rownames(F4Cmat.Q) <- Shortnames4Participants.Q
 
 # Make labels
 labels4RV.Q <- createxyLabels.gen(1,2,lambda = eig4Cmat.Q, tau = tau4Cmat.Q)
+
+pev4Q <- perm4PTCA(thebrick.no6, compact = T, permType = "byMat")
+
+permeigs4Q <- matrix(nrow = 1000, ncol = 27)
+
+sz <- nrow(Cmat.Q)
+
+for (i in 1:1000){
+
+  pmat <- Cmat.Q[sample(1:sz, sz, replace = FALSE),]
+  pmat <- pmat[ , sample(1:sz, sz, replace = FALSE)]
+  permeigs4Q[i,] <- eigen(pmat)$values
+}
+
+
+
+
+
 ```
+
+## Results
 
 ### Participants
 
@@ -334,7 +352,8 @@ labels4RV.Q <- createxyLabels.gen(1,2,lambda = eig4Cmat.Q, tau = tau4Cmat.Q)
 ScreeInf <- PlotScree(ev = eig4Cmat.Q,
                       max.ev = NULL, alpha = 0.05,
                       col.ns = "#006D2C", plotKaiser = TRUE,
-                      title = "Participants Distance Analysis, Musical Qualities Survey: \nExplained Variance per Dimension")
+                      title = "Participants Distance Analysis, Musical Qualities Survey: \nExplained Variance per Dimension",
+                      )
 a000.00.screeRV <-  recordPlot()
 ```
 ```{=latex}
@@ -345,8 +364,8 @@ a000.00.screeRV <-  recordPlot()
  \end{center}
 \end{wrapfigure}
 ```
-  The scree plot in Figure \@ref(fig:screeRVQ) shows the eigenvalues for the distance analysis between musical experts. The usual guideline of analyzing only dimensions with eigenvalues greater than one seems prohibitive here, as all dimensions except the last have $\lambda$ > 1. For the purposes of this case study, we've opted to focus on the first two dimensions, with $\lambda$ = `r round(eig4Cmat.Q[1], 3)` and $\lambda$ = `r round(eig4Cmat.Q[2], 3)`, respectively. The fact that there are no dimensions that are exceptionally prominent suggests that each of the participants is contributing similarly to the dimensionality of this analysis. The MDS of the participants in this analysis revealed no significant differences between the experts based on any of the grouping variables used. The factor plots in Figure \@ref(fig:judgesplotQ) show how the means of the factor scores, grouped by nationality and gender identity, respectively, show the means clustered on top of one another, right at the origin. The overlapping ellipses are the confidence intervals for the means. The individual data points are the same between the two plots, but the means and confidence intervals are different because they were calculated using different grouping variables.
-
+  The scree plot in Figure \@ref(fig:screeRVQ) shows the eigenvalues for the distance analysis between musical experts. The usual guideline of analyzing only dimensions with eigenvalues greater than one seems prohibitive here, as all dimensions except the last have $\lambda$ > 1. For the purposes of this case study, we've opted to focus on the first two dimensions, which have $\lambda$ = `r round(eig4Cmat.Q[1], 3)` and $\lambda$ = `r round(eig4Cmat.Q[2], 3)`, respectively. The fact that there are no dimensions that are exceptionally prominent suggests that each of the participants is contributing similarly to the dimensionality of this analysis, indeed, the first two dimensions only extract ~`r round(sum(tau4Cmat.Q[1:2]))`% of the variance.  
+  The MDS of the participants in this analysis revealed no significant differences between the experts based on any of the grouping variables used. The factor plots in Figure \@ref(fig:judgesplotQ) show how the means of the factor scores, grouped by nationality and gender identity, respectively, show the means clustered on top of one another, right at the origin. The overlapping ellipses are the confidence intervals for the means. The individual data points are the same between the two plots, but the means and confidence intervals are different because they were calculated using different grouping variables.
 
 ```{r judgesplotQ, fig.height = 5, out.width = '75%'}
 
@@ -455,8 +474,6 @@ grid.arrange(as.grob(a.01.map4part),
 
 ```
 
-
-
 ### Excerpts
 
 ```{r getQeigs}
@@ -484,10 +501,10 @@ mus.00.scree <- recordPlot()
 \end{wrapfigure}
 ```
 
-The scree plot for the analysis of the musical quality ratings survey, Figure \@ref(fig:scree4excerptsq), shows the high dimensionality of this space, with the first three dimensions extracting a total of `r dim1eigperc`%, `r dim2eigperc`% and `r dim3eigperc`% respectively, totaling only `r sum(dim1eigperc, dim2eigperc, dim3eigperc)`% of the variance. It isn't until we get to the 11th dimension that we see >80% of the variance explained. However, given that the assumption in an analysis like this is that the sample is random, it's important to take these numbers with a grain of salt. Music itself is not random, and in a single excerpt of music of the type that was presented in this study, repetition is common, and some musical qualities are inextricably linked, for example some stylistic elements with genre. 
+The scree plot for the analysis of the musical quality ratings survey, Figure \@ref(fig:scree4excerptsq), shows the high dimensionality of this space, with the first three dimensions extracting a total of only `r sum(dim1eigperc, dim2eigperc, dim3eigperc)`% of the variance. However, given that the assumption in an analysis like this is that the sample is random, it's important to take these numbers with a grain of salt. The music itself is not random: Repetition is a common compositional tool, and was used in the composition of some of the excerpts. Additionally, some musical qualities are inextricably linked, for example some stylistic elements with genre. Finally, although correspondence analyses commonly use pseudo-contingency tables, as we have done here, that actually means that many of the values in the table are not random. Whereas, in a contingency table, there should be only a single one (1) per row, associating the observation with a single column, in pseudo-contingency tables, having more that one 1 per row means that those counts are linked and thus not random.    
   Graphing the variable loadings (see Figure \@ref(fig:contributionsQ)) of the musical qualities shows which ones contribute the most to the first two dimensions. Because of how CA is calculated, we know that the excerpts that load on the same dimension and direction as the musical qualities are the excerpts that are most associated with those qualities. The contributions shown here are only those that contribute significantly to the first two dimensions.
-  There are some obvious groups of variables, especially tempo and articulation in the first dimension, with fewer contributions from the dynamics group. The tempo variables, which are a continuum, load from high (tempo.F6 and tempo.F7) in the positive direction to low (tempo.F2 and tempo.F1) in the negative direction. Other contributions are one-off: major harmony, triple meter, classical genre, undulating contour, and disjunct motion. The excerpts that load positively, and are therefore associated with the qualities that load in the positive direction, are all from group 2: Excerpts 4, 13, 23, and 26. The ones that load in the negative direction are from mostly from group 4: Excerpts 7, 10, 24, and 27, with one from group 3, Excerpt 3.  
-  The second dimension seems to dominated by a few groups: harmony, meter, genre, dynamics. The one-offs are slow tempo, ascending contour, and "no melody". The excerpts that load significantly on this dimension are from all four groups. In the positive direction, it's Excerpts 7, 12, 15, and 27 from Group 4, and Excerpt 19 from Group 1. In the negative direction it's Excerpts 2, 3, 11, and 17. All are from group 3 except for Excerpt 2, which is from Group 2. A full enumeration of contributions, loadings, and boostrap ratios is available at the github url in the author note.
+  There are some obvious groups of variables, especially tempo and articulation in the first dimension, with fewer contributions from the dynamics group. The tempo variables, which are a continuum, load from high (tempo.F6 and tempo.F7) in the positive direction to low (tempo.F2 and tempo.F1) in the negative direction. Other contributions are one-off: major harmony, triple meter, classical genre, undulating contour, and disjunct motion. The excerpts are grouped according to the Hierarchical cluster analysis performed on this data (see supplementary materials). Those that load positively, and are therefore associated with the qualities that load in the positive direction, are all from group 2: Excerpts 4, 13, 23, and 26. The ones that load in the negative direction are from mostly from group 4: Excerpts 7, 10, 24, and 27, with one from group 3, Excerpt 3.  
+  The second dimension seems to dominated by a few groups: harmony, meter, genre, dynamics. The one-offs are slow tempo, ascending contour, and "no melody". The excerpts that load significantly on this dimension are from all four groups. In the positive direction, we see Excerpts 7, 12, 15, and 27 from Group 4, and Excerpt 19 from Group 1. In the negative direction, Excerpts 2, 3, 11, and 17. All are from group 3 except for Excerpt 2, which is from Group 2. A full enumeration of contributions, loadings, and boostrap ratios is available at the url in the author note.
 
 ```{r justsomecontsQ}
 
@@ -671,7 +688,24 @@ print(mus.012)
 
 ```
 
-## Experiment 2: Musical Adjectives Survey
+# Experiment 2: Musical Adjectives Survey
+ 
+## Methods
+
+### Participants
+
+  Participants with self-reported normal hearing were recruited for Experiment 2 without regard to level of music training. Participants in the United States were recruited through the UT Dallas Psych Research Sign-up System (SONA) and by word of mouth and social media. French participants were recruited by word of mouth, email, and social media. Only participants who signed up via the SONA portal were compensated with research participation credit, other participants were not compensated. Of a total of 520 survey responses, 160 were removed for not being incomplete, leaving a total of 360. Participants from the US who indicated a nationality other than American were excluded from analysis. "Ghanian", for example, was not included, but responses such as "Asian-American" were. This left a total of 279 ($\textit{N}_F$ = 108, $\textit{N}_A$ = 171) survey responses for analysis. All recruitment measures were approved by the UT Dallas IRB.  
+  
+### Stimuli  
+  
+  The stimuli used for Experiment 2 are the same as those used for Experiment 1.
+  
+### Surveys
+ Participants in Experiment 2 completed a survey (hereafter: Adjectives Survey/AS) via qualtrics in either English or French, depending on their location, that consisted of a CATA task in which participants evaluated the stimuli using adjectives. Thirty-three adjectives such as 'dark', 'warm', and 'colorful' (French: 'sombre', 'chaleureux', and 'colore'). The adjectives for the AS were selected using @Wallmark2019 as a guide and in consult with a French professional musician. Some adjectives were initially selected in French and some in English. In all cases, adjectives were selected for which there was a clear French (vis-à-vis English) translation. The adjectives are listed in English and in French in the supplementary materials. The survey also gathered demographic data, including age, gender identity, nationality, occupation, and musical experience.  
+
+### Procedure
+  Participants were provided with a link to the survey and were instructed to listen to the excerpts presented in the survey either using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. After standard informed consent procedures, participants listened to 15 excerpts presented one at time in a random order, and answered a single CATA question per excerpt. All adjectives were presented, in a random order, for each excerpt. Demographic survey questions followed the experimental task.  
+
 
 ```{r Adatain}
 rm(list = ls())
@@ -1370,7 +1404,7 @@ t4 <- pls.res$TExPosition.Data$t[4]
 
 ```
 
-  Experiment 3 used the pseudo-contingency tables from Experiments 1 and 2 together. Since excerpts 6 and 14 were excluded from analysis for Experiment 1, we also removed those rows from the contingency table for Experiment 2. This is so that the dimensions of the two tables for this PLSC would be conformable (remember that we need the same rows or columns in both tables for this analysis). The point of this experiment is to identify the strongest covariance, or the strongest shared signal, between the two tables. Now, this is not to say that these two tables are evaluating the same thing. Instead it allows us to see what is most common between two sets of different information - how often an excerpt was associated with *both* a musical quality and an adjective. The visualizations below allow us to see which variables from each of the two tables correspond with one another; which adjectives are associated with which musical dimensions. Even though both individual tables have their own factor spaces, plotting the common factor space between the two should allow us to see which excerpts are separated from one another using data from both surveys.
+  Experiment 3 used the pseudo-contingency tables from both Experiments 1 and 2, and there was no additional data collected. Since excerpts 6 and 14 were excluded from analysis for Experiment 1, we also removed those rows from the contingency table for Experiment 2. This is so that the dimensions of the two tables for this PLSC would be conformable (remember that we need the same rows or columns in both tables for this analysis). The point of this experiment is to identify the strongest covariance, or the strongest shared signal, between the two tables. Now, this is not to say that these two tables are evaluating the same thing. Instead it allows us to see what is most common between two sets of different information - how often an excerpt was associated with *both* a musical quality and an adjective. The visualizations below allow us to see which variables from each of the two tables correspond with one another; which adjectives are associated with which musical dimensions. Even though both individual tables have their own factor spaces, plotting the common factor space between the two should allow us to see which excerpts are separated from one another using data from both surveys.
 
 ### Results
 
@@ -1630,7 +1664,8 @@ plsc.fplot <- recordPlot()
 
 ## Limitations & future directions
 
- Although we evaluate the scores and ratings of participants from different countries, we recognize that the issue of multiculturality is not addressed to a significant degree in this study. The sample was still largely students, and France and the United States are both western countries that share western musical culture. To truly address this question, it would be very interesting to include participants from multiple, contrasting musical cultures, with languages that are more distinct than English and French. This presents new problems, however, as the specific musical qualities included in the surveys may not all apply to or translate well to other musical cultures. One specific example is harmony. The idea of the scale as the basis for both melodic and harmonic material may not be the same across all musical cultures in which scales exist. For example, in western music, the scale represents the notes that are used in a composition to form both melodies and chords, which are the harmonic material, but also specifically infer an order [@Cohn2001]. In carn$\bar{a}$tic music, the notes that make up the ragas are not used to create chords, and do not imply a specific order [@Raman2017]. Therefore asking participants to identify the harmonic material may not make sense in all situations, and a better question would be to ask what kind of scale or scales are used in a given excerpt.
+  Although we evaluate the scores and ratings of participants from different countries, we recognize that the issue of multiculturality is not addressed to a significant degree in this study, because France and the United States are both western countries that share western musical culture. To truly address this question, it would be very interesting to include participants from multiple, contrasting musical cultures, with languages that are more distinct than English and French. This presents new problems, however, as the specific musical qualities included in the surveys may not all apply to or translate well to other musical cultures. One specific example is harmony. The idea of the scale as the basis for both melodic and harmonic material may not be the same across all musical cultures in which scales exist. For example, in western music, the scale represents the notes that are used in a composition to form both melodies and chords, which are the harmonic material, but also specifically infer an order [@Cohn2001]. In carn$\bar{a}$tic music, the notes that make up the ragas are not used to create chords, and do not imply a specific order [@Raman2017]. Therefore asking participants to identify the harmonic material may not make sense in all situations, and a better question would be to ask what kind of scale or scales are used in a given excerpt.  
+  Also, we suggest that data collected in this way hypothetically have a much greater reach, but recognize that the data collected for these experiments represent a convenience sample that is limited to participants that have access to the internet. Additionally, because of the nature of social media, many of the participants in the researchers' social circles are themselves students, and many of the American participants were psychology students. However, these limitations could be easily remedied in future studies.
   Another question that fell beyond the scope of this study is the concept of semantic drift between languages. Although illustrated in Figure \@ref(fig:mfasbs), the source of the differences between French and American participants is not entirely clear. We humbly hazard to guess that some of the sources of the difference include aspects of perception that extend beyond the musical. These could be linguistic sources, such as the physical characteristics of the words themselves [@Reilly2012], the cultural associations with the words, or the frequency of use in either language [@Thompson2020]. Diving more into those questions of linguistics and semantic drift between languages would be a fascinating future study.
  Another interesting study would be to repeat this study using adjectives from specific domains or that that avoid explicit emotional or musical content, to see how music maps onto different sensory spaces. For example, 'moist', 'slimy', 'dry', 'puckered', 'smooth'. Although some of these adjectives may carry musical weight, in the context of other words that all relate to haptic sensation, it may provide some interesting feedback regarding how the music maps into other sensory domains.
  Finally, using these studies may provide pilot work for the way in which people without language react to music, nonverbal autistic people, for example. Whereas this study explicitly uses language as an interlocutor for music perception, it offers insight into ways to better communicate with people who do not have that ability.  

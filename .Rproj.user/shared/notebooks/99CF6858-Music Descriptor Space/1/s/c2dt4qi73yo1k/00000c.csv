@@ -1,8 +1,0 @@
-"0","for (i in 1:1000){
-  pmat <- rmperm(Cmat.Q)
-  permeigs4Q[i,] <- eigen(pmat)$values
-}
-"
-"2","Error in permeigs4Q[i, ] <- eigen(pmat)$values : 
-  incorrect number of subscripts on matrix
-"

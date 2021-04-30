@@ -1,0 +1,5 @@
+"0","Shortnames4Participants <-  dimnames(adjbrick[[3]])"
+"0","F4Plot <- F4Cmat.adj"
+"0","rownames(F4Plot) <- Shortnames4Participants"
+"0","# Make labels"
+"0","labels4RV <- createxyLabels.gen(1,2,lambda = eig4Cmat.adj, tau = tau4Cmat.adj)"

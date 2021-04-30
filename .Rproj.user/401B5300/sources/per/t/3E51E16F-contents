@@ -118,7 +118,7 @@ title4Graphs <- 'Music Descriptor Space '
 
   "Doesn’t beer taste better in a bar? Or when you’re listening to your favorite song?" The present study was designed to quantify a music listening ‘space’ that captures objective stimulus and cognitive dimensions for the sake of investigating cross-modal sensory mapping between beer drinking and music listening. It also addresses other questions: Are there differences in how people from different countries --- and by extension musical cultures --- perceive and describe music? What parallels exist between stimulus dimensions and cognitive dimensions of music?
 
-  For the present study, we have defined stimulus dimensions as quantitative musical qualities, such as tempo, range, and meter and cognitive dimensions as qualitative descriptions of music, such as "dark", "warm", and "round". These cognitive/qualitative dimensions are similar to the commonly investigated affective or emotional dimensions, but do not specifically assess affective quality. We designed three experiments to quantify individual and combined spaces for these concepts, using separate surveys. The first experiment included highly trained musicians and featured a simple multiple choice survey about the stimulus dimensions; the second included participants with any level of music training performing a check-all-that-apply task (CATA, Katz & Braly, 1933; Meyners & Castura, 2014; Coombs et al., 1956); the third experiment incorporated both surveys in a single analysis.  
+  For the present study, we have defined stimulus dimensions as quantitative musical qualities, such as tempo, range, and meter and cognitive dimensions as qualitative descriptions of music, such as "dark", "warm", and "round". These cognitive/qualitative dimensions are similar to the commonly investigated affective or emotional dimensions, but do not specifically assess affective quality. We designed three experiments to quantify individual and combined spaces for these concepts, using separate surveys. The first experiment included highly trained musicians and featured a multiple choice survey about the stimulus dimensions; the second included participants with any level of music training performing a check-all-that-apply task (CATA, Katz & Braly, 1933; Meyners & Castura, 2014; Coombs et al., 1956); the third experiment incorporated both surveys in a single analysis.  
   
   To analyze our data, we selected a set of multivariate analyses that allowed us to visualize answers to each of our questions. The mental spaces revealed by the individual surveys were calculated and visualized using Correspondence Analysis (CA), a method similar to Principal Components Analysis (PCA) that analyzes qualitative data. We used Multidimensional Scaling (MDS), a distance analysis, to visualize the differences between participants and participant groups. To find parallels between the surveys, we used Partial Least Squares Correlation (PLSC), a method that analyzes two data tables with different sets of variables measured on the same observations. We used a Multiple Factor Analysis to evaluate how French and American participants' responses differed. Each of these analyses provide different visualizations and interpretations of the data, which are discussed in more detail below.
  
@@ -130,9 +130,9 @@ title4Graphs <- 'Music Descriptor Space '
   
   One specific area that has attempted to capture a greater dimensionality is music emotion research. This is a well trod domain --- see, for example @Juslin2010 --- and the application of multivariate analyses to these questions is similarly well established. Early studies, including @Gray1967, @Wedin1969, and @Wedin1972 used MDS to capture the affective space of various musical stimuli. MDS continues to be used commonly in more modern studies [@Madsen1997; @Bigand2005; @Roda2014], with a narrow focus on valence and arousal, which were first proposed to be the most salient dimensions of perception by @Osgood1955. 
   
-  A few studies have specifically investigated dimensions beyond those first two (for example Rodà et al., 2014), and there is  recent conflicting evidence as to whether the valence-arousal plane represents the fundamental dimensionality behind music emotion perception [@Cowen2020]. Some hypotheses suggest there are "at least 13 dimensions" [@Cowen2020] to the subjective music and emotion perceptual space [@Juslin2008a]. However, an important distinction between the present study and work in music emotion perception is that the adjectives we chose were informed by music composition and performance, rather than emotion [@Wallmark2019]. 
+  A few studies have specifically investigated dimensions beyond those first two (for example Rodà et al., 2014), and there are conflicting hypotheses about whether the valence-arousal plane a different model of emotion perception represents the fundamental space around music emotion perception [@Juslin2008a; @Cowen2020]. However, an important distinction between the present study and work in music emotion perception is that the adjectives we chose were informed by music composition and performance, rather than emotion [@Wallmark2019]. 
   
-  There are many studies that evaluate the differences between trained and untrained musicians. The verdict as to whether trained musicians are better music listeners is still out, partially due to the fact that there is little standardization in how much training is required for a participant to be "highly trained" [@Bigand2006]. There are, however, reported benefits with regard to sensitivity to the emotional content in music [@Ladinig2012] and familiarity with tonal systems [@Dowling1978a; @Bartlett1980]. Recent works suggest that these benefits may be limited to specific technical aspects, and depend on the extent of training (Raman & Dowling 2017). We included highly trained musicians because they are sensitive to these technical aspects of music and will be able to accurately quantify the stimuli. Additionally, some of the response options to questions on the survey for Experiment 1 would only be familiar to participants with significant music training.   
+  With regard to trained and untrained musicians, there are many studies that evaluate their differences, but the verdict as to whether trained musicians are better music listeners is still out, partially due to the fact that there is little standardization in how much training is required for a participant to be "highly trained" [@Bigand2006]. There are, however, reported benefits with regard to sensitivity to the emotional content in music [@Ladinig2012] and familiarity with tonal systems [@Dowling1978a; @Bartlett1980]. Recent works suggest that these benefits may be limited to specific technical aspects, and depend on the extent of training (Raman & Dowling 2017). We included highly trained musicians because they are sensitive to these technical aspects of music and will be able to accurately quantify the stimuli. Additionally, some of the response options to questions on the survey for Experiment 1 would only be familiar to participants with significant music training.   
   
   
 ### Intercultural music perception
@@ -152,32 +152,27 @@ title4Graphs <- 'Music Descriptor Space '
   
 ### Correspondence Analysis
 
-  The primary analysis used on the data collected in the surveys is Correspondence Analysis (CA) [@Escofier-Cordier1965; @Benzecri1973; @Greenacre1984]. CA analyzes a contingency table, or any data structured similarly, and calculates the relationships between rows (observations) and columns (variables); in our case, musical excerpts and descriptors. The nature of the CA allows for observations and variables to be visualized in the same space using biplots.
+  The primary analysis used on the data collected in the surveys is Correspondence Analysis (CA) [@Escofier-Cordier1965; @Benzecri1973; @Greenacre1984]. CA analyzes a contingency table, or any data structured similarly, and calculates the relationships between rows (observations) and columns (variables); in our case, musical excerpts and descriptors. The nature of the CA allows for observations and variables to be visualized in the same space. 
   
-### Partial Least Squares Correlation
-
-  Partial Least Squares Correlation (PLSC) [@Tucker1958; @Abdi2013a] analyzes two data tables that describe a single set of observations (rows) with different sets of variables (columns). PLSC computes a matrix of correlations between the sets of variables which is then analyzed to find latent variables with the largest covariance, i.e., the greatest amount of information common to the two data tables. This technique is commonly used in neuroimaging studies to evaluate correlations between matrices of imaging data and of behavioral or task data [@Krishnan2011].   
-
+### Hierarchical Cluster Analysis
+  
+  Hierarchical Cluster Analysis (HCA) [@Pielou1984] is a way of identifying groups, or clusters, of observations from the rows of a distance matrix, that displayed using trees to visualize that distance $\textbf{\textit{[insert citation here]}}$. This technique was used in the present study to determine whether there were any clusters of excerpts or adjectives that arose during participant ratings. These clusters were used as design or grouping variables and to select colors for visualizations.   
+  
 ### Multidimensional Scaling
 
   Multidimensional Scaling (MDS) [@Borg2005] --- a technique commonly used in music perception studies [@Wedin1969; @Wedin1972; @Roda2014; @Madsen1997; @Bigand2005] analyzes a distance matrix computed between observations and visualizes them, positioning these observations on a map such that the distance between observations on the map best approximates their distance in the data table.    
 
 ### Multiple Factor Analysis
 
-  Multiple Factor Analysis (MFA) [@Abdi2013] is an extension of PCA that analyzes and visualizes multiple tables or sets of variables that each describe the same observations. MFA visualizations are focused on the relationships between observations, and, for each observation, the relationships between the tables that contributed to that observation. Practically speaking, the most basic difference between MFA and PLSC is that PLSC extracts commonalities between two data tables, whereas MFA extracts similarities and differences between two or more data tables.  
+  Multiple Factor Analysis (MFA) [@Abdi2013] is an extension of PCA that analyzes and visualizes multiple tables or sets of variables that each describe the same observations. MFA visualizations, called are focused on the relationships between observations, and, for each observation, the relationships between the tables that contributed to that observation. These visualizations represent *partial factor score plots*, such that "partial" refers to each table's contributions to the overall factor scores. Practically speaking, the most basic difference between MFA and PLSC is that PLSC extracts commonalities between two data tables, whereas MFA extracts similarities and differences between two or more data tables.    
+  
+### Partial Least Squares Correlation
+
+  Partial Least Squares Correlation (PLSC) [@Tucker1958; @Abdi2013a] analyzes two data tables that describe a single set of observations (rows) with different sets of variables (columns). PLSC computes a matrix of correlations between the sets of variables which is then analyzed to find latent variables with the largest covariance, i.e., the greatest amount of information common to the two data tables. This technique is commonly used in neuroimaging studies to evaluate correlations between matrices of imaging data and of behavioral or task data [@Krishnan2011].   
 
 ### Inference Methods
 
   Because the methods outlined above are not inferential methods, and do not inherently allow for hypothesis testing, we use permutation testing [@Berry2011] and bootstrapping [@Hesterberg2011]. Permutation testing evaluates whether our data have a signal that is more salient than a random table and bootstrapping evaluates the stability of the result of an experiment with confidence intervals computed from resampling the original observations [@Berry2011; @Hesterberg2011].
-
-### Data Processing
-  Raw data were cleaned and processed in Excel and R. As described above, each of the analyses requires data in a different format. CA requires a contingency table or something like it, PLSC requires two tables with the same rows, MFA requires multiple tables with the same rows, and MDS requires a distance matrix. 
-  To transform the data into these formats, we first translated all French responses into English. Then the response data for each participant was transformed into a pseudo contingency table, with the stimuli, as observations, on the rows, and the responses, as variables, on the columns. This way, instead of a table with qualitative information in each cell, we had a table with the response options as variables and ones and zeros as counts in each cell. These individual tables were then compiled into three-dimensional arrays, or "bricks", of data, one for each survey, such that each "page" was an individual participant's responses. 
-  To get the contingency table for CA, we summed each array along the pages into a pseudo-contingency table, which contained the responses as count data. The CAs for the experiments were performed on each pseudo-contingency table separately, and the PLSC was performed using both at the same time. 
-  To get the distance matrix for the MDS, we computed a distance matrix for each of the bricks, so that the distance in each cell represented the distance between participants.  
-  We only performed one MFA, on the results of the AS. To get the tables for MFA, we separated the AS brick into separate bricks for French and American participants and summed each along the pages, resulting  
-  To establish groups for inferences and visualization, the variables from the QS were grouped by quality (e.g., levels of tempo, types of genre). However, since we did not use *a priori* grouping variables for the excerpts or adjectives, the pseudo-contingency tables were evaluated using hierarchical cluster analyses (see supplementary materials) to see what groupings arose during evaluation.    
-
 
 # Experiment 1: Musical Qualities Survey
 
@@ -185,30 +180,80 @@ title4Graphs <- 'Music Descriptor Space '
 
 ### Participants
 
-For the first experiment, we recruited highly trained musicians with a minimum of 10 years of formal music training to evaluate the stimulus dimensions or musical qualities of the stimuli, and to ascertain whether the stimuli truly reflected the composer's intent of varying on a wide range of musical dimensions [@Raman2017]. Participants in the United States and in France were recruited by word of mouth and social media. There were a total of 84 responses to the survey, of which 51 were removed to incomplete data, leaving a total of 27 ($\textit{N}_F$ = 9, $\textit{N}_A$ = 18) for the analysis.  All recruitment measures were approved by the UT Dallas IRB.
+For the first experiment, we recruited highly trained musicians with a minimum of 10 years of formal music training to evaluate the stimulus dimensions or musical qualities of the stimuli, and to ascertain whether the stimuli truly reflected the composer's intent of varying on a wide range of musical dimensions [@Raman2017]. Participants in the United States and in France were recruited by word of mouth and social media. There were a total of 84 responses to the survey, of which 57 were removed for not completing the survey, leaving a total of 27 (N$\mathrm{_{France}}$ = 9, N$\mathrm{_{USA}}$ = 18) for the analysis.  All recruitment measures were approved by the UT Dallas IRB.
 
 ### Stimuli
   
-  All stimuli were new, original musical excerpts, in various Western styles, composed by the first author specifically for this study (scores and audio files available upon request). The stimuli were all string quartets, designed to control for the confounding factor that different instruments are described in different ways [@Zacharakis2014; @Zacharakis2015] and otherwise vary along a number of stimulus dimensions. The stimuli were composed to be coherent snippets approximately 30 s in length (actual range: 27 - 40 s, *M* = 32.4 s). Stimuli were composed using Finale composition software (Finale v25, MakeMusic, Inc.). Each stimulus was a wav file generated using the Finale human playback engine and embedded into a qualtrics question in that format.  
+  All stimuli were new, original excerpts, in various Western styles, composed using Finale composition software (Finale v25, MakeMusic, Inc.) by the first author specifically for this study (scores and audio files available upon request). Each stimulus was a wav file generated using the Finale human playback engine, approximately 30 s in length (range: 27 - 40 s, *M* = 32.4 s). The stimuli were all string quartets, in order to control for effects of timbre and otherwise vary on a number of musical qualities, specifically Harmony, Tempo, Meter, Density, and Genre. The stimuli are numbered by the order in which they were composed and thus do not reflect any specific grouping.
   
 ### Survey
+
+  American and French participants received links to surveys presented in English and French, respectively, both presented via Qualtrics. Participants were instructed to listen to the listen to the excerpts presented in the survey using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. After standard informed consent procedures, participants listened to 15 of the 30 excerpts, presented one at time in a random order, and answered ten questions per excerpt, one for each of the musical qualities being assessed. The musical qualities assessed and the levels associated with each are indicated in Table \@ref(tab:qualitiestable). Of these dimensions being assessed, all were multiple choice, allowing for a single response, except for meter, contour, and articulation, which were check-all-that-apply. See supplementary materials for the French translations of this table. After completion of the experimental task, participants were asked to provide demographic data, including including age, gender identity, nationality, occupation, and musical experience.
   
-  Participants in Experiment 1 completed a survey (hereafter: Qualities Survey/QS) on Qualtrics that evaluated the musical stimuli on ten music stimulus dimensions such as tempo, range, and meter and gathered demographic data, including age, gender identity, nationality, occupation, and musical experience. The qualities assessed in the QS were selected from standard music-theoretical descriptors of western music. With the exception of styles of articulation, which were presented in traditional (Italian) musical terminology, all of the responses for each quality were presented in the vernacular, either French or English, depending on the nationality of the participant. For example, when rating the excerpts on tempo, participants were asked to rate the excerpt using the scale *Very Slow*, *Slow*, *Moderately Slow*, *Moderate*, *Moderately Fast*, *Fast*, and *Very Fast* (French: *Très lente*, *lente*, *moyennement lent*, *moyenne*, *moyennement rapide*, *rapide*, *Très rapide*). The full list of musical qualities and answer choices is listed in the supplementary materials.    
+```{=latex}
 
-### Procedure
-  Participants were provided with a link to the survey and were instructed to listen to the excerpts presented in the survey either using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. After standard informed consent procedures, participants listened to 15 excerpts, presented one at time in a random order, and 10 questions per excerpt, one for each of the musical qualities being assessed. Demographic survey questions followed the experimental task.   
+\begin{lltable}
+\begin{scriptsize}
+\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:qualitiestable}Musical Qualities and the provided survey response options.}\\
+\toprule[.8pt]
+ \multicolumn{1}{c}{Harmonic Material} & \multicolumn{1}{c}{Tempo} & \multicolumn{1}{c}{Meter} & \multicolumn{1}{c}{Density} & \multicolumn{1}{c}{Genre} & \multicolumn{1}{c}{Articulation}\\
+ \midrule
+      Diatonic: Major & Very slow & Simple Duple & Very sparse & Baroque & Staccato \\
+      Diatonic: Minor & Slow & Simple Triple & Moderately sparse & Classical & Marcato \\
+      Blues & Moderately Slow & Simple Quadruple  & More sparse than dense & Romantic & Legato\\
+      Chromatic & Moderate & Compound Duple & More dense than sparse & Impressionist & Tenuto\\
+      Whole tone & Moderately Fast & Compound Triple & Moderately Dense & Modern & Other \\       
+      Modal  & Fast & Compound Quadruple & Very Dense & Jazz/Blues & \\
+      Quintal/Quartal  & Very Fast & Complex & & Contemporary & \\
+      Ambiguous  & & & & Other & \\
+      Other  & & & & & \\
+\bottomrule\addlinespace[.5em]
+ & \multicolumn{1}{c}{Contour} & \multicolumn{1}{c}{Motion} & \multicolumn{1}{c}{Range} & \multicolumn{1}{c}{Dynamics} & \\
+ \cmidrule[.5pt]{2-5}
+  & Ascending & Conjunct & Narrow & Soft & \\
+  & Descending & Disjunct & Moderate & Moderate  & \\
+  & Arch & \multirow{2}{0.2\textwidth}{Combination of conjunct and disjunct} & Wide & Loud  & \\
+  & Undulating &  & Very Wide & Varied: gradual crescendo &\\
+  & Pendulum & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} & \multirow{2}{0.2\textwidth}{Varied: gradual decrescendo} &\\
+  & Terrace & & & & \\
+  & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} & Other & & \multirow{2}{0.2\textwidth}{Some of each, soft and loud}  &\\
+  & & & & & \\
+  & Other & & & Other & \\
+  
+\cmidrule[.75pt]{2-5}
+\end{longtable}
+\end{scriptsize}
+\end{lltable}
+```
 
+
+### Data Processing
+
+  To process the data, survey responses were converted into a "brick" of data. On any page, at the intersection of any row and column was a one or a zero, with a one indicating that this participant had selected this level of this quality (column) to describe this stimulus (row). The responses in the French "brick" were all translated into English, and then the brick was summed across pages to obtain a pseudo-contingency table^[Whereas, in a contingency table, there is a single one (1) in each row, indicating that each observation (row) is associated with a single variable (column), in a pseudo-contingency table, there are as many ones as variables the participant decided were associated with that observation.] in which the intersection of a row and a column was the total number participants who selected a level of a musical quality to describe an excerpt. Levels for which the column sum was equal to one were considered as outliers and removed from the data.
+  
+  After removing these columns, preliminary visualizations revealed a few variables that required recoding because they were having an outsized effect on the analysis. For the "Meter", variable, there were initially seven levels: "Simple Duple", "Simple Triple", "Simple Quadruple", "Compound Duple", "Compound Triple", "Compound Quadruple", and "Complex", but some participants misunderstood this question and selected multiple options for each level of "Duple", "Triple" or "Quadruple". These responses were recoded, removing "Simple", "Compound" and "Complex", (there were no excerpts with complex meter), and collapsed, so that each excerpt had only one meter response per participant, "Duple", "Triple", or "Quadruple".  
+  
+  There were multiple qualities for which a possible response was "I do not think this excerpt has a melody", and this pattern created a problem in which multiple columns represented the same response, which had a similar effect to the one caused by the "Meter" variable before it was recoded. To avoid this problem, these responses were also recoded. A new variable, "Melody", was created, with two levels/columns, yes and no, and if participants responded "I do not think this excerpt has a melody" to any of the Contour, Motion, or Range variables, a one was counted in the "No" column for that participant and that excerpt. The other levels for each of these three variables were then recoded so that each other column for that variable in that row had the value of one divided by the number of options for that variable --- a procedure called barycentric recoding. If the participant responded with "I do not think this excerpt has a melody" for some but not all three of those variables, a one was still counted in the "no melody" column, but only the variables for which "I do not think..." was selected were recoded using barycentric recoding. For all excerpts and participants for which "I do not think..." was never selected, a one was added to the "Yes" column for the melody variable. Once the data were recoded, the brick was once again summed across pages to obtain the data table that would be used for subsequent analyses. 
+
+### Analysis
+  
+  After data processing, the data were in two usable forms, a brick and a contingency table. To analyze the similarity structure between participants, we computed a co-occurrence matrix from the brick with participants on the rows and columns, such that the intersection of a row and column represented the number of similar choices between participants. This was then analyzed using MDS.  
+  
+  To analyze the excerpts and musical qualities and obtain the music quality space, we performed a CA on the contingency table. To identify potential clusters among the excerpts, we ran an HCA on the row factor scores obtained from the CA.
+  
 ```{r importQualdata}
 
 load("catadatamusdim.RData")
-musdimdata <- catadata.list$contingency
-numberofdims <- catadata.list$numberofdims
-thebrick <- catadata.list$thebrick
+musdimdata <- catadata.list$contingency#[,order(colnames(catadata.list$contingency))]
+numberofdims <- catadata.list$numberofdims#[order(names(catadata.list$numberofdims))]
+thebrick <- catadata.list$thebrick#[,order(colnames(catadata.list$contingency)),]
 
 rows2drop <- c(6,14) 
 
 musdimdata.no6 <- musdimdata[-rows2drop,]
 thebrick.no6 <- thebrick[-rows2drop,,]
+
 ```
 
 ```{r Q.parts}
@@ -219,13 +264,13 @@ fr.ex.data <- catadata.list$french.expert.data[c(1:3,6,7,9:12),c(1,4,5,6,7)]
 colnames(fr.ex.data) <- c("age", "gen", "nat", "tr_yrs", "tr_type")
 fr.ex.data$gen[which(fr.ex.data$gen == "Homme")] <- "M"
 fr.ex.data$gen[which(fr.ex.data$gen == "Femme")] <- "F"
-fr.ex.data$nat <- "FR"
+fr.ex.data$nat <- "France"
 fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Instrumentale")] <- "Inst"
 fr.ex.data$tr_type[which(fr.ex.data$tr_type == "Vocale")] <- "Voc"
 
 am.ex.data <- catadata.list$expert.data[,c(1:3,6,7)]
 colnames(am.ex.data) <- colnames(fr.ex.data)
-am.ex.data$nat <- "AM"
+am.ex.data$nat <- "USA"
 am.ex.data$gen[which(am.ex.data$gen == "Male")] <- "M"
 am.ex.data$gen[which(am.ex.data$gen == "Female")] <- "F"
 am.ex.data$tr_type[which(am.ex.data$tr_type == "Instrumental")] <- "Inst"
@@ -256,22 +301,27 @@ CA.Q.pEig <- dimcares.inf$Inference.Data$components$eigs.perm
 
 ```{r someQcolors}
 # Participant colors:
-col4M <- wes_palettes$Rushmore1[3]
-col4F <- wes_palettes$Rushmore1[5]
-col4FR <- wes_palettes$Darjeeling1[1]
-col4AM <- wes_palettes$Darjeeling2[2]
+col4M <- wes_palettes$Zissou1[1]
+col4F <- wes_palettes$Zissou1[5]
+col4FR <- wes_palettes$Darjeeling2[2]
+col4AM <- wes_palettes$Darjeeling1[1]
 # 
 col4byG <- as.character(bygender)
 col4byG[col4byG == "F"] <- col4F
 col4byG[col4byG == "M"] <- col4M
 
 col4byN <- as.character(bynationality)
-col4byN[col4byN == "FR"] <- col4FR
-col4byN[col4byN == "AM"] <- col4AM
+col4byN[col4byN == "France"] <- col4FR
+col4byN[col4byN == "USA"] <- col4AM
 
 # To account for the fact that we removed some rows above:
-numberofdims[c(1,7,8,9,10)] <- c(8,7,3,4,6)
-numberofdims <- numberofdims[-11]
+#numberofdims[c(1,3,7,10,11)] <- c(6,7,8,3,4)
+#numberofdims <- numberofdims[-2]
+
+#numberofdims[c(1,7,8,9,10)] <- c(8,7,3,4,6)
+
+#numberofdims <- numberofdims[-11]
+
 
 col4cols <- wes_palette("FantasticFox1", 
                         length(numberofdims), type = "continuous")
@@ -321,155 +371,13 @@ rownames(F4Cmat.Q) <- Shortnames4Participants.Q
 # Make labels
 labels4RV.Q <- createxyLabels.gen(1,2,lambda = eig4Cmat.Q, tau = tau4Cmat.Q)
 
-#pev4Q <- perm4PTCA(thebrick.no6, compact = T, permType = "byMat")
-
-#permeigs4Q <- matrix(nrow = 1000, ncol = 27)
-
-#sz <- nrow(Cmat.Q)
-
-#for (i in 1:1000){
-#
-#  pmat <- Cmat.Q[sample(1:sz, sz, replace = FALSE),]
-#  pmat <- pmat[ , sample(1:sz, sz, replace = FALSE)]
-#  permeigs4Q[i,] <- eigen(pmat)$values
-#}
-
-
-
-
-
 ```
 
 ## Results
 
 ### Participants
 
-```{r screeRV, fig.height = 4, fig.width = 8, include = FALSE}
-# Scree plot with significance
-ScreeInf <- PlotScree(ev = eig4Cmat.Q,
-                      max.ev = NULL, alpha = 0.05,
-                      col.ns = "#006D2C", plotKaiser = TRUE,
-                      title = "Participants Distance Analysis, Musical Qualities Survey: \nExplained Variance per Dimension",
-                      )
-a000.00.screeRV <-  recordPlot()
-```
-```{=latex}
-\begin{wrapfigure}{h}{.5\textwidth}  
-  \begin{center}
-    \includegraphics{./Music-Descriptor-Space_files/figure-latex/screeRV-1.png}
-  \caption{ }(\#fig:screeRVQ)  
- \end{center}
-\end{wrapfigure}
-```
-
-  The scree plot in Figure \@ref(fig:screeRVQ) shows the eigenvalues for the MDS on the musical experts. The first two dimensions have $\lambda$ = `r round(eig4Cmat.Q[1], 3)` and $\lambda$ = `r round(eig4Cmat.Q[2], 3)`, respectively. There are no especially prominent dimensions here, which suggests that all of the participants responded similarly to the excerpts. When plotting the factor scores, there were no significant differences observed between the experts based on any of the grouping variables used. Figure \@ref(fig:judgesplotQ) show how the means of the factor scores, grouped by nationality and gender identity, respectively, are clustered on top of one another at the origin. The overlapping ellipses are the confidence intervals for the means. The individual data points are the same between the two plots, but the color of the dots, means and confidence intervals are different because they represent.
-
-```{r judgesplotQ, fig.height = 5, out.width = '75%'}
-
-BaseMap.Nationality <- createFactorMap(X = F4Cmat.Q ,
-                              axis1 = 1, axis2 = 2,
-                              display.points = TRUE,
-                              col.points = col4byN,
-                              pch = 19, cex = 2.5, 
-                              title = "Colored according to Nationality",
-                              display.labels = TRUE,
-                              col.labels = col4byN,
-                              text.cex = 4, font.face = "bold",
-                              font.family = "sans",
-                              col.axes = "darkorchid",
-                              alpha.axes = 0.2,
-                              width.axes = 1.1,
-                              col.background = adjustcolor("lavender",
-                                                       alpha.f = 0.2),
-                              force = 1, segment.size = 3)
-
-BaseMap.Gender <- createFactorMap(X = F4Cmat.Q ,
-                              axis1 = 1, axis2 = 2,
-                              display.points = TRUE,
-                              col.points = col4byG,
-                              pch = 19, cex = 2.5,
-                              title = "Colored according to Gender",
-                              display.labels = TRUE,
-                              col.labels = col4byG,
-                              text.cex = 4, font.face = "bold",
-                              font.family = "sans",
-                              col.axes = "darkorchid",
-                              alpha.axes = 0.2,
-                              width.axes = 1.1,
-                              col.background = adjustcolor("lavender",
-                                                       alpha.f = 0.2),
-                              force = 1, segment.size = 3)
-
-gendermeans <- getMeans(F4Cmat.Q, bygender)
-nationmeans <- getMeans(F4Cmat.Q, bynationality)
-
-BootCube.N <- PTCA4CATA::Boot4Mean(F4Cmat.Q, design = bynationality,
-                      niter = 100,
-                      suppressProgressBar = TRUE)
-dimnames(BootCube.N$BootCube)[[2]] <- paste0('Dimension ',
-                                             1: dim(BootCube.N$BootCube)[[2]])
-
-BootCube.G <- PTCA4CATA::Boot4Mean(F4Cmat.Q, design = bygender,
-                      niter = 100,
-                      suppressProgressBar = TRUE)
-dimnames(BootCube.G$BootCube)[[2]] <- paste0('Dimension ',
-                                             1: dim(BootCube.G$BootCube)[[2]])
-
-n.ellipse <- MakeCIEllipses(BootCube.N$BootCube[,1:2,], 
-                            names.of.factors = c("Dimension 1","Dimension 2"),
-                            col = c(col4AM, col4FR))
-g.ellipse <- MakeCIEllipses(BootCube.G$BootCube[,1:2,], 
-                            names.of.factors = c("Dimension 1","Dimension 2"),
-                            col = c(col4M, col4F))
-
-n.symdist.means <- createFactorMap(nationmeans,
-                              axis1 = 1, axis2 = 2, 
-                              title = "Colored according to Nationality",
-                              col.points =  c(col4AM, col4FR),
-                              alpha.points = 1, # no transparency
-                              constraints = BaseMap.Nationality$constraints,
-                              display.points = TRUE,
-                              pch = 19, cex = 5,
-                              display.labels = TRUE,
-                              col.labels = c(col4AM, col4FR), 
-                              text.cex = 4,font.face = "bold",
-                              font.family = "sans", col.axes = "darkorchid", 
-                              alpha.axes = 0.2, width.axes = 1.1, 
-                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
-                              force = 1, segment.size = 0)
-
-g.symdist.means <- createFactorMap(gendermeans,
-                              axis1 = 1, axis2 = 2, 
-                              title = "Colored according to Gender",
-                              col.points =  c(col4M, col4F),
-                              alpha.points = 1, # no transparency
-                              constraints = BaseMap.Gender$constraints,
-                              display.points = TRUE,
-                              pch = 19, cex = 5,
-                              display.labels = TRUE,
-                              col.labels = c(col4M, col4F), 
-                              text.cex = 4,font.face = "bold",
-                              font.family = "sans", col.axes = "darkorchid", 
-                              alpha.axes = 0.2, width.axes = 1.1, 
-                              col.background = adjustcolor("lavender", alpha.f = 0.2), 
-                              force = 1, segment.size = 0)
-
-a.01.map4part <- BaseMap.Nationality$zeMap_background + labels4RV.Q +
-                   n.symdist.means$zeMap_dots + n.ellipse +
-                    BaseMap.Nationality$zeMap_dots + n.symdist.means$zeMap_text
-                    
-
-a.02.map4part <- BaseMap.Gender$zeMap_background + labels4RV.Q +
-                  g.symdist.means$zeMap_dots + g.ellipse +
-                    BaseMap.Gender$zeMap_dots + g.symdist.means$zeMap_text
-
-grid.arrange(as.grob(a.01.map4part), 
-             as.grob(a.02.map4part), ncol = 2,
-             top = textGrob("Factor Scores for Participants in the Qualities Survey", 
-                            gp = gpar(fontsize = 18, font = 3)))
-
-
-```
+  The MDS performed on the co-occurrence matrix of participants was intended to identify potential clusters of participants. Visual examination of the results did not reveal any clusters --- a pattern suggesting that the participants constituted a homogeneous group. To further assess this conclusion, we also computed average factor scores by nationality and gender identity and bootstrap-derived confidence intervals around these averages and did not find any significant differences. See supplementary materials for plots illustrating this. 
 
 ### Excerpts
 
@@ -484,7 +392,7 @@ dim4eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[4]/sum(di
 ```
 ```{r scree4excerptsq, include = FALSE}
 mus.scree <- PlotScree(dimcares.inf$Fixed.Data$ExPosition.Data$eigs, 
-                       dimcares.inf$Inference.Data$components$p.vals, 
+                       #dimcares.inf$Inference.Data$components$p.vals, 
                        plotKaiser = T, color4Kaiser = "red"
                                               ) 
 
@@ -500,110 +408,17 @@ mus.00.scree <- recordPlot()
 \end{wrapfigure}
 ```
 
-  The scree plot for the analysis of the QS, Figure \@ref(fig:scree4excerptsq), shows the high dimensionality of this space, with the first four dimensions extracting a total of `r sum(dim1eigperc, dim2eigperc, dim3eigperc, dim4eigperc)`% of the variance. Significant dimensions (i.e., dimensions that represent something other than noise) are indicated in purple. As stated above, for this case study, we focus on the first two dimensions.  
+  The results of the CA performed on the contingency table revealed two significant dimensions, accounting for `r sum(dim1eigperc, dim2eigperc)`% of the total variance. Figure \@ref(fig:scree4excerptsq) displays the scree plot, which shows for this analysis the percentage of variance explained by each dimension.  
+  
+```{r factormapsQbuild, fig.height = 10, fig.show = 'hold', out.width='75%'}
 
-  Graphing the variable loadings (see Figure \@ref(fig:contributionsQ)) of the musical qualities shows which qualities contribute the most to the first two dimensions (remember that the qualities are the variables in this analysis). Because of how CA is calculated, we know that the excerpts that load on the same dimension and direction as the musical qualities are the excerpts that are most associated with those qualities. The contributions shown here are only those that contribute significantly to the first two dimensions.
-  There are some obvious groups of variables, especially tempo and articulation in the first dimension, with fewer contributions from the dynamics group. The tempo variables load from high (tempo.F6 and tempo.F7) in the positive direction to low (tempo.F2 and tempo.F1) in the negative direction. Other contributions are one-off: major harmony, triple meter, classical genre, undulating contour, and disjunct motion. Because these one-offs don't show a clear pattern, it may be better to interpret these variables and their groups from the factor plots below. The excerpts are grouped according to the HCA performed on this data (see supplementary materials). Those that load positively, and are therefore associated with the qualities that load in the positive direction, are all from group 2: Excerpts 4, 13, 23, and 26. The ones that load in the negative direction are from mostly from group 4: Excerpts 7, 10, 24, and 27, with one from group 3, Excerpt 3.  
-  The second dimension seems to dominated by a few groups: harmony, meter, genre, dynamics. The one-offs are slow tempo, ascending contour, and "no melody". The excerpts that load significantly on this dimension are from all four groups. In the positive direction, we see Excerpts 7, 12, 15, and 27 from Group 4, and Excerpt 19 from Group 1. In the negative direction, Excerpts 2, 3, 11, and 17. All are from group 3 except for Excerpt 2, which is from Group 2. A full enumeration of contributions, loadings, and boostrap ratios is available from the author's github, for which the URL is in the author note.
-
-```{r justsomecontsQ}
 
 load("excerptsdesign.RData")
 
 col4exgrp <- excerptsdesign$ex.design$col4exgrp
 ex.cols <- excerptsdesign$ex.design$ex.cols
 
-signed.ctrI <- dimcares.inf$Fixed.Data$ExPosition.Data$ci * sign(FIsym)
-signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
-
-CIlist.dim <- vector(mode = "list", length = 3)
-CJlist.dim <- vector(mode = "list", length= 3)
-
-names(CIlist.dim) <- c("Dim1", "Dim2", "Dim3")
-names(CJlist.dim) <- c("Dim1", "Dim2", "Dim3")
-
-for (i in 1:3){
-  CIlist.dim[[i]] <- signed.ctrI[which(abs(signed.ctrI[,i]) > 1/nrow(signed.ctrI)),i]
-  CJlist.dim[[i]] <- signed.ctrJ[which(abs(signed.ctrJ[,i]) > 1/nrow(signed.ctrJ)),i]
-}
-
-col4barsQ <- vector(mode = "list", length = 6)
-names(col4barsQ) <- c("IDim1", "JDim1", "IDim2", "JDim2", "IDim3", "JDim3")
-
-nrows <- nrow(signed.ctrI)
-
-```
-
-```{r contributionsQ, fig.width=10}
-# plot contributions of rows for component 1
-ctrI.1 <- PrettyBarPlot2(CIlist.dim$Dim1,
-                         threshold = 1 / NROW(signed.ctrI),
-                         font.size = 3,
-                         color4bar = col4exgrp[which(abs(signed.ctrI[,1]) > 1/nrow(signed.ctrI))] , # we need hex code
-                         ylab = 'Contributions', #sortValues = TRUE,
-                         ylim = c(1.2*min(signed.ctrI[,1]), 1.2*max(signed.ctrI[,1]))
-) + ggtitle("Component 1", subtitle = 'Rows')
-
-# plot contributions of columns for component 1
-ctrJ.1 <- PrettyBarPlot2(CJlist.dim$Dim1,
-                         threshold = 1 / NROW(signed.ctrJ),
-                         font.size = 3,
-                         color4bar = col4cols[which(abs(signed.ctrJ[,1]) > 1/nrow(signed.ctrJ))], # we need hex code
-                         ylab = 'Contributions',
-                         ylim = c(1.2*min(signed.ctrJ[,1]), 1.2*max(signed.ctrJ[,1]))
-) + ggtitle("", subtitle = 'Columns')
-
-# plot contributions of rows for component 2
-ctrI.2 <- PrettyBarPlot2(CIlist.dim$Dim2,
-                         threshold = 1 / NROW(signed.ctrI),
-                         font.size = 3,
-                         color4bar = col4exgrp[which(abs(signed.ctrI[,2]) > 1/nrow(signed.ctrI))] , # we need hex code
-                         ylab = 'Contributions',
-                         ylim = c(1.2*min(signed.ctrI[,2]), 1.2*max(signed.ctrI[,2]))
-) + ggtitle("Component 2", subtitle = 'Rows')
-
-# plot contributions of columns for component 2
-ctrJ.2 <- PrettyBarPlot2(CJlist.dim$Dim2,
-                         threshold = 1 / NROW(signed.ctrJ),
-                         font.size = 3,
-                         color4bar = col4cols[which(abs(signed.ctrJ[,2]) > 1/nrow(signed.ctrJ))], # we need hex code
-                         ylab = 'Contributions',
-                         ylim = c(1.2*min(signed.ctrJ[,2]), 1.2*max(signed.ctrJ[,2]))
-) + ggtitle("", subtitle = 'Columns')
-
-
-grid.arrange(
-    as.grob(ctrI.1),as.grob(ctrJ.1),
-    as.grob(ctrI.2),as.grob(ctrJ.2),
-    ncol = 2,nrow = 2,
-    top = textGrob("Contributions, Qualities Survey", gp = gpar(fontsize = 18, font = 3))
-  )
-
-Ctr.IJ <- recordPlot()
-
-#1 - blue, 2 - red, 3 - green, 4 - yellow
-```
-
-### Discussion
-
-  One assumption we make in an analysis like this is that the sample is random, which may not always be the case. The music itself is not random, as repetition is a common compositional tool, and was used in the composition of some of the excerpts. Perhaps more importantly, the excerpts were all composed by the same composer, which means that they are subject to the inherent biases of that composer, and some musical qualities are inextricably linked --- for example some harmonic elements with genre [@Cohn2001]. Additionally, although it is common practice to use pseudo-contingency tables in correspondence analyses, as we have done here, many of the values in this type of table are not random. Whereas, in a contingency table, there should be only a single one (1) per row, associating an observation with a single column or variable, a pseudo-contingency table like the one used here has more than one one (1) per row, meaning that those counts are linked and thus not random. 
-  
-  With regard to the scree plots in Figures \@ref(fig:screeRVQ) and \@ref(fig:scree4excerptsq), there are a few guidelines on how many dimensions to interpret. One guideline, to analyze only dimensions with $\lambda$ > 1, aren't helpful in either case, because all dimensions but one computed by the MDS have $\lambda$ > 1 and all dimensions computed by the CA have $\lambda$ < 1. Another is to apply the 'elbow test', to interpret the dimensions that fall above an inflection point in the scree plot. This option is not entirely conclusive in either case, either, for example in the CA, there are clear inflection points at dimensions three and six, and possible inflection points at eleven and sixteen. A third option is to analyze only dimensions that are greater than the average, indicated by the 'Kaiser line', in red, which would indicate that we should analyze as many as eleven dimensions for the MDS and eight dimensions for the CA. This is an excellent example of why permutation testing can help understand the dimensionality of a multivariate space. Even with permutation testing, however, we suggest as a guideline to analyze only the dimensions that are interpretable.  
-  
-  The graph depicted in Figure \@ref(fig:factormapsQ) is a biplot depicting how excerpts and variables appear in the same mental space.  This biplot is possible because of the nature of CA, but interpretation requires some discernment. The distance between the excerpts can be interpreted directly as similarity, and the distance between the musical qualities can be interpreted directly as similarity, but the distance between a quality and an excerpt cannot. Instead, the angle between an excerpt and a quality is indicative of their correlation. An angle of 0 indicates a correlation of 1, an angle of 90 indicates a correlation of 0, and an angle of 180 indicates a correlation of -1. See @Abdi2010d for a more in-depth discussion of this.  
-  
-  Overall, this helps us to evaluate what qualities contribute to the excerpt groupings. These first two dimensions suggest that the hierarchical cluster analysis (see supplementary materials) revealed groupings roughly according to genre. However, there are two notable outliers. Preliminary versions of this analysis showed that Excerpts 6 and 14 dominated the 2nd and 3rd dimensions, respectively (see supplementary materials for visualizations). These two exerpts are unique in that they are each the only representative of their respective genres. Excerpt 6 is minimalist, à la Steve Reich, and Excerpt 14 is jazzy. In the plot below, they are included instead as supplementary projections, essentially 'out of sample' elements. 
-  
-  
-  Although they dominated the space when included in the sample, they are much closer to the barycenter of the plot when included as out of sample. Their placement indicates that the dimensionality of this space may in fact be related to musical genre or family. Were they to fall exactly on the origin, that would suggest that they shared no information whatsoever with the other excerpts included in the analysis. The disparity between their placement on the graph below and their placement on the graphs in which they are included in the main sample suggests that they share some information, but there is still a large amount of information that is not accounted for in the factor space depicted in Figure \@ref(fig:factormapsQ).  
-  
-  One perceptual element that is revealed here is that tempo and dynamics seem to contribute, intensity-wise, similarly to the first dimension. This points to two specific things. Firstly, it highlights possible bias in the compositional process. The excerpts were not intentionally composed with those characteristics being similar in mind, but it's entirely possible that the high or low arousal levels of the various excerpts that participants respond to also drove some of the compositional process, and that turned up in the results. Secondly, it's possible that the level of arousal was conflated between various musical qualities. For example, the intensity and therefore tempo of a stimulus may have been affected by the volume or dynamics [@Kamenetsky1997]. Perception of tempo is also affected by note rate or event density, which is also tied to arousal. In two pieces played at the same tempo, the one with more notes per unit time is more likely to be judged faster than one with fewer [@Drake1999].
-  
-  There are also a few musical elements revealed from the associations. The term staccato means short, or light and separated, and the term legato means smooth and connected. The participants in this experiment didn't have access to the notation, so they would be judging the excerpts aurally only. Between faster and slower excerpts, notes of the same rhythmic value take up less time in the faster excerpts, and may be more likely to be judged as light and separate, regardless of what the actual articulation was. Slow tempo and legato are associated differently. In terms of performance practice or pedagogy, slow notes are often intended to be connected as smoothly as possible, in order to create a sense of continuity. In terms of genre and harmony, many genres have harmonies associated with them [@Kennedy2013], and the coordinate mapping of jazz/blues harmony and genre (on the third dimension) is the most extreme example of this. A glance back at the factor scores plot shows us more detail: the older styles, baroque, classical, and romantic, are negative on the 2nd dimension, as are the simpler harmonies of major and minor. Likewise the newer western styles, impressionist, modern, and contemporary, load positively on the 2nd dimension, along with the more complex harmonies of chromatic, whole tone, and ambiguous. A brief historical survey of the development of western harmony provides an interpretation for this. The classical genre has fairly structured rules for both harmony and voice leading, but the romantic era relaxed those rules and introduced more complex harmonies. The gradual devolution of those rules and the increase in complexity of harmony continued through the modern and contemporary styles [@Kennedy2013]. Historically speaking, the whole tone scale wasn't used commonly until the impressionist era [@Cohn2001]. 
-  
-  It is worth remembering, however, that because of the nature of this survey, these results tell us more about the perception of the excerpts themselves rather than the behavior of the participants. Because the excerpts were composed with the intent of varying across all of these musical dimensions, what we see is a sort of validation that there is, in fact, that variety among these excerpts, and that they are different enough to create a large and varied factor space. 
-
-```{r factormapsQ, fig.width = 6, fig.show = 'hold', out.width='75%'}
+names(col4exgrp) <- rownames(musdimdata.no6)
 
 axisone = 1
 axistwo = 2
@@ -636,6 +451,18 @@ scoresw6 <- rbind(FIsym, proj6$fii)
 
 cols4proj <- c(col4exgrp, gplots::col2hex(c("blueviolet", "blueviolet")))
 
+desc_groups <- excerptsdesign$ex.design$col4exgrp
+
+dgf <- excerptsdesign$ex.design$thedesign
+
+desc_groups[dgf == "ex.group1"] <- "Group 1"
+desc_groups[dgf == "ex.group2"] <- "Group 2"
+desc_groups[dgf == "ex.group3"] <- "Group 3"
+desc_groups[dgf == "ex.group4"] <- "Group 4"
+desc_groups <- c(desc_groups, "Projected", "Projected")
+desc_groups <- as.factor(desc_groups)
+#ti.qs.12 <- MakeToleranceIntervals(scoresw6, design = desc_groups, col = unique(cols4proj))
+#+ ti.qs.12
 exmap.sym.12 <- createFactorMapIJ(scoresw6,
                                 sig.FJs,
                                 axis1 = axisone,axis2 = axistwo,
@@ -643,7 +470,7 @@ exmap.sym.12 <- createFactorMapIJ(scoresw6,
                                 col.labels.i = cols4proj, 
                                 col.points.j = col4sigcolsonly, 
                                 col.labels.j = col4sigcolsonly,
-                                text.cex.i = 4, text.cex.j = 2.5,
+                                text.cex.i = 5, text.cex.j = 4,
                                 cex.i = 4, cex.j = 4,
                                 font.face.j = "italic",
                                 alpha.labels.i = 1, alpha.labels.j = 1
@@ -651,53 +478,149 @@ exmap.sym.12 <- createFactorMapIJ(scoresw6,
 
 vc.labels.12 <- createxyLabels(resCA = dimcares.inf$Fixed.Data)
 
-#ti.qs.12 <- MakeToleranceIntervals(scoresw6)
+mus.012.i <- exmap.sym.12$baseMap +  
+              exmap.sym.12$I_points + 
+                exmap.sym.12$I_labels + 
+                  vc.labels.12 + ggtitle('Factor Map, Experts Survey: Excerpts') 
+                    
 
-mus.012 <- exmap.sym.12$baseMap +  
-            exmap.sym.12$I_points + 
-              exmap.sym.12$I_labels + 
-                exmap.sym.12$J_points + 
-                  exmap.sym.12$J_labels + 
-                    vc.labels.12 + ggtitle('Factor Map, Qualities Survey: Dimensions 1 and 2')
-  
-axisone = 3
-axistwo = 2
+mus.012.j <- exmap.sym.12$baseMap +  
+              exmap.sym.12$J_points + 
+                exmap.sym.12$J_labels + 
+                  vc.labels.12 + ggtitle('Factor Map, Experts Survey: Musical Qualities')
 
-exmap.sym.23 <- createFactorMapIJ(scoresw6,
-                                sig.FJs,
-                                axis1 = axisone,axis2 = axistwo,
-                                col.points.i = cols4proj, 
-                                col.labels.i = cols4proj, 
-                                col.points.j = col4sigcolsonly, 
-                                col.labels.j = col4sigcolsonly,
-                                text.cex.i = 4, text.cex.j = 2.5,
-                                font.face.i = "italic",
-                                alpha.labels.i = 1, alpha.labels.j = 1
-                                )
-
-vc.labels.23 <- createxyLabels(resCA = dimcares.inf$Fixed.Data, 
-                               x_axis = axisone,
-                               y_axis = axistwo)
-
-mus.023 <- exmap.sym.23$baseMap + #zePoly.J + 
-            exmap.sym.23$I_points + 
-              exmap.sym.23$I_labels + 
-                exmap.sym.23$J_points + 
-                  exmap.sym.23$J_labels + 
-                    vc.labels.23 + ggtitle('Dimensions 2 and 3')
-
-
-print(mus.012)
-#grid.arrange(
-#    as.grob(mus.012),as.grob(mus.023),
-#    ncol = 2,nrow = 1,
-#    top = textGrob("Symmetric Maps of the Row and Column Factor Scores", gp = gpar(fontsize = 18, font = 3))
-#  )
+#print(mus.012.i)
+#print(mus.012.j)
 
 #mus.012.023 <- recordPlot()
+```
 
+  Preliminary plots of the factor scores obtained from the CA revealed that Excerpts 6 and 14 distorted the factor space, with these two excerpts dominating the second and third dimensions, respectively. To help interpret the factor space, these two excerpts were removed from the data and the CA was recomputed. Excerpts 6 and 14 were then added back in as *supplementary observations*, a technique which visualizes the information these elements share with the other elements in the sample without distorting the factor space. 
+  
+  The HCA revealed four clusters (see supplementary materials for the dendrogram). Figure \@ref(fig:factormapsQ)a displays these clusters represented by colors, with Excerpts 6 and 14 as supplementary observations colored separately. Figure \@ref(fig:factormapsQ)b displays the qualities, colored by variable. To avoid overcrowding, only the levels of qualities that contributed significantly (see below, and Figure \@ref(fig:contributionsQ)) are shown.
+ Figure __ on left, ... on right... 
+--- 
+ in ca, rows and columns have the same variance, pltos are directly comparable. (not rows and columns - just excerpts & qualities) (same scale, directly comparable)
+  
+  The proximity between any two points in Figure \@ref(fig:factormapsQ) can only be interpreted directly as similarity when the points are on the same map. Excerpts must be interpreted relative to the barycenter of the excerpts. Proximity between an excerpt and the level of a quality can be interpreted as the distance  
+  
+  Instead, the angle between an excerpt (left) and a quality (right) indicates their correlation. An angle of 0 or 180 degrees indicates a perfect positive or negative correlation, respectively, and an angle of 90 degrees indicates no correlation --- the two items share no information. See @Abdi2010d for a more in-depth discussion. 
+
+# CITE CA PAPER HERE
+
+
+```{r factormapsQ, fig.width=12}
+grid.arrange(
+    as.grob(mus.012.i),as.grob(mus.012.j),
+    ncol = 2,nrow = 1#,
+   # top = textGrob("Symmetric Maps of the Row and Column Factor Scores", gp = gpar(fontsize = 18, font = 3))
+  )
+```  
+
+  In a CA, the importance of an 
+  To evaluate the relative importance of the excerpts and musical qualities in defining each dimension, we computed the *contributions* of the excerpts and qualities to the factorial dimensions. Contributions are similar to a squared coefficient of correlation. They vary between zero and one with zero indicating no importance and one indicating maximum importance [@Abdi2010d]. Contributions --- being squared --- are positive, but to facilitate interpretation the contributions are signed in Figure \@ref(fig:contributionsQ) to reflect the sign of the factor scores of the excerpts or qualities. Contributions larger than the average contribution are traditionally considered important to interpret factorial dimensions. A plot of the contributions for all variables is in the supplementary materials.  
+  
+  Figure \@ref(fig:contributionsQ) shows the excerpts and qualities relevant for interpretation of the first two dimensions. Contributing positively to Dimension 1 are Excerpts 4, 13, 23, and 26, and contributing negatively are Excerpts 3, 7, 10, 24, and 27. Tempo, articulation, and dynamics seem to define the first dimension. 
+  
+  Dimension 1 separates the levels of the tempo variable from low (tempo.F2 and tempo.F1) in the negative direction to high (tempo.F6 and tempo.F7) in the positive direction. This dimension also separates articulations legato (smooth) from marcato and staccato (accented and separate), and dynamics soft to loud in the same way, negative to positive. Single levels from other variables also contribute to the first dimension: major harmony, triple meter, classical genre, undulating contour, and disjunct motion.  
+  
+  The second dimension features important contributions from the levels of the dynamics, genre, harmony and meter variables. Single levels of other variables also contribute to this dimension, namely slow tempo, ascending contour, and "no melody". Dimension 2 separates Excerpts 2, 3, 11, and 17 in the negative dimension from Excerpts 7, 12, 15, 27, and 19 in the positive direction. A full enumeration of contributions and bootstrap ratios is available at the URL in the author note.  
+
+```{r justsomecontsQ}
+
+
+signed.ctrI <- dimcares.inf$Fixed.Data$ExPosition.Data$ci * sign(FIsym)
+signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
+
+CIlist.dim <- vector(mode = "list", length = 6)
+CJlist.dim <- vector(mode = "list", length= 6)
+
+names(CIlist.dim) <- c("Dim1", "Dim2", "Dim3", "Dim1cols", "Dim2cols", "Dim3cols")
+names(CJlist.dim) <- c("Dim1", "Dim2", "Dim3", "Dim1cols", "Dim2cols", "Dim3cols")
+
+for (i in 1:3){
+  CIlist.dim[[i]] <- signed.ctrI[which(abs(signed.ctrI[,i]) > 1/nrow(signed.ctrI)),i]
+  CJlist.dim[[i]] <- signed.ctrJ[which(abs(signed.ctrJ[,i]) > 1/nrow(signed.ctrJ)),i]
+  CJlist.dim[[i]] <- CJlist.dim[[i]][order(names(CJlist.dim[[i]]))]
+}
+
+names(col4cols) <- colnames(musdimdata.no6)
+
+for (i in 4:6){
+  CIlist.dim[[i]] <- col4exgrp[names(col4exgrp) %in% names(CIlist.dim[[i-3]])]
+  CJlist.dim[[i]] <- col4cols[names(col4cols) %in% names(CJlist.dim[[i-3]])]
+  CJlist.dim[[i]] <- CJlist.dim[[i]][order(names(CJlist.dim[[i]]))]
+}
+
+col4barsQ <- vector(mode = "list", length = 6)
+names(col4barsQ) <- c("IDim1", "JDim1", "IDim2", "JDim2", "IDim3", "JDim3")
+
+nrows <- nrow(signed.ctrI)
 
 ```
+
+```{r contributionsQ, fig.width=10}
+
+
+# plot contributions of rows for component 1
+ctrI.1 <- PrettyBarPlot2(CIlist.dim$Dim1,
+                         threshold = 1 / NROW(signed.ctrI),
+                         font.size = 3,
+                         color4bar = CIlist.dim$Dim1cols,  #col4exgrp[which(abs(signed.ctrI[,1]) > 1/nrow(signed.ctrI))] , # we need hex code
+                         ylab = 'Contributions', #sortValues = TRUE,
+                         ylim = c(1.2*min(signed.ctrI[,1]), 1.2*max(signed.ctrI[,1]))
+) + ggtitle("Component 1", subtitle = 'Rows')
+
+# plot contributions of columns for component 1
+ctrJ.1 <- PrettyBarPlot2(CJlist.dim$Dim1,#[order(names(CJlist.dim$Dim1))],
+                         threshold = 1 / NROW(signed.ctrJ),
+                         font.size = 3,
+                         color4bar = CJlist.dim$Dim1cols,  #cols4conts[which(abs(signed.ctrJ[,1]) > 1/nrow(signed.ctrJ))], # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrJ[,1]), 1.2*max(signed.ctrJ[,1]))
+) + ggtitle("", subtitle = 'Columns')
+
+# plot contributions of rows for component 2
+ctrI.2 <- PrettyBarPlot2(CIlist.dim$Dim2,
+                         threshold = 1 / NROW(signed.ctrI),
+                         font.size = 3,
+                         color4bar = col4exgrp[which(abs(signed.ctrI[,2]) > 1/nrow(signed.ctrI))] , # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrI[,2]), 1.2*max(signed.ctrI[,2]))
+) + ggtitle("Component 2", subtitle = 'Rows')
+
+# plot contributions of columns for component 2
+ctrJ.2 <- PrettyBarPlot2(CJlist.dim$Dim2,
+                         threshold = 1 / NROW(signed.ctrJ),
+                         font.size = 3,
+                         color4bar = CJlist.dim$Dim2cols, # we need hex code
+                         ylab = 'Contributions',
+                         ylim = c(1.2*min(signed.ctrJ[,2]), 1.2*max(signed.ctrJ[,2]))
+) + ggtitle("", subtitle = 'Columns')
+
+
+grid.arrange(
+    as.grob(ctrI.1),as.grob(ctrJ.1),
+    as.grob(ctrI.2),as.grob(ctrJ.2),
+    ncol = 2,nrow = 2,
+    top = textGrob("Contributions, Qualities Survey", gp = gpar(fontsize = 18, font = 3))
+  )
+
+Ctr.IJ <- recordPlot()
+
+#1 - blue, 2 - red, 3 - green, 4 - yellow
+```
+
+## Discussion
+
+  There are a few musical connections revealed in Figure \@ref(fig:factormapsQ). The connection between tempo and articulation is apparent, as is the connection between genre and harmony [@Cohn2001]. Staccato articulations, correlated on this factor plot with high tempi, are played light and separate, and legato articulations, correlated with slow tempi, are played smooth and connected. In terms of performance practice, slow and long notes are played in a legato style to create a sense of continuity, and fast moving notes or phrases do not require the same technique. The coordinate mapping of jazz/blues harmony and genre, which are stacked right on top of one another is the most extreme example of a genre being associated with certain harmonic material, but other connections are also revealed. The second dimension separates the older styles, such as baroque, classical, and romantic, from the newer styles, impressionist, modern, and contemporary. Dimension 2 associates the simpler harmonies of major and minor and the more complex harmonies of chromatic, whole tone, quintal, blues, and ambiguous with older and newer styles, respectively, following historical practice.  The Classical era had fairly structured rules for both harmony and voice leading, but the Romantic era relaxed those rules and introduced more complex harmonies [@Cohn2001]. The gradual devolution of those rules and the increase in complexity of harmony continued through the modern and contemporary styles [@Cohn2001; @Kennedy2013].  
+  
+  These musical connections facilitate our interpretation of the first two dimensions. The first dimension can be interpreted as arousal --- tempo, articulation, and dynamics all load from greater arousal to lesser on the first dimension. Dimension 2 is less clear, and does not seem to be tied to valence. Minor and major harmony, for example, both score negatively on Dimension 2. Instead, Figure \@ref(fig:contributionsQ) shows that while two levels of the meter variable are the most important for this dimension, that genre is also important, based on the number of levels of genre that contribute significantly to Dimension 2.  
+  
+  Genre as a defining element for the second dimension is also supported by the story of Excerpts 6 and 14. As stated above, the HCA initially revealed 6 clusters, with Excerpts 6 and 14 each in their own cluster. This may be because these two excerpts were the sole representatives of their respective genres. Excerpt 6 is minimalist, à la Steve Reich, and Excerpt 14 is jazzy. Removing these two from the dataset and recomputing the CA and the HCA did not change the clusters for the rest of the excerpts, suggesting that the other Excerpts are in stable groups.
+
+  Finally, we note that because of the nature of this survey, these results tell us more about the excerpts themselves rather than the behavior of the participants. The participants rated the stimuli similarly, validating the variety among the excerpts, indicating that they are different enough to create a large and varied factor space. 
+
 
 # Experiment 2: Musical Adjectives Survey
  
@@ -705,19 +628,27 @@ print(mus.012)
 
 ### Participants
 
-  Participants with self-reported normal hearing were recruited for Experiment 2 without regard to level of music training. Participants in the United States were recruited through the UT Dallas Psych Research Sign-up System (SONA) and by word of mouth and social media. French participants were recruited by word of mouth, email, and social media. Only participants who signed up via the SONA portal were compensated with research participation credit, other participants were not compensated. Of a total of 520 survey responses, 160 were removed for not being incomplete, leaving a total of 360. Participants from the US who indicated a nationality other than American were excluded from analysis. "Ghanian", for example, was not included, but responses such as "Asian-American" were. This left a total of 279 ($\textit{N}_F$ = 108, $\textit{N}_A$ = 171) survey responses for analysis. All recruitment measures were approved by the UT Dallas IRB.  
+  Participants with self-reported normal hearing were recruited for Experiment 2 without regard to level of music training. Participants in the United States were recruited through the UT Dallas Psych Research Sign-up (SONA) System and by word of mouth and social media. French participants were recruited by word of mouth, email, and social media. Only participants who signed up via the SONA System were compensated with research participation credit, other participants were not compensated in any way. Of a total 520 survey responses, 160 were removed for being incomplete, leaving a total of 360. Additionally, participants from the US who indicated a nationality other than American were excluded from analysis. "Ghanian", for example, was not included, but responses such as "Asian-American" were. This left a total of 279 ($\textit{N}_F$ = 108, $\textit{N}_A$ = 171) survey responses for analysis. All recruitment measures were approved by the UT Dallas IRB.  
   
 ### Stimuli  
   
   The stimuli used for Experiment 2 are the same as those used for Experiment 1.
   
-### Surveys
- Participants in Experiment 2 completed a survey (hereafter: Adjectives Survey/AS) via qualtrics in either English or French, depending on their location, that consisted of a CATA task in which participants evaluated the stimuli using adjectives. Thirty-three adjectives such as 'dark', 'warm', and 'colorful' (French: 'sombre', 'chaleureux', and 'colore'). The adjectives for the AS were selected using @Wallmark2019 as a guide and in consult with a French professional musician. Some adjectives were initially selected in French and some in English. In all cases, adjectives were selected for which there was a clear French (vis-à-vis English) translation. The adjectives are listed in English and in French in the supplementary materials. The survey also gathered demographic data, including age, gender identity, nationality, occupation, and musical experience.  
+### Survey
+  
+  The procedure for participants in Experiments 1 and 2 was similar. They received a link to a Qualtrics survey presented in either English or French, depending on their location, and instructions regarding listening environment were the same. After standard informed consent procedures, the participants listened to 15 of the 30 excerpts, presented one at a time, in a random order, and performed a CATA task. The task was to evaluate the stimuli using thirty-three adjectives such as 'dark', 'warm', and 'colorful' (French: 'sombre', 'chaleureux', and 'colore'). The adjectives for the AS were selected using @Wallmark2019 as a guide and in consult with a French professional musician. Some adjectives were initially selected in French and some in English. In all cases, adjectives were selected for which there was a clear French (vis-à-vis English) translation. The adjectives are listed in English and in French in the supplementary materials. Following the experimental task, the participants were asked to provide demographic data, including age, gender identity, nationality, occupation, and musical experience.  
 
-### Procedure
-  Participants were provided with a link to the survey and were instructed to listen to the excerpts presented in the survey either using headphones or in a quiet listening environment, but that was not controlled, nor was it assessed as part of the survey. After standard informed consent procedures, participants listened to 15 excerpts presented one at time in a random order, and answered a single CATA question per excerpt. All adjectives were presented, in a random order, for each excerpt. Demographic survey questions followed the experimental task.  
+### Data Processing & Analysis
 
-
+  Data for the survey for Experiment 2 (Adjectives survey/AS) were processed similarly to those for Experiment 1. To process the data, first, all French survey responses were translated into English. Both sets of responses were then converted into "bricks" of data, with the excerpts on the rows, the adjectives on the columns, and participants on the pages. On any page, at the intersection of any row and column was a one or a zero, with a one indicating that this participant had selected this adjective (column) to describe this stimulus (row). The bricks were then concatenated and summed across pages to obtain a pseudo-contingency table in which the intersection of a row and a column was the total number participants who selected an adjective to describe an excerpt.  
+  
+  After data processing, the data were in two usable forms, a brick and a contingency table. To analyze the similarity structure between participants, we computed a co-occurrence matrix from the brick with participants on the rows and columns, such that the intersection of a row and column represented the number of similar choices between participants. This was then analyzed using MDS.  
+  
+  To analyze the excerpts and adjectives and obtain the music quality space, we performed a CA on the contingency table. To identify potential clusters of excerpts or adjectives, two separate HCAs were computed, one each on the row factor scores (excerpts) and the column factor scores (adjectives) obtained from the CA. 
+  
+  We used MFA to explore the differences between the ratings of French and American participants. To prepare the data, we summed separate pseudo-contingency tables for the French and American participants, with the excerpts on the rows and the adjectives on the columns. Because MFA does not evaluate rows and columns in the same analysis the way the CA does, we had to transpose each of these tables to obtain tables with the adjectives on the rows and the excerpts on the columns. The two pairs of tables were concatenated and we then ran separate MFAs on these.  
+  
+  
 ```{r Adatain}
 rm(list = ls())
 
@@ -736,18 +667,10 @@ nat.factor <- partcols$nationality
 col4nat <- nat.factor
 nat.factor <- as.factor(nat.factor)
 
-train.factor <- as.double(partcols$tr_yrs)
-train.factor[train.factor < 2] <- "Tr.none"
-train.factor[train.factor >= 2 & train.factor <= 5] <- "Tr.little"
-train.factor[train.factor != "Tr.none" & train.factor != "Tr.little"] <- "Tr.some"
-train.factor <- as.factor(train.factor)
-
-gen.factor <- partcols$gender
-gen.factor[gen.factor != "Female" & gen.factor != "Male" 
-           & gen.factor != "Femme" & gen.factor != "Homme"] <- "NB"
-gen.factor[gen.factor == "Female" | gen.factor == "Femme"] <- "F"
-gen.factor[gen.factor == "Male" | gen.factor == "Homme"] <- "M"
-gen.factor <- as.factor(gen.factor)
+cols$n.oc[nat.factor == "AM"] <- "#FF0000"
+cols$n.oc[nat.factor == "FR"] <- "#046C9A"
+cols$n.gc[1] <- "#FF0000"
+cols$n.gc[2] <- "#046C9A"
 
 ```
 
@@ -774,7 +697,7 @@ bootCA.adj <- Boot4PTCA(ZeDataCube = adjbrick,
                         fj = FJs.adj,
                         eigs = CAEigs.adj,
                         nf2keep = 3,
-                        nBootIter = 500)
+                        nBootIter = 1000)
 # Compute Bootstrapped ratios
 bootRatadj.I <- PTCA4CATA::boot.ratio.test(bootCA.adj$RowsBoot,
                                             critical.value = 2)
@@ -820,17 +743,19 @@ ScreeInf <- PlotScree(ev = eig4Cmat.adj,
 
 a000.adj.screeRV <-  recordPlot()
 ```  
+
+## Results
 ### Participants
 ```{=latex}
-\begin{wrapfigure}{h}{.5\textwidth}  
-  \begin{center}
-    \includegraphics{./Music-Descriptor-Space_files/figure-latex/a.part.scree-1.png}
-  \caption{ }(\#fig:apartscree)  
- \end{center}
-\end{wrapfigure}
+%\begin{wrapfigure}{h}{.5\textwidth}  
+%  \begin{center}
+%    \includegraphics{./Music-Descriptor-Space_files/figure-latex/a.part.scree-1.png}
+%  \caption{ }(\#fig:apartscree)  
+% \end{center}
+%\end{wrapfigure}
 ```
-The scree plot depicted in Figure \@ref(fig:apartscree) shows the explained variance per dimension for the distance analysis of participants in the adjectives survey. Again, having a high number of participants means that the dimensionality is high, and each dimension is only extracting a little variance. The first five dimensions all have $\lambda$ > 1: `r round(eig4Cmat.adj[1], 2)`, `r round(eig4Cmat.adj[2], 2)`, `r round(eig4Cmat.adj[3], 2)`, `r round(eig4Cmat.adj[4], 2)`, and `r round(eig4Cmat.adj[5], 2)`, respectively, but because of the high dimensionality here, the first dimension extracts only ~3% of the overall variance. Again, as above, for the purposes of this case study, we're focusing on the first two dimensions.  
-  An MDS analysis of a distance matrix calculated from the pages of the brick revealed significant group differences in how French and American participants described the excerpts, $\textit{p}$. < .01. The factor scores of the participants are plotted in Figure \@ref(fig:map4RVA), with with group means and bootstrapped confidence intervals shown for those means. The bootstrapping resampling was performed with 1000 iterations. We also analyzed the data using two other participant groupings as factors: gender identity, with three levels: Male, Female, or Non-Binary, and level of music training, with three levels: < 2 years, 2-5 years, and >5 years. Neither of these analyses revealed any significant differences between groups.  
+  
+  The MDS performed on the co-occurence matrix revealed significant differences between the French and American participants, $\textit{p}$. < .01. The factor scores, with group means and bootstrap-derived confidence intervals of the participants are plotted in Figure \@ref(fig:map4RVA). Additional analyses using gender identity and level of music training as factors were not found to be significant.  
 
 ```{r map4RVA, fig.height=6, out.height = "30%", include = FALSE}
 Shortnames4Participants <-  dimnames(adjbrick[[3]])
@@ -854,10 +779,10 @@ n.elliadj <- MakeCIEllipses(BootCadj.N$BootCube[,1:2,],
 BaseMap.Participants <- createFactorMap(X = F4Plot ,
                               axis1 = 1, axis2 = 2,
                               display.points = TRUE,
-                              col.points = cols$n.oc,
+                             # col.points = cols$n.oc,
                               pch = 19, cex = 2.5,
                               display.labels = TRUE,
-                              col.labels = cols$n.oc,
+                             # col.labels = cols$n.oc,
                               text.cex = 4, font.face = "bold",
                               font.family = "sans",
                               col.axes = "darkorchid", 
@@ -873,14 +798,14 @@ title4RV <- "RV Analysis of Participants \nIncluding Group Means and Confidence 
 n.rv.means <- createFactorMap(n.adjmeans,
                               axis1 = 1, axis2 = 2, 
                               constraints = BaseMap.Participants$constraints, 
-                              col.points =  cols$n.gc,
+                            #  col.points =  cols$n.gc,
                               alpha.points = 1, # no transparency
                               alpha.labels = 1,
                               display.points = TRUE,
                               pch = 17, cex = 5,
                               display.labels = TRUE, 
 #                              title = title4RV,
-                              col.labels = cols$n.gc, 
+                             # col.labels = cols$n.gc, 
                               text.cex = 6,font.face = "bold",
                               font.family = "sans", col.axes = "darkorchid", 
                               alpha.axes = 0.2, width.axes = 1.1, 
@@ -911,8 +836,8 @@ print(a.03adj.map4part)
 adj.tau <- adjsym.cares$ExPosition.Data$t
 ```
 
+  The CA performed on the AS pseudo-contingency table revealed two significant dimensions, accounting for `r round(sum(adj.tau[c(1,2)]), 2)`% of the variance total variance. Figure \@ref(fig:scree4excerptsq) displays the scree plot, which shows for this analysis the percentage of variance explained by each dimension. Although excerpts 6 and 14 were removed from Experiment 1 data for being outliers, they were not outliers in this analysis, and were therefore included in all of the analyses for Experiment 2.  
 
-  The plot in Figure \@ref(fig:scree4descriptors) shows the explained variance per dimension in the analysis of the excerpts contingency table. Although there are no components with $\lambda$ > 1, there are two strong dimensions that extract a majority of the variance. The first two dimensions extract `r round(sum(adj.tau[c(1,2)]), 2)`% of the variance, with the first dimension extracting a majority: `r round(adj.tau[1], 2)`%, and the second dimension extracting almost a quarter of the overall variance: `r round(adj.tau[1],2)`%. 
 ```{=latex}
 \begin{wrapfigure}{h}{.5\textwidth}  
   \begin{center}
@@ -921,23 +846,84 @@ adj.tau <- adjsym.cares$ExPosition.Data$t
  \end{center}
 \end{wrapfigure}
 ```
-This plot also suggests that there are multiple 'elbows', at the 3rd, 5th, and 7th dimensions, respectively, with the third and fourth dimensions forming an 'eigen-plane', of two dimensions which extract similar amounts of variance and should be considered together. For this analysis, however, we're focused on the two first dimensions. Additionally, although excerpts 6 and 14 are outliers in the musical qualities survey, for reasons detailed above, they were not outliers in this analysis. We therefore included them in all of the analyses for Experiment 2.
+
 ```{r scree4descriptors, include = FALSE}
 adj.scree <- PlotScree(adjsym.cares$ExPosition.Data$eigs, 
-                       p.ev = adjca.inf$pEigenvalues,
+                       #p.ev = adjca.inf$pEigenvalues,
                        plotKaiser = T, color4Kaiser = "red")
   
 mus.00.scree <- recordPlot()
 ```
+```{=latex}
+\begin{figure}   
+  \centering  
+  \caption{Symmetric Plots for Rows and Columns of the Adjectives Surveys, by Participant Nationality}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/factormapsA-1.png}
+  \label{fig:factormapsA}
+  \caption*{\footnotesize \textit{Note.}  This plot shows the row and column factor scores displayed separately. The constraints, or the space for the plot are the same between both plots. They are displayed this way to avoid overcrowding between the rows and columns.}
+\end{figure}
+```
+
+```{r factormapsA, fig.width= 10, fig.show = 'hold', out.width='100%', include = FALSE}
+
+rownames(FIsym.adj) <- c(1:30)
+
+
+axisone <- 1
+axistwo <- 2
+
+exmap <- createFactorMapIJ(FIsym.adj,
+                           FJs.adj,
+                           axis1 = axisone,axis2 = axistwo,
+                           col.points.i = cols$ex.oc, 
+                           col.labels.i = cols$ex.oc, 
+                           col.points.j = cols$adj.oc, 
+                           col.labels.j = cols$adj.oc,
+                           text.cex.i = 3.5, text.cex.j = 3.5,
+                           font.face.j = 'italic',
+                           
+                           )
+
+vc.labels <- createxyLabels(resCA = adjsym.cares)
+
+
+mus.adj.fi <- exmap$baseMap + #zePoly.J + 
+            exmap$I_points + 
+              exmap$I_labels + 
+              #  exmap$J_points + 
+               #   exmap$J_labels + 
+                    vc.labels + ggtitle('Excerpts')
+  
+mus.adj.fj <- exmap$baseMap + #zePoly.J + 
+          #  exmap$I_points + 
+           #   exmap$I_labels + 
+                exmap$J_points + 
+                  exmap$J_labels + 
+                    vc.labels + ggtitle('Adjectives')
 
 
 
 
-  The contributions to the first two dimensions are depicted in Figure \@ref(fig:contributionsA). Contributing significantly to the positive end of the first dimension are excerpts from group three (green) and to the negative end are excerpts from group one (yellow). Strong contributions on the positive end of the dimension from the adjectives "Sad", "Dark", "Melancholy", "Slow", "Mysterious", "Solemn", and "Disturbing". The negative end of the first dimension is defined by the adjectives "Fast", "Happy", "Dancing", "Colorful", and "Bright". 
-  The second dimension is dominated by excerpts from group 4 (red) in the positive direction and group 2 (blue) in the negative direction. Two excerpts from group 3 also contribute significantly, excerpts 7 in the positive direction and excerpt 10 in the negative direction. The columns contributing strongly in the positive direction are "Aggressive", "Fast", "Disturbing", "Mysterious", "Surprising" and "Complex". The columns contributing in the negative direction are "Warm, "Soft", "Happy", "Slow", "Round", and "Light".  
+grid.arrange(
+    as.grob(mus.adj.fi),as.grob(mus.adj.fj),
+ #   as.grob(mus.adj.amj),as.grob(mus.adj.frj),
+    ncol = 2,nrow = 1 ,
+    top = textGrob("Factor Plots for the Adjectives Survey", gp = gpar(fontsize = 22, font = 3))
+ )
 
+
+
+```
+
+  The HCAs computed separately on the row and column factor scores revealed four clusters for each, and the excerpts and adjectives are colored according to those clusters in Figure \@ref(fig:factormapsA). This figure displays the row (excerpt) and column (adjective) factor scores obtained from the CA computed on the AS contingency table. As with the factor plots for Experiment 1, the distance between any two points on the same plot can be interpreted directly as similarity, but the distance between points on separate plots cannot. Instead, the angle between an excerpt (left) and an adjective (right) indicates their correlation. An angle of 0 or 180 degrees indicates a perfect positive or negative correlation, respectively, and an angle of 90 degrees indicates no correlation --- the two items share no information. See @Abdi2010d for a more in-depth discussion.  
+  
+  The excerpts and variables important to interpretation of the first two dimensions obtained by the CA, are depicted in Figure \@ref(fig:contributionsA). Excerpts and variables are colored according to the clusters extracted from their respective HCAs. Dimension 1 features greater than average contributions from Excerpts 3, 5, 7, 10, 18, 24, and 27, in the positive direction and Excerpts 4, 13, 19, 23, 26, and 29 in the negative direction. Likewise, adjectives that contribute more than the average to the first dimension are "Sad", "Dark", "Melancholy", "Slow", "Mysterious", "Solemn", and "Disturbing" in the positive direction and "Fast", "Happy", "Dancing", "Colorful", and "Bright" in the negative direction. 
+  
+  On the second dimension, excerpts with important contributions in the positive direction are 1, 6, 7, 16, and 25, and in the negative direction are Excerpts 10, 11, 20, 28, and 29. The columns with  contributions in the positive direction are "Aggressive", "Fast", "Disturbing", "Mysterious", "Surprising" and "Complex", and those contributing important negative contributions are "Warm, "Soft", "Happy", "Slow", "Round", and "Light".  
+  
+  Figure \@ref(fig:mfasbs) displays partial factor score plots (see "Multiple Factor Analysis" above) of the results of the MFA evaluating the differences in rating behavior between French and American participants. Although the specific magnitudes of the dimensions extracted by the MFAs are different, as evidenced by the percentage of variance extracted ($\tau$) on the axes of the plots, the general space revealed by these analyses is similar to that revealed by the CA. Thus we can interpret the space similarly, relative to the valence-arousal plane. The triangles represent the compromise between the mental spaces of the French and American participants for each item, and the lines extending from the triangles indicate the partial factor scores for the items from the perspective of each group [@Abdi2013]. Excerpts and adjectives that were rated similarly have shorter lines extending from them, but excerpts that were rated differently have much longer lines. Examples of excerpts that were rated differently are numbers 6, 8, 12, and 17. Adjectives that were used differently include "Disturbing", "Round", "Solemn", and "Bright". 
+  
 ```{r justsomecontsA}
-
 signed.ctrI.adj <- adjsym.cares$ExPosition.Data$ci * sign(FIsym.adj)
 signed.ctrJ.adj <- adjsym.cares$ExPosition.Data$cj * sign(FJs.adj)
 
@@ -962,7 +948,7 @@ ctradjI.1 <- PrettyBarPlot2(CIlist[[1]],
                          ylab = 'Contributions',
                          #sortValues = TRUE,
                          ylim = c(1.2*min(CIlist[[1]]), 1.2*max(CIlist[[1]]))
-) + ggtitle("Component 1", subtitle = 'Rows')
+) + ggtitle("Component 1", subtitle = 'Excerpts')
 
 # plot contributions of columns for component 1
 ctradjJ.1 <- PrettyBarPlot2(CJlist$Dim1,
@@ -972,7 +958,7 @@ ctradjJ.1 <- PrettyBarPlot2(CJlist$Dim1,
                          ylab = 'Contributions',
                         # sortValues = TRUE,
                          ylim = c(1.2*min(CJlist[[1]]), 1.2*max(CJlist[[1]]))
-) + ggtitle("", subtitle = 'Columns')
+) + ggtitle("", subtitle = 'Adjectives')
 
 # plot contributions of rows for component 2
 ctradjI.2 <- PrettyBarPlot2(CIlist[[2]],
@@ -982,7 +968,7 @@ ctradjI.2 <- PrettyBarPlot2(CIlist[[2]],
                          ylab = 'Contributions',
                         # sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrI.adj[,2]), 1.2*max(signed.ctrI.adj[,2]))
-) + ggtitle("Component 2", subtitle = 'Rows')
+) + ggtitle("Component 2", subtitle = 'Excerpts')
 
 # plot contributions of columns for component 2
 ctradjJ.2 <- PrettyBarPlot2(CJlist$Dim2,
@@ -992,7 +978,7 @@ ctradjJ.2 <- PrettyBarPlot2(CJlist$Dim2,
                          ylab = 'Contributions',
                         # sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrJ.adj[,2]), 1.2*max(signed.ctrJ.adj[,2]))
-) + ggtitle("", subtitle = 'Columns')
+) + ggtitle("", subtitle = 'Adjectives')
 
 grid.arrange(
     as.grob(ctradjI.1),as.grob(ctradjJ.1),
@@ -1007,188 +993,14 @@ Ctradj.IJ <- recordPlot()
 
 ```
 
-  The barplots in Figure \@ref(fig:thebootsA) show the bootstrap ratios calculated for the rows and columns. Here we've included all of the rows and columns, because it's useful to see both which are significant and which are not. This is an inferential method that tells us is how consistently each of the observations and variables load on the first two dimensions. The threshold in this case is *p* < .05. From this we get an idea of which of the rows and columns are stable, in other words, which ones tended to be rated in a certain way consistently across all participants, and also how likely these are to be observations reflective of the population as a whole. In this plot, the more extreme value of the bootstrap ratio, the more likely that it is a reflection of the 'real' value. The values in the center of each plot that are grayed out identify the rows or columns that are not consistently loading on the dimensions. With the observations and variables ordered like this, it makes it easy to see how the consistently the clusters are distributed in the space. This plot was not included for Experiment 1 because it would be less informative given what the survey in Experiment 1 was assessing. Experiment 1 doesn't evaluate the behavior of participants, but the nature of the excerpts.
-  Note that there are far more significant bootstrap ratios than there are significant contributions. That just means that while not everything is contributing, overall the model seems to be stable. Fewer significant bootstrap ratios would suggest that there was a greater amount of variance in the observations and variables than were accounted for, at least in the first two dimensions. Looking at the nonsignificant values for the adjectives may inform our understanding of the participants' use of the adjectives. 'Incisive', 'transparent', 'poweful', 'dense', 'round', and 'sparse', are all nonsignificant on the first dimension, and 'weak', 'dull', 'sparse', 'valiant', and 'short' are all nonsignificant on the second dimension. All but 'sparse' are significant on one dimension or the other. Looking at the column sum for 'sparse' tells us that it was used, so this isn't an effect of participants not using this word. It's more likely that 'sparse' doesn't really fit into the Valence-arousal plane. It's a neutrally valenced word that could describe excerpts that fall anywhere within that plane. 'Weak' and 'transparent' give us another important perspective. These were the two least commonly used adjectives, but the fact that they are consistently loading on one dimension or the other suggests that when they were used, they were used in the same way. 
-  
-```{r bootstraps}
-BR.I <- bootRatadj.I$boot.ratios
-BR.J <- bootRatadj.J$boot.ratios
-
-laDim = 1
-
-# Plot the bootstrap ratios for Dimension 1
-badj001.BR1.I <- PrettyBarPlot2(BR.I[,laDim],
-                        threshold = 2,
-                        font.size = 3,
-                   color4bar = cols$ex.oc[order(BR.I[,laDim])], # we need hex code
-                  ylab = 'Bootstrap ratios',
-                  sortValues = TRUE,
-) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
-
-badj002.BR1.J <- PrettyBarPlot2(BR.J[,laDim],
-                        threshold = 2,
-                        font.size = 3,
-                   color4bar = cols$adj.oc[order(BR.J[,laDim])],
-                  ylab = 'Bootstrap ratios',
-                  sortValues = TRUE,
-) + ggtitle("", subtitle = 'Columns')
-
-# Plot the bootstrap ratios for Dimension 2
-laDim = 2
-badj003.BR2.I <- PrettyBarPlot2(BR.I[,laDim],
-                        threshold = 2,
-                        font.size = 3,
-                   color4bar = cols$ex.oc[order(BR.I[,laDim])], # we need hex code
-                  ylab = 'Bootstrap ratios',
-                  sortValues = TRUE,
-) + ggtitle(paste0('Component ', laDim), subtitle = 'Rows')
-
-badj004.BR2.J <- PrettyBarPlot2(BR.J[,laDim],
-                        threshold = 2,
-                        font.size = 3,
-                   color4bar = cols$adj.oc[order(BR.J[,laDim])],
-                  ylab = 'Bootstrap ratios',
-                  sortValues = TRUE, 
-) + ggtitle("", subtitle = 'Columns')
-
-```
-
-```{r thebootsA, fig.width=14}
-
-grid.arrange(
-    as.grob(badj001.BR1.I),as.grob(badj002.BR1.J),
-    as.grob(badj003.BR2.I),as.grob(badj004.BR2.J),
-    ncol = 2,nrow = 2,
-    top = textGrob("Bootstrap ratios", gp = gpar(fontsize = 18, font = 3))
-  )
-
-BRadj.IJ <- recordPlot()
-
-```  
-
-### Discussion
-  
-  The factor maps below show the row and column factor scores for the American and French participants. These are once again symmetric plots, interpretation is the same as the factor plot for the musical qualities. There's a clear valence-arousal plane apparent for both, and in both cases valence seems to define the first dimension and arousal defines the second dimension. However, the difference in the amount of variance extracted by the first two dimensions between the French and American participants is notable. The French data show a weaker first dimension but a stronger second dimension relative to the Americans, both in terms of variance extracted (tau), effect size (lambda). This tells us that French participants were less affected by the excerpts than the American participants, but they responded more to the arousal of the excerpts.
-  There are also differences in how the adjectives and the excerpts are distributed in the space. One clear example is that Excerpt 6 is in quadrant two in the American plot, but quadrant one in the French. This is a small change, but it suggests that the French participants were more likely to assign negative valence to this excerpt, and American Participants were more likely to assign positive valence. For the adjectives, 'bright' and 'dancing' are directly on top of one another in the American plot, but there is some space between the two in the French plot.  It's possible that this reflects the idea that although the meaning is shared between languages, there are semantic or associational differences between the words.
-
-```{=latex}
-\begin{figure}   
-  \centering  
-  \caption{Symmetric Plots for Rows and Columns of the Adjectives Surveys, by Participant Nationality}
-    \includegraphics{./Music-Descriptor-Space_files/figure-latex/factormapsA.png}
-  \label{fig:factormapsA}
-  \caption*{\footnotesize \textit{Note.}  For these plots, the survey responses were split by nationality and analyzed separately. Note the differences in variance extracted by each of the first two dimensions.}
-\end{figure}
-```
-
-
-```{r factormapsA, fig.height = 8, fig.show = 'hold', out.width='100%', include = FALSE}
+```{r A.MFA.ex, fig.height=10, message=FALSE, warning=FALSE, include = FALSE}
+suppressMessages(library(MExPosition))
 
 adjbrick.AM <- adjbrick[,,1:length(which(adj.catadata.list$partcols$nationality == "AM"))]
 adj.cont.AM <- apply(adjbrick.AM, c(1,2), sum)
 
 adjbrick.FR <- adjbrick[,,(length(which(adj.catadata.list$partcols$nationality == "AM"))+1):dim(adjbrick)[[3]]]
 adj.cont.FR <- apply(adjbrick.FR, c(1,2), sum)
-
-adj.fr.cares <- epCA(adj.cont.FR, symmetric = TRUE)
-adj.am.cares <- epCA(adj.cont.AM, symmetric = TRUE)
-
-adj.fr.cares$ExPosition.Data$fi[,2] <- adj.fr.cares$ExPosition.Data$fi[,2]*-1
-adj.fr.cares$ExPosition.Data$fj[,2] <- adj.fr.cares$ExPosition.Data$fj[,2]*-1
-
-am.FI <- adj.am.cares$ExPosition.Data$fi
-am.FJ <- adj.am.cares$ExPosition.Data$fj
-
-fr.FI <- adj.fr.cares$ExPosition.Data$fi
-fr.FJ <- adj.fr.cares$ExPosition.Data$fj
-
-rownames(am.FI) <- rownames(fr.FI) <- rownames(FIsym.adj) <- c(1:30)
-
-
-colnames(adjrenorm$G_A) <- colnames(FJs.adj)
-
-axisone <- 1
-axistwo <- 2
-
-exmap <- createFactorMapIJ(FIsym.adj,
-                           FJs.adj,
-                           axis1 = axisone,axis2 = axistwo,
-                           col.points.i = cols$ex.oc, 
-                           col.labels.i = cols$ex.oc, 
-                           col.points.j = cols$adj.oc, 
-                           col.labels.j = cols$adj.oc,
-                           text.cex.i = 3.5, text.cex.j = 3.5,
-                           font.face.j = 'italic',
-                           
-                           )
-
-vc.labels <- createxyLabels(resCA = adjsym.cares)
-
-am.labels <- createxyLabels(resCA = adj.am.cares)
-
-fr.labels <- createxyLabels(resCA = adj.fr.cares)
-
-exmap.am <- createFactorMapIJ(am.FI,
-                                am.FJ,
-                                axis1 = axisone,axis2 = axistwo,
-                                col.points.i = cols$ex.oc, 
-                                col.labels.i = cols$ex.oc, 
-                                col.points.j = cols$adj.oc, 
-                                col.labels.j = cols$adj.oc,
-                                text.cex.i = 5, text.cex.j = 3.5, font.face.j = 'italic'
-                                
-                                )
-
-
-
-exmap.fr <- createFactorMapIJ(fr.FI,
-                                fr.FJ,
-                                axis1 = axisone,axis2 = axistwo,
-                                col.points.i = cols$ex.oc, 
-                                col.labels.i = cols$ex.oc, 
-                                col.points.j = cols$adj.oc, 
-                                col.labels.j = cols$adj.oc,
-                                text.cex.i = 5, text.cex.j = 3.5, font.face.j = 'italic'
-                                )
-
-
-mus.adj.am <- exmap.am$baseMap + 
-            exmap.am$I_points + 
-              exmap.am$I_labels + 
-                exmap.am$J_points + 
-                  exmap.am$J_labels + 
-                    am.labels + ggtitle('American Participants')
-
-mus.adj.fr <- exmap.fr$baseMap +  
-            exmap.fr$I_points + 
-              exmap.fr$I_labels + 
-                exmap.fr$J_points + 
-                  exmap.fr$J_labels + 
-                    fr.labels + ggtitle('French Participants')
-
-mus.adj.004 <- exmap$baseMap + #zePoly.J + 
-            exmap$I_points + 
-              exmap$I_labels + 
-                exmap$J_points + 
-                  exmap$J_labels + 
-                    vc.labels + ggtitle('Symmetric Map of Row and Column Factor Scores')
-  
-
-grid.arrange(
-    as.grob(mus.adj.am),as.grob(mus.adj.fr),
-    ncol = 2,nrow = 1 
-#    top = textGrob("Symmetric Maps of the Row and Column Factor Scores", gp = gpar(fontsize = 22, font = 3))
- )
-
-am_fr_adjmaps <- recordPlot()
-
-
-#print(mus.adj.004)
-```
-
-
-```{r A.MFA.ex, fig.height=10, message=FALSE, warning=FALSE, include = FALSE}
-suppressMessages(library(MExPosition))
 
 adj4MFA <- abind(adj.cont.FR, adj.cont.AM, along = 2)
 
@@ -1333,9 +1145,6 @@ partialfsmap.t <- MFA_FMap.t$zeMap +
                           ggtitle("Contributions to the Adjectives Factor Scores")
 ```
 
-
-Another way to visualize the relative contributions of the groups to the factor space is to use an MFA, the results of which are displayed in Figure \@ref(fig:mfasbs). In these plots, we can see the differences in behavior between the groups more clearly. A few examples of excerpts that were rated differently are Excerpts 6, 8, 12, and 17. Words that were used differently include "Disturbing", "Round", "Solemn", and "Bright". It appears that the valence-arousal plane uncovered in the CA is also present here, and this provides a framework for interpreting the differences in behavior between the groups. Excerpt 17 is perhaps the most extreme example. American participants rated this excerpt with much lower arousal and slightly less negative valence than the French participants, so much so that for the American participants, the excerpt landed in the "low arousal/negative valence" quadrant, and for the French participants it landed in the "high arousal/negative valence" quadrant. Another interesting case is for Excerpt 8, which lands in the same quadrant for both groups, but much further from the origin for the French participants than the Americans. The way in which the two groups used the words is also curious. For example, Disturbing seems to be more extreme for the French participants than the Americans. On the other hand, "Solemn" seems to be more a function of arousal in French and valence in English. "Bright" is another example of a word that seems to have the same intent but different extremity between cultures. For American participants, "Bright" seems to carry much more positive valence than for French participants.
-
 ```{=latex}
 \begin{figure}
      \centering
@@ -1371,6 +1180,17 @@ print(partialfsmap.t)
 mfasbs <- recordPlot()
 ```
 
+## Discussion
+
+  Interpreting the differences in how the adjectives and the excerpts are distributed in the space is aided by considering the valence-arousal plane. Excerpt 17 may provide the best 
+  
+  One clear example is Excerpt 6, which is in the low valence/high arousal quadrant in the American plot, and the high valence/high arousal quadrant in the French plot, suggesting that the two groups tended to assign different valence to this excerpt. For the adjectives, 'bright' and 'dancing' are directly on top of one another in the American plot, but there is some space between the two in the French plot. This reflects shared meaning but differences in semantics or associations between languages.  
+  Although this experiment was designed to evaluate the cognitive response to music, and not the emotional response, there is significant overlap in the results observed here and the results of the work investigating music and emotion, specifically in the appearance of the valence-arousal plane. Studies on music and emotion have used this construct as a way of measuring emotion, but the original proposal was that this plane is simply a measure of "meaning" [@Osgood1955]. The adjectives selected for use in Experiment 2 reflect this original proposal, as they were selected specifically to represent a cognitive space, not an emotional one.
+
+
+  The valence-arousal plane revealed by the CA is also present here, and provides a framework for interpreting the differences between groups. Excerpt 17 is perhaps the most extreme example. American participants rated this excerpt with much lower arousal and slightly less negative valence than the French participants, so much so that for the American participants, the excerpt landed in the low arousal/negative valence quadrant, and for the French participants it landed in the high arousal/negative valence quadrant. Another interesting case is for Excerpt 8, which lands in the same quadrant for both groups, but much further from the origin for the French participants than the Americans.  
+  Some examples of differences in the use of adjectives includes "disturbing" (inquiétant) seems to be more extreme for the French participants than the Americans. In English, "Solemn" (solennel) carries more valence, and in French it carries more arousal; similarly, "bright" (brillant) seems to carry much more positive valence in English than in French. In English, "melancholy" (melancolique) and "sad" (triste) were used the same, but in French they were used very differently.
+
 
 
 ## Experiment 3: Combined Surveys
@@ -1389,6 +1209,7 @@ dimcontingency <- catadata.list$contingency
 adjcontingency <- adj.catadata.list$adjcontingency
 
 dimcontingency <- dimcontingency[-c(6,14),-9]
+dimcontingency <- dimcontingency[,order(colnames(dimcontingency))]
 adjcontingency <- adjcontingency[-c(6,14),]
 
 ```
@@ -1415,7 +1236,7 @@ t4 <- pls.res$TExPosition.Data$t[4]
 
 ```
 
-  Experiment 3 used the pseudo-contingency tables from both Experiments 1 and 2, and there was no additional data collected. Since excerpts 6 and 14 were excluded from analysis for Experiment 1, we also removed those rows from the contingency table for Experiment 2. This is so that the dimensions of the two tables for this PLSC would be conformable (remember that we need the same rows or columns in both tables for this analysis). The point of this experiment is to identify the strongest covariance, or the strongest shared signal, between the two tables. Now, this is not to say that these two tables are evaluating the same thing. Instead it allows us to see what is most common between two sets of different information - how often an excerpt was associated with *both* a musical quality and an adjective. The visualizations below allow us to see which variables from each of the two tables correspond with one another; which adjectives are associated with which musical dimensions. Even though both individual tables have their own factor spaces, plotting the common factor space between the two should allow us to see which excerpts are separated from one another using data from both surveys.
+  Experiment 3 used the pseudo-contingency tables from both Experiments 1 and 2. Since excerpts 6 and 14 were excluded from analysis for Experiment 1, those rows were also removed from the contingency table for Experiment 2. This is so that the dimensions of the two tables for this PLSC would be conformable. The goal of this experiment was to identify the strongest shared signal between the two tables. Remember that PLSC shows what is common between two different sets of data --- how often an excerpt was associated with *both* a musical quality and an adjective. The visualizations below show which adjectives are associated with which musical dimensions. Even though both individual tables have their own factor spaces, plotting the common factor space between the two should allow us to see which excerpts are separated from one another using data from both surveys.
 
 ### Results
 
@@ -1427,7 +1248,7 @@ t4 <- pls.res$TExPosition.Data$t[4]
  \end{center}
 \end{wrapfigure}
 ```
-This analysis revealed two dimensions that extracted the majority of the variance (`r round(sum(t1,t2), 2)`%). Of that total extracted by the first two dimensions, the first dimension extracted `r round(t1, 2)`% and the second dimension extracted `r round(t2, 2)`%. The scree plot below shows that it's possible that there are two elbows in this graph, at the 3rd and 5th dimensions. The 3rd and 4th dimensions are also significant, extracting `r round(t3, 2)`% and `r round(t4, 2)`% of the variance, respectively. Interpretations of the third dimension and beyond is beyond the scope of this paper, but seeing that there are multiple significant dimensions beyond the second suggests possible future analyses and interpretations using this method.  
+This analysis revealed two dimensions that extracted the majority of the variance (`r round(sum(t1,t2), 2)`%), with the first dimension extracted `r round(t1, 2)`% and the second `r round(t2, 2)`%. The scree plot in Figure \@fig:screePLSC indicates there are two elbows in this graph, at the 3rd and 5th dimensions, suggesting that further analysis is possible.  
 
 ```{r screePLSC,include = FALSE}
 
@@ -1442,8 +1263,8 @@ a000.scree4plsc <-  recordPlot()
 
 ```
 
-  The plot below shows which variables from each data table load the most on the first and second dimensions. For the purposes of this visualization, we are showing only the variables for which 70% or more of the variance is explained. The nature of the PLSC also suggests that these are the variables that are most associated with one another between the two tables. The strongest signal on the first dimension juxtaposes the slow and legato musical qualities in the positive direction with the fast, staccato, marcato, and conjunct musical qualities in the negative direction. The adjectives associated with the qualities in the positive direction are "Dark", "Dull", "Long", "Melancholy", "Sad", "Slow", "Solemn", and "Weak." The adjectives associated with the negative direction are "Bright", "Colorful", "Dancing", "Fast", "Happy", and "Light".  
-  The second dimension identified in the positive direction major harmony and mezzo dynamics, associated with "Light", "Round", "Soft", and "Warm." The negative direction is driven by the impressionist genre being associated with "Aggressive", "Complex", "Dense", "Disturbing", "Powerful", and "Surprising".
+  The plot below shows which variables from each data table load the most on the first and second dimensions. For the purposes of this visualization, only the variables for which 70% or more of the variance is explained are shown. The nature of the PLSC also suggests that these are the variables that are most associated with one another between the two tables. The strongest signal on the first dimension juxtaposes the slow and legato musical qualities in the positive direction with the fast, staccato, marcato, and conjunct musical qualities in the negative direction. The adjectives associated with the qualities in the positive direction are "Dark", "Dull", "Long", "Melancholy", "Sad", "Slow", "Solemn", and "Weak." The adjectives associated with the negative direction are "Bright", "Colorful", "Dancing", "Fast", "Happy", and "Light".  
+  The second dimension identified in the positive direction major harmony and medium dynamics, associated with "Light", "Round", "Soft", and "Warm". The negative direction is driven by the impressionist genre being associated with "Aggressive", "Complex", "Dense", "Disturbing", "Powerful", and "Surprising".
 
 ```{r loadingsplsc, fig.width = 10,  fig.height = 4, fig.show='hold', message=F}
 
@@ -1527,8 +1348,9 @@ loads_plsc <- recordPlot()
 
 ```
 
-  Contributions and loadings are similar, but not exactly the same. A variable's contributions to a dimension are the ratio of the squared factor score to the eigenvalue representing that dimension [@Abdi2010f], and loadings are the correlation between a variable and a component, effectively indicating the shared information between the two. For a more complete disambiguation, see [@Abdi2010f]. Figures \@ref(fig:contsplsc) and \@ref(fig:loadingsplsc) show us that there are quite a few more variables that contribute significantly to these dimensions than for which a significant portion of the variance is explained. We do see similar groups, however: on the first dimension, the tempo variables are contributing significantly, along with some from harmony, density, genre, dynamics, motion, range, and articulation. The adjectives contributing significantly are Bright, colorful, Dancing, Fast, Happy, Light, and Valiant in the negative direction, and Dark, Dull, Long, Melancholy, Monotonous, Sad, Slow, Solemn, and Weak in the positive direction. What's notable here is that while some of these variables did contribute significantly in the plots above (see Figure \@ref(fig:factormapsA) and Figure \@ref(fig:factormapsQ)), some didn't contribute much at all and fell near the barycenter of the factor plot. We also see that this juxtaposes some negatively and positively valenced adjectives, which allows us to identify which of the musical qualities contributes to the valence dimension. 
-  The second dimension tells us a similar story. Here we see more of the harmony variables, along with one tempo variable, some density, genre, a few dynamics, contour, motion, range, and articulation. The adjectives contributing negatively are Aggressive, Complex, Dense, Disturbing, Incisive, Mysterious, Powerful, Surprising, and Varied, and those contributing positively are Light, Round, Soft, Transparent, and Warm. Again we see similar effects of variables that may not have contributed significantly to their respective plots above, but are contributing significantly here. Also, this second latent variable seems to be defining the arousal dimension.  
+  Figures \@ref(fig:contsplsc) and \@ref(fig:loadingsplsc) show us that there are more variables that contribute significantly to these dimensions than for which a significant portion of the variance is explained. There are similar groups, however: on the first dimension, the tempo variables are contributing significantly, along with some from harmony, density, genre, dynamics, motion, range, and articulation. The adjectives contributing significantly are Bright, colorful, Dancing, Fast, Happy, Light, and Valiant in the positive direction, and Dark, Dull, Long, Melancholy, Monotonous, Sad, Slow, Solemn, and Weak in the negative direction. This juxtaposes some negatively and positively valenced adjectives, and identifies which musical qualities contribute to the valence dimension. Even though some of these variables did not contribute significantly in their plots above (see Figures \@ref(fig:factormapsA) and \@ref(fig:factormapsQ)), their appearance here indicates that they are part of the shared signal between the tables. 
+  One-third of the musical qualities contributing to the second dimension are harmony and genre. Also contributing are the dynamics and contour groups, while contour, articulation, motion, and range show only one or two variables. The adjectives contributing negatively are Aggressive, Complex, Dense, Disturbing, Incisive, Mysterious, Powerful, Surprising, and Varied, and those contributing positively are Light, Round, Soft, Transparent, and Warm. 
+  
 ```{r contsplsc, fig.width = 10, fig.show='hold', message=F}
 
 ctri <- pls.res$TExPosition.Data$ci*sign(pls.res$TExPosition.Data$fi)
@@ -1571,7 +1393,9 @@ contributionsplsc <- recordPlot()
 ```
   
 ### Discussion
-The factor score plots for this analysis shows that the first two sets of latent variables extracted by the analysis effectively separate the groups of excerpts into the clusters defined in the HCA for the adjectives survey. This factor plot shows us how the strongest correlated signal between the two data tables separates Excerpts groups 2 and 3, but groups 1 and 2 didn't contribute much to this dimension, instead contributing to the 2nd latent variables. The second latent variable separates Groups 1 and 4, with Groups 2 and 3 more barycentric. This suggests that, generally speaking, the excerpts that were clustered in groups 2 and 3 are those that could be defined by positive and negative valence, respectively, and those in groups 1 and 4 would be defined more by high and low arousal. That being said, these excerpts are not defined exclusively along these dimensions, but rather more by one than the other. For example, Excerpt 26 is characterized by being one of the most extreme examples of positive valence, but doesn't score as highly on the arousal dimension, similarly with Excerpt 27 with negative valence. This is contrasted with Excerpt 7, which is one of the most negatively valenced stimuli, but also scores very high on arousal, although the barycenter for that group is near the origin of that plot.
+
+  The factor score plots for this analysis shows that the first two sets of latent variables extracted by the analysis effectively separate the groups of excerpts into the clusters defined in the HCA for the adjectives survey. The strongest correlated signal between the two data tables separates Excerpts groups 2 and 3 and the second latent variable separates groups 1 and 4. Although there are no factor plots for the variables in this analysis, the valence-arousal plane created by the first two dimensions is still apparent. 
+  This suggests that the excerpts that are more distant from the origin in the first LV plot are defined more by valence than arousal, and those clustered further from the origin on the second LV plot are defined more by arousal than valence. For example, Excerpt 26 is one of the most extreme examples of positive valence, but is much closer to the origin in the second LV plot similarly with Excerpt 27, but with negative valence. This is contrasted with Excerpt 7, which is one of the most negatively valenced stimuli, but also scores very high on arousal, although the confidence interval for that group circles the origin of that plot.
 
 ```{r factorplotsPLSC, fig.width = 12, fig.height = 6}
 latvar.1 <- cbind(pls.res$TExPosition.Data$lx[,1],pls.res$TExPosition.Data$ly[,1])
@@ -1666,23 +1490,22 @@ plsc.fplot <- recordPlot()
 
 
 # General Discussion
-
-  Although this study was designed to evaluate the sensory or cognitive response to music, and not specifically the emotional response, there is significant overlap in the results observed here and the results of the work investigating music and emotion. The appearance of the valence-arousal plane in the results of Experiment 2 was not unexpected, even though the adjectives we selected were not intended to be explicitly emotional. This goes to show difficult it is to avoid any emotional content when selecting descriptors, and from another perspective, how much emotional contagion the musical examples carry. Overall, this supports the idea that the first two dimensions on which music is judged holistically are valence and arousal. 
-  Some of the results discussed in Experiment 1 require more explanation. In that experiment, there was an issue of having two individual excerpts dominate the factor space, numbers 6 and 14, which did not happen in Experiment 2. One of the differences between CA and PCA is that PCA is distorted by raw values, so bigger numbers have more influence on the overall factor space, but CA finds the average observation. Information that is common, therefore, falls towards the center of the plot, while information that is further from the average, in other words, more rare, ends up further from the center of the factor plots [@Abdi2010d]. Therefore, if a survey like the one used in Experiment 1 includes a item that is wildly different than the others in the set, the ratings will be very different, and that item will dominate the factor space. In this case we have two such examples: excerpts 6 and 14. Excerpt 6 was written as a Steve-Reich-esque minimalist, ostinato based excerpt, and excerpt 14 was written to be jazzy. The reason this effect occurs with the first survey and not the second is that the musical qualities on which the excerpts were rated were explicit and designed to separate the excerpts along the various musical dimensions, while the adjectives survey was designed to evaluate the excerpts more generally on holistic qualities. Excerpt 6 still appears as a minor outlier in the visualizations for the second survey, but does not dominate the space the way it does in the results of the first.
-  What we did to mitigate that is to use those two excerpts as *supplementary projections*, sometimes also referred to as *out of sample observations*. This allows us to evaluate what information is shared by those outliers with the other elements in the dataset without having them dominate the visualization of the factor space. If, when we projected those values into the factor space, they projected onto the origin or very close to it, we would know that those observations shared no information with the other variables. The fact that they are where they are offers support to the idea that the first survey separates the excerpts approximately by genre. Because the 'genre' information isn't shared with the other observations, they are being projected onto the space sharing only the information that does not deal with genre, like tempo or range. What this tells us is that musical qualities surveys captured a result that may have characterized by 4-6 factors, each approximating genre and the qualities associated with that genre and the general affective space captured an entirely different set of information about the stimuli and the perception of the stimuli.  
-  The hierarchical cluster analyses revealed different groupings in how the stimuli were rated between the two surveys. The PLSC then showed that when including both sets of data, there was a coherent interpretable factor space on which the excerpts were plotted. Another way to look at the results of the two surveys together would be to run a MFA, similar to the one above that plotted the difference between French and American raters on the adjective survey. This would allow us to calculate a common factor space for the two surveys without separating the first and second dimensions of each. We should note that the results of an MFA would provide us with a picture of the data that is fundamentally different from that provided by the PLSC, as it would be a true 'common factor space' instead of a space defined by the covariance. The important question here is simply which question is more important. In the case of these experiments, the PLSC more effectively answered our question about what musical information is commonly associated between the technical and affective qualities.   
-  An important overall takeaway from this is that with a deep understanding of the stimuli, we may be able to predict the approximate dimensionality of the solution factor space. In the first survey, the solution was that the first two dimensions separated the stimuli along genre or stylistic lines. Because we used only one stimulus from the minimalist and jazz genres, we had a factor space that was distorted by outliers. To have a solution in which we don't see these specific excerpts as outliers, but as coherent members of a factor space, we would need more examples of those styles. This suggests that when creating surveys or designing stimuli, we should keep in mind that we need multiple items per group, or presumed dimension. This is not to say that we will always be able to a priori predict the factor space of the solution. For example, Experiment 2 may also have benefitted from more minimalist or jazz examples. In a system in which the overall structure is obtained by evaluating the stimuli holistically, having a single outlier will necessarily distort the space, either because it is an outlier in sensory terms or because it is the only stimulus against which there is no direct reference. This in a way embodies the issue described in the introduction, in which a single dimension is noisy. The noise, specifically in Experiment 2, comes from the fact that those participants were likely to be less familiar with mimalism and/or jazz than the trained musicians who took the QS, but the reason the results are overall robust to that noise is that the participants were not asked to rate the excerpts on any explicit dimensions or qualities. 
+  
+  We used multivariate analyses to explore the musical and cognitive spaces created by participants from France and the United States when responding to a set of new string quartets. These results revealed a clear valence-arousal plane that was common to participants from both countries, but significant differences in the behavior of French and American participants when responding to the stimuli using adjectives, and a space largely defined by genre when evaluating the stimuli using musical qualities. The combined musical and cognitive spaces identified which musical qualities were associated with which descriptors in terms of valence and arousal. Both of these studies involved capturing responses to many stimuli and 
+  One effect observed in Experiment 1 which was not observed in Experiment 2, in which two individual excerpts --- numbers 6 and 14 --- dominate the factor space, requires more explanation. This effect is due to the nature of CA, which is to find the average observation. In a CA, information that is common falls towards the origin --- the center of mass --- of the factor plot, while information that is further from the average, or more rare, ends up further away [@Abdi2010d]. Therefore, if any individual item on a survey is rated significantly different from the rest of the items, that item can dominate the factor space. In this case we have two such examples: Excerpt 6 was written as a Steve-Reich-esque minimalist, ostinato based excerpt, and excerpt 14 was written to be jazzy. This effect does not appear in Experiment 2 because the AS was designed to evaluate the excerpts more generally on holistic qualities, not to separate the excerpts along specific musical dimensions. Excerpt 6 still appears near the edge of the mental space in Experiment 2, indicating that it is somewhat of an outlier, but does not dominate the space the way it does in the results Experiment 1. 
+  In order to interpret the space without the effects of Excerpts 6 and 14, those two excerpts were removed from the dataset for the initial analysis and then included as *supplementary projections*, sometimes also referred to as *out of sample observations*. This allowed us to evaluate what information is shared by the outliers and the other elements in the dataset without having the outliers dominate the visualization of the factor space. The fact that this was a necessary step supports our interpretation that the factor space is defined by genre. The supplementary projections' location in the factor space shows that there is some shared information between genres. If the supplementary observations had projected onto the origin or very close to it, that would indicate that they shared no information with the other variables. 
+  One takeaway from these results is that a deep understanding of the stimuli may help to predict the approximate dimensionality of the solution factor space, and when designing surveys or stimuli, multiple items per group, or presumed dimension, are needed. The outliers distorting the factor space that were observed in the present study are analogous to the single noisy dimension described in the introduction. The noise contributed by Excerpt 6 is also present in the results of Experiment 2, possibly because untrained participants are less likely to be familiar with minimalism than the trained participants in Experiment 1, but the results are robust to that noise because the participants were not asked to rate the excerpts on any explicit dimensions or qualities.  
+  The significant results for the participants in Experiment 2 that were not observed in Experiment 1 suggest that this experimental paradigm works as intended. Significant differences between the experts' ratings of the stimuli would have indicated that the experts were inconsistent and thus not reliable raters of the music. The significant differences between the French and American adjectives surveys indicate that language connotations do have a significant impact on how participants rate the stimuli. MFA revealed what those differences were and highlighted further possibilities for analysis.
 
 ## Limitations & future directions
 
-  Although we evaluate the scores and ratings of participants from different countries, we recognize that the issue of multiculturality is not addressed to a significant degree in this study, because France and the United States are both western countries that share western musical culture. To truly address this question, it would be very interesting to include participants from multiple, contrasting musical cultures, with languages that are more distinct than English and French. This presents new problems, however, as the specific musical qualities included in the surveys may not all apply to or translate well to other musical cultures. One specific example is harmony. The idea of the scale as the basis for both melodic and harmonic material may not be the same across all musical cultures in which scales exist. For example, in western music, the scale represents the notes that are used in a composition to form both melodies and chords, which are the harmonic material, but also specifically infer an order [@Cohn2001]. In carn$\bar{a}$tic music, the notes that make up the ragas are not used to create chords, and do not imply a specific order [@Raman2017]. Therefore asking participants to identify the harmonic material may not make sense in all situations, and a better question would be to ask what kind of scale or scales are used in a given excerpt.  
-  Also, we suggest that data collected in this way hypothetically have a much greater reach, but recognize that the data collected for these experiments represent a convenience sample that is limited to participants that have access to the internet. Additionally, because of the nature of social media, many of the participants in the researchers' social circles are themselves students, and many of the American participants were psychology students. However, these limitations could be easily remedied in future studies.
-  Another question that fell beyond the scope of this study is the concept of semantic drift between languages. Although illustrated in Figure \@ref(fig:mfasbs), the source of the differences between French and American participants is not entirely clear. We humbly hazard to guess that some of the sources of the difference include aspects of perception that extend beyond the musical. These could be linguistic sources, such as the physical characteristics of the words themselves [@Reilly2012], the cultural associations with the words, or the frequency of use in either language [@Thompson2020]. Diving more into those questions of linguistics and semantic drift between languages would be a fascinating future study.
- Another interesting study would be to repeat this study using adjectives from specific domains or that that avoid explicit emotional or musical content, to see how music maps onto different sensory spaces. For example, 'moist', 'slimy', 'dry', 'puckered', 'smooth'. Although some of these adjectives may carry musical weight, in the context of other words that all relate to haptic sensation, it may provide some interesting feedback regarding how the music maps into other sensory domains.
- Finally, using these studies may provide pilot work for the way in which people without language react to music, nonverbal autistic people, for example. Whereas this study explicitly uses language as an interlocutor for music perception, it offers insight into ways to better communicate with people who do not have that ability.  
+  Although we evaluate the scores and ratings of participants from different countries, we recognize that the issue of multiculturality is not addressed to a significant degree in this study, because France and the United States are both western countries that share Western musical culture. To truly address this question, an experiment would need to include participants from multiple, contrasting musical cultures, with languages that are more distant than English and French. However, specific musical qualities, like harmony, may not apply or translate well to other musical cultures, because the concepts of melodic and harmonic material are not the same across all musical cultures [@Cohn2001; @Raman2017]. Therefore the specific questions included in the QS would need to be adjusted.  
+  Although we suggest that data collected in this way have a much greater hypothetical reach, we recognize that the data collected for these experiments represent a convenience sample, and many of the participants were students. However, these limitations could be easily remedied in future studies.
+  Another question that fell beyond the scope of this study what the source of the semantic drift between languages is. Although illustrated in Figure \@ref(fig:mfasbs), the source of the differences between French and American participants is not entirely clear. These differences may not come from cultural aspects of music listening, but linguistic sources, including the adjectives' frequency of use in either language or the cultural associations with the words [@Thompson2020], or even the physical characteristics of the words themselves [@Reilly2012]. Diving more into those questions would be a fascinating future study. Another interesting study would be to use adjectives from specific domains, to see how music maps onto different sensory spaces, for example textural words, like 'moist', 'slimy', 'dry', 'puckered', 'smooth'.  
+  Finally, the results of this study and possible extensions, in conjunction with studies that have already evaluated music perception non-verbally, may provide insight into the way in which people without language react to music, such as nonverbal autistic people.  
 
 # Conclusions
-  Expanding the collection and analytical paradigms, and thus expanding scientific scope and perspective, has the added benefit of increasing reach. By expanding the ways in which we collect data, we are able to more readily and consistently reach participants who might normally be excluded from everday research paradigms, specifically racially and ethnically diverse populations, poorer populations, those with limited access to transportation, or who have a disability, or are immunocompromised.   Developing investigative paradigms that are accessible on mobile platforms and that reduce participant demand while maintaining rigor and integrity will similarly enable us to reach a much greater subset of the population. If we are able to pair this kind of data gathering with appropriate analysis, we can maintain the standards of scientific integrity that we as a community expect from traditional hypothesis testing. The literature to date in the music cognition domain has focused on a fairly small subset of the multivariate analyses available to investigate these questions. As presented here, the number of ways that exist to analyze the data from a single set of experiments is considerable, and the results of each analysis illuminate different parts of the story the data are telling. Not every form of analysis is appropriate in every context, but understanding how, and perhaps more importantly when, to apply a technique or type of analysis is an important to uncovering new perspectives or insights.
+  Expanding the collection and analytical paradigms, and thus expanding scientific scope and perspective, has the added benefit of increasing reach. By expanding the ways in which we collect data, including developing investigative paradigms that are accessible on mobile platforms and that reduce participant demand while maintaining rigor and integrity, we are able to more readily and consistently reach a broader participant population, that might normally be excluded from everday research paradigms, specifically racially and ethnically diverse populations, poorer populations, those with limited access to transportation, or who have a disability, or are immunocompromised. Pairing this kind of data gathering with appropriate analysis will help maintain scientific integrity. The number of ways that exist to analyze data from a single set of experiments is considerable, and the results of each analysis illuminate different parts of the story behind the data. Not every form of analysis is appropriate in every context, but understanding how, and perhaps more importantly when, to apply an analytical technique is vital to uncovering new perspectives or insights.
 
   
 ```{r saveGraphs, message = FALSE, warning = FALSE, error = FALSE}

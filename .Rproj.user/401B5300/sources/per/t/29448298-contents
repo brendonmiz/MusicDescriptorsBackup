@@ -57,9 +57,10 @@ title4Graphs <- 'Music Descriptors Supp '
 ```{r qual4sup}
 
 load("catadatamusdim.RData")
-musdimdata <- catadata.list$contingency
-numberofdims <- catadata.list$numberofdims
-thebrick <- catadata.list$thebrick
+musdimdata <- catadata.list$contingency[,order(colnames(catadata.list$contingency))]
+numberofdims <- catadata.list$numberofdims[order(names(catadata.list$numberofdims))]
+thebrick <- catadata.list$thebrick[,order(colnames(catadata.list$contingency)),]
+
 
 rows2drop <- c(6,14) 
 
@@ -125,9 +126,8 @@ col4byN[col4byN == "FR"] <- col4FR
 col4byN[col4byN == "AM"] <- col4AM
 
 # To account for the fact that we removed some rows above:
-numberofdims[c(1,7,8,9,10)] <- c(8,7,3,4,6)
-numberofdims <- numberofdims[-11]
-
+numberofdims[c(1,3,7,10,11)] <- c(6,7,8,3,4)
+numberofdims <- numberofdims[-2]
 col4cols <- wes_palette("FantasticFox1", 
                         length(numberofdims), type = "continuous")
 col4cols <- rep(col4cols, numberofdims)

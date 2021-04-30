@@ -1,0 +1,5 @@
+"0","adj.contingency <- adj.catadata.list$adjcontingency"
+"0","adjbrick <- adj.catadata.list$adjbrick"
+"0",""
+"0","adjsym.cares <- epCA(adj.contingency, "
+"0","                     symmetric = TRUE)"

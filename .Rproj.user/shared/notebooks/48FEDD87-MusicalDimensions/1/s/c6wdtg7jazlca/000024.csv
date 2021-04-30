@@ -1,0 +1,4 @@
+"0","### ADD HTML TABLE HERE"
+"0","kable(expertlist$part1[1:8,1:8], format = ""latex"", booktabs = TRUE)  %>%"
+"0","  kable_styling(latex_options = c(""Striped"", ""hold_position""), "
+"0","                full_width = TRUE, font_size = 11)"

@@ -1,0 +1,8 @@
+"0","n.adjmeans <- getMeans(F4Plot, nat.factor)"
+"0",""
+"0","BootCadj.N <- PTCA4CATA::Boot4Mean(F4Cmat.adj, design = nat.factor,"
+"0","                                   niter = 100,"
+"0","                                   suppressProgressBar = TRUE)"
+"0","dimnames(BootCadj.N$BootCube)[[2]] <- paste0('Dimension ',"
+"0","                                             1:dim(BootCadj.N$BootCube)[[2]])"
+"0",""

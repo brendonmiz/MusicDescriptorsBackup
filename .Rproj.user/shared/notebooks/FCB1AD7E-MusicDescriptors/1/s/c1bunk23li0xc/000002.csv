@@ -31,5 +31,8 @@
 "0","a.04adj.map4part <- BaseMap.Participants$zeMap_background + "
 "0","                  g.rv.means$zeMap_text + g.rv.means$zeMap_dots +"
 "0","                    participants_byG$zeMap_dots + g.elliadj"
-"2","Error: object 'participants_byG' not found
-"
+"0",""
+"0","a.05adj.map4part <- BaseMap.Participants$zeMap_background +"
+"0","                  t.rv.means$zeMap_text + t.rv.means$zeMap_dots +"
+"0","                  participants_byT$zeMap_dots + t.elliadj"
+"0",""

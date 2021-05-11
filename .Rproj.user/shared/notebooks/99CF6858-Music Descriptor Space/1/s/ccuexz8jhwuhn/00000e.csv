@@ -1,8 +1,0 @@
-"0","partialfsmap.t <- MFA_FMap.t$zeMap + "
-"0","                  label4Map.t + "
-"0","                    map4PFS.t$linesColByItems + "
-"0","                      map4PFS.t$pointsColByItems + "
-"0","                        map4PFS.t$labelsColByItems +"
-"0","                          ggtitle(""Partial Factor Scores for Adjectives, by Nationality"")"
-"0",""
-"0","print(partialfsmap.t)"

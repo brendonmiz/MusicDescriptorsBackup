@@ -1,0 +1,3 @@
+"0",""
+"0","signed.ctrI <- dimcares.inf$Fixed.Data$ExPosition.Data$ci * sign(FIsym)"
+"0","signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)"

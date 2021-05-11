@@ -1,0 +1,10 @@
+"0",""
+"0","PlotScree(ev = pls.res$TExPosition.Data$eigs,"
+"0","         # p.ev = resPerm4PLSC$pEigenvalues,"
+"0","          title = ' ',"
+"0","          plotKaiser = TRUE, "
+"0","          color4Kaiser = ""red"","
+"0","          lwd4Kaiser  = 2"
+"0","          ) + theme(axis.title = element_text(size = 12, face = ""italic"", family = ""serif"")) "
+"1","NULL
+"

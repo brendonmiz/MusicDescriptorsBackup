@@ -1,4 +1,2 @@
-"0","library(TExPosition)"
-"0","library(TInPosition)"
-"0","library(data4PCCAR)"
-"0","pls.res <- tepPLS(dimcontingency, adjcontingency, DESIGN = adj.design$thedesign[-c(6,14)])"
+"0","resPerm4PLSC <- perm4PLSC(dimcontingency, adjcontingency, nIter = 1000)"
+"0",""

@@ -1,8 +1,0 @@
-"0","colnames(dimcares.inf$Fixed.Data$ExPosition.Data$ci) <- paste(""Dim. "", c(1:27))"
-"0",""
-"0","ci.caption.q1 <- ""Unsigned Row Contributions, Musical Qualities Survey, Dimensions 1 - 14"""
-"0","citable.q1 <- apa_table(dimcares.inf$Fixed.Data$ExPosition.Data$ci[,1:14], "
-"0","                       caption = ci.caption.q1,"
-"0","                       landscape = TRUE, font_size = ""scriptsize"")"
-"0","write.csv(dimcares.inf$Fixed.Data$ExPosition.Data$ci, file = ""CSVS/Qualities_CI.csv"")"
-"0","#citable.q1"

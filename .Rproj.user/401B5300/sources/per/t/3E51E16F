@@ -1,0 +1,29 @@
+{
+    "id": "3E51E16F",
+    "path": "~/GitHub/MusicDescriptorsBackup/Music Descriptor Space.Rmd",
+    "project_path": "Music Descriptor Space.Rmd",
+    "type": "r_markdown",
+    "hash": "933298570",
+    "contents": "",
+    "dirty": false,
+    "created": 1613070657041.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "cursorPosition": "634,1",
+        "scrollLine": "612",
+        "last_setup_crc32": "4D0E6ED31b39f3d7",
+        "docOutlineVisible": "1",
+        "docOutlineSize": "158",
+        "ignored_words": "univariate\n"
+    },
+    "folds": "112|57|117|0|\n197|11|232|0|\n239|11|247|0|\n259|21|271|0|\n408|15|416|0|\n430|76|517|0|\n525|36|532|0|\n534|11|542|0|\n551|21|582|0|\n697|14|720|0|\n722|11|736|0|\n738|33|766|0|\n768|21|780|0|\n782|38|790|0|\n794|11|801|0|\n803|11|811|0|\n817|52|880|0|\n884|6|886|0|\n983|21|997|0|\n1075|81|1234|0|\n1236|49|1240|0|\n1241|53|1246|0|\n1248|34|1257|0|\n1312|20|1323|0|\n1569|66|1580|0|\n",
+    "lastKnownWriteTime": 1620709195,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620709195386,
+    "read_only": false,
+    "read_only_alternatives": []
+}

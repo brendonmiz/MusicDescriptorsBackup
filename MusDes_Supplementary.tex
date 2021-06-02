@@ -170,9 +170,9 @@
 \begin{document}
 \maketitle
 
-\hypertarget{supplementary-materials-for-experiment-1}{%
-\section{Supplementary Materials for Experiment
-1}\label{supplementary-materials-for-experiment-1}}
+\hypertarget{supplementary-materials-experiment-1}{%
+\section{Supplementary Materials: Experiment
+1}\label{supplementary-materials-experiment-1}}
 
 \begin{lltable}
 \begin{footnotesize}
@@ -210,7 +210,7 @@
 
 \begin{lltable}
 \begin{footnotesize}
-\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.25\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.15\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:qualitiestablefr}Musical Qualities and the provided survey response options, French.}\\
 \toprule[.8pt]
  \multicolumn{1}{c}{Harmonie} & \multicolumn{1}{c}{Vitesse} & \multicolumn{1}{c}{Mesure} & \multicolumn{1}{c}{Densité} & \multicolumn{1}{c}{Genre} & \multicolumn{1}{c}{Articulation}\\
@@ -223,6 +223,7 @@
       Modal  & Rapide & Mesure composée, quatre temps & Très dense & Jazz-Blues & \\
       Ambigu  & Très rapide & Mesure complexe & & Contemporarain & \\
       \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie}  & & & & Autre (précisez) & \\
+        & & & & & \\
       Autre (précisez)  & & & & & \\
 \bottomrule\addlinespace[.5em]
  & \multicolumn{1}{c}{Contour} & \multicolumn{1}{c}{Mouvement} & \multicolumn{1}{c}{Ambitus} & \multicolumn{1}{c}{Dynamiques} & \\
@@ -230,12 +231,14 @@
   & Ascendant & Conjoint & Ambitus resserré & Doux & \\
   & Descendant & Disjoint & Ambitus modéré & Moyen  & \\
   & Forme en arche & \multirow{2}{0.2\textwidth}{Une combinaison de conjoint et disjoint} & Ambitus grand & Fort  & \\
-  & Petites vagues successives &  & Ambitus très grand & Varié : crescendo progressif &\\
-  & Grandes vagues successives & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Varié : decrescendo progressif} &\\
-  & Plusieurs phases descendantes successives & & & & \\
-  & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & Autre (précisez) & & \multirow{2}{0.2\textwidth}{Un peu des deux: doux et fort}  &\\
-  & & & & & \\
-  & Autre (précisez) & & & Autre (précisez) & \\
+  & Petites vagues successives &  & Ambitus très grand & \multirow{2}{0.2\textwidth}{Varié : crescendo progressif} &\\
+  & \multirow{2}{0.2\textwidth}{Grandes vagues successives} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & &\\
+  &   & & & \multirow{2}{0.2\textwidth}{Varié : decrescendo progressif}  & \\
+  & \multirow{2}{0.2\textwidth}{Plusieurs phases descendantes successives} & Autre (précisez) & &  &\\
+  & & & & \multirow{2}{0.2\textwidth}{Un peu des deux: doux et fort} & \\
+  & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & & &  & \\
+  &  & & & Autre (précisez) & \\
+  & Autre (précisez) & & &  & \\
   
 \cmidrule[.75pt]{2-5}
 \end{longtable}
@@ -266,6 +269,12 @@
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/printRVbydesign-1} \end{center}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rv4qsup }\OtherTok{\textless{}{-}} \FunctionTok{recordPlot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/HCA-1} \end{center}
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/HCAW6-1} \end{center}
@@ -274,109 +283,7 @@
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/excerptsmaps23-2} \end{center}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{axisone }\OtherTok{\textless{}{-}} \DecValTok{1}
-\NormalTok{axistwo }\OtherTok{\textless{}{-}} \DecValTok{2}
-
-
-\NormalTok{mustau }\OtherTok{\textless{}{-}}\NormalTok{ dimcares.inf}\SpecialCharTok{$}\NormalTok{Fixed.Data}\SpecialCharTok{$}\NormalTok{ExPosition.Data}\SpecialCharTok{$}\NormalTok{pdq}\SpecialCharTok{$}\NormalTok{tau}
-\NormalTok{muslam }\OtherTok{\textless{}{-}}\NormalTok{ dimcares.inf}\SpecialCharTok{$}\NormalTok{Fixed.Data}\SpecialCharTok{$}\NormalTok{ExPosition.Data}\SpecialCharTok{$}\NormalTok{pdq}\SpecialCharTok{$}\NormalTok{eigs}
-
-
-\NormalTok{labelsforexcerpts }\OtherTok{\textless{}{-}} \FunctionTok{createxyLabels.gen}\NormalTok{(axisone, axistwo,}\AttributeTok{lambda =}\NormalTok{ muslam, }\AttributeTok{tau =}\NormalTok{ mustau)}
-
-\NormalTok{Basemap.cols }\OtherTok{\textless{}{-}} \FunctionTok{createFactorMap}\NormalTok{(}\AttributeTok{X =}\NormalTok{ FJs,}
-                                    \AttributeTok{axis1 =}\NormalTok{ axisone,}
-                                    \AttributeTok{axis2 =}\NormalTok{ axistwo, }
-                                    \AttributeTok{col.points =}\NormalTok{ col4cols,}
-\CommentTok{\#                                    constraints = Basemap.excerpts$constraints,}
-                                    \AttributeTok{title =} \StringTok{"Column Factor Scores }\SpecialCharTok{\textbackslash{}n}\StringTok{Colored according to dimension group"}\NormalTok{,}
-                                    \AttributeTok{display.points =}\NormalTok{ T,}
-                                    \AttributeTok{pch =} \DecValTok{19}\NormalTok{, }\AttributeTok{cex =} \DecValTok{4}\NormalTok{,}
-                                    \AttributeTok{display.labels =}\NormalTok{ T,}
-                                    \AttributeTok{col.labels =}\NormalTok{ col4cols,}
-                                    \AttributeTok{text.cex =} \DecValTok{4}\NormalTok{, }\AttributeTok{font.face =} \StringTok{"bold"}\NormalTok{,}
-                                    \AttributeTok{font.family =} \StringTok{"sans"}\NormalTok{,}
-                                    \AttributeTok{col.axes =} \StringTok{"darkorchid"}\NormalTok{,}
-                                    \AttributeTok{alpha.axes =} \FloatTok{0.2}\NormalTok{,}
-                                    \AttributeTok{width.axes =} \FloatTok{1.1}\NormalTok{,}
-                                    \AttributeTok{col.background =} \FunctionTok{adjustcolor}\NormalTok{(}\StringTok{"lavender"}\NormalTok{,}
-                                                       \AttributeTok{alpha.f =} \FloatTok{0.2}\NormalTok{),}
-                                    \AttributeTok{force =} \DecValTok{1}\NormalTok{, }\AttributeTok{segment.size =} \DecValTok{3}
-\NormalTok{                                    )}
-                                    
-
-\NormalTok{mus}\FloatTok{.007} \OtherTok{\textless{}{-}}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{zeMap\_background }\SpecialCharTok{+}\NormalTok{ labelsforexcerpts }\SpecialCharTok{+}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{zeMap\_dots}
-\NormalTok{mus}\FloatTok{.008} \OtherTok{\textless{}{-}}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{zeMap\_background }\SpecialCharTok{+}\NormalTok{ labelsforexcerpts }\SpecialCharTok{+}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{zeMap\_text}
-\NormalTok{mus}\FloatTok{.009} \OtherTok{\textless{}{-}}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{zeMap }\SpecialCharTok{+}\NormalTok{ labelsforexcerpts}
-
-\FunctionTok{print}\NormalTok{(mus}\FloatTok{.009}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{center}\includegraphics[width=1\linewidth]{MusDes_Supplementary_files/figure-latex/colmaps-1} \end{center}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# This was originally initialized as something else. Instead of changing each}
-\CommentTok{\# instance, I\textquotesingle{}m just changing this one.}
-\NormalTok{FJ.all }\OtherTok{\textless{}{-}}\NormalTok{ FJs}
-\CommentTok{\#Initialize an empty list}
-\NormalTok{FJ.split }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\AttributeTok{mode =} \StringTok{"list"}\NormalTok{, }\AttributeTok{length =} \FunctionTok{length}\NormalTok{(numberofdims))}
-
-\CommentTok{\# Name the elements of the list with the names of each group of musical dimensions}
-\FunctionTok{names}\NormalTok{(FJ.split) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(numberofdims)}
-
-\CommentTok{\# This loop puts the factor scores for each group of musical dimensions }
-\CommentTok{\# in each element of the list}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(numberofdims))\{}
-\NormalTok{    FJ.split[[i]] }\OtherTok{=}\NormalTok{ FJ.all[}\FunctionTok{which}\NormalTok{(}\FunctionTok{stri\_startswith}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(FJ.all), }
-                                                 \AttributeTok{coll =} \FunctionTok{names}\NormalTok{(numberofdims)[i])), ]}
-\NormalTok{    \}}
-
-\CommentTok{\# We also need to do the same for the constraints}
-\NormalTok{FJ.constraints }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\AttributeTok{mode =} \StringTok{"list"}\NormalTok{, }\AttributeTok{length =} \FunctionTok{length}\NormalTok{(numberofdims))}
-\FunctionTok{names}\NormalTok{(FJ.constraints) }\OtherTok{=} \FunctionTok{names}\NormalTok{(numberofdims)}
-\NormalTok{axisone }\OtherTok{\textless{}{-}} \DecValTok{1}
-\NormalTok{axistwo }\OtherTok{\textless{}{-}} \DecValTok{2}
-
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(numberofdims))\{}
-    
-\NormalTok{  FJ.constraints[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{minmaxHelper}\NormalTok{(FJ.split[[i]], }
-                                      \AttributeTok{axis1 =}\NormalTok{ axisone, }\AttributeTok{axis2 =}\NormalTok{ axistwo)}
-\NormalTok{\}}
-
-\CommentTok{\# And finally we need to create a list for the actual maps}
-\NormalTok{FJ.maps }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\AttributeTok{mode =} \StringTok{"list"}\NormalTok{, }\AttributeTok{length =} \FunctionTok{length}\NormalTok{(numberofdims))}
-\FunctionTok{names}\NormalTok{(FJ.maps) }\OtherTok{=} \FunctionTok{names}\NormalTok{(numberofdims)}
-\CommentTok{\# This loop uses the three lists we\textquotesingle{}ve created to create a set of maps, with one}
-\CommentTok{\# for each group of factor scores.}
-
-
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(numberofdims))\{}
-  
-\NormalTok{  FJ.maps[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{createFactorMap}\NormalTok{(FJ.split[[i]],}
-                                  \AttributeTok{axis1 =}\NormalTok{ axisone, }\AttributeTok{axis2 =}\NormalTok{ axistwo,}
-                                  \AttributeTok{constraints =}\NormalTok{ Basemap.cols}\SpecialCharTok{$}\NormalTok{constraints,}
-                                  \AttributeTok{col.points =} \FunctionTok{unique}\NormalTok{(col4cols)[i],}
-                                    \AttributeTok{display.points =}\NormalTok{ T,}
-                                    \AttributeTok{pch =} \DecValTok{19}\NormalTok{, }\AttributeTok{cex =} \FloatTok{2.5}\NormalTok{,}
-                                    \AttributeTok{display.labels =}\NormalTok{ T,}
-                                    \AttributeTok{col.labels =} \FunctionTok{unique}\NormalTok{(col4cols)[i],}
-                                    \AttributeTok{text.cex =} \FloatTok{2.5}\NormalTok{, }\AttributeTok{font.face =} \StringTok{"bold"}\NormalTok{,}
-                                    \AttributeTok{font.family =} \StringTok{"sans"}\NormalTok{,}
-                                    \AttributeTok{col.axes =} \StringTok{"darkorchid"}\NormalTok{,}
-                                    \AttributeTok{alpha.axes =} \FloatTok{0.2}\NormalTok{,}
-                                    \AttributeTok{width.axes =} \FloatTok{1.1}\NormalTok{,}
-                                    \AttributeTok{col.background =} \FunctionTok{adjustcolor}\NormalTok{(}\StringTok{"lavender"}\NormalTok{,}
-                                                       \AttributeTok{alpha.f =} \FloatTok{0.2}\NormalTok{),}
-                                    \AttributeTok{force =} \DecValTok{1}\NormalTok{, }\AttributeTok{segment.size =} \DecValTok{3}
-\NormalTok{                                    )}
-  \FunctionTok{print}\NormalTok{(FJ.maps[[i]]}\SpecialCharTok{$}\NormalTok{zeMap }\SpecialCharTok{+}\NormalTok{ labelsforexcerpts)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics[width=0.5\linewidth]{MusDes_Supplementary_files/figure-latex/morecolmaps-1}
 \includegraphics[width=0.5\linewidth]{MusDes_Supplementary_files/figure-latex/morecolmaps-2}
@@ -392,9 +299,9 @@
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/contributionsqsup-1} \end{center}
 
-\hypertarget{supplementary-materials-for-experiment-2}{%
-\section{Supplementary Materials for Experiment
-2}\label{supplementary-materials-for-experiment-2}}
+\hypertarget{supplementary-materials-experiment-2}{%
+\section{Supplementary Materials: Experiment
+2}\label{supplementary-materials-experiment-2}}
 
 \begin{table}[h]
 
@@ -456,9 +363,9 @@ Surprising & Surprenant\\
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/thecons-1} \end{center}
 
-\hypertarget{supplementary-materials-for-experiment-3}{%
-\section{Supplementary materials for Experiment
-3}\label{supplementary-materials-for-experiment-3}}
+\hypertarget{supplementary-materials-experiment-3}{%
+\section{Supplementary materials: Experiment
+3}\label{supplementary-materials-experiment-3}}
 
 \begin{center}\includegraphics{MusDes_Supplementary_files/figure-latex/covariance.mat-1} \end{center}
 

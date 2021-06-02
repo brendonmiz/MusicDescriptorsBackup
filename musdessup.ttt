@@ -1,0 +1,51 @@
+\begin{table}[H]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:adjtable}CATA Adjectives}
+
+\begin{tabular}{ll}
+\toprule
+English & \multicolumn{1}{c}{French}\\
+\midrule
+Slow & Lent\\
+Fast & Rapide\\
+Dense & Bavard\\
+Sparse & Epure\\
+Complex & Complexe\\
+Transparent & Transparent\\
+Light & Clair\\
+Dark & Sombre\\
+Bright & Brillant\\
+Dull & Terne\\
+Soft & Doux\\
+Strong & Fort\\
+Mysterious & Mysterieux\\
+Melancholy & Melancolique\\
+Incisive & Incisif\\
+Round & Tendre\\
+Aggressive & Agressif\\
+Weak & Faible\\
+Strong & Puissant\\
+Warm & Chaleureux\\
+Solemn & Solennel\\
+Valiant & Vaillant\\
+Sad & Triste\\
+Happy & Joyeux\\
+Dancing & Dansant\\
+Disturbing & Inquietant\\
+Exotic & Exotique\\
+Colorful & Colore\\
+Varied & Changeant\\
+Monotonous & Monotone\\
+Long & Long\\
+Short & Court\\
+Surprising & Surprenant\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}

@@ -1,0 +1,2 @@
+"0",""
+"0","pls.res <- tepPLS(dimcontingency, adjcontingency, DESIGN = adj.design$thedesign[-c(6,14)])"

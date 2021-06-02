@@ -1,0 +1,162 @@
+\begin{figure}
+  \centering
+  \caption{Distance analysis for participants in Experiment 1, colored according to nationality (left) and gender identity (right).}
+    \includegraphics{./supmatsimgs/qrvplot.png}
+  \label{fig:qrvplot}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{Hierarchical cluster analysis for the row factor scores of the CA for Experiment 1.}
+    \includegraphics{./supmatsimgs/qhca1.png}
+  \label{fig:qhca1}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{Hierarchical cluster analysis for the row factor scores of the CA for Experiment 1 including Excerpts 6 and 14.}
+    \includegraphics{./supmatsimgs/qhca2.png}
+  \label{fig:qhca2}
+
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: Row factor scores for preliminary analysis of the qualities survey, featuring Dimensions 1 and 2, with tolerance intervals around the clusters identified by the HCA.}
+    \includegraphics{./supmatsimgs/qfactormap12.png}
+  \label{fig:qimap12}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: Row factor scores for the preliminary analysis of the qualities survey, featuring Dimensions 2 and 3, with tolerance intervals around the clusters identified by the HCA.}
+    \includegraphics{./supmatsimgs/qfactormap23.png}
+  \label{fig:qimap23}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: Column factor scores for the analysis of the qualities survey, points are levels of each variable, colored by variable.}
+    \includegraphics{./supmatsimgs/qfactormapsjall.png}
+  \label{fig:qjmapsall}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\caption{Separate plots for each of the qualities evaluated in the musical qualities survey}
+\centering
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjartic.png}
+\caption{Articulations}\label{fig:artic}
+\end{subfigure}
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjcontour.png}
+\caption{Contour}\label{fig:contour}
+\end{subfigure}
+
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjdensity.png}
+\caption{Density}\label{fig:density}
+\end{subfigure}
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjdynamics.png}
+\caption{Dynamics}\label{fig:dynamics}
+\end{subfigure}
+
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjgenre.png}
+\caption{Genre}\label{fig:genre}
+\end{subfigure}
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjharmony.png}
+\caption{Harmony}\label{fig:harmony}
+\end{subfigure}
+
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjmelody.png}
+\caption{Melody}\label{fig:melody}
+\end{subfigure}
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjmeter.png}
+\caption{Meter}\label{fig:meter}
+\end{subfigure}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[ht]\ContinuedFloat
+\centering
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjmotion.png}
+\caption{Motion}\label{fig:motion}
+\end{subfigure}
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjrange.png}
+\caption{Range}\label{fig:range}
+\end{subfigure}
+
+\begin{subfigure}[b]{.45\linewidth}
+\includegraphics[width=\linewidth]{./supmatsimgs/qjtempo.png}
+\caption{Tempo}\label{fig:tempo}
+\end{subfigure}
+
+\label{fig:qualities}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{Hierarchical cluster analysis for the column factor scores of the CA for Experiment 2.}
+    \includegraphics{./supmatsimgs/ahca2.png}
+  \label{fig:ahca2}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: Row and column factor scores for the first two dimensions of the CA for Experiment 2.}
+    \includegraphics{./supmatsimgs/asym.png}
+  \label{fig:asym}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: Row and column factor scores for the first two dimensions of the CA for Experiment 2.}
+    \includegraphics{./supmatsimgs/asymrepel.png}
+  \label{fig:asymrepel}
+  \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{CA: All Row and column contributions for the first two dimensions of the adjectives survey.}
+    \includegraphics{./supmatsimgs/acontsordered.png}
+  \label{fig:aconts}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{PLSC: Correlation matrix for the columns of the surveys from Experiments 1 and 2. Correlation values between variables are indicated by color and opacity. Dark blue is a strong positive correlation and dark red is a strong negative correlation, pale or white squares indicate little to no correlation.}
+    \includegraphics{./supmatsimgs/pcorrplot.png}
+  \label{fig:pcorr}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \centering
+  \caption{PLSC: loadings barplots for the columns of the surveys from Experiments 1 and 2. The loading on a dimension for a variable is the square of its contribution to that dimension.}
+    \includegraphics{./supmatsimgs/ploads.png}
+  \label{fig:ploads}
+\end{figure}

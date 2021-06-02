@@ -13,7 +13,7 @@ output:
 
 ```{r setup, include = FALSE}
 # Seed for random number generation
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message=FALSE, fig.align = "center",cache.extra = knitr::rand_seed)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message=FALSE, fig.align = "center",cache.extra = knitr::rand_seed, dev = c("pdf", "png"))
 set.seed(42)
 
 papaja::r_refs("r-references.bib")
@@ -50,7 +50,7 @@ name4Graphs  <- paste0(path2pptx,powerpointFilename)
 title4Graphs <- 'Music Descriptors Supp '
 ```
 
-# Supplementary Materials for Experiment 1
+# Supplementary Materials: Experiment 1
 
 ```{=latex}
 
@@ -93,7 +93,7 @@ title4Graphs <- 'Music Descriptors Supp '
 
 \begin{lltable}
 \begin{footnotesize}
-\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.25\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.15\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:qualitiestablefr}Musical Qualities and the provided survey response options, French.}\\
 \toprule[.8pt]
  \multicolumn{1}{c}{Harmonie} & \multicolumn{1}{c}{Vitesse} & \multicolumn{1}{c}{Mesure} & \multicolumn{1}{c}{Densité} & \multicolumn{1}{c}{Genre} & \multicolumn{1}{c}{Articulation}\\
@@ -106,6 +106,7 @@ title4Graphs <- 'Music Descriptors Supp '
       Modal  & Rapide & Mesure composée, quatre temps & Très dense & Jazz-Blues & \\
       Ambigu  & Très rapide & Mesure complexe & & Contemporarain & \\
       \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie}  & & & & Autre (précisez) & \\
+        & & & & & \\
       Autre (précisez)  & & & & & \\
 \bottomrule\addlinespace[.5em]
  & \multicolumn{1}{c}{Contour} & \multicolumn{1}{c}{Mouvement} & \multicolumn{1}{c}{Ambitus} & \multicolumn{1}{c}{Dynamiques} & \\
@@ -113,12 +114,14 @@ title4Graphs <- 'Music Descriptors Supp '
   & Ascendant & Conjoint & Ambitus resserré & Doux & \\
   & Descendant & Disjoint & Ambitus modéré & Moyen  & \\
   & Forme en arche & \multirow{2}{0.2\textwidth}{Une combinaison de conjoint et disjoint} & Ambitus grand & Fort  & \\
-  & Petites vagues successives &  & Ambitus très grand & Varié : crescendo progressif &\\
-  & Grandes vagues successives & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Varié : decrescendo progressif} &\\
-  & Plusieurs phases descendantes successives & & & & \\
-  & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & Autre (précisez) & & \multirow{2}{0.2\textwidth}{Un peu des deux: doux et fort}  &\\
-  & & & & & \\
-  & Autre (précisez) & & & Autre (précisez) & \\
+  & Petites vagues successives &  & Ambitus très grand & \multirow{2}{0.2\textwidth}{Varié : crescendo progressif} &\\
+  & \multirow{2}{0.2\textwidth}{Grandes vagues successives} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & &\\
+  &   & & & \multirow{2}{0.2\textwidth}{Varié : decrescendo progressif}  & \\
+  & \multirow{2}{0.2\textwidth}{Plusieurs phases descendantes successives} & Autre (précisez) & &  &\\
+  & & & & \multirow{2}{0.2\textwidth}{Un peu des deux: doux et fort} & \\
+  & \multirow{2}{0.2\textwidth}{Je ne pense pas que cet extrait ait une mélodie} & & &  & \\
+  &  & & & Autre (précisez) & \\
+  & Autre (précisez) & & &  & \\
   
 \cmidrule[.75pt]{2-5}
 \end{longtable}
@@ -253,13 +256,16 @@ probBR.I  <- bootRatios.I$prob.boot.ratios
 probBR.J  <- bootRatios.J$prob.boot.ratios
 ```
 
-```{r screeRV, fig.height = 4, fig.width = 8, fig.align='center'}
+```{r screeRV, fig.height = 4, fig.width = 8, fig.align='center', include = FALSE}
 # Scree plot with significance
 ScreeInf <- PlotScree(ev = eig4Cmat,
                       max.ev = NULL, alpha = 0.05,
                       col.ns = "#006D2C",
-                      title = "RV Analysis: Explained Variance per Dimension")
+                      title = " ")
 a000.00.screeRV <-  recordPlot()
+
+scree4qsup <- recordPlot()
+
 ```
 
 ```{r basemaps}
@@ -332,7 +338,7 @@ g.ellipse <- MakeCIEllipses(BootCube.G$BootCube[,1:2,],
 ```{r}
 n.symdist.means <- createFactorMap(nationmeans,
                               axis1 = 1, axis2 = 2, 
-                              title = "Colored according to Nationality",
+                              title = " ",
                               col.points =  c(col4AM, col4FR),
                               alpha.points = 1, # no transparency
                               constraints = BaseMap.Nationality$constraints,
@@ -348,7 +354,7 @@ n.symdist.means <- createFactorMap(nationmeans,
 
 g.symdist.means <- createFactorMap(gendermeans,
                               axis1 = 1, axis2 = 2, 
-                              title = "Colored according to Gender",
+                              title = " ",
                               col.points =  c(col4M, col4F),
                               alpha.points = 1, # no transparency
                               constraints = BaseMap.Gender$constraints,
@@ -365,25 +371,33 @@ g.symdist.means <- createFactorMap(gendermeans,
 a.01.map4part <- BaseMap.Nationality$zeMap_background + labels4RV +
                   BaseMap.Nationality$zeMap_dots +
                   n.symdist.means$zeMap_text + 
-                    n.symdist.means$zeMap_dots + n.ellipse
+                    n.symdist.means$zeMap_dots + n.ellipse + ggtitle("Colored according to nationality") + theme(plot.title = element_text(size = 14, family = "serif"),
+                      axis.title = element_text(size = 12, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 12, face = "italic", family = "serif"))
 
 a.02.map4part <- BaseMap.Gender$zeMap_background + labels4RV +
                   BaseMap.Gender$zeMap_dots + g.symdist.means$zeMap_text +
-                    g.symdist.means$zeMap_dots + g.ellipse
+                    g.symdist.means$zeMap_dots + g.ellipse  + ggtitle("Colored according to gender") + theme(plot.title = element_text(size = 14, family = "serif"),
+                      axis.title = element_text(size = 12, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 12, face = "italic", family = "serif"))
 ```
 
 ```{r printRVbydesign, echo = true, fig.width=10,figure.show = 'hold'}
 grid.arrange(as.grob(a.01.map4part), 
-             as.grob(a.02.map4part), ncol = 2,
-             top = textGrob("Factor Scores for Expert Ratings", 
-                            gp = gpar(fontsize = 18, font = 3)))
+             as.grob(a.02.map4part), ncol = 2)
+
+rv4qsup <- recordPlot()
 
 ```
 
 
 
 ```{r HCA}
-D <- dist(FIsym, method = "euclidean")
+
+fisym1 <- FIsym
+rownames(fisym1) <- c(1:5,7:13,15:30)
+
+D <- dist(fisym1, method = "euclidean")
 fit <- hclust(D, method = "ward.D2")
 
 ngroups <- 4
@@ -404,15 +418,22 @@ col4extree <- col4exgrp[fit$order]
 mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
                         k_colors = unique(col4extree), 
                         label_cols = col4extree,
-                        cex = .6, xlab = 'Excerpts',
-                        main = 'Hierarchical Cluster Analysis: Excerpts, Musical Qualities Survey', 
-                        rect = TRUE, rect_fill = TRUE) 
+                        cex = .75, xlab = 'Excerpts',
+                        main = ' ', 
+                        rect = TRUE, rect_fill = TRUE) + theme(plot.title = element_text(size = 14, family = "serif"),
+                      axis.title = element_text(size = 12, face = "italic", family = "serif"))
+                      
  
 print(mus.tree4excerpts)
+
+hcatreesup <- recordPlot()
+
 
 ```
 ```{r HCAW6}
 caresw6 <- epCA(musdimdata, graphs = FALSE)
+
+rownames(caresw6$ExPosition.Data$fi) <- c(1:30)
 
 D <- dist(caresw6$ExPosition.Data$fi, method = "euclidean")
 fit.w6 <- hclust(D, method = "ward.D2")
@@ -437,11 +458,15 @@ col4extree.w6 <- col4exgrp.w6[fit.w6$order]
 mus.tree4excerpts.w6 <- factoextra::fviz_dend(fit.w6,  k = ngroups, 
                         k_colors = unique(col4extree.w6), 
                         label_cols = col4extree.w6,
-                        cex = .6, xlab = 'Excerpts',
-                        main = 'Hierarchical Cluster Analysis: Excerpts, Musical Qualities Survey\nIncluding Excerpts 6 and 14', 
-                        rect = TRUE, rect_fill = TRUE) 
+                        cex = .75, xlab = 'Excerpts',
+                        main = ' ', 
+                        rect = TRUE, rect_fill = TRUE)  + theme(plot.title = element_text(size = 14, family = "serif"),
+                      axis.title = element_text(size = 12, face = "italic", family = "serif"))
  
 print(mus.tree4excerpts.w6)
+
+hcatreeqw6sup <- recordPlot()
+
 ```
 
 
@@ -454,9 +479,9 @@ axistwo <- 2
 labelsforexcerpts12 <- createxyLabels(resCA = caresw6)
 dertitel1 <- "Dimensions 1 and 2"
 
-fiw614 <- caresw6$ExPosition.Data$fi
+fiw614 <- caresw6$ExPosition.Data$fi*-1
 
-#rownames(fiw614)<- c(1:30)
+rownames(fiw614)<- c(1:30)
 
 Basemap.Q.12 <- createFactorMap(X = fiw614,
                                     axis1 = axisone,
@@ -474,7 +499,7 @@ Basemap.Q.12 <- createFactorMap(X = fiw614,
                                     col.background = adjustcolor("lavender",
                                                        alpha.f = 0.2),
                                     force = 1, segment.size = 3,
-                                    title = dertitel1
+#                                    title = dertitel1
                                     )
 
 
@@ -483,13 +508,15 @@ groupvec.Q <- data.frame(ex.groups)
 groupvec.Q <- data.frame(abind(groupvec, groupvec.Q, along = 2))
 groupvec.Q$ex.groups <- as.factor(groupvec.Q$ex.groups)
 
-ti.q.12 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi), 
+ti.q.12 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi*-1), 
                                   design = as.factor(groupvec.Q$ex.groups), 
                                   col = unique(col4exgrp.w6))
 
 
 
-mus.006 <- Basemap.Q.12$zeMap + labelsforexcerpts12 + ti.q.12
+mus.006 <- Basemap.Q.12$zeMap + labelsforexcerpts12 + ti.q.12 + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 print(mus.006)
 
 
@@ -512,15 +539,17 @@ Basemap.Q.23 <- createFactorMap(X = fiw614,
                                 col.background = adjustcolor("lavender",
                                                        alpha.f = 0.2),
                                 force = 1, segment.size = 3,
-                                title = dertitel2,
+#                                title = dertitel2,
                                 )
-
-ti.q.23 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi),
+ti.q.23 <- MakeToleranceIntervals(data = data.frame(caresw6$ExPosition.Data$fi*-1),
                                   axis1 = 3, axis2 = 2,
                                   design = as.factor(groupvec.Q$ex.groups), 
                                   col = unique(col4exgrp.w6))
 
-mus.007 <- Basemap.Q.23$zeMap + labelsforexcerpts23 +ti.q.23
+mus.007 <- Basemap.Q.23$zeMap + labelsforexcerpts23 +ti.q.23+ theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
+
 print(mus.007)
 
 #grid.arrange(
@@ -530,7 +559,7 @@ print(mus.007)
 #    bottom = textGrob("Note: Colored according to the results of the Hierarchical Cluster Analysis", gp = gpar(fontsize = 12, font = 3))
 # )
 
-
+exmaps23sup <- recordPlot()
 
 ```
 
@@ -551,12 +580,12 @@ Basemap.cols <- createFactorMap(X = FJs,
                                     axis2 = axistwo, 
                                     col.points = col4cols,
 #                                    constraints = Basemap.excerpts$constraints,
-                                    title = "Column Factor Scores \nColored according to dimension group",
+#                                    title = "Column Factor Scores \nColored according to dimension group",
                                     display.points = T,
                                     pch = 19, cex = 4,
                                     display.labels = T,
                                     col.labels = col4cols,
-                                    text.cex = 4, font.face = "bold",
+                                    text.cex = 4, font.face = "italic",
                                     font.family = "sans",
                                     col.axes = "darkorchid",
                                     alpha.axes = 0.2,
@@ -569,9 +598,13 @@ Basemap.cols <- createFactorMap(X = FJs,
 
 mus.007 <- Basemap.cols$zeMap_background + labelsforexcerpts + Basemap.cols$zeMap_dots
 mus.008 <- Basemap.cols$zeMap_background + labelsforexcerpts + Basemap.cols$zeMap_text
-mus.009 <- Basemap.cols$zeMap + labelsforexcerpts
-
+mus.009 <- Basemap.cols$zeMap + labelsforexcerpts + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 print(mus.009)
+
+colmaps4Qsup <- recordPlot()
+
 ```
 
 
@@ -621,7 +654,7 @@ for (i in 1:length(numberofdims)){
                                     pch = 19, cex = 4,
                                     display.labels = T,
                                     col.labels = unique(col4cols)[i],
-                                    text.cex = 4, font.face = "bold",
+                                    text.cex = 4, font.face = "italic",
                                     font.family = "sans",
                                     col.axes = "darkorchid",
                                     alpha.axes = 0.2,
@@ -639,10 +672,10 @@ for (i in 1:length(numberofdims)){
 ```{r justsomecontsqsup}
 
 signed.ctrI <- dimcares.inf$Fixed.Data$ExPosition.Data$ci * sign(FIsym)
-signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
+signed.ctrJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj[-9,] * sign(FJs)[-9,]
 ```
 
-```{r contributionsqsup, fig.width=14}
+```{r contributionsqsup, fig.width=16}
 # plot contributions of rows for component 1
 ctrI.1 <- PrettyBarPlot2(signed.ctrI[,1],
                          threshold = 1 / NROW(signed.ctrI),
@@ -650,7 +683,11 @@ ctrI.1 <- PrettyBarPlot2(signed.ctrI[,1],
                          color4bar = col4exgrp, # we need hex code
                          ylab = 'Contributions', #sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrI[,1]), 1.2*max(signed.ctrI[,1]))
-) #+ ggtitle("Component 1", subtitle = 'Rows')
+) + ggtitle("Dimension 1", subtitle = 'Rows') + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
+
+
 
 # plot contributions of columns for component 1
 ctrJ.1 <- PrettyBarPlot2(signed.ctrJ[,1],
@@ -659,7 +696,9 @@ ctrJ.1 <- PrettyBarPlot2(signed.ctrJ[,1],
                          color4bar = col4cols, # we need hex code
                          ylab = 'Contributions',
                          ylim = c(1.2*min(signed.ctrJ[,1]),1.2*max(signed.ctrJ[,1]))
-) #+ ggtitle("", subtitle = 'Columns')
+) + ggtitle("Dimension 1", subtitle = 'Columns') + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 # plot contributions of rows for component 2
 ctrI.2 <- PrettyBarPlot2(signed.ctrI[,2],
@@ -668,7 +707,9 @@ ctrI.2 <- PrettyBarPlot2(signed.ctrI[,2],
                          color4bar = col4exgrp, # we need hex code
                          ylab = 'Contributions',
                          ylim = c(1.2*min(signed.ctrI[,2]), 1.2*max(signed.ctrI[,2]))
-) #+ ggtitle("Component 2", subtitle = 'Rows')
+) + ggtitle("Dimension 2", subtitle = 'Rows') + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 # plot contributions of columns for component 2
 ctrJ.2 <- PrettyBarPlot2(signed.ctrJ[,2],
@@ -677,18 +718,19 @@ ctrJ.2 <- PrettyBarPlot2(signed.ctrJ[,2],
                          color4bar = col4cols, # we need hex code
                          ylab = 'Contributions',
                          ylim = c(1.2*min(signed.ctrJ[,2]), 1.2*max(signed.ctrJ[,2]))
-)# + ggtitle("", subtitle = 'Columns')
+)+ ggtitle("Dimension 2", subtitle = 'Columns') + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 grid.arrange(
     as.grob(ctrI.1),as.grob(ctrJ.1),
     as.grob(ctrI.2),as.grob(ctrJ.2),
-    ncol = 2,nrow =2,
-    top = textGrob("Contributions", gp = gpar(fontsize = 18, font = 3))
-  )
+    ncol = 2,nrow =2)
+  
 
 Ctr.IJ <- recordPlot()
 ```
-# Supplementary Materials for Experiment 2
+# Supplementary Materials: Experiment 2
 
 ```{r Adatain}
 load("adj.catadata.list.RData")
@@ -747,16 +789,16 @@ probBRadj.I  <- bootRatadj.I$prob.boot.ratios
 probBRadj.J  <- bootRatadj.J$prob.boot.ratios
 
 # Permutation tests
-adjca.inf <- perm4PTCA(aCube = adjbrick,
-                       nIter = 1000,
-                       permType = 'byRows' ,
-                       Malinvaud = TRUE)
-Ind.Permu.adj    <- adjca.inf$permInertia
-InertiaFixed.adj <- adjca.inf$fixedInertia
-prob.cpt.lst.adj <- adjca.inf$MalinvaudQ['p-perm',]
-# Get the p values for the components
-prob.cpt.adj <- (unlist(prob.cpt.lst.adj[2:length(prob.cpt.lst.adj)]))
-prob.cpt.adj[is.na(prob.cpt.adj)] <- 1
+#adjca.inf <- perm4PTCA(aCube = adjbrick,
+#                       nIter = 1000,
+#                       permType = 'byRows' ,
+#                       Malinvaud = TRUE)
+#Ind.Permu.adj    <- adjca.inf$permInertia
+#InertiaFixed.adj <- adjca.inf$fixedInertia
+#prob.cpt.lst.adj <- adjca.inf$MalinvaudQ['p-perm',]
+## Get the p values for the components
+#prob.cpt.adj <- (unlist(prob.cpt.lst.adj[2:length(prob.cpt.lst.adj)]))
+#prob.cpt.adj[is.na(prob.cpt.adj)] <- 1
 ```
 
 
@@ -777,10 +819,15 @@ col4extree <- col4exgrp[fit$order]
 mus.tree4excerpts <- factoextra::fviz_dend(fit,  k = ngroups, 
                         k_colors = unique(col4extree), 
                         label_cols = col4extree,
-                        cex = .4, xlab = 'Excerpts', rect = T,
-                        rect_fill = T,
-                        main = 'Hierarchical Cluster Analysis: Excerpts, Adjectives Survey') 
+                        cex = .75, xlab = 'Excerpts', rect = T,
+                        rect_fill = T, main = " ") + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
  
+
+
+#main = 'Hierarchical Cluster Analysis: Excerpts, Adjectives Survey'
+
 mus.tree4excerpts
 ```
 
@@ -817,24 +864,38 @@ cols$adj.oc <- col4words
 tree4words <- factoextra::fviz_dend(fit.w,  k = ngroups, 
                               k_colors = unique(col4words[fit.w$order]), 
                               label_cols = col4words[fit.w$order],
-                        cex = .4, xlab = 'Adjectives', rect = T, rect_fill = T,
-                        main = "Hierarchical Cluster Analysis, using Ward's Distance: Adjectives") 
+                        cex = .5, xlab = 'Adjectives', rect = T, rect_fill = T, 
+                        main = " ") + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
+                         
  
+#main = "Hierarchical Cluster Analysis, using Ward's Distance: Adjectives")
+
+                        
 tree4words
 ```
 
 ```{r symmetricmap, fig.show = 'hold', out.width='100%', fig.height=10}
 
+rownames(FIsym.adj) <- c(1:16,18:30)
 
 fifjadj <- rbind(FIsym.adj[,1:2], FJs.adj[,1:2])
 
 colorsij <- abind(cols$ex.oc, cols$adj.oc, along = 1)
 
+pchvec <- c(rep("19", dim(FIsym.adj)[1]), rep("18", dim(FJs.adj)[1]))
+
+axisone <- 1
+axistwo <- 2
+
 adjmap4repel <- createFactorMap(fifjadj,
                                 axis1 = axisone,axis2 = axistwo
                                 , col.points = colorsij
                                 , col.labels = colorsij
-                                , text.cex = 3.5
+                                , text.cex = 5
+                                , cex = 3
+ #                               , pch = pchvec
                                 )
 
 
@@ -847,18 +908,20 @@ adjmap.sym <- createFactorMapIJ(FIsym.adj,
                                 col.labels.i = cols$ex.oc, 
                                 col.points.j = cols$adj.oc, 
                                 col.labels.j = cols$adj.oc,
-                                text.cex.i = 3.5, text.cex.j = 3.5
+                                text.cex.i = 5, text.cex.j = 5,
+                                cex.i = 3, cex.j = 3
                                 )
 
 vc.sym.labels <- createxyLabels(resCA = adjsym.cares)
 mus.adj.005 <- adjmap.sym$baseMap +  adjmap.sym$I_points + 
             adjmap.sym$I_labels + adjmap.sym$J_points + 
               adjmap.sym$J_labels + vc.sym.labels + 
-                ggtitle('Symmetric Map')
+                ggtitle(' ') + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 16, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 16, face = "italic", family = "serif"))
 
-mus.adj.repel <- adjmap4repel$zeMap + vc.sym.labels + ggtitle("Symmetric biplot showing factor scores for Excerpts & Adjectives in the same mental space.") +
-                theme(plot.title = element_text(size = 16, family = "serif"),
-                      axis.title = element_text(size = 12, face = "italic", family = "serif"))
+mus.adj.repel <- adjmap4repel$zeMap + vc.sym.labels + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 16, face = "italic", family = "serif"))
   
 print(mus.adj.005)
 print(mus.adj.repel)
@@ -875,36 +938,44 @@ ctradjI.1 <- PrettyBarPlot2(signed.ctrI.adj[,1],
                          threshold = 1 / NROW(signed.ctrI.adj),
                          font.size = 3,
                          color4bar = cols$ex.oc[order(signed.ctrI.adj[,1])] , # we need hex code
-                         ylab = 'Contributions', sortValues = TRUE,
+                         ylab = 'Signed Contributions', sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrI.adj[,1]), 1.2*max(signed.ctrI.adj[,1]))
-) + ggtitle("Component 1", subtitle = 'Rows')
+) + ggtitle("Component 1", subtitle = 'Rows')  + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 # plot contributions of columns for component 1
 ctradjJ.1 <- PrettyBarPlot2(signed.ctrJ.adj[,1],
                          threshold = 1 / NROW(signed.ctrJ.adj),
                          font.size = 3,
                          color4bar = cols$adj.oc[order(signed.ctrJ.adj[,1])], # we need hex code
-                         ylab = 'Contributions', sortValues = TRUE,
+                         ylab = 'Signed Contributions', sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrJ.adj[,1]), 1.2*max(signed.ctrJ.adj[,1]))
-) + ggtitle("", subtitle = 'Columns')
+) + ggtitle("", subtitle = 'Columns')  + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 # plot contributions of rows for component 2
 ctradjI.2 <- PrettyBarPlot2(signed.ctrI.adj[,2],
                          threshold = 1 / NROW(signed.ctrI.adj),
                          font.size = 3,
                          color4bar = cols$ex.oc[order(signed.ctrI.adj[,2])], # we need hex code
-                         ylab = 'Contributions', sortValues = TRUE,
+                         ylab = 'Signed Contributions', sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrI.adj[,2]), 1.2*max(signed.ctrI.adj[,2]))
-) + ggtitle("Component 2", subtitle = 'Rows')
+) + ggtitle("Component 2", subtitle = 'Rows')  + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 # plot contributions of columns for component 2
 ctradjJ.2 <- PrettyBarPlot2(signed.ctrJ.adj[,2],
                          threshold = 1 / NROW(signed.ctrJ.adj),
                          font.size = 3,
                          color4bar = cols$adj.oc[order(signed.ctrJ.adj[,2])], # we need hex code
-                         ylab = 'Contributions', sortValues = TRUE,
+                         ylab = 'Signed Contributions', sortValues = TRUE,
                          ylim = c(1.2*min(signed.ctrJ.adj[,2]), 1.2*max(signed.ctrJ.adj[,2]))
-) + ggtitle("", subtitle = 'Columns')
+) + ggtitle("", subtitle = 'Columns')  + theme(plot.title = element_text(size = 16, family = "serif"),
+                      axis.title = element_text(size = 14, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 14, face = "italic", family = "serif"))
 
 ```
 
@@ -913,14 +984,13 @@ ctradjJ.2 <- PrettyBarPlot2(signed.ctrJ.adj[,2],
 grid.arrange(
     as.grob(ctradjI.1),as.grob(ctradjJ.1),
     as.grob(ctradjI.2),as.grob(ctradjJ.2),
-    ncol = 2,nrow = 2,
-    top = textGrob("Contributions", gp = gpar(fontsize = 18, font = 3))
+    ncol = 2,nrow = 2
   )
 
 Ctradj.IJ <- recordPlot()
 ```
 
-# Supplementary materials for Experiment 3
+# Supplementary materials: Experiment 3
 
 ```{r plscsetupsup}
 library(TExPosition)
@@ -938,11 +1008,11 @@ adjcontingency <- adjcontingency[-c(6,14),]
 ```
 
 
-```{r covariance.mat, fig.height=10}
+```{r covariance.mat, fig.height=14}
 # Compute the correlation matrix
 XY.cor <- cor(dimcontingency, adjcontingency)
 # Plot it with corrplot
-corrplot(XY.cor, method = "color", addCoefasPercent = TRUE, tl.cex = .75) 
+corrplot(XY.cor, method = "color", addCoefasPercent = TRUE, tl.cex = 1.25) 
 
 a0.residuals <- recordPlot()
 
@@ -970,7 +1040,7 @@ qs <- pls.res$TExPosition.Data$pdq$q
 ```
 
 
-```{r loadingbarplotplscsup, fig.width=14, fig.height=14}
+```{r loadingbarplotplscsup, fig.width=20, fig.height=14}
 
 loading1p <- PrettyBarPlot2(bootratio = ps[,1], 
                        threshold = min(.6*max(abs(ps[,1]))), 
@@ -978,11 +1048,13 @@ loading1p <- PrettyBarPlot2(bootratio = ps[,1],
                        color4bar = c(col4cols),
                        color4ns = "gray75", 
                        plotnames = TRUE, 
-                       main = 'Loadings for Musical Qualities for LV1', 
+#                       main = 'Loadings for Musical Qualities for LV1', 
                        ylab = "Signed Loadings"
 #                      , horizontal = F
-                      #font.size = 1
-                       )
+                      , font.size = 4
+                       ) + ggtitle("Loadings for LV1", subtitle = 'Musical Qualities') + theme(plot.title = element_text(size = 20, family = "serif"),
+                      axis.title = element_text(size = 18, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 18, face = "italic", family = "serif"))
 
 loading1q <- PrettyBarPlot2(bootratio = qs[,1], 
                        threshold = min( .6*max(abs(qs[,1]))), 
@@ -990,10 +1062,12 @@ loading1q <- PrettyBarPlot2(bootratio = qs[,1],
                        color4bar = cols$adj.oc,
                        color4ns = "gray75", 
                        plotnames = TRUE, 
-                       main = 'Loadings for Adjectives for LV1', 
+#                       main = 'Loadings for Adjectives for LV1', 
                        ylab = "Signed Loadings"
-                       #font.size = 1
-                       )
+                       , font.size = 4
+                       ) + ggtitle("", subtitle = 'Adjectives') + theme(plot.title = element_text(size = 20, family = "serif"),
+                      axis.title = element_text(size = 18, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 18, face = "italic", family = "serif"))
 
 loading2p <- PrettyBarPlot2(bootratio = ps[,2], 
                        threshold = min(.6*max(abs(ps[,2]))), 
@@ -1001,11 +1075,13 @@ loading2p <- PrettyBarPlot2(bootratio = ps[,2],
                        color4bar = col4cols,
                        color4ns = "gray75", 
                        plotnames = TRUE, 
-                       main = 'Loadings for Musical Qualities for LV2', 
+ #                      main = 'Loadings for Musical Qualities for LV2', 
                        ylab = "Signed Loadings"
 #                       , horizontal = F
-                       #font.size = 1
-                       )
+                       , font.size = 4
+                       ) + ggtitle("Loadings for LV2", subtitle = 'Musical Qualities') + theme(plot.title = element_text(size = 20, family = "serif"),
+                      axis.title = element_text(size = 18, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 18, face = "italic", family = "serif"))
 
 loading2q <- PrettyBarPlot2(bootratio = qs[,2], 
                        threshold = min(.6*max(abs(qs[,2]))), 
@@ -1013,13 +1089,15 @@ loading2q <- PrettyBarPlot2(bootratio = qs[,2],
                        color4bar = cols$adj.oc,
                        color4ns = "gray75", 
                        plotnames = TRUE, 
-                       main = 'Loadings for Adjectives for LV2', 
+#                       main = 'Loadings for Adjectives for LV2', 
                        ylab = "Signed Loadings"
-                       #font.size = 1
-                       )
+                      , font.size = 4
+                       ) + ggtitle(" ", subtitle = 'Adjectives') + theme(plot.title = element_text(size = 20, family = "serif"),
+                      axis.title = element_text(size = 18, face = "italic", family = "serif"),
+                      plot.subtitle = element_text(size = 18, face = "italic", family = "serif"))
 
 
-loads <- grid.arrange(
+grid.arrange(
                       as.grob(loading1p), as.grob(loading1q),
                       as.grob(loading2p), as.grob(loading2q),
                       ncol = 2,nrow = 2

@@ -1,0 +1,4 @@
+"0","# Compute the correlation matrix"
+"0","XY.cor <- cor(dimcontingency, adjcontingency)"
+"0","# Plot it with corrplot"
+"0","corrplot(XY.cor, method = ""color"", addCoefasPercent = TRUE, tl.cex = 1.25) "

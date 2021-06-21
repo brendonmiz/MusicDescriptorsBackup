@@ -3,7 +3,7 @@
     "path": "~/GitHub/MusicDescriptorsBackup/MusDes_Supplementary.Rmd",
     "project_path": "MusDes_Supplementary.Rmd",
     "type": "r_markdown",
-    "hash": "216821186",
+    "hash": "706619509",
     "contents": "",
     "dirty": false,
     "created": 1617027617991.0,
@@ -11,17 +11,17 @@
     "relative_order": 2,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "1014,73",
-        "scrollLine": "0",
+        "cursorPosition": "44,0",
+        "scrollLine": "17",
         "last_setup_crc32": "",
         "docOutlineVisible": "1"
     },
-    "folds": "54|11|89|0|\n",
-    "lastKnownWriteTime": 1620863323,
+    "folds": "57|11|92|0|\n94|11|132|0|\n",
+    "lastKnownWriteTime": 1623263568,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620863323454,
+    "last_content_update": 1623464196329,
     "read_only": false,
     "read_only_alternatives": []
 }

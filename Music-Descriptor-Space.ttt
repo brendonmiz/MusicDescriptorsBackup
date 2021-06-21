@@ -1,0 +1,34 @@
+\begin{lltable}
+\begin{scriptsize}
+\begin{longtable}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:qualitiestable}Musical Qualities and the provided survey response options.}\\
+\toprule[.8pt]
+ \multicolumn{1}{c}{Harmonic Material} & \multicolumn{1}{c}{Tempo} & \multicolumn{1}{c}{Meter} & \multicolumn{1}{c}{Density} & \multicolumn{1}{c}{Genre} & \multicolumn{1}{c}{Articulation}\\
+ \midrule
+      Diatonic: Major & Very slow & Simple Duple & Very sparse & Baroque & Staccato \\
+      Diatonic: Minor & Slow & Simple Triple & Moderately sparse & Classical & Marcato \\
+      Blues & Moderately Slow & Simple Quadruple  & More sparse than dense & Romantic & Legato\\
+      Chromatic & Moderate & Compound Duple & More dense than sparse & Impressionist & Tenuto\\
+      Whole tone & Moderately Fast & Compound Triple & Moderately Dense & Modern & Other \\
+      Modal  & Fast & Compound Quadruple & Very Dense & Jazz/Blues & \\
+      Quintal/Quartal  & Very Fast & Complex & & Contemporary & \\
+      Ambiguous  & & & & Other & \\
+      Other  & & & & & \\
+\bottomrule\addlinespace[.5em]
+ & \multicolumn{1}{c}{Contour} & \multicolumn{1}{c}{Motion} & \multicolumn{1}{c}{Range} & \multicolumn{1}{c}{Dynamics} & \\
+ \cmidrule[.5pt]{2-5}
+  & Ascending & Conjunct & Narrow & Soft & \\
+  & Descending & Disjunct & Moderate & Moderate  & \\
+  & Arch & \multirow{2}{0.2\textwidth}{Combination of conjunct and disjunct} & Wide & Loud  & \\
+  & Undulating &  & Very Wide & \multirow{2}{0.2\textwidth}{Varied: gradual crescendo} &\\
+  & Pendulum & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} &  &\\
+  & Terrace & & & \multirow{2}{0.2\textwidth}{Varied: gradual decrescendo} & \\
+  & \multirow{2}{0.2\textwidth}{I do not think this excerpt has a melody} & Other & & &\\
+  & & & & \multirow{2}{0.2\textwidth}{Some of each, soft and loud}   & \\
+  & Other & & & & \\
+  & & & & Other & \\
+
+\cmidrule[.75pt]{2-5}
+\end{longtable}
+\end{scriptsize}
+\end{lltable}

@@ -50,6 +50,9 @@ name4Graphs  <- paste0(path2pptx,powerpointFilename)
 title4Graphs <- 'Music Descriptors Supp '
 ```
 
+Supplementary materials for "Cognitive Music Listening Space: A Multivariate Approach". Additional material, including stimulus examples and datasets can be found at github.com/brendonmiz/musicdescriptors_supp.
+
+
 # Supplementary Materials: Experiment 1
 
 ```{=latex}

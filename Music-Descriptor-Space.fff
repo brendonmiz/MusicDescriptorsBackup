@@ -1,130 +1,112 @@
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/screeRV-1}
-
-}
-
-\caption{ }\label{fig:screeRV}
+  \centering
+  \caption{Survey data processing flowchart. In the top table, participants are in rows and excerpts are in blocks of columns. Purple cells indicate that participants were presented with and responded to an excerpt, gray cells indicate that participants were not presented with an excerpt.}
+    \includegraphics[width=1\columnwidth]{./Music-Descriptor-Space_files/figure-latex/dataflow.png}
+  \label{fig:dataflow}
+  \caption*{\footnotesize }
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1}
-
-}
-
-\caption{ }\label{fig:scree4excerptsq}
+  \begin{center}
+  \caption{CA: Scree plot for the Qualities Survey, showing percentage of explained variance per dimension. The horizontal line indicates the average variance extracted per dimension}
+    \includegraphics[width=0.6\columnwidth]{./Music-Descriptor-Space_files/figure-latex/scree4excerptsq-1.png}
+  \label{fig:scree4excerptsq}
+ \end{center}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contributionsQ-1}
-
-}
-
-\caption{ }\label{fig:contributionsQ}
+  \centering
+  \caption{CA: Musical Qualities Survey, factor plots for Excerpts, colored according to clusters identified by the HCA, and important musical qualities, colored such that levels of each quality are the same color. Axes are labeled with the dimension, eigenvalue, and the explained variance for the dimension.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/factormapsQcode-1.png}
+  \label{fig:factormapsQ}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics[width=1\linewidth]{Music-Descriptor-Space_files/figure-latex/factormapswsimplexQ-1}
-
-}
-
-\caption{ }\label{fig:factormapswsimplexQ}
+  \centering
+  \caption{CA: Musical Qualities survey, important signed contributions for the first two dimensions, colored similarly to Figure 3. The $y$-axis represents the value of the contributions.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/contributionsQcode-1.png}
+  \label{fig:contributionsQ}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/unnamed-chunk-1-1}
-
-}
-
-\caption{ }\label{fig:unnamed-chunk-1}
+  \centering
+  \caption{MFA: Data manipulation flowchart.}
+    \includegraphics[width=1\columnwidth]{./Music-Descriptor-Space_files/figure-latex/mfadataflow.png}
+  \label{fig:mfadataflow}
+  \caption*{\footnotesize \textit{Note.} 1. Brick separated by nationality. 2. Separate bricks summed across pages. 3. Tables transposed. Thin arrows: tables as blocks concatenated into large matrices and sent to MFA for analysis.}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/map4RV.A-1}
-
-}
-
-\caption{ }(\#fig:map4RV.A)
+  \begin{center}
+  \caption{CA: Scree plot for Adjectives Survey, showing percentage of explained variance per dimension. Horizontal line indicates the average variance extracted per dimension.}
+    \includegraphics[width=0.6\columnwidth]{./Music-Descriptor-Space_files/figure-latex/scree4descriptorscode-1.png}
+  \label{fig:scree4descriptors}
+ \end{center}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/scree4descriptors-1}
-
-}
-
-\caption{ }\label{fig:scree4descriptors}
+  \centering
+  \caption{CA: Adjective survey, factor plots for Excerpts and Adjectives, each colored according to clusters identified by their respective HCAs. Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/factormapsAcode-1.png}
+  \label{fig:factormapsA}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contributions.A-1}
-
-}
-
-\caption{ }(\#fig:contributions.A)
+  \centering
+  \caption{CA: Adjective survey. Important signed contributions from rows and columns, colored according to clusters identified by their respective HCAs. The $y$-axis represents the value of the contributions.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/contributionsAcode-1.png}
+  \label{fig:contributionsA}
+  \caption*{}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/mfasbs-1}
-
-}
-
-\caption{ }\label{fig:mfasbs}
+  \centering
+  \caption{MDS: Distance analysis of the co-occurrence matrix for the adjectives survey, including group means and bootstrap-derived confidence intervals, colored by nationality. Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
+    \includegraphics[width=0.7\columnwidth]{./Music-Descriptor-Space_files/figure-latex/map4RVAcode-1.png}
+  \label{fig:map4RVA}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/screePLSC-1}
-
-}
-
-\caption{ }\label{fig:screePLSC}
+  \centering
+  \caption{Compromise (diamonds) and partial factor scores (small circles) for MFA analyses on the Excerpts and Adjectives, colored according to clusters identified by the respective HCAs. Axis labels include dimension, eigenvalue, and explained variance for that dimension.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/mfatogether-1.png}
+  \label{fig:mfasbs}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/loadingsplsc-1}
-
-}
-
-\caption{ }\label{fig:loadingsplsc}
+  \begin{center}
+  \caption{PLSC: Scree plot showing explained variance per dimension. Horizontal line represents the average variance extracted per dimension.}
+    \includegraphics[width=0.6\columnwidth]{./Music-Descriptor-Space_files/figure-latex/screePLSCcode-1.png}
+  \label{fig:screePLSC}
+ \end{center}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/contsplsc-1}
-
-}
-
-\caption{ }\label{fig:contsplsc}
+  \centering
+  \caption{PLSC: Latent variables for Experiment 1 contingency table (horizontal, $x$) plotted against latent variables for Experiment 2 contingency table (vertical, $y$), including tolerance intervals, colored according to the groups revealed by Experiment 2.}
+  \label{fig:factorplotsPLSC}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/factorplotsPLSCcode-1.png}
+  \caption*{}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
-
-{\centering \includegraphics{Music-Descriptor-Space_files/figure-latex/factorplotsPLSC-1}
-
-}
-
-\caption{ }\label{fig:factorplotsPLSC}
+  \centering
+  \caption{PLSC: Signed contributions important for the first and second latent variables, colored by survey of origin.}
+    \includegraphics{./Music-Descriptor-Space_files/figure-latex/contsplsccode-1.png}
+  \label{fig:contsplsc}
+  \caption*{}
 \end{figure*}

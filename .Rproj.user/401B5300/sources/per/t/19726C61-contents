@@ -1,0 +1,780 @@
+---
+title: "Musical Beers PLSC"
+author: "Brendon Mizener"
+date: "1/7/2021"
+output:
+  rmdformats::downcute:
+    highlight: kate
+    df_print: paged
+    code_folding: hide
+  pdf_document: default
+always_allow_html: true
+---
+
+```{r PLSCpreamble, eval = FALSE}
+## Preamble
+## Packages
+
+In order to run both the data preprocessing and the analysis, we need the standard packages and a few more.
+
+The following are used for analysis and need to be downloaded from Dr. Abdi's or Luke Moraglia's Githubs.
+
+* `PTCA4CTA`
+* `ExPosition`
+* `InPosition`
+* `TExPosition`
+* `TInPosition`
+* `data4PCCAR`
+
+These ones are used for displaying and plotting
+
+* `wesanderson` 
+* `kableExtra` 
+* `ggplotify` 
+* `gridExtra` 
+* `grid` 
+* `corrplot`
+
+```
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE, message = FALSE)
+
+rm(list = ls())
+
+library(ExPosition)
+library(InPosition)
+library(TExPosition)
+library(TInPosition)
+library(data4PCCAR)
+library(PTCA4CATA)
+library(wesanderson)
+library(kableExtra)
+library(ggplotify)
+library(gridExtra)
+library(grid)
+library(corrplot)
+
+```
+
+# Introduction
+
+## Purpose
+
+This document analyzes data that has already been cleaned and processed in `MusicalDimensions.Rmd` and `MusicDescriptors.Rmd`. Those two files analyzed each dataset individually, and this combines the two analyses using a Partial Least Squares analysis on the two independent datasets. This is intended to determine if there is a musical 'cognitive space', to be compared to other sensory domains, such as beer taste. The initial concept for this project comes from Mathilde Vandenberghe. Brendon Mizener composed the stimuli, administered the surveys, and ran primary analyses. Code and analysis by Brendon Mizener with assistance from Dr. Herve Abdi.
+
+Document created: 07 Jan. 2021
+Most recent update: `r date()`
+
+
+## File names for results
+
+In addition to the HTML output, the graphs will be saved in a powerpoint presentation, whose name and path are given below.
+
+```{R graphPath}
+powerpointFilename <- 'MusDimPLSCFigs.pptx'
+path2pptx    <- './Analysis/'
+name4Graphs  <- paste0(path2pptx,powerpointFilename)
+title4Graphs <- 'Musical Dimensions '
+```
+
+## File names for data
+
+The data we need to analyze is were saved as `RData` files from the previous analysis. They were stored in the files `catadatamusdim.RData`, `adj.catadata.list.RData`, and `adjdesign.RData`. Each of these `RData` files is a list containing elements we need for analysis. 
+
+`catadatamusdim.RData` contains:  
+
+* `thebrick`: the brick of disjunctively coded contingency tables, with excerpts on the rows, musical dimensions on the columns, and participants on the pages.
+* `contingency`: the contingency table that is the sum across all pages (participants). The rows and columns are the same as in `thebrick`.
+* `expert.data`: the demographic data of the trained musicians who took this survey.
+* `numberofdims`: a named integer vector that contains the number and names of each of the groups of musical dimensions on which the excerpts were rated.
+
+`adj.catadata.list.RData` contains:
+
+* `adjbrick`: the brick of disjunctively coded contingency tables, with excerpts on the rows, adjectives on the columns, and participants on the pages.
+* `adjcontingency`: the contingency table summed across all pages (participants). The rows and columns are the same as in `adjbrick`
+* `partcols`: demographic data of the participants (non-experts) who took this survey
+* `adjcols`: a data frame with each each participant's response to each excerpt on the rows and the excerpts on the columns
+* `listofwords`: a vector containing each of the possible adjectives used in the adjective survey
+
+
+`adj.design.RData` contains:
+
+* `thedesign`: a design vector with `adj.group[1:4]` as determined by the adjectives analysis
+* `col4exgrp`: a color vector (4 colors) for the groups of excerpts
+* `ex.cols`: a color vector (30 colors) for the individual excerpts
+
+
+```{r loadthedata}
+load("catadatamusdim.RData")
+load("adj.catadata.list.RData")
+load("adjdesign.RData")
+```
+
+Here we specify the contingency tables that we need to use to perform this analysis. The two contingency tables that we created are items in the lists we loaded as RData files. Note that I've removed Excerpt 6 (row 6) from both contingency tables, and also column 9 from the dimensions contingency table. Excerpt 6 was removed because it was a major outlier in both experiments. The HCA of the experts survey showed that of the four groups revealed, it was by itself as a group. Column 9 was removed because the only value in that column was in row six, which was causing issues with the plotting and analysis below.
+
+```{r specifythedata}
+dimcontingency <- catadata.list$contingency
+adjcontingency <- adj.catadata.list$adjcontingency
+
+dimcontingency <- dimcontingency[-c(6,14,17),-9]
+adjcontingency <- adjcontingency[c(-6,14,17),]
+```
+
+## Preliminary visualization
+
+Because we already ran all of the cleaning and processing, we're working with two ready-to-go datasets. The first thing we want to do is take a look at the structure of the data we want to analyze, so we compute the correlations between the two contingency tables and plot the resulting correlation matrix: 
+
+```{r covariance_mat, fig.height=10}
+# Compute the correlation matrix
+XY.cor <- cor(dimcontingency, adjcontingency)
+# Plot it with corrplot
+corrplot(XY.cor, method = "color", addCoefasPercent = TRUE, tl.cex = .75) 
+
+a0.residuals <- recordPlot()
+
+```
+
+# Analysis
+
+This analysis runs the PLSC. Note that I'm also removing the sixth element of the design vector so that the dimensions match up correctly with the design of the contingency tables. (We removed Excerpt 6 above) 
+
+```{r}
+pls.res <- tepPLS(dimcontingency, adjcontingency, DESIGN = adj.design$thedesign[-6])
+resPerm4PLSC <- perm4PLSC(dimcontingency, adjcontingency, nIter = 1000)
+
+```
+
+```{r thefirst3eigs}
+
+e1 <- pls.res$TExPosition.Data$eigs[1]
+e2 <- pls.res$TExPosition.Data$eigs[2]
+e3 <- pls.res$TExPosition.Data$eigs[3]
+
+```
+
+
+
+The Scree plot below shows us that the first three dimensions seem to be significant. The first dimensions explain approximately 65%, 18%, and 8% of the variance, respectively. For the purposes of the current study we're focusing on the first two dimensions below.
+
+```{r scree}
+
+PlotScree(ev = pls.res$TExPosition.Data$eigs,
+          p.ev = resPerm4PLSC$pEigenvalues,
+          title = 'PLSC Music Features: Inertia Scree Plot',
+          plotKaiser = TRUE, 
+          color4Kaiser = ggplot2::alpha('darkorchid4', .5),
+          lwd4Kaiser  = 2
+          )
+a000.scree4plsc <-  recordPlot()
+
+```
+
+
+```{r permtest4eigs, include = FALSE, echo = FALSE}
+zeDim = 1
+pH1I <- prettyHist(
+  distribution = resPerm4PLSC$permEigenvalues[,zeDim],
+           observed = pls.res$TExPosition.Data$eigs[zeDim], 
+           xlim = c(0, 1.5*max(pls.res$TExPosition.Data$eigs[zeDim])), # needs to be set by hand
+           breaks = 20,
+           border = "white", 
+           main = paste0("Permutation Test for Eigenvalue ",zeDim),
+           xlab = paste0("Eigenvalue ",zeDim), 
+           ylab = "", 
+           counts = FALSE,
+           cutoffs = c( 0.975))
+eigs1z <- recordPlot()
+
+zeDim = 2
+pH2I <- prettyHist(
+  distribution = resPerm4PLSC$permEigenvalues[,zeDim],
+           observed = pls.res$TExPosition.Data$eigs[zeDim], 
+           xlim = c(0, 1.5*max(pls.res$TExPosition.Data$eigs[zeDim])), # needs to be set by hand
+           breaks = 20,
+           border = "white", 
+           main = paste0("Permutation Test for Eigenvalue ",zeDim),
+           xlab = paste0("Eigenvalue ",zeDim), 
+           ylab = "", 
+           counts = FALSE, 
+           cutoffs = c(0.975))
+eigs2z <- recordPlot()
+
+
+
+```
+
+# Visualizations
+
+## Factor Plots
+
+The factor plots below show the strongest correlated signal extracted from the two datasets on the observations of the tables, which is the Excerpts. This specifically plots the similarities between how the experts and the non-experts rated the excerpts.
+
+### Latent Variable 1
+
+This factor plot shows us how the strongest correlated signal between the two data tables separates Excerpts groups 2 and 3, but groups 1 and two didn't contribute much to this dimension. Of the excerpts, the most different would be Excerpt 24 & 27 and Excerpt 26.
+
+```{r factor plot 1, echo = T, fig.width = 10, fig.height = 10, fig.show='hold'}
+
+# First, given how CreateFactorMap works, you need to create a matrix with observations on the rows, and whatever you want to put as the x-axis in the first column, and whatever you want to put as the y-axis in the second column.
+
+# For the first plot, the first component of the latent variable of X is the x-axis, and the first component of the latent variable of Y is the y-axis
+latvar.1 <- cbind(pls.res$TExPosition.Data$lx[,1],pls.res$TExPosition.Data$ly[,1])
+colnames(latvar.1) <- c("Lx 1", "Ly 1")
+
+zedesign <- adj.design$thedesign[-6]
+lescoleurs <- adj.design$ex.cols[-6]
+coleur4group <- adj.design$col4exgrp
+
+
+# compute means
+lv.1.group <- getMeans(latvar.1, zedesign)
+
+# get bootstrap intervals of groups
+lv.1.group.boot <- Boot4Mean(latvar.1, zedesign)
+colnames(lv.1.group.boot$BootCube) <- c("Lx 1", "Ly 1")
+
+#Next, we can start plotting:
+
+plot.lv1 <- createFactorMap(latvar.1,
+                         col.points = lescoleurs,
+                         col.labels = lescoleurs,
+                         alpha.points = 0.4, alpha.labels = 0.4,
+                         )
+
+plot1.mean <- createFactorMap(lv.1.group,
+                              col.points = coleur4group,
+                              col.labels = coleur4group,
+                              cex = 4,
+                              pch = 17,
+                              alpha.points = 0.8, 
+                              text.cex = 6)
+
+plot1.meanCI <- MakeCIEllipses(lv.1.group.boot$BootCube[,c(1:2),], # get the first two components
+                              col = adj.design$col4exgrp,
+                              names.of.factors = c("Lx 1", "Ly 1")
+                              )
+
+plot1 <- plot.lv1$zeMap_background + plot.lv1$zeMap_dots + plot.lv1$zeMap_text +
+           plot1.mean$zeMap_text + plot1.meanCI
+
+print(plot1)
+
+```
+
+
+### Latent variable 2
+
+This factor plot shows us that the second strongest signal separates Groups 1 and 4, with Groups 2 and 3 more barycentric. Of the excerpts in these groups, it looks like Excerpt 1 and Excerpts 11 & 28 are the most different.
+
+```{r factor plot 2, echo = T, fig.width = 10, fig.height = 10, fig.show='hold'}
+latvar.2 <- cbind(pls.res$TExPosition.Data$lx[,2],pls.res$TExPosition.Data$ly[,2])
+colnames(latvar.2) <- c("Lx 2", "Ly 2")
+
+# compute means
+lv.2.group <- getMeans(latvar.2, zedesign)
+
+# get bootstrap intervals of groups
+lv.2.group.boot <- Boot4Mean(latvar.2, zedesign)
+colnames(lv.2.group.boot$BootCube) <- c("Lx 2", "Ly 2")
+
+#Next, we can start plotting:
+
+plot.lv2 <- createFactorMap(latvar.2,
+                         col.points = lescoleurs,
+                         col.labels = lescoleurs,
+                         alpha.points = 0.4, alpha.labels = 0.4,
+                         )
+
+plot2.mean <- createFactorMap(lv.2.group,
+                              col.points = coleur4group,
+                              col.labels = coleur4group,
+                              cex = 4,
+                              pch = 17,
+                              alpha.points = 0.8, 
+                              text.cex = 6)
+
+plot2.meanCI <- MakeCIEllipses(lv.2.group.boot$BootCube[,c(1:2),], # get the first two components
+                              col = coleur4group,
+                              names.of.factors = c("Lx 2", "Ly 2")
+                              )
+
+plot2 <- plot.lv2$zeMap_background + plot.lv2$zeMap_dots + plot.lv2$zeMap_text +
+           plot2.mean$zeMap_text + plot2.meanCI
+plot2
+
+```
+
+## Loadings & Contributions
+
+### Loadings Barplots
+
+The plots below show us which columns from both datasets loaded on the respective latent variables. In this case, I've set the plot to highlight only the top 25% of the variables on each dimension. A couple of things stand out: First of all, tempo (F1:F7::Very Slow:Very Fast) seems to load significantly on the first dimension - fast loaded negatively and slow loaded positively. We also see that articulation follows the same pattern we saw in the experts dataset: legato seems to go hand-in-hand with slow and marcato/staccato seems to go hand-in-hand with fast.
+
+The adjectives that loaded along with the fast tempo designations were "Bright", "Colorful", "Dancing", "Fast", and "Happy", and the adjectives that loaded along with the slow tempo designations were "Long", "Melancholy", "Sad", "Slow", and "Solemn". 
+
+On the second dimension, it looks like we have "Harmony: Major", along with "Warm", "Soft", and "Round", juxtaposed with only adjectives. These are "Aggressive", "Complex", "Dense", and "Surprising". The strongest loading from the expert rating data is "Genre: Impressionist", but that only cracks the top 30% of loadings.
+```{r plsc.function}
+# input - 
+# one or two vectors or matrices of loadings or contributions, etc, such as output from epPCA or similar
+# set of colors equal to the number of matrices to be plotted x 2
+# desired % of contributions to be displayed
+# 
+#
+
+# output - Variables to input into the pretty bar plot function: 
+# 1) set of 'significant' loadings or contributions, 
+# 2) threshold,  
+# 3) set of colors
+
+barplot.sigonly <- function(x, 
+                            y, 
+                            th, 
+                            type = c("load", "cont"), 
+                            dims = 2, 
+                            colforthebars){
+  
+  if(is.null(dim(x)) && is.null(length(x))){return("Please enter either a vector, matrix, or dataframe")
+      }else if(is.null(dim(x)) && length(x) > 1){
+          dims = 1
+          print("Vector as input, returning only one dimension.")
+          }
+  
+  if(dims > 8){return("Do you really need to plot that many dimensions? Select a number less than 8")}
+  
+  dimsvec <- c("Dim1", "Dim2", "Dim3", "Dim4", "Dim5", "Dim6", "Dim7", "Dim8") 
+  
+  if(is.null(y)){
+
+      if(type == "cont" && th == "mean"){
+          if(sum(x[,1]) == 1){
+              thr <- 1/nrow(x[,1])
+              }
+          else if(sum(x[,1]) == 100){
+              thr <- 100/nrow(x[,1])
+              }   
+        } else {thr <- th/100}
+              
+    
+    
+    xslist <- vector(mode = "list", length = 2)
+    names(xslist) <- dimsvec[1:dims]
+    x.names <- rownames(x)
+    colors4bars <- vector(mode = "list", length = 3)
+    names(colors4bars) <- c("colors", "x.all","x.vec")
+    
+    colors4bars$colors <- wes_palettes$Darjeeling1[c(1,2)]
+    
+    for (i in 1:dims){
+    xslist[[i]] <- x[which(abs(x[,i]) > thr*max(abs(x[,i]))),i]
+    names(xlist[[i]]) <- x.names[abs(x[,i]) > thr*max(abs(x[,i]))]
+    }
+
+    colors4bars$x.all <- x
+    colors4bars$x.all[colors4bars$x.all > 0] <- colors4bars$colors[1]
+    colors4bars$x.all[colors4bars$x.all != colors4bars$colors[1]] <- colors4bars$colors[2]
+
+    colors4bars$x.vec <- vector(mode = "list", length = 2)
+  
+    names(colors4bars$x.vec) <- names(xslist)
+  
+    for (i in 1:dim){
+    colors4bars$x.vec[[i]] <- colors4bars$x.all[which(abs(x[,i]) > thr*max(abs(x[,i]))),i]
+    }
+    
+  bp.sig <- list("colordata" = colors4bars, "loadingsdata" = pslist, "t.hold" = thr)
+   
+  return(bp.sig)
+  
+  }
+  
+        if(type == "cont" && th == "mean"){
+          if(sum(x[,1]) == 1){
+              thr <- 1/nrow(x[,1])
+              }
+          else if(sum(x[,1]) == 100){
+              thr <- 100/nrow(x[,1])
+              }   
+        } else {thr <- th/100}
+  
+  
+  xslist <- vector(mode = "list", length = 2)
+  yslist <- vector(mode = "list", length= 2)
+
+  names(xslist) <- dimsvec[1:dims]
+  names(yslist) <- dimsvec[1:dims]
+
+  x.names <- rownames(x)
+  y.names <- rownames(y)
+
+    for (i in 1:2){
+        
+      xslist[[i]] <- x[which(abs(x[,i]) > thr*max(abs(x[,i]))),i]
+      yslist[[i]] <- y[which(abs(y[,i]) > thr*max(abs(y[,i]))),i]
+      names(xslist[[i]]) <- x.names[abs(x[,i]) > thr*max(abs(x[,i]))]
+      names(yslist[[i]]) <- y.names[abs(y[,i]) > thr*max(abs(y[,i]))]
+  }
+
+  colors4bars <- vector(mode = "list", length = 5)
+  names(colors4bars) <- c("colors", "x.all","y.all","x.vec", "y.vec" )
+
+  colors4bars$colors <- c(wes_palettes$Darjeeling1[c(1,2,4)],
+                        wes_palettes$Darjeeling2[2])
+
+  colors4bars$x.all <- x
+  colors4bars$x.all[colors4bars$x.all > 0] <- colors4bars$colors[1]
+  colors4bars$x.all[colors4bars$x.all != colors4bars$colors[1]] <- colors4bars$colors[2]
+
+  colors4bars$y.all <- y
+  colors4bars$y.all[colors4bars$y.all > 0] <- colors4bars$colors[3]
+  colors4bars$y.all[colors4bars$y.all != colors4bars$colors[3]] <- colors4bars$colors[4]
+
+  colors4bars$x.vec <- vector(mode = "list", length = 2)
+  colors4bars$y.vec <- vector(mode = "list", length = 2)
+
+  names(colors4bars$x.vec) <- dimsvec[1:dims]
+  names(colors4bars$y.vec) <- dimsvec[1:dims]
+
+
+  for (i in 1:2){
+    colors4bars$x.vec[[i]] <- colors4bars$x.all[which(abs(x[,i]) > thr*max(abs(x[,i]))),i]
+    colors4bars$y.vec[[i]] <- colors4bars$y.all[which(abs(y[,i]) > thr*max(abs(y[,i]))),i]
+      }
+  
+  barsdata <- vector(mode = "list", length = dims)
+  names(barsdata)  <- dimsvec[1:dims]
+  for (i in 1:dims){
+    barsdata[[i]] <- c(xslist[[i]], yslist[[i]])
+  }
+  
+  bp.sig <- list("colordata" = colors4bars, "barsdata" = barsdata, "t.hold" = thr)
+  
+}
+
+
+```
+
+```{r loadings barplots, fig.width = 12, fig.height = 6, fig.show='hold', message=F}
+library(wesanderson)
+ps <- pls.res$TExPosition.Data$pdq$p
+qs <- pls.res$TExPosition.Data$pdq$q
+
+pslist <- vector(mode = "list", length = 2)
+qslist <- vector(mode = "list", length= 2)
+
+names(qslist) <- c("Dim1", "Dim2")
+names(pslist) <- c("Dim1", "Dim2")
+
+p.names <- rownames(ps)
+q.names <- rownames(qs)
+
+for (i in 1:2){
+  pslist[[i]] <- ps[which(abs(ps[,i]) > .6*max(abs(ps[,i]))),i]
+  qslist[[i]] <- qs[which(abs(qs[,i]) > .6*max(abs(qs[,i]))),i]
+  names(pslist[[i]]) <- p.names[abs(ps[,i]) > .6*max(abs(ps[,i]))]
+  names(qslist[[i]]) <- q.names[abs(qs[,i]) > .6*max(abs(qs[,i]))]
+  }
+
+colors4plsc <- vector(mode = "list", length = 5)
+names(colors4plsc) <- c("colors", "p.all","q.all","p.vec", "q.vec" )
+
+colors4plsc$colors <- c(wes_palettes$Darjeeling1[c(1,2,4)],
+                        wes_palettes$Darjeeling2[2])
+
+colors4plsc$p.all <- ps
+colors4plsc$p.all[colors4plsc$p.all > 0] <- colors4plsc$colors[1]
+colors4plsc$p.all[colors4plsc$p.all != colors4plsc$colors[1]] <- colors4plsc$colors[2]
+
+colors4plsc$q.all <- qs
+colors4plsc$q.all[colors4plsc$q.all > 0] <- colors4plsc$colors[3]
+colors4plsc$q.all[colors4plsc$q.all != colors4plsc$colors[3]] <- colors4plsc$colors[4]
+
+colors4plsc$p.vec <- vector(mode = "list", length = 2)
+colors4plsc$q.vec <- vector(mode = "list", length = 2)
+
+names(colors4plsc$p.vec) <- c("Dim1", "Dim2")
+names(colors4plsc$q.vec) <- c("Dim1", "Dim2")
+
+
+for (i in 1:2){
+  colors4plsc$p.vec[[i]] <- colors4plsc$p.all[which(abs(ps[,i]) > .6*max(abs(ps[,i]))),i]
+  colors4plsc$q.vec[[i]] <- colors4plsc$q.all[which(abs(qs[,i]) > .6*max(abs(qs[,i]))),i]
+
+}
+
+loading1 <- PrettyBarPlot2(bootratio = c(pslist$Dim1, qslist$Dim1), 
+                       threshold = min(c(.6*max(abs(ps[,1])), .6*max(abs(qs[,1])))), 
+                       ylim = c(1.2*min(c(pslist$Dim1, qslist$Dim1)), 1.2*max(c(pslist$Dim1, qslist$Dim1))),
+                       color4bar = c(colors4plsc$p.vec$Dim1, colors4plsc$q.vec$Dim1),
+                       color4ns = "gray75", 
+                       plotnames = TRUE, 
+                       main = 'Loadings for variables for factor plot 1', 
+                       ylab = "Signed Loadings"
+                       #font.size = 1
+                       )
+  
+loading2 <- PrettyBarPlot2(bootratio = c(pslist$Dim2, qslist$Dim2), 
+                       threshold = min(c(.6*max(abs(ps[,2])), .6*max(abs(qs[,2])))), 
+                       ylim = c(1.2*min(c(pslist$Dim2, qslist$Dim2)), 1.2*max(c(pslist$Dim2, qslist$Dim2))),
+                       color4bar = c(colors4plsc$p.vec$Dim2, colors4plsc$q.vec$Dim2),
+                       color4ns = "gray75", 
+                       plotnames = TRUE, 
+                       main = 'Loadings for variables for factor plot 2', 
+                       ylab = "Signed Loadings",
+                       #font.size = 1
+                       )  
+  
+
+loads <- grid.arrange(
+                      as.grob(loading1),
+                      as.grob(loading2),
+                      ncol = 2,nrow = 1
+                      )
+
+```
+
+```{r test}
+
+
+
+loading2 <- PrettyBarPlot2(bootratio = test$barsdata[[1]], 
+                       threshold = min(c(.6*max(abs(ps[,1])), .6*max(abs(qs[,1])))), 
+                       ylim = c(1.2*min(c(pslist$Dim1, qslist$Dim1)), 1.2*max(c(pslist$Dim1, qslist$Dim1))),
+                       color4bar = c(test$colordata$x.vec$Dim1, test$colordata$y.vec$Dim1),
+                       color4ns = "gray75", 
+                       plotnames = TRUE, 
+                       main = 'Loadings for variables for factor plot 2', 
+                       ylab = "Signed Loadings",
+                       #font.size = 1
+                       )
+
+test <- barplot.sigonly(x = pls.res$TExPosition.Data$pdq$p,
+                        y = pls.res$TExPosition.Data$pdq$q,
+                        th = 60,
+                        type = "load"
+                        )
+
+plot_1 <- loading2 <- PrettyBarPlot2(bootratio = test$data$Dim1, 
+                       threshold = test$t.hold$together[1,], 
+                       ylim = test$data$y.limits$ylims.tog$Dim1,
+                       color4bar = c(test$color$x.vec$Dim1, test$color$y.vec$Dim1),
+                       color4ns = "gray75", 
+                       plotnames = TRUE, 
+                       main = 'Loadings for variables for factor plot 2', 
+                       ylab = "Signed Loadings",
+                       #font.size = 1
+                       )
+
+
+plot_1
+
+```
+Below I've separated out just the loadings from each matrix, and oriented them so that it's more apparent which dimension they're loading on. The expert rating data was used as the X matrix, so the bars are horizontal to represent the x axis, and the adjectives were used as the Y matrix, so those bars are vertical to represent the Y axis. The only difference between these graphs and those above is that I've lowered the threshold for coloring on the 2nd dimension of the X matrix so that we can see how a few more of the expert-rated variables load. 
+
+
+```{r loadings barplots 2, fig.width = 12, fig.height = 6, fig.show='hold', message=F, echo = FALSE}
+
+loading1p <- PrettyBarPlot2(bootratio = round(100*ps[,1]), 
+                       threshold = .6*max(abs(100*ps[,1])), 
+                       ylim = NULL, 
+                       #color4bar = cfp,
+                       color4ns = "gray75", 
+                       plotnames = TRUE,  
+                       sortValues = TRUE,
+                       main = 'Loadings for Matrix 1, LV1', 
+                       ylab = "Signed Loadings", 
+                       horizontal = FALSE, 
+                       font.size = 3
+                       
+                       )
+  
+loading1q <- PrettyBarPlot2(bootratio = round(100*qs[,1]), 
+                       threshold = .6*max(abs(100*qs[,1])), 
+                       ylim = c(-70,70),
+                       #color4bar = cfq,
+                       color4ns = "gray75", 
+                       plotnames = TRUE,  
+                       sortValues = TRUE, 
+                       main = 'Loadings for Matrix 2, LV1', 
+                       ylab = "Signed Loadings",
+                       font.size = 4, angle.text = 60
+                       )  
+  
+
+loading2p <- PrettyBarPlot2(bootratio = round(100*ps[,2]), 
+                       threshold =.6*max(abs(100*ps[,2])),
+                       ylim = NULL, 
+                       #color4bar = cfp,
+                       color4ns = "gray75", 
+                       plotnames = TRUE,  
+                       sortValues = TRUE, 
+                       main = 'Loadings for Matrix 1, LV2', 
+                       ylab = "Signed Loadings", 
+                       horizontal = FALSE, 
+                       font.size = 3
+                       )
+
+loading2q <- PrettyBarPlot2(bootratio = round(100*qs[,2]), 
+                       threshold = .6*max(abs(100*qs[,2])), 
+                       ylim = c(-70,70),
+                       #color4bar = cfq,
+                       color4ns = "gray75", 
+                       plotnames = TRUE,  
+                       sortValues = TRUE, 
+                       main = 'Loadings for Matrix 2, LV2', 
+                       ylab = "Signed Loadings",
+                       font.size = 4, angle.text = 60
+                       )  
+
+loads1 <- grid.arrange(
+                      as.grob(loading1p),
+                      as.grob(loading1q),
+                      ncol = 2,nrow = 1
+                      )
+
+loads2 <- grid.arrange(
+                      as.grob(loading2p),
+                      as.grob(loading2q),
+                      ncol = 2,nrow = 1
+                      )
+
+```
+
+### Contributions
+
+We can also visualize how each of the variables in each matrix contributed to the dimensions that we're analyzing/evaluating/interpreting. These are the columns of each of the matrices that drive the variance for each of the latent variables for the matrices.
+
+We see similar results here as we saw above, with the variables outlined above all still consistently contributing to the variance of the dimensions we've identified. 
+
+
+```{r contributionbarplots, fig.width = 12, fig.height = 6, fig.show='hold', echo = FALSE}
+
+ctri <- pls.res$TExPosition.Data$ci
+signed.ctri <- ctri * sign(pls.res$TExPosition.Data$fi)
+
+ctrj <- pls.res$TExPosition.Data$cj
+signed.ctrj <- ctrj * sign(pls.res$TExPosition.Data$fj)
+
+test1 <- barplot.sigonly(x = signed.ctri,
+                         y = signed.ctrj,
+                         th = "mean",
+                         type = "cont")
+
+
+testplot <- PrettyBarPlot2(bootratio = test1$data$Dim1, 
+                                  threshold = test1$t.hold$thr.tog, 
+                                  ylim = test1$data$y.limits$ylims.tog$Dim1, 
+                                  color4bar = c(test1$color$x.vec$Dim1, test1$color$y.vec$Dim2),
+                                  color4ns = "gray75", 
+                                  plotnames = TRUE, 
+#                                  sortValues = TRUE,
+                                  main = 'Contributions from Expert Ratings, Dim 1.', 
+                                  ylab = "Signed Contributions")
+
+
+c001.plotCtri.1 <- PrettyBarPlot2(bootratio = round(100*signed.ctri[,1]), 
+                                  threshold = 100 / nrow(signed.ctri), 
+                                  ylim = NULL, 
+                                  #color4bar = cfp,
+                                  color4ns = "gray75", 
+                                  plotnames = TRUE, 
+                                  sortValues = TRUE,
+                                  main = 'Contributions from Expert Ratings, Dim 1.', 
+                                  ylab = "Signed Contributions")
+
+c002.plotCtrj.1 <- PrettyBarPlot2(bootratio = round(100*signed.ctrj[,1]), 
+                                  threshold = 100 / nrow(signed.ctrj), 
+                                  ylim = NULL, 
+                                  #color4bar = cfq, 
+                                  color4ns = "gray75", 
+                                  plotnames = TRUE,  
+                                  sortValues = TRUE,
+                                  main = 'Contributions from Adjectives CATA, Dim 1.', 
+                                  ylab = "Signed Contributions")
+
+c003.plotCtri.2 <- PrettyBarPlot2(bootratio = round(100*signed.ctri[,2]), 
+                                  threshold = 100 / nrow(signed.ctri), 
+                                  ylim = NULL, 
+                                  #color4bar = cfp, 
+                                  color4ns = "gray75", 
+                                  plotnames = TRUE,  
+                                  sortValues = TRUE,
+                                  main = 'Contributions from Expert Ratings, Dim 2.', 
+                                  ylab = "Signed Contributions")
+
+c004.plotCtrj.2 <- PrettyBarPlot2(bootratio = round(100*signed.ctrj[,2]), 
+                                  threshold = 100 / nrow(signed.ctrj), 
+                                  ylim = NULL, 
+                                  #color4bar = cfq, 
+                                  color4ns = "gray75", 
+                                  plotnames = TRUE,  
+                                  sortValues = TRUE,
+                                  main = 'Contributions from Adjectives CATA, Dim 2.', 
+                                  ylab = "Signed Contributions")
+
+conts <- grid.arrange(
+                      as.grob(c001.plotCtri.1),
+                      as.grob(c002.plotCtrj.1),
+                      as.grob(c003.plotCtri.2),
+                      as.grob(c004.plotCtrj.2),
+                      ncol = 2,nrow = 2,
+                      top = textGrob("Variable Contributions", gp = gpar(fontsize = 18, font = 3))
+                      )
+testplot
+
+```
+
+# Interpretation
+  
+What it looks like we've identified here are dimensions corresponding to the Arousal/Valence emotional model. The most distal of each of the excerpts on the plots have a mix of both Arousal and Valence.  
+In the first dimension, we have the high arousal, positive valence excerpt, #26. It is major mode, fast, with lots of motion and uses a wide range and high dynamics. The low arousal, negative valence excerpt, #27, is ambiguous in terms of its modality, is slow, with sparse orchestration and much narrower range. Technically it's written in the major mode, but use of extended harmonies (7th and 9th chords), along with complex harmonic language^[Specifically, the cadence in this excerpt uses a bVI - ii7+4 - I+9] create some obscurity in terms of valence. 
+The second extracted dimension we have negative valence, high arousal contrasted with positive valence, low arousal. The negative valenced excerpt is similar to excerpt #26 in that it is fast, uses lots of motion, wide range, and high dynamics with some dynamic changes. The high valence, low arousal excerpt is in 6/8, with a slow moving but wide ranging melody, with a smooth, gentle accompaniment. 
+
+Because the goal of this project was to pick 4 excerpts that are the most different to establish a musical listening cognitive space, the following are recommended for the next step Excerpts 1, 26, 27, and 28. Excerpts 4 and 11 are not recommended because they were rated similarly by either the experts or non-experts to an excerpt that appears in a different dimension or different end of the spectrum in this analysis.
+
+Excerpt 1:
+
+```{r, echo = FALSE}
+html_tag_audio <- function(file, type = c("mp3")) {
+  type <- match.arg(type)
+  htmltools::tags$audio(
+    controls = NA,
+    htmltools::tags$source(
+      src = file,
+      type = glue::glue("audio/{type}", type = type)
+    )
+  )
+}
+
+html_tag_audio("Ex_1Gar.mp3", type = "mp3")
+```
+
+Excerpt 26:
+
+```{r, echo = FALSE}
+html_tag_audio("Ex_26Gar.mp3", type = "mp3")
+```
+
+Excerpt 27:
+
+```{r, echo = FALSE}
+html_tag_audio("Ex_27Gar.mp3", type = "mp3")
+```
+
+Excerpt 28:
+
+```{r, echo = FALSE}
+html_tag_audio("Ex_28Gar.mp3", type = "mp3")
+```
+
+```{r saveGraphs, message = FALSE, warning = FALSE, error = FALSE, echo = FALSE}
+pptx4musdim <- PTCA4CATA::saveGraph2pptx(file2Save.pptx = name4Graphs, 
+                 title = title4Graphs, 
+                 addGraphNames = TRUE)
+```
+
+# Citations & Packages used
+
+```{r citations}
+knitr::write_bib()
+```

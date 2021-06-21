@@ -1,1 +1,0 @@
-{"frames":[{"func":"recordPlot()","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0},{"func":"stop(\"no current device to record from\")","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in recordPlot() : no current device to record from\n"}

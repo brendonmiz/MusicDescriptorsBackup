@@ -108,6 +108,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{rotating}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -208,7 +209,7 @@
 \end{footnotesize}
 \end{lltable}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{Distance analysis for participants in Experiment 1, colored according to nationality (left) and gender identity (right).}
     \includegraphics{./supmatsimgs/qrvplot.png}
@@ -216,14 +217,14 @@
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{Hierarchical cluster analysis for the row factor scores of the CA for Experiment 1.}
     \includegraphics{./supmatsimgs/qhca1.png}
   \label{fig:qhca1}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{Hierarchical cluster analysis for the row factor scores of the CA for Experiment 1 including Excerpts 6 and 14.}
     \includegraphics{./supmatsimgs/qhca2.png}
@@ -231,7 +232,7 @@
 
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: Row factor scores for preliminary analysis of the qualities survey, featuring Dimensions 1 and 2, with tolerance intervals around the clusters identified by the HCA.}
     \includegraphics{./supmatsimgs/qfactormap12.png}
@@ -239,7 +240,7 @@
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: Row factor scores for the preliminary analysis of the qualities survey, featuring Dimensions 2 and 3, with tolerance intervals around the clusters identified by the HCA.}
     \includegraphics{./supmatsimgs/qfactormap23.png}
@@ -247,7 +248,7 @@
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: Column factor scores for the analysis of the qualities survey, points are levels of each variable, colored by variable.}
     \includegraphics{./supmatsimgs/qfactormapsjall.png}
@@ -255,8 +256,9 @@
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
+```\{= latex\}
 
-\begin{figure}[H]
+\begin{figure}
 \caption{Separate plots for each of the qualities evaluated in the musical qualities survey}
 \centering
 \begin{subfigure}[b]{.45\linewidth}
@@ -315,16 +317,15 @@
 \label{fig:qualities}
 \end{figure}
 
-\begin{sidewaysfigure}[H] 
+\begin{sidewaysfigure}  
   \centering  
   \caption{CA: All Row and column contributions for the first two dimensions of the qualities survey.}
     \includegraphics{./supmatsimgs/qconts.png}
   \label{fig:qconts}
 \end{sidewaysfigure}
 
-\hypertarget{supplementary-materials-experiment-2}{%
-\section{Supplementary Materials: Experiment
-2}\label{supplementary-materials-experiment-2}}
+\begin{verbatim}
+# Supplementary Materials: Experiment 2
 
 
 \begin{table}[H]
@@ -381,21 +382,24 @@ Surprising & Surprenant\\
 
 
 
-\begin{figure}[H]   
+```{=latex}
+
+\begin{figure}   
   \centering  
   \caption{Hierarchical cluster analysis for the row factor scores of the CA for Experiment 2.}
     \includegraphics{./supmatsimgs/ahca1.png}
   \label{fig:ahca1}
 \end{figure}
+\end{verbatim}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{Hierarchical cluster analysis for the column factor scores of the CA for Experiment 2.}
     \includegraphics{./supmatsimgs/ahca2.png}
   \label{fig:ahca2}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: Row and column factor scores for the first two dimensions of the CA for Experiment 2.}
     \includegraphics{./supmatsimgs/asym.png}
@@ -403,7 +407,7 @@ Surprising & Surprenant\\
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: Row and column factor scores for the first two dimensions of the CA for Experiment 2.}
     \includegraphics{./supmatsimgs/asymrepel.png}
@@ -411,31 +415,25 @@ Surprising & Surprenant\\
   \caption*{\footnotesize \textit{Note.} Axis labels indicate dimension, eigenvalue, and explained variance for that dimension.}
 \end{figure}
 
-\begin{sidewaysfigure}[H]   
+\begin{figure}   
   \centering  
   \caption{CA: All Row and column contributions for the first two dimensions of the adjectives survey.}
     \includegraphics{./supmatsimgs/acontsordered.png}
   \label{fig:aconts}
-\end{sidewaysfigure}
+\end{figure}
 
-
-\hypertarget{supplementary-materials-experiment-3}{%
-\section{Supplementary Materials: Experiment
-3}\label{supplementary-materials-experiment-3}}
-
-
-\begin{figure}[H]   
+\begin{figure}   
   \centering  
   \caption{PLSC: Correlation matrix for the columns of the surveys from Experiments 1 and 2. Correlation values between variables are indicated by color and opacity. Dark blue is a strong positive correlation and dark red is a strong negative correlation, pale or white squares indicate little to no correlation.}
-    \includegraphics[width=\textwidth]{./supmatsimgs/pcorrplot.png}
+    \includegraphics{./supmatsimgs/pcorrplot.png}
   \label{fig:pcorr}
 \end{figure}
 
-\begin{sidewaysfigure}[H]   
+\begin{figure}   
   \centering  
   \caption{PLSC: loadings barplots for the columns of the surveys from Experiments 1 and 2. The loading on a dimension for a variable is the square of its contribution to that dimension.}
     \includegraphics{./supmatsimgs/ploads.png}
   \label{fig:ploads}
-\end{sidewaysfigure}
+\end{figure}
 
 \end{document}

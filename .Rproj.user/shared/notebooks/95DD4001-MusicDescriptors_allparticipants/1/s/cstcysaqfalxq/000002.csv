@@ -1,0 +1,2 @@
+"0","adj.scree <- PlotScree(adjsym.cares$ExPosition.Data$eigs,"
+"0","                       plotKaiser = T, color4Kaiser = ""red"")"

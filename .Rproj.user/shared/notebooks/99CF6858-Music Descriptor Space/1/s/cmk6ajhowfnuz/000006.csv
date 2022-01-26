@@ -1,0 +1,3 @@
+"0","adj.scree <- PlotScree(adjsym.cares$Fixed.Data$ExPosition.Data$eigs, "
+"0","                       p.ev = adjsym.cares$Inference.Data$components$p.vals,"
+"0","                       plotKaiser = T, color4Kaiser = ""red"", title = "" "")"

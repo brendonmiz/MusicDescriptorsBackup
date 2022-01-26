@@ -1,0 +1,4 @@
+"0",""
+"0","Eig4scree <- mfares$mexPosition.Data$Table$eigs"
+"0",""
+"0","mfascree <- PlotScree(Eig4scree, plotKaiser = TRUE)"

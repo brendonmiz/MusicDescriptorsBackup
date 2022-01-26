@@ -1,0 +1,6 @@
+"0","a.03adj.map4part <- BaseMap.Participants$zeMap_background + 
+                  n.rv.means$zeMap_text + n.rv.means$zeMap_dots +
+                    BaseMap.Participants$zeMap_dots + n.elliadj + labels4RV + title(main = mds3g)
+"
+"2","Error in title(main = mds3g) : plot.new has not been called yet
+"

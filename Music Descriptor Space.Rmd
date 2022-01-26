@@ -303,6 +303,9 @@ ex.data <- rbind(am.ex.data, fr.ex.data)
 bygender <- as.factor(ex.data$gen)
 bynationality <- as.factor(ex.data$nat)
 
+
+
+
 ```
 
 ```{r Q.ca, cache = T, message=FALSE, warning=FALSE, include = FALSE}
@@ -394,6 +397,19 @@ labels4RV.Q <- createxyLabels.gen(1,2,lambda = eig4Cmat.Q, tau = tau4Cmat.Q)
 
 ```
 
+
+```{r ttest4Dpart}
+
+D.dim14ttest <- F4Cmat.Q[,1]
+D.dim24ttest <- F4Cmat.Q[,2]
+
+d.test1 <- aov(D.dim14ttest ~ bynationality) %>% apa_print
+d.test2 <- aov(D.dim24ttest ~ bynationality) %>% apa_print
+
+
+```
+
+
 ## Results
 
 ### Participants
@@ -422,8 +438,8 @@ dim3eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[3]/sum(di
 dim4eigperc <- round(100*(dimcares.inf$Fixed.Data$ExPosition.Data$eigs[4]/sum(dimcares.inf$Fixed.Data$ExPosition.Data$eigs)), 2)
 ```
 ```{r scree4excerptsq, include = FALSE}
-mus.scree <- PlotScree(dimcares.inf$Fixed.Data$ExPosition.Data$eigs, 
-                       #dimcares.inf$Inference.Data$components$p.vals, 
+mus.scree <- PlotScree(ev = dimcares.inf$Fixed.Data$ExPosition.Data$eigs, 
+                       p.ev = dimcares.inf$Inference.Data$components$p.vals, 
                        plotKaiser = T, color4Kaiser = "red", title = " "
                                               ) 
 
@@ -454,7 +470,7 @@ signedCJ <- dimcares.inf$Fixed.Data$ExPosition.Data$cj * sign(FJs)
 sig.colsonly <-  rownames(FJs)[(unsignedCJ[,1] > (1/nrow(FJs))) | 
                                  (unsignedCJ[,2] > (1/nrow(FJs))) ]
 
-sig.FJs <- FJs[sig.colsonly,1:4]
+sig.FJs <- FJs[sig.colsonly,1:5]
 
 col4sigcolsonly <- col4cols[(unsignedCJ[,1] > (1/nrow(FJs))) | 
                               (unsignedCJ[,2] > (1/nrow(FJs))) ]
@@ -500,7 +516,7 @@ exmap.sym.12 <- createFactorMapIJ(scoresw6,
                                 alpha.labels.i = 1, alpha.labels.j = 1
                                 )
 
-vc.labels.12 <- createxyLabels(resCA = dimcares.inf$Fixed.Data)
+vc.labels.12 <- createxyLabels(resCA = dimcares.inf$Fixed.Data, x_axis = axisone, y_axis = axistwo)
 
 mus.012.i <- exmap.sym.12$baseMap +  
               exmap.sym.12$I_points + 
@@ -723,19 +739,19 @@ nat.factor <- as.factor(nat.factor)
 ```
 
 ```{r A.CA}
-adjsym.cares <- epCA(adj.contingency, 
+adjsym.cares <- epCA.inference.battery(adj.contingency, 
                      symmetric = TRUE)
 
-adjrenorm <- CARenormalization(adjsym.cares$ExPosition.Data$fi,
-                               delta = adjsym.cares$ExPosition.Data$pdq$Dv,
+adjrenorm <- CARenormalization(adjsym.cares$Fixed.Data$ExPosition.Data$fi,
+                               delta = adjsym.cares$Fixed.Data$ExPosition.Data$pdq$Dv,
                                singularValues = T,
-                               masses = adjsym.cares$ExPosition.Data$M
+                               masses = adjsym.cares$Fixed.Data$ExPosition.Data$M
                                )
 
-FIsym.adj <- adjsym.cares$ExPosition.Data$fi
+FIsym.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$fi
 FIasym.adj <- adjrenorm$G_A
-FJs.adj <- adjsym.cares$ExPosition.Data$fj
-CAEigs.adj <- adjsym.cares$ExPosition.Data$eigs
+FJs.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$fj
+CAEigs.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$eigs
 ```
 
 ```{r inferences.A, cache = TRUE}
@@ -776,11 +792,56 @@ eigenCmat.adj <- eigen(Cmat.adj, symmetric = TRUE)
 eig4Cmat.adj <-  eigenCmat.adj$values
 tau4Cmat.adj <- round( (100*eig4Cmat.adj) / sum(eig4Cmat.adj))
 
-nk       <- 3
+nk       <- 100
 F4Cmat.adj   <- eigenCmat.adj$vectors[,1:nk] %*% diag(eig4Cmat.adj[1:nk]^(1/2))
 
 rownames(F4Cmat.adj) <- rownames(Cmat.adj)
 ```
+
+```{r judgeshca}
+F4dist <- F4Cmat.adj
+
+rownames(F4dist) <- partcols$nationality
+
+cmat.D <- dist(F4dist)
+
+fit.p <- hclust(cmat.D, method = "ward.D2")
+
+ngroups <- 2
+
+col4extree <- cols$n.gc
+
+part.groups <- cutree(fit.p, k= ngroups)
+
+col4partxhca <- recode(part.groups, 
+                    "1" = col4extree[2],
+                    "2" = col4extree[1]
+                    )
+
+mus.tree4parts <- factoextra::fviz_dend(fit.p,  k = 2, 
+#                        k_colors = unique(col4extree.w6), 
+#                        label_cols = col4extree.w6,
+                        cex = .75, xlab = 'Participants',
+                        main = ' ', 
+                        rect = TRUE, rect_fill = TRUE)  + theme(plot.title = element_text(size = 14, family = "serif"),
+                      axis.title = element_text(size = 12, face = "italic", family = "serif"))
+ 
+#print(mus.tree4parts)
+
+
+```
+```{r ajudgehca}
+
+labelscolor <- cbind(fit.p$labels, part.groups) %>% as.data.frame()
+
+labcolgroup <- labelscolor %>% group_by(V1, part.groups) %>% summarise(number = n() )
+
+#labcolgroup
+
+posthocperc <- c(101/112, 81/166, 11/112, 85/166)
+
+```
+
 
 ```{r apartscreecode, include = FALSE}
 ScreeInf <- PlotScree(ev = eig4Cmat.adj,
@@ -797,7 +858,7 @@ a000.adj.screeRV <-  recordPlot()
 ### Excerpts
 
 ```{r}
-adj.tau <- adjsym.cares$ExPosition.Data$t
+adj.tau <- adjsym.cares$Fixed.Data$ExPosition.Data$t
 ```
 
 ```{=latex}
@@ -820,12 +881,14 @@ adj.tau <- adjsym.cares$ExPosition.Data$t
   
 
 ```{r scree4descriptorscode, include = FALSE}
-adj.scree <- PlotScree(adjsym.cares$ExPosition.Data$eigs, 
-                       #p.ev = adjca.inf$pEigenvalues,
+adj.scree <- PlotScree(adjsym.cares$Fixed.Data$ExPosition.Data$eigs, 
+                       p.ev = adjsym.cares$Inference.Data$components$p.vals,
                        plotKaiser = T, color4Kaiser = "red", title = " ")
   
 mus.00.scree <- recordPlot()
 ```
+
+
 ```{=latex}
 \begin{figure}   
   \centering  
@@ -854,7 +917,7 @@ exmap <- createFactorMapIJ(FIsym.adj,
                            font.face.j = 'italic', 
                            )
 
-vc.labels <- createxyLabels(resCA = adjsym.cares)
+vc.labels <- createxyLabels(resCA = adjsym.cares$Fixed.Data)
 
 
 mus.adj.fi <- exmap$baseMap + #zePoly.J + 
@@ -895,8 +958,8 @@ mus.adj.fj <- exmap$baseMap + #zePoly.J +
 
   
 ```{r justsomecontsA}
-signed.ctrI.adj <- adjsym.cares$ExPosition.Data$ci * sign(FIsym.adj)
-signed.ctrJ.adj <- adjsym.cares$ExPosition.Data$cj * sign(FJs.adj)
+signed.ctrI.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$ci * sign(FIsym.adj)
+signed.ctrJ.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$cj * sign(FJs.adj)
 
 CIlist <- vector(mode = "list", length = 2)
 CJlist <- vector(mode = "list", length= 2)
@@ -1017,7 +1080,7 @@ BootCadj.N <- PTCA4CATA::Boot4Mean(F4Cmat.adj, design = nat.factor,
 dimnames(BootCadj.N$BootCube)[[2]] <- paste0('Dimension ',
                                              1:dim(BootCadj.N$BootCube)[[2]])
 # Create ellipses for the map
-n.elliadj <- MakeCIEllipses(BootCadj.N$BootCube[,1:2,],
+n.elliadj <- MakeCIEllipses(BootCadj.N$BootCube[,1:2,], p.level = .99,
                             names.of.factors = c("Dimension 1", "Dimension 2"),
                             col = cols$n.gc)
 #Base map
@@ -1064,10 +1127,33 @@ a.03adj.map4part <- BaseMap.Participants$zeMap_background +
                       axis.title = element_text(size = 13, face = "italic", family = "serif"))
 
 
-#print(a.03adj.map4part)
+print(a.03adj.map4part)
 ```
 
+```{r ttest4adj}
 
+A.dim14test <- F4Cmat.adj[,1]
+A.dim24test <- F4Cmat.adj[,2]
+
+ttdat <- cbind(F4Cmat.adj[,1:2], as.factor(partcols$nationality)) %>% as.data.frame
+colnames(ttdat) <- c("dim1", "dim2", "Nationality")
+
+atest1 <- aov(A.dim14test ~ nat.factor) %>% apa_print
+atest1.Tuk <- aov(A.dim14test ~ nat.factor) %>% TukeyHSD()
+
+
+atest1t <- t.test(x = ttdat$dim1[ttdat$Nationality==1], 
+                  y = ttdat$dim1[ttdat$Nationality==2]) %>% apa_print
+
+t.summary <- ttdat %>% group_by(Nationality) %>% summarise(m.d1 = mean(dim1), s.d1 = sd(dim1),
+                                              m.d2 = mean(dim2), s.d2 = sd(dim2))  
+
+
+atest2 <- aov(A.dim24test ~ nat.factor) %>% apa_print
+atest2t <- ttdat %>% rstatix::t_test(dim2 ~ Nationality) %>% rstatix::add_significance()
+
+
+```
 
 
 #### MFA
@@ -1237,6 +1323,19 @@ partialfsmap.t <- MFA_FMap.t$zeMap +
 
 ```
 
+
+```{r mfattests}
+
+atest1t <- t.test(x = ttdat$dim1[ttdat$Nationality==1], 
+                  y = ttdat$dim1[ttdat$Nationality==2]) %>% apa_print
+
+mfatees <- vector(mode = "list", length = )
+
+
+
+```
+
+
 ```{r mfasbscode, fig.height=12, include = FALSE}
 print(partialfsmap)
 
@@ -1343,10 +1442,10 @@ t4 <- pls.res$TExPosition.Data$t[4]
   
   The PLSC performed using the pseudo-contingency tables from Experiments 1 and 2 revealed two significant dimensions which together accounted for `r round(sum(t1,t2), 2)`% of the total variance.  
 
-```{r screePLSCcode,include = FALSE}
+```{r screePLSCcode}
 
 PlotScree(ev = pls.res$TExPosition.Data$eigs,
-         # p.ev = resPerm4PLSC$pEigenvalues,
+          p.ev = resPerm4PLSC$pEigenvalues,
           title = ' ',
           plotKaiser = TRUE, 
           color4Kaiser = "red",

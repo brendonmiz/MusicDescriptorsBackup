@@ -1,0 +1,3 @@
+"0","n.elliadj <- MakeCIEllipses(BootCadj.N$BootCube[,1:2,],"
+"0","                            names.of.factors = c(""Dimension 1"", ""Dimension 2""),"
+"0","                            col = cols$n.gc[order(unique(partcols$nationality))])"

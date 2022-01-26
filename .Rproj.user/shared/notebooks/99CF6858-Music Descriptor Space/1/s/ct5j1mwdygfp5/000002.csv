@@ -23,3 +23,6 @@
 "0","bygender <- as.factor(ex.data$gen)"
 "0","bynationality <- as.factor(ex.data$nat)"
 "0",""
+"0",""
+"0",""
+"0",""

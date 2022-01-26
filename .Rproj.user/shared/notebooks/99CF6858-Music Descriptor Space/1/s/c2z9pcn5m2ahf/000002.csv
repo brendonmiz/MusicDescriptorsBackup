@@ -1,5 +1,5 @@
-"0","signed.ctrI.adj <- adjsym.cares$ExPosition.Data$ci * sign(FIsym.adj)"
-"0","signed.ctrJ.adj <- adjsym.cares$ExPosition.Data$cj * sign(FJs.adj)"
+"0","signed.ctrI.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$ci * sign(FIsym.adj)"
+"0","signed.ctrJ.adj <- adjsym.cares$Fixed.Data$ExPosition.Data$cj * sign(FJs.adj)"
 "0",""
 "0","CIlist <- vector(mode = ""list"", length = 2)"
 "0","CJlist <- vector(mode = ""list"", length= 2)"

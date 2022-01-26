@@ -1,0 +1,8 @@
+"0",""
+"0","D.dim14ttest <- F4Cmat.Q[,1]"
+"0","D.dim24ttest <- F4Cmat.Q[,2]"
+"0",""
+"0","d.test1 <- aov(D.dim14ttest ~ bynationality) %>% apa_print"
+"0","d.test2 <- aov(D.dim24ttest ~ bynationality) %>% apa_print"
+"0",""
+"0",""

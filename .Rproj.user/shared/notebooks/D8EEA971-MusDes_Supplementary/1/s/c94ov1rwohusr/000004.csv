@@ -1,0 +1,5 @@
+"0","F4dist <- F4Cmat.adj"
+"0",""
+"0","rownames(F4dist) <- partcols$nationality"
+"2","Error: object 'partcols' not found
+"

@@ -1,0 +1,4 @@
+"0",""
+"0","Cmat.adj <- createSymDist4PTCA(adjbrick)$CrossProduct"
+"2","Error in createSymDist4PTCA(adjbrick) : object 'adjbrick' not found
+"

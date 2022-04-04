@@ -898,7 +898,7 @@ mus.00.scree <- recordPlot()
 \end{figure}
 ```
 
-```{r factormapsAcode, fig.width= 10, fig.show = 'hold', out.width='100%', include = FALSE}
+```{r factormapsAcode, fig.height= 10, fig.show = 'hold', out.width='100%', include = FALSE}
 
 rownames(FIsym.adj) <- c(1:16,18:30)
 
@@ -943,8 +943,8 @@ mus.adj.fj <- exmap$baseMap + #zePoly.J +
 
 #grid.arrange(
 #    as.grob(mus.adj.fi),as.grob(mus.adj.fj),
-#   as.grob(mus.adj.amj),as.grob(mus.adj.frj),
-#    ncol = 2,nrow = 1# ,top = textGrob("Factor Plots for the Adjectives Survey", gp = gpar(fontsize = 22, font = 3))
+   #as.grob(mus.adj.amj),as.grob(mus.adj.frj),
+#    ncol = 1,nrow = 2# ,top = textGrob("Factor Plots for the Adjectives Survey", gp = gpar(fontsize = 22, font = 3))
 # )
 
 
